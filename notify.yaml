@@ -1,0 +1,8 @@
+- platform: pushover
+  name: Pushover
+  api_key: !secret pushover_api
+  user_key: !secret pushover_userkey
+- platform: html5
+  name: HTML5
+  gcm_api_key: !secret google_api
+  gcm_sender_id: !secret google_projectid

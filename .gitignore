@@ -1,0 +1,12 @@
+deps/
+*.conf
+*.db
+*.log
+*.sqlite
+*.txt
+*.xml
+*.db-journal
+.HA_VERSION
+known_devices.yaml
+secrets.yaml
+plex.conf

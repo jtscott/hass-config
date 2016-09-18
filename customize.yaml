@@ -1,0 +1,72 @@
+###########################################
+# Home Sensors
+###########################################
+sensor.home_mode:
+  friendly_name: Nest
+sensor.home_temperature:
+  friendly_name: 'Inside'
+sensor.home_humidity:
+  friendly_name: 'Humidity'
+sensor.nzbget_speed:
+  icon: mdi:cloud-download
+media_player.my_shield_console:
+  friendly_name: 'Nvidia Shield'
+
+###########################################
+# Switches
+###########################################
+switch.front_door:
+  icon: mdi:lightbulb
+switch.patio:
+  icon: mdi:lightbulb
+
+###########################################
+# Devices
+###########################################
+climate.home:
+  icon: mdi:thermometer
+  friendly_name: 'Nest'
+  order: 2
+group.switches:
+  order: 1
+camera.kitchen:
+  order: 3
+
+###########################################
+# Weather Sensors
+###########################################
+sensor.yr_temperature:
+  friendly_name: 'Outside'
+sensor.yr_humidity:
+  friendly_name: 'Humidity'
+sensor.yr_symbol:
+  friendly_name: 'Conditions'
+sensor.forecastio_daily_low_temperature:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+sensor.forecastio_daily_high_temperature:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+sensor.forecastio_precip_probability:
+  friendly_name: 'Chance of Rain'
+  icon: mdi:weather-rainy
+sensor.pws_feelslike_c:
+  friendly_name: 'Feels Like'
+  icon: mdi:human-male-female
+sensor.pws_uv:
+  friendly_name: 'UV Level'
+  icon: mdi:sunglasses
+sensor.pws_wind_kph:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy
+sensor.pws_precip_today_metric:
+  friendly_name: 'Amount of Rain'
+  icon: mdi:cup-water
+
+###########################################
+# Travel Sensors
+###########################################
+sensor.home_to_enmax:
+  icon: mdi:car
+sensor.home_to_supported_lifestyles:
+  icon: mdi:car

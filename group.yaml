@@ -1,0 +1,58 @@
+default_view:
+  view: yes
+  entities:
+    - device_tracker.brittanysiphone
+    - device_tracker.jaredsrotary_ip
+    - sensor.home_mode
+    - sensor.home_humidity
+    - sensor.home_temperature
+    - sensor.nzbget_speed
+    - group.switches
+    - climate.home
+    - media_player.my_shield_console
+    - camera.kitchen
+    - group.downloads
+Calgary:
+  view: yes
+  name: Calgary
+  entities:
+    - camera.glenmore__macleod
+    - camera.glenmore__crowchild
+    - camera.4_ave__9_st
+    - camera.5_ave__7_st
+    - camera.bow__6_ave
+    - sun.sun
+    - sensor.yr_temperature
+    - sensor.yr_humidity
+    - sensor.yr_symbol
+    - group.travel
+    - group.forecast
+debug:
+  view: yes
+  name: Debug
+  entities:
+    - group.automation
+switches:
+  entities:
+   - switch.front_door
+   - switch.patio
+downloads:
+  entities:
+   - sensor.nzbget_speed
+Travel:
+  entities:
+    - sensor.home_to_enmax
+    - sensor.home_to_supported_lifestyles
+Forecast:
+  entities:
+   - sensor.pws_feelslike_c
+   - sensor.forecastio_daily_low_temperature
+   - sensor.forecastio_daily_high_temperature
+   - sensor.pws_uv
+   - sensor.forecastio_precip_probability
+   - sensor.pws_precip_today_metric
+   - sensor.pws_wind_kph
+Automation:
+  entities:
+    - automation.sunrise_away_lights
+    - automation.sunset_away_lights
