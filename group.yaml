@@ -6,6 +6,7 @@ default_view:
     - sensor.home_mode
     - sensor.home_humidity
     - sensor.home_temperature
+    - sensor.co2_ppm
     - sensor.nzbget_speed
     - group.switches
     - climate.home
@@ -36,6 +37,7 @@ switches:
   entities:
    - switch.front_door
    - switch.patio
+   - switch.roomba
 downloads:
   entities:
    - sensor.nzbget_speed

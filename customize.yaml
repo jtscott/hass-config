@@ -19,6 +19,9 @@ switch.front_door:
   icon: mdi:lightbulb
 switch.patio:
   icon: mdi:lightbulb
+switch.roomba:
+  icon: mdi:robot
+  friendly_name: 'Roomba'
 
 ###########################################
 # Devices

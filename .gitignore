@@ -9,4 +9,5 @@ deps/
 .HA_VERSION
 known_devices.yaml
 secrets.yaml
+secrets.json
 plex.conf

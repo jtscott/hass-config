@@ -1,0 +1,18 @@
+###########################################
+# Traffic Cams
+###########################################
+- platform: generic
+  still_image_url: http://trafficcam.calgary.ca/loc15.jpg
+  name: 'Glenmore & Crowchild'
+- platform: generic
+  still_image_url: http://trafficcam.calgary.ca/loc27.jpg
+  name: 'Glenmore & Macleod'
+- platform: generic
+  still_image_url: http://trafficcam.calgary.ca/loc56.jpg
+  name: 'Bow & 6 Ave'
+- platform: generic
+  still_image_url: http://trafficcam.calgary.ca/loc5.jpg
+  name: '4 Ave & 9 St'
+- platform: generic
+  still_image_url: http://trafficcam.calgary.ca/loc75.jpg
+  name: '5 Ave & 7 St'

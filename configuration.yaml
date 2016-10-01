@@ -29,6 +29,9 @@ discovery:
 conversation:
 # Enables support for tracking state changes over time.
 history:
+# Retention
+recorder:
+  purge_days: 90
 # View all events in a logbook
 logbook:
 # Track the sun
@@ -37,45 +40,24 @@ sun:
 sensor: !include sensor.yaml
 notify: !include notify.yaml
 group: !include group.yaml
+camera: !include camera.yaml
+automation: !include automation.yaml
 
 nest:
   username: !secret email_account
   password: !secret nest_password
 
-wemo:
-  static:
-    - 192.168.2.13
-    - 192.168.2.14 
+ifttt:
+  key: !secret ifttt_api
 
 climate:
   platform: nest
 
-netatmo:
-  api_key: !secret netatmo_apik
-  secret_key: !secret netatmo_sk
-  username: !secret email_account
-  password: !secret netatmo_password
-
-camera 1:
-  platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc15.jpg
-  name: 'Glenmore & Crowchild'
-camera 2:
-  platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc27.jpg
-  name: 'Glenmore & Macleod'
-camera 3:
-  platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc56.jpg
-  name: 'Bow & 6 Ave'
-camera 4:
-  platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc5.jpg
-  name: '4 Ave & 9 St'
-camera 5:
-  platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc75.jpg
-  name: '5 Ave & 7 St'
+# netatmo:
+  # api_key: !secret netatmo_apik
+  # secret_key: !secret netatmo_sk
+  # username: !secret email_account
+  # password: !secret netatmo_password
 
 device_tracker:
   - platform: unifi
@@ -88,49 +70,16 @@ device_tracker:
     password: !secret unifi_password
   - platform: bluetooth_tracker
 
-ifttt:
-  key: !secret ifttt_api
+wemo:
+  static:
+    - 192.168.2.13
+    - 192.168.2.14 
 
-automation 1:
-  alias: Sunset Away Lights
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-01:00:00"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.all_devices
-        state: 'not_home'
-      - condition: state
-        entity_id: switch.patio
-        state: 'off'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.patio
-    - service: notify.pushover
-      data:
-        message: Patio light turned on before sunset.
-
-automation 2:
-  alias: Sunrise Away Lights
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: "+01:00:00"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.all_devices
-        state: 'not_home'
-      - condition: state
-        entity_id: switch.patio
-        state: 'on'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.patio
-    - service: notify.pushover
-      data:
-        message: Patio light turned off after sunrise.
+switch:
+  platform: command_line
+  switches:
+    roomba:
+      command_on: 'node /home/pi/.homeassistant/roomba_clean.js'
+      command_off: 'node /home/pi/.homeassistant/roomba_dock.js'
+      command_state: 'node /home/pi/.homeassistant/roomba_status.js | grep robot_status | cut -d : -f 4 | cut -f 2 -d "\""'
+      value_template: '{{ value == "clean" }}'
