@@ -7,6 +7,8 @@ sensor.home_temperature:
   friendly_name: 'Inside'
 sensor.home_humidity:
   friendly_name: 'Humidity'
+sensor.co2_ppm:
+  sensor_class: gas
 sensor.nzbget_speed:
   icon: mdi:cloud-download
 media_player.my_shield_console:
@@ -29,11 +31,8 @@ switch.roomba:
 climate.home:
   icon: mdi:thermometer
   friendly_name: 'Nest'
-  order: 2
 group.switches:
   order: 1
-camera.kitchen:
-  order: 3
 
 ###########################################
 # Weather Sensors
