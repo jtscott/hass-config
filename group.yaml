@@ -3,16 +3,15 @@ default_view:
   entities:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip
-    - sensor.home_mode
+    - sensor.climate_operation_mode
     - sensor.home_humidity
     - sensor.home_temperature
-    - sensor.co2_ppm
-    - sensor.nzbget_speed
+    - sensor.co2
     - group.switches
+    - group.downloads
     - climate.home
     - media_player.my_shield_console
-    - camera.kitchen
-    - group.downloads
+    - camera.hemlock__kitchen
 Calgary:
   view: yes
   name: Calgary
@@ -58,3 +57,4 @@ Automation:
   entities:
     - automation.sunrise_away_lights
     - automation.sunset_away_lights
+    - automation.jared_is_home

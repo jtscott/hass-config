@@ -39,3 +39,15 @@
     - service: notify.pushover
       data:
         message: Patio light turned off after sunrise.
+
+- alias: Jared Is Home
+  trigger:
+    platform: state
+    entity_id: device_tracker.jaredsrotary_ip
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: shell_command.jared_home
+    - service: notify.pushover
+      data:
+        message: Jared is home, camera disabled.

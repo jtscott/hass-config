@@ -1,7 +1,7 @@
 ###########################################
 # Home Sensors
 ###########################################
-sensor.home_mode:
+sensor.climate_operation_mode:
   friendly_name: Nest
 sensor.home_temperature:
   friendly_name: 'Inside'

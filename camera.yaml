@@ -16,3 +16,7 @@
 - platform: generic
   still_image_url: http://trafficcam.calgary.ca/loc75.jpg
   name: '5 Ave & 7 St'
+- platform: netatmo
+  home: Hemlock
+  cameras:
+    - Kitchen
