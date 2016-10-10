@@ -17,7 +17,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Devices
 - RPi3 on Raspian Jessie
-- Nest
+- Nest Thermostat
 - Wemo Light Switches
 - Roomba 980
 - Withings WS-50
