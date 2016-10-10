@@ -32,7 +32,9 @@ debug:
   view: yes
   name: Debug
   entities:
-    - group.automation
+    - group.sunrise_automation
+    - group.camera_automation
+    - group.arrival_automation
     - sensor.hass_release
 switches:
   entities:
@@ -56,8 +58,17 @@ Forecast:
    - sensor.dark_sky_precip_probability
    - sensor.pws_precip_today_metric
    - sensor.pws_wind_kph
-Automation:
+Sunrise_Automation:
+  name: "Sunrise Automation"
   entities:
     - automation.sunrise_away_lights
     - automation.sunset_away_lights
+Camera_Automation:
+  name: "Camera Automation"
+  entities:
     - automation.disable_inside_camera
+    - automation.enable_inside_camera
+Arrival_Automation:
+  name: "Arrival Automation"
+  entities:
+    - automation.patio_off_after_arrival

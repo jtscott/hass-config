@@ -40,6 +40,22 @@
       data:
         message: Patio light turned off after sunrise.
 
+- alias: Patio Off After Arrival
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
+  condition:
+    - condition: state
+      entity_id: switch.patio
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.patio
+    - service: notify.pushover
+      data:
+        message: Patio light turned off.
 - alias: Disable Inside Camera
   trigger:
     platform: state

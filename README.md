@@ -25,7 +25,11 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Netatmo Welcome
 - Unifi Wireless
 
+## Automations
+- Turn the inside camera on/off if we leave/arrive.
+- Turn the patio light on/off with the sun if we are away.
+- Turn the patio light off if we arrive home.
+
 ## To-do & Problems
 - Plex Media Server isn't working?
 - Samsung UN65F8000
-- Turn off the patio light when we arrive home.
