@@ -62,3 +62,15 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address2
+
+- platform: rest
+  resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+  username: !secret email_account
+  password: !secret github_token
+  authentication: basic
+  value_template: '{{ value_json.tag_name }}'
+  name: 'HASS Release'
+  headers:
+    Accept: application/vnd.github.v3+json
+    Content-Type: application/json
+    User-Agent: Home Assistant REST sensor

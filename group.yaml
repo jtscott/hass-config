@@ -33,6 +33,7 @@ debug:
   name: Debug
   entities:
     - group.automation
+    - sensor.hass_release
 switches:
   entities:
    - switch.front_door
