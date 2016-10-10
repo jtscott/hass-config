@@ -49,3 +49,13 @@
   action:
     - service: switch.turn_off
       entity_id: switch.netatmo_camera
+
+- alias: Enable Inside Camera
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.netatmo_camera

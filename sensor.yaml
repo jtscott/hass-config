@@ -62,7 +62,10 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address2
-
+  
+###########################################
+# Debug Sensors
+###########################################
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
   username: !secret email_account
