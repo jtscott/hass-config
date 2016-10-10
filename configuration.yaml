@@ -79,15 +79,15 @@ wemo:
     - 192.168.2.14 
 
 switch:
-  platform: command_line
-  switches:
-    roomba:
-      command_on: 'node /home/pi/.homeassistant/roomba_clean.js'
-      command_off: 'node /home/pi/.homeassistant/roomba_dock.js'
-      command_state: 'node /home/pi/.homeassistant/roomba_status.js | grep robot_status | cut -d : -f 4 | cut -f 2 -d "\""'
-      value_template: '{{ value == "clean" }}'
-
-shell_command:
-  #curl "https://my.netatmo.com/api/setpersonshome" -H "Authorization: Bearer aaaaaaaa" -H "Origin: https://my.netatmo.com" -H "Accept-Encoding: gzip, deflate, br" -H "Accept-Language: en-US,en;q=0.8" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36" -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json, text/plain, */*" -H "Referer: https://my.netatmo.com/app/camera" -H "Cookie: jwplayer.captionLabel=Off; jwplayer.volume=100; netatmocomprefix=aaaaaa; netatmocommail_cookie=aaaaaa; C360i=aaaaa; netatmocomlocale=en-US; netatmocomaccess_token=aaaaA; netatmocomci_csrf_cookie_na=aaaa; netatmocomlast_app_used=app_camera" -H "Connection: keep-alive" -H "DNT: 1" --data-binary "{""home_id"":""aaaaaaaaaaa"",""person_ids"":[""aaaaaaaaa""]}" --compressed
-  jared_home: !secret jared_home 
-  jared_away: !secret jared_away
+  - platform: command_line
+    switches:
+      roomba:
+        command_on: 'node /home/pi/.homeassistant/roomba/roomba_clean.js'
+        command_off: 'node /home/pi/.homeassistant/roomba/roomba_dock.js'
+        command_state: 'node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 4 | cut -f 2 -d "\""'
+        value_template: '{{ value == "clean" }}'
+      netatmo_camera:
+        command_on: 'bash /home/pi/.homeassistant/netatmo/netatmo_on.sh'
+        command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_off.sh'
+        command_state: 'bash /home/pi/.homeassistant/netatmo/netatmo_status.sh'
+        value_template: '{{ value == "on" }}'

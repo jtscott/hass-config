@@ -24,6 +24,9 @@ switch.patio:
 switch.roomba:
   icon: mdi:robot
   friendly_name: 'Roomba'
+switch.netatmo_camera:
+  icon: mdi:camera
+  friendly_name: 'Netatmo Welcome'
 
 ###########################################
 # Devices

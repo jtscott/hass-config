@@ -10,4 +10,6 @@ deps/
 known_devices.yaml
 secrets.yaml
 secrets.json
+secrets.txt
+cookies.txt
 plex.conf

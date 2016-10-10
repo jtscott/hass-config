@@ -37,6 +37,7 @@ switches:
    - switch.front_door
    - switch.patio
    - switch.roomba
+   - switch.netatmo_camera
 downloads:
   entities:
    - sensor.nzbget_speed
@@ -57,4 +58,4 @@ Automation:
   entities:
     - automation.sunrise_away_lights
     - automation.sunset_away_lights
-    - automation.jared_is_home
+    - automation.disable_inside_camera
