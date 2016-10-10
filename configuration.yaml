@@ -6,16 +6,15 @@ homeassistant:
   longitude: !secret longitude
   # Impacts weather/sunrise data
   elevation: !secret elevation
-  # C for Celsius, F for Fahrenheit
+  # 'metric' for the metric system, 'imperial' for the imperial system
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  #http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Edmonton
- 
+  #customize must nested within homeassistant entity  
   customize: !include customize.yaml
 
 # Enables the frontend
 frontend:
-
 http:
   api_password: !secret http_password
   cors_allowed_origins:
@@ -31,7 +30,7 @@ conversation:
 history:
 # Retention
 recorder:
-  purge_days: 90
+  purge_days: 30
 # View all events in a logbook
 logbook:
 # Limit debug info
@@ -40,12 +39,21 @@ logger:
 # Track the sun
 sun:
 
+###########################################
+# Includes
+###########################################
+climate: !include climate.yaml
 sensor: !include sensor.yaml
-notify: !include notify.yaml
-group: !include group.yaml
+switch: !include switch.yaml
 camera: !include camera.yaml
+device_tracker: !include device_tracker.yaml
+group: !include group.yaml
+notify: !include notify.yaml
 automation: !include automation.yaml
 
+###########################################
+# Third Party Platforms
+###########################################
 nest:
   username: !secret email_account
   password: !secret nest_password
@@ -53,41 +61,13 @@ nest:
 ifttt:
   key: !secret ifttt_api
 
-climate:
-  platform: nest
-
 netatmo:
   api_key: !secret netatmo_apik
   secret_key: !secret netatmo_sk
   username: !secret email_account
   password: !secret netatmo_password
 
-device_tracker:
-  - platform: unifi
-    track_new_devices: no
-    interval_seconds: 12
-    consider_home: 180
-    host: 192.168.1.36
-    port: 8443
-    username: admin
-    password: !secret unifi_password
-  - platform: bluetooth_tracker
-
 wemo:
   static:
     - 192.168.2.13
     - 192.168.2.14 
-
-switch:
-  - platform: command_line
-    switches:
-      roomba:
-        command_on: 'node /home/pi/.homeassistant/roomba/roomba_clean.js'
-        command_off: 'node /home/pi/.homeassistant/roomba/roomba_dock.js'
-        command_state: 'node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 4 | cut -f 2 -d "\""'
-        value_template: '{{ value == "clean" }}'
-      netatmo_camera:
-        command_on: 'bash /home/pi/.homeassistant/netatmo/netatmo_on.sh'
-        command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_off.sh'
-        command_state: 'bash /home/pi/.homeassistant/netatmo/netatmo_status.sh'
-        value_template: '{{ value == "on" }}'

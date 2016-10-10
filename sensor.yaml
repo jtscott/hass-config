@@ -15,20 +15,18 @@
   - download_rate
 - platform: command_line
   unit_of_measurement: 'ppm'
-  command: !secret withings_api 
-  # withings_api: 'curl "https://healthmate.withings.com/index/service/v2/measure" -H "Cookie: frontend=aaaaaa; session_key=aaaaa; language=en_CA; w_ar=2; current_user=aaaa" -H "Origin: https://healthmate.withings.com" -H "Accept-Encoding: gzip, deflate, br" -H "Accept-Language: en-US,en;q=0.8" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36" -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" -H "Accept: */*" -H "Referer: https://healthmate.withings.com/" -H "X-Requested-With: XMLHttpRequest" -H "Connection: keep-alive" -H "DNT: 1" --data "sessionid=aaaaaaa&meastype=12"%"2C35&deviceid=111111&appname=my2&appliver=a111111&apppfm=web&action=getmeashf" --compressed | | jq .body.series[1].data[-1].value'
+  command: 'bash /home/pi/.homeassistant/withings/withings_co2.sh'
   name: 'CO2'
-- platform: template
-  sensors:
-    home_temperature:
-      value_template: "{{ states.climate.home.attributes.current_temperature if states.climate.home is not none else 'unknown' }}"
-      unit_of_measurement: 'C'
-      entity_id: climate.home
+- platform: command_line
+  unit_of_measurement: 'C'
+  command: 'bash /home/pi/.homeassistant/withings/withings_temp.sh'
+  name: 'Scale'
 - platform: template
   sensors:
     climate_operation_mode:
       value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
       entity_id: climate.home
+
 ###########################################
 # Weather Sensors
 ###########################################
@@ -37,8 +35,8 @@
   - 'temperature'
   - 'humidity'
   - 'symbol'
-- platform: forecast
-  api_key: !secret forecast_api
+- platform: darksky
+  api_key: !secret darksky_api
   monitored_conditions:
   - 'precip_probability'
   - 'temperature_min'
