@@ -17,7 +17,10 @@
       entity_id: switch.patio
     - service: notify.pushover
       data:
+        title: Patio Light
         message: Patio light turned on before sunset.
+        data:
+          sound: cosmic
 
 - alias: Sunrise Away Lights
   trigger:
@@ -38,7 +41,10 @@
       entity_id: switch.patio
     - service: notify.pushover
       data:
+        title: Patio Light
         message: Patio light turned off after sunrise.
+        data:
+          sound: cosmic
 
 - alias: Patio Off After Arrival
   trigger:
@@ -55,7 +61,12 @@
       entity_id: switch.patio
     - service: notify.pushover
       data:
+        title: Patio Light
         message: Patio light turned off.
+        data:
+          sound: cosmic
+
+
 - alias: Disable Inside Camera
   trigger:
     platform: state

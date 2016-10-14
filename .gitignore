@@ -12,5 +12,6 @@ secrets.yaml
 secrets.json
 secrets.txt
 cookies.txt
+data.txt
 plex.conf
 html5_push_registrations.conf
