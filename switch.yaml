@@ -10,3 +10,14 @@
       command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_off.sh'
       command_state: 'bash /home/pi/.homeassistant/netatmo/netatmo_status.sh'
       value_template: '{{ value == "on" }}'
+
+- platform: template
+  switches:
+    livingroomtv:
+      value_template: "{{ is_state('media_player.un65f8000', 'on') }}"
+      turn_on:
+        service: media_player.turn_on
+        entity_id: media_player.un65f8000
+      turn_off:
+        service: media_player.turn_off
+        entity_id: media_player.un65f8000

@@ -12,6 +12,7 @@ default_view:
     - group.downloads
     - climate.home
     - media_player.my_shield_console
+    - media_player.un65f8000
     - camera.hemlock__kitchen
 Calgary:
   view: yes
@@ -40,6 +41,7 @@ switches:
   entities:
    - switch.front_door
    - switch.patio
+   - switch.livingroomtv
    - switch.roomba
    - switch.netatmo_camera
 downloads:

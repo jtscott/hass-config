@@ -13,6 +13,9 @@ sensor.nzbget_speed:
   icon: mdi:cloud-download
 media_player.my_shield_console:
   friendly_name: 'Nvidia Shield'
+switch.livingroomtv:
+  friendly_name: 'Samsung TV'
+  icon: mdi:television
 
 ###########################################
 # Switches

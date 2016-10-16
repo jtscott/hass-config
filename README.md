@@ -24,6 +24,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Nvidia Shield TV
 - Netatmo Welcome
 - Unifi Wireless
+- Samsung UN65F8000
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
@@ -32,4 +33,3 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## To-do & Problems
 - Plex Media Server isn't working?
-- Samsung UN65F8000
