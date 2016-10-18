@@ -42,6 +42,7 @@ switches:
    - switch.front_door
    - switch.patio
    - switch.livingroomtv
+   - switch.shieldtv
    - switch.roomba
    - switch.netatmo_camera
 downloads:

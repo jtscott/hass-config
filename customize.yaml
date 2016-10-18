@@ -16,6 +16,9 @@ media_player.my_shield_console:
 switch.livingroomtv:
   friendly_name: 'Samsung TV'
   icon: mdi:television
+switch.shieldtv:
+  friendly_name: 'Nvidia Shield'
+  icon: mdi:cast  
 
 ###########################################
 # Switches
