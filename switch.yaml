@@ -25,7 +25,7 @@
 - platform: template
   switches:
     shieldtv:
-      value_template: "{{ is_state('media_player.my_shield_console', 'on' or 'playing') }}"
+      value_template: "{% if states('media_player.my_shield_console') != 'off' %}true{% else %}false{% endif %}"
       turn_on:
         service: media_player.turn_on
         entity_id: media_player.my_shield_console
