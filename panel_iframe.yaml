@@ -1,0 +1,4 @@
+unifi:
+  title: 'Wireless'
+  url: !secret unifi_url
+  icon: mdi:wifi

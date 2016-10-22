@@ -51,6 +51,7 @@ group: !include group.yaml
 notify: !include notify.yaml
 automation: !include automation.yaml
 media_player: !include media_player.yaml
+panel_iframe: !include panel_iframe.yaml
 
 ###########################################
 # Third Party Platforms
