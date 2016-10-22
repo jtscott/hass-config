@@ -1,4 +1,5 @@
 #!/bin/bash
+#Instructions https://community.home-assistant.io/t/withings-scales/4853/13?u=jscolp
 USERNAME=$(cat /home/pi/.homeassistant/withings/secrets.txt | cut -d , -f1)
 PASSWORD=$(cat /home/pi/.homeassistant/withings/secrets.txt | cut -d , -f2)
 CURUSER=$(cat /home/pi/.homeassistant/withings/secrets.txt | cut -d , -f3)
