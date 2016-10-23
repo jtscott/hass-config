@@ -6,6 +6,7 @@ deps/
 *.txt
 *.xml
 *.db-journal
+*.uuid
 .HA_VERSION
 known_devices.yaml
 secrets.yaml
