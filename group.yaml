@@ -37,6 +37,7 @@ debug:
     - group.camera_automation
     - group.arrival_automation
     - sensor.hass_release
+    - sensor.hass_installed
 switches:
   entities:
    - switch.front_door

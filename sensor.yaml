@@ -64,10 +64,14 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address2
-  
+
 ###########################################
 # Debug Sensors
 ###########################################
+- platform: command_line
+  command: "pip show homeassistant | grep -w \"^Version:\" | cut -d : -f2 | sed -e 's/^[ \t]*//'"
+  name: 'HASS Installed'
+  scan_interval: 60
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
   username: !secret email_account
