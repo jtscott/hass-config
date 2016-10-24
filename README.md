@@ -1,5 +1,5 @@
 # My Home Assistant Configuration
-Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on an RPi3. Note that Netatmo Welcome, Withings, and Roomba devices have custom scripts for their integration.
+Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on a RPi3. Note that Netatmo Welcome, Withings, and Roomba devices have custom scripts for their integration.
 
 ## Requirements
 - Install jq 1.5 manually. RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
