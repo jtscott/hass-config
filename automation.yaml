@@ -18,7 +18,7 @@
     - service: notify.pushover
       data:
         title: Patio Light
-        message: Patio light turned on before sunset.
+        message: Turned on before sunset.
         data:
           sound: cosmic
 
@@ -42,7 +42,7 @@
     - service: notify.pushover
       data:
         title: Patio Light
-        message: Patio light turned off after sunrise.
+        message: Turned off after sunrise.
         data:
           sound: cosmic
 
@@ -63,7 +63,7 @@
     - service: notify.pushover
       data:
         title: Patio Light
-        message: Patio light turned off.
+        message: Turned off.
         data:
           sound: cosmic
 
