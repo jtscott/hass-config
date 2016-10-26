@@ -10,6 +10,7 @@ default_view:
     - sensor.scale
     - group.switches
     - group.downloads
+    - group.roomba
     - climate.home
     - media_player.my_shield_console
     - media_player.un65f8000
@@ -44,8 +45,13 @@ switches:
    - switch.patio
    - switch.livingroomtv
    - switch.shieldtv
-   - switch.roomba
    - switch.netatmo_camera
+roomba:
+  entities:
+    - switch.roomba
+    - sensor.roomba_phase
+    - sensor.roomba_battery
+    - sensor.roomba_coverage
 downloads:
   entities:
    - sensor.nzbget_speed

@@ -28,6 +28,17 @@
     climate_operation_mode:
       value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
       entity_id: climate.home
+- platform: command_line
+  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 1 -d \",\" | sed -e 's/^\"//' -e 's/\"$//'"
+  name: 'Roomba Phase'
+- platform: command_line
+  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 11 | cut -f 1 -d \",\""
+  name: 'Roomba Battery'
+  unit_of_measurement: '%'
+- platform: command_line
+  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | cut -c 1-3"
+  name: 'Roomba Coverage'
+  unit_of_measurement: 'sqft'
 
 ###########################################
 # Weather Sensors

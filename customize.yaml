@@ -30,6 +30,15 @@ switch.patio:
 switch.roomba:
   icon: mdi:robot
   friendly_name: 'Roomba'
+sensor.roomba_battery:
+  icon: mdi:car-battery
+  friendly_name: 'Battery'
+sensor.roomba_phase:
+  icon: mdi:autorenew
+  friendly_name: 'Status'
+sensor.roomba_coverage:
+  icon: mdi:vector-triangle
+  friendly_name: 'Coverage'
 switch.netatmo_camera:
   icon: mdi:camera
   friendly_name: 'Netatmo Welcome'
