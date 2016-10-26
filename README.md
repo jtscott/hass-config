@@ -15,6 +15,11 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - The *Calgary* group is a local dashboard with the most useful region based information. Designed to start the day quickly and get us out the door.
 - The *Debug* group shows automation toggles and HASS version check.
 
+## Screenshots
+![Home Screen](https://www.dropbox.com/s/xlvqcir6aca3zv0/home.png?raw=1)
+![Calgary](https://www.dropbox.com/s/ng2ejh96jn8g52k/calgary.PNG?raw=1)
+![Debug](https://www.dropbox.com/s/qx3ibaoaw93pvze/debug.PNG?raw=1)
+
 ## Devices
 - RPi3 on Raspian Jessie
 - Nest Thermostat
