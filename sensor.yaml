@@ -36,7 +36,7 @@
   name: 'Roomba Battery'
   unit_of_measurement: '%'
 - platform: command_line
-  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | cut -c 1-3"
+  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | sed 's/[^0-9]*//g'"
   name: 'Roomba Coverage'
   unit_of_measurement: 'sqft'
 
