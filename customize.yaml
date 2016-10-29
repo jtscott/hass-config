@@ -33,7 +33,7 @@ switch.roomba:
 sensor.roomba_battery:
   icon: mdi:car-battery
   friendly_name: 'Battery'
-sensor.roomba_phase:
+sensor.roomba_status:
   icon: mdi:autorenew
   friendly_name: 'Status'
 sensor.roomba_coverage:

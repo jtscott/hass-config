@@ -49,7 +49,7 @@ switches:
 roomba:
   entities:
     - switch.roomba
-    - sensor.roomba_phase
+    - sensor.roomba_status
     - sensor.roomba_battery
     - sensor.roomba_coverage
 downloads:

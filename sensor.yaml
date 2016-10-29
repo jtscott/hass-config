@@ -31,6 +31,17 @@
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 1 -d \",\" | sed -e 's/^\"//' -e 's/\"$//'"
   name: 'Roomba Phase'
+- platform: template
+  sensors:
+    roomba_status:
+        value_template: >-
+            {%- if is_state("sensor.roomba_phase", "charge") %}
+                Charging
+            {% elif is_state("sensor.roomba_phase", "clean") %}
+                Cleaning
+            {% elif is_state("sensor.roomba_phase", "stuck") %}
+                Stuck
+            {%- endif %}
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 11 | cut -f 1 -d \",\""
   name: 'Roomba Battery'
