@@ -30,6 +30,7 @@ Calgary:
     - sensor.yr_symbol
     - group.travel
     - group.forecast
+    - group.sun
 debug:
   view: yes
   name: Debug
@@ -68,6 +69,11 @@ Forecast:
    - sensor.dark_sky_precip_probability
    - sensor.pws_precip_today_metric
    - sensor.pws_wind_kph
+Sun:
+  entities:
+    - sensor.solar_angle
+    - sensor.sunrise
+    - sensor.sunset
 Sunrise_Automation:
   name: "Sunrise Automation"
   entities:

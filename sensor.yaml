@@ -72,7 +72,18 @@
   - 'wind_kph'
   - 'UV'
   - 'precip_today_metric'
-
+- platform: template
+  sensors:
+    solar_angle:
+      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      friendly_name: 'Solar Angle'
+      unit_of_measurement: 'degrees'
+    sunrise:
+      value_template: '{{ states.sun.sun.attributes.next_rising }}'
+      friendly_name: 'Sunrise'
+    sunset:
+      value_template: '{{ states.sun.sun.attributes.next_setting }}'
+      friendly_name: 'Sunset'
 ###########################################
 # Travel Sensors
 ###########################################
