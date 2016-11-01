@@ -7,7 +7,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: group.all_devices
+        entity_id: group.family_devices
         state: 'not_home'
       - condition: state
         entity_id: switch.patio
@@ -31,7 +31,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: group.all_devices
+        entity_id: group.family_devices
         state: 'not_home'
       - condition: state
         entity_id: switch.patio
@@ -49,7 +49,7 @@
 - alias: Patio Off After Arrival
   trigger:
     platform: state
-    entity_id: group.all_devices
+    entity_id: group.family_devices
     from: 'not_home'
     to: 'home'
   condition:
@@ -70,7 +70,7 @@
 - alias: Disable Inside Camera
   trigger:
     platform: state
-    entity_id: group.all_devices
+    entity_id: group.family_devices
     from: 'not_home'
     to: 'home'
   action:
@@ -80,7 +80,7 @@
 - alias: Enable Inside Camera
   trigger:
     platform: state
-    entity_id: group.all_devices
+    entity_id: group.family_devices
     from: 'home'
     to: 'not_home'
   action:
