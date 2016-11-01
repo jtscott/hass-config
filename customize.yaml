@@ -96,3 +96,19 @@ sensor.home_to_enmax:
   icon: mdi:car
 sensor.home_to_supported_lifestyles:
   icon: mdi:car
+
+###########################################
+# Automation
+###########################################
+automation.sunrise_away_lights:
+  icon: mdi:weather-sunset-up
+automation.sunset_away_lights:
+  icon: mdi:weather-sunset-down
+automation.patio_off_after_arrival:
+  icon: mdi:login
+automation.patio_on_after_departure:
+  icon: mdi:logout
+automation.enable_inside_camera:
+  icon: mdi:camera
+automation.disable_inside_camera:
+  icon: mdi:camera-off

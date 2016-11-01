@@ -88,6 +88,7 @@ Arrival_Automation:
   name: "Arrival Automation"
   entities:
     - automation.patio_off_after_arrival
+    - automation.patio_on_after_departure
 family_devices:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip

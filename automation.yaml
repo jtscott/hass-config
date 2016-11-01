@@ -1,3 +1,6 @@
+###########################################
+# Sunset & Sunrise
+###########################################
 - alias: Sunset Away Lights
   trigger:
     platform: sun
@@ -46,6 +49,9 @@
         data:
           sound: cosmic
 
+###########################################
+# Arrival & Departure
+###########################################
 - alias: Patio Off After Arrival
   trigger:
     platform: state
@@ -64,6 +70,31 @@
       data:
         title: Patio Light
         message: Turned off.
+        data:
+          sound: cosmic
+
+- alias: Patio On After Departure
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'home'
+    to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.patio
+        state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.patio
+    - service: notify.pushover
+      data:
+        title: Patio Light
+        message: Turned on.
         data:
           sound: cosmic
 
