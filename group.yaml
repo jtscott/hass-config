@@ -37,7 +37,7 @@ debug:
   entities:
     - group.sunrise_automation
     - group.camera_automation
-    - group.arrival_automation
+    - group.arrival_departure_automation
     - sensor.hass_release
     - sensor.hass_installed
 switches:
@@ -84,11 +84,12 @@ Camera_Automation:
   entities:
     - automation.disable_inside_camera
     - automation.enable_inside_camera
-Arrival_Automation:
-  name: "Arrival Automation"
+Arrival_Departure_Automation:
+  name: "Arrival & Departure Automation"
   entities:
     - automation.patio_off_after_arrival
     - automation.patio_on_after_departure
+    - automation.commute_notification
 family_devices:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip

@@ -112,3 +112,5 @@ automation.enable_inside_camera:
   icon: mdi:camera
 automation.disable_inside_camera:
   icon: mdi:camera-off
+automation.commute_notification:
+  icon: mdi:car

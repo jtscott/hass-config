@@ -117,3 +117,26 @@
   action:
     - service: switch.turn_on
       entity_id: switch.netatmo_camera
+
+- alias: Commute Notification
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.home_to_enmax    
+    above: '25'
+  condition:
+   - condition: time
+     after: '06:50:00'
+     before: '07:25:00'
+     weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: notify.pushover
+      data:
+        title: Commute
+        message: 'Traffic is heavy, over {{ states.sensor.home_to_enmax.state }} minutes.'
+        data:
+          sound: cosmic
