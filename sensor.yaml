@@ -79,10 +79,10 @@
       friendly_name: 'Solar Angle'
       unit_of_measurement: 'degrees'
     sunrise:
-      value_template: '{{ states.sun.sun.attributes.next_rising }}'
+      value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_rising)) | timestamp_local) [11:16] }}'
       friendly_name: 'Sunrise'
     sunset:
-      value_template: '{{ states.sun.sun.attributes.next_setting }}'
+      value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_setting)) | timestamp_local) [11:16] }}'
       friendly_name: 'Sunset'
 ###########################################
 # Travel Sensors
