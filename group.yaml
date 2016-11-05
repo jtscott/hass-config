@@ -1,3 +1,6 @@
+###########################################
+# Home Tab
+###########################################
 default_view:
   view: yes
   entities:
@@ -15,6 +18,10 @@ default_view:
     - media_player.my_shield_console
     - media_player.un65f8000
     - camera.hemlock__kitchen
+
+###########################################
+# Calgary Tab
+###########################################
 Calgary:
   view: yes
   name: Calgary
@@ -31,6 +38,10 @@ Calgary:
     - group.travel
     - group.forecast
     - group.sun
+
+###########################################
+# Debug Tab
+###########################################
 debug:
   view: yes
   name: Debug
@@ -40,6 +51,10 @@ debug:
     - group.arrival_departure_automation
     - sensor.hass_release
     - sensor.hass_installed
+
+###########################################
+# Visible Cards
+###########################################
 switches:
   entities:
    - switch.front_door
@@ -47,19 +62,23 @@ switches:
    - switch.livingroomtv
    - switch.shieldtv
    - switch.netatmo_camera
+
 roomba:
   entities:
     - switch.roomba
     - sensor.roomba_status
     - sensor.roomba_battery
     - sensor.roomba_coverage
+
 downloads:
   entities:
    - sensor.nzbget_speed
+
 Travel:
   entities:
     - sensor.home_to_enmax
     - sensor.home_to_supported_lifestyles
+
 Forecast:
   entities:
    - sensor.pws_feelslike_c
@@ -69,27 +88,35 @@ Forecast:
    - sensor.dark_sky_precip_probability
    - sensor.pws_precip_today_metric
    - sensor.pws_wind_kph
+
 Sun:
   entities:
     - sensor.solar_angle
     - sensor.sunrise
     - sensor.sunset
+
 Sunrise_Automation:
   name: "Sunrise Automation"
   entities:
     - automation.sunrise_away_lights
     - automation.sunset_away_lights
+
 Camera_Automation:
   name: "Camera Automation"
   entities:
     - automation.disable_inside_camera
     - automation.enable_inside_camera
+
 Arrival_Departure_Automation:
   name: "Arrival & Departure Automation"
   entities:
     - automation.patio_off_after_arrival
     - automation.patio_on_after_departure
     - automation.commute_notification
+
+###########################################
+# Hidden Groups
+###########################################
 family_devices:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip
