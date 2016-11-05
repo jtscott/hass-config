@@ -114,3 +114,7 @@ automation.disable_inside_camera:
   icon: mdi:camera-off
 automation.commute_notification:
   icon: mdi:car
+automation.roomba_schedule:
+  icon: mdi:play-circle
+automation.roomba_stop:
+  icon: mdi:stop-circle

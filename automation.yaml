@@ -50,7 +50,7 @@
           sound: cosmic
 
 ###########################################
-# Arrival & Departure
+# Patio Light
 ###########################################
 - alias: Patio Off After Arrival
   trigger:
@@ -98,6 +98,9 @@
         data:
           sound: cosmic
 
+###########################################
+# Inside Camera
+###########################################
 - alias: Disable Inside Camera
   trigger:
     platform: state
@@ -118,6 +121,9 @@
     - service: switch.turn_on
       entity_id: switch.netatmo_camera
 
+###########################################
+# Commute
+###########################################
 - alias: Commute Notification
   trigger:
     platform: numeric_state
@@ -138,5 +144,55 @@
       data:
         title: Commute
         message: 'Traffic is heavy, over {{ states.sensor.home_to_enmax.state }} minutes.'
+        data:
+          sound: cosmic
+
+###########################################
+# Roomba
+###########################################
+- alias: Roomba Schedule
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'home'
+    to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '09:00:00'
+        before: '16:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: device_tracker.bobbiiphone_ip
+        state: not_home
+  action:
+    - service: switch.turn_on
+      entity_id: switch.roomba
+    - service: notify.pushover
+      data:
+        title: Roomba
+        message: 'Cleaning started.'
+        data:
+          sound: cosmic
+
+- alias: Roomba Stop
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.roomba
+    - service: notify.pushover
+      data:
+        title: Roomba
+        message: 'Cleaning stopped.'
         data:
           sound: cosmic

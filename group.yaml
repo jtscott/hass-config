@@ -49,6 +49,7 @@ debug:
     - group.sunrise_automation
     - group.camera_automation
     - group.arrival_departure_automation
+    - group.roomba_automation
     - sensor.hass_release
     - sensor.hass_installed
 
@@ -113,6 +114,12 @@ Arrival_Departure_Automation:
     - automation.patio_off_after_arrival
     - automation.patio_on_after_departure
     - automation.commute_notification
+
+Roomba_Automation:
+  name: "Roomba Automation"
+  entities:
+    - automation.roomba_schedule
+    - automation.roomba_stop
 
 ###########################################
 # Hidden Groups
