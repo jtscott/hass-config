@@ -4,6 +4,6 @@
   consider_home: 180
   host: !secret unifi_ip
   port: 8443
-  username: admin
+  username: !secret unifi_user
   password: !secret unifi_password
 - platform: bluetooth_tracker
