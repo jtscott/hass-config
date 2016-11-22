@@ -118,3 +118,13 @@ automation.roomba_schedule:
   icon: mdi:play-circle
 automation.roomba_stop:
   icon: mdi:stop-circle
+
+###########################################
+# Debug
+###########################################
+sensor.connected_clients:
+  friendly_name: 'Connected'
+sensor.hass_installed:
+  friendly_name: 'Installed'
+sensor.hass_release:
+  friendly_name: 'Release'

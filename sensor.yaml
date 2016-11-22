@@ -117,3 +117,4 @@
     Accept: application/vnd.github.v3+json
     Content-Type: application/json
     User-Agent: Home Assistant REST sensor
+- platform: api_streams

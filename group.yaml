@@ -52,6 +52,7 @@ debug:
     - group.roomba_automation
     - sensor.hass_release
     - sensor.hass_installed
+    - sensor.connected_clients
 
 ###########################################
 # Visible Cards
