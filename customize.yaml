@@ -16,7 +16,6 @@ media_player.my_shield_console:
 switch.livingroomtv:
   friendly_name: 'Samsung TV'
   icon: mdi:television
-  emulated_hue_name: 'TV'
 switch.shieldtv:
   friendly_name: 'Nvidia Shield'
   icon: mdi:cast  
@@ -26,10 +25,13 @@ switch.shieldtv:
 ###########################################
 switch.front_door:
   icon: mdi:lightbulb
-  emulated_hue_name: 'front door light'
 switch.patio:
   icon: mdi:lightbulb
-  emulated_hue_name: 'patio light'
+switch.bedroom:
+  icon: mdi:lightbulb
+switch.wemo_insight:
+  icon: mdi:power-plug
+  friendly_name: 'Christmas Tree'
 switch.roomba:
   icon: mdi:robot
   friendly_name: 'Roomba'
@@ -45,7 +47,6 @@ sensor.roomba_coverage:
 switch.netatmo_camera:
   icon: mdi:camera
   friendly_name: 'Netatmo Welcome'
-  emulated_hue_name: 'camera'
 
 ###########################################
 # Devices
@@ -122,6 +123,8 @@ automation.roomba_schedule:
   icon: mdi:play-circle
 automation.roomba_stop:
   icon: mdi:stop-circle
+automation.turn_on_christmas_tree:
+  icon: mdi:pine-tree
 
 ###########################################
 # Debug

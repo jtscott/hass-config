@@ -10,6 +10,11 @@
       command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh off'
       command_state: 'bash /home/pi/.homeassistant/netatmo/netatmo_status.sh'
       value_template: '{{ value == "on" }}'
+    wemo_insight:
+      command_on: 'wemo -h 192.168.2.15 -a ON'
+      command_off: 'wemo -h 192.168.2.15 -a OFF'
+      command_state: 'wemo -h 192.168.2.15 -a GETSTATE'
+      value_template: '{{ value == "ON" }}'
 
 - platform: template
   switches:

@@ -12,6 +12,7 @@ default_view:
     - sensor.co2
     - sensor.scale
     - group.switches
+    - group.lights
     - group.downloads
     - group.roomba
     - climate.home
@@ -59,11 +60,16 @@ debug:
 ###########################################
 switches:
   entities:
-   - switch.front_door
-   - switch.patio
    - switch.livingroomtv
    - switch.shieldtv
    - switch.netatmo_camera
+
+lights:
+  entities:
+   - switch.front_door
+   - switch.patio
+   - switch.bedroom
+   - switch.wemo_insight
 
 roomba:
   entities:
@@ -115,6 +121,7 @@ Arrival_Departure_Automation:
     - automation.patio_off_after_arrival
     - automation.patio_on_after_departure
     - automation.commute_notification
+    - automation.turn_on_christmas_tree
 
 Roomba_Automation:
   name: "Roomba Automation"

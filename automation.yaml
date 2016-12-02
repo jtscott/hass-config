@@ -199,3 +199,16 @@
         message: 'Cleaning stopped.'
         data:
           sound: cosmic
+
+###########################################
+# Christmas
+###########################################
+- alias: Turn on Christmas Tree
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.wemo_insight
