@@ -51,6 +51,7 @@ debug:
     - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
+    - group.wemo_signal
     - sensor.hass_release
     - sensor.hass_installed
     - sensor.connected_clients
@@ -127,6 +128,14 @@ Roomba_Automation:
   entities:
     - automation.roomba_schedule
     - automation.roomba_stop
+
+Wemo_Signal:
+  name: "Wemo Signal Strength"
+  entities:
+    - sensor.wemo_front_door
+    - sensor.wemo_patio
+    - sensor.wemo_bedroom
+    - sensor.wemo_insight    
 
 ###########################################
 # Hidden Groups

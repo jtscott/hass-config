@@ -135,3 +135,11 @@ sensor.hass_installed:
   friendly_name: 'Installed'
 sensor.hass_release:
   friendly_name: 'Release'
+sensor.wemo_front_door:
+  icon: mdi:signal-variant
+sensor.wemo_patio:
+  icon: mdi:signal-variant
+sensor.wemo_bedroom:
+  icon: mdi:signal-variant
+sensor.wemo_insight:
+  icon: mdi:signal-variant
