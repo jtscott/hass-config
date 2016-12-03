@@ -25,10 +25,13 @@ switch.shieldtv:
 ###########################################
 switch.front_door:
   icon: mdi:lightbulb
+  friendly_name: 'Front Door'
 switch.patio:
   icon: mdi:lightbulb
+  friendly_name: 'Patio'
 switch.bedroom:
   icon: mdi:lightbulb
+  friendly_name: 'Bedroom'
 switch.wemo_insight:
   icon: mdi:power-plug
   friendly_name: 'Christmas Tree'
@@ -113,19 +116,16 @@ automation.patio_off_after_arrival:
   icon: mdi:login
 automation.patio_on_after_departure:
   icon: mdi:logout
-automation.enable_inside_camera:
-  icon: mdi:camera
-automation.disable_inside_camera:
-  icon: mdi:camera-off
 automation.commute_notification:
   icon: mdi:car
 automation.roomba_schedule:
   icon: mdi:play-circle
 automation.roomba_stop:
   icon: mdi:stop-circle
-automation.turn_on_christmas_tree:
-  icon: mdi:pine-tree
-
+automation.off_while_home:
+  icon: mdi:city
+automation.on_while_home:
+  icon: mdi:home
 ###########################################
 # Debug
 ###########################################

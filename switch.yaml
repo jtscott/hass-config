@@ -15,7 +15,21 @@
       command_off: 'wemo -h 192.168.2.15 -a OFF'
       command_state: 'wemo -h 192.168.2.15 -a GETSTATE'
       value_template: '{{ value == "ON" }}'
-
+    bedroom:
+      command_on: 'wemo -h 192.168.2.16 -a ON'
+      command_off: 'wemo -h 192.168.2.16 -a OFF'
+      command_state: 'wemo -h 192.168.2.16 -a GETSTATE'
+      value_template: '{{ value == "ON" }}'
+    patio:
+      command_on: 'wemo -h 192.168.2.14 -a ON'
+      command_off: 'wemo -h 192.168.2.14 -a OFF'
+      command_state: 'wemo -h 192.168.2.14 -a GETSTATE'
+      value_template: '{{ value == "ON" }}'
+    front_door:
+      command_on: 'wemo -h 192.168.2.13 -a ON'
+      command_off: 'wemo -h 192.168.2.13 -a OFF'
+      command_state: 'wemo -h 192.168.2.13 -a GETSTATE'
+      value_template: '{{ value == "ON" }}'
 - platform: template
   switches:
     livingroomtv:

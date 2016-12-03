@@ -99,9 +99,9 @@
           sound: cosmic
 
 ###########################################
-# Inside Camera
+# Presence Based Rules
 ###########################################
-- alias: Disable Inside Camera
+- alias: Off While Home
   trigger:
     platform: state
     entity_id: group.family_devices
@@ -111,7 +111,17 @@
     - service: switch.turn_off
       entity_id: switch.netatmo_camera
 
-- alias: Enable Inside Camera
+- alias: On While Home
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.wemo_insight
+
+- alias: On While Away
   trigger:
     platform: state
     entity_id: group.family_devices
@@ -199,16 +209,3 @@
         message: 'Cleaning stopped.'
         data:
           sound: cosmic
-
-###########################################
-# Christmas
-###########################################
-- alias: Turn on Christmas Tree
-  trigger:
-    platform: state
-    entity_id: group.family_devices
-    from: 'not_home'
-    to: 'home'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.wemo_insight

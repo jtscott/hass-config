@@ -48,7 +48,7 @@ debug:
   name: Debug
   entities:
     - group.sunrise_automation
-    - group.camera_automation
+    - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
     - sensor.hass_release
@@ -109,11 +109,11 @@ Sunrise_Automation:
     - automation.sunrise_away_lights
     - automation.sunset_away_lights
 
-Camera_Automation:
-  name: "Camera Automation"
+Presence_Automation:
+  name: "Presence Automation"
   entities:
-    - automation.disable_inside_camera
-    - automation.enable_inside_camera
+    - automation.off_while_home
+    - automation.on_while_home
 
 Arrival_Departure_Automation:
   name: "Arrival & Departure Automation"
@@ -121,7 +121,6 @@ Arrival_Departure_Automation:
     - automation.patio_off_after_arrival
     - automation.patio_on_after_departure
     - automation.commute_notification
-    - automation.turn_on_christmas_tree
 
 Roomba_Automation:
   name: "Roomba Automation"

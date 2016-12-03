@@ -55,7 +55,7 @@ notify: !include notify.yaml
 automation: !include automation.yaml
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
-emulated_hue: !include emulated_hue.yaml
+#emulated_hue: !include emulated_hue.yaml
 
 ###########################################
 # Third Party Platforms
@@ -72,9 +72,3 @@ netatmo:
   secret_key: !secret netatmo_sk
   username: !secret email_account
   password: !secret netatmo_password
-
-wemo:
-  static:
-    - 192.168.2.13
-    - 192.168.2.14
-    - 192.168.2.16
