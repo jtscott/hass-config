@@ -121,6 +121,16 @@
     - service: switch.turn_on
       entity_id: switch.wemo_insight
 
+- alias: Off While Away
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: switch.turn_off
+      entity_id: group.lights
+
 - alias: On While Away
   trigger:
     platform: state

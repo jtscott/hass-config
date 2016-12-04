@@ -1,6 +1,13 @@
 ###########################################
 # Home Sensors
 ###########################################
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'time_date'
+    - 'date_time'
+    - 'time_utc'
 - platform: nest
   monitored_conditions:
   - 'temperature'
@@ -35,13 +42,22 @@
   sensors:
     roomba_status:
         value_template: >-
-            {%- if is_state("sensor.roomba_phase", "charge") %}
-                Docked
-            {% elif is_state("sensor.roomba_phase", "run") %}
-                Cleaning
-            {% elif is_state("sensor.roomba_phase", "stuck") %}
-                Stuck
-            {%- endif %}
+          {%- if is_state("sensor.roomba_phase", "charge") %}
+              Docked
+          {% elif is_state("sensor.roomba_phase", "run") %}
+              Cleaning
+          {% elif is_state("sensor.roomba_phase", "stuck") %}
+              Stuck
+          {%- endif %}
+- platform: template
+  sensors:
+    netatmo_motion:
+      value_template: >-
+        {%- if is_state("binary_sensor.kitchen_motion", "on") %}
+            Detected
+        {% elif is_state("binary_sensor.kitchen_motion", "off") %}
+            Quiet
+        {%- endif %}
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 11 | cut -f 1 -d \",\""
   name: 'Roomba Battery'

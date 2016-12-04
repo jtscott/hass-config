@@ -15,6 +15,7 @@ default_view:
     - group.lights
     - group.downloads
     - group.roomba
+    - group.motion
     - climate.home
     - media_player.my_shield_console
     - media_player.un65f8000
@@ -39,6 +40,7 @@ Calgary:
     - group.travel
     - group.forecast
     - group.sun
+    - group.date_time
 
 ###########################################
 # Debug Tab
@@ -115,6 +117,8 @@ Presence_Automation:
   entities:
     - automation.off_while_home
     - automation.on_while_home
+    - automation.off_while_away
+    - automation.on_while_away
 
 Arrival_Departure_Automation:
   name: "Arrival & Departure Automation"
@@ -137,6 +141,16 @@ Wemo_Signal:
     - sensor.wemo_bedroom
     - sensor.wemo_insight    
 
+Motion:
+  name: "Motion"
+  entities:
+    - sensor.netatmo_motion
+
+Date_Time:
+  name: "Date & Time"
+  entities:
+    - sensor.date
+    - sensor.time
 ###########################################
 # Hidden Groups
 ###########################################

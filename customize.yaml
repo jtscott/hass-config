@@ -1,4 +1,12 @@
 ###########################################
+# Group Order
+###########################################
+group.date_time:
+  order: 1
+group.switches:
+  order: 2
+
+###########################################
 # Home Sensors
 ###########################################
 sensor.climate_operation_mode:
@@ -38,6 +46,17 @@ switch.wemo_insight:
 switch.roomba:
   icon: mdi:robot
   friendly_name: 'Roomba'
+switch.netatmo_camera:
+  icon: mdi:camera
+  friendly_name: 'Netatmo Welcome'
+
+###########################################
+# Sensors
+###########################################
+sensor.date:
+  icon: mdi:calendar
+sensor.time:
+  icon: mdi:clock
 sensor.roomba_battery:
   icon: mdi:car-battery
   friendly_name: 'Battery'
@@ -47,8 +66,8 @@ sensor.roomba_status:
 sensor.roomba_coverage:
   icon: mdi:vector-triangle
   friendly_name: 'Coverage'
-switch.netatmo_camera:
-  icon: mdi:camera
+sensor.netatmo_motion:
+  icon: mdi:run
   friendly_name: 'Netatmo Welcome'
 
 ###########################################
@@ -57,8 +76,6 @@ switch.netatmo_camera:
 climate.home:
   icon: mdi:thermometer
   friendly_name: 'Nest'
-group.switches:
-  order: 1
 
 ###########################################
 # Weather Sensors
@@ -123,9 +140,14 @@ automation.roomba_schedule:
 automation.roomba_stop:
   icon: mdi:stop-circle
 automation.off_while_home:
-  icon: mdi:city
+  icon: mdi:home
 automation.on_while_home:
   icon: mdi:home
+automation.off_while_away:
+  icon: mdi:city
+automation.on_while_away:
+  icon: mdi:city
+
 ###########################################
 # Debug
 ###########################################
