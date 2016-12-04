@@ -2,12 +2,12 @@
 Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on a RPi3. Note that Netatmo Welcome, Withings, and Roomba devices have custom scripts for their integration.
 
 ## Requirements
-- Install jq 1.5 manually. RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
-- NPM for Roomba/dorita980
+- Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
+- NPM for Roomba/dorita980 and [wemo-cli](https://www.npmjs.com/package/belkin-wemo-command-line-tools)
 - Curl
 
 ## Shout Out
-- Check out [Facu ZAK's Roomba 980 Library](https://github.com/koalazak/dorita980) it saved me a lot of work!
+- Check out Facu ZAK's Roomba 980 [Library](https://github.com/koalazak/dorita980) and [Rest API](https://github.com/koalazak/rest980) it saved me a lot of work!
 - All the [HASS examples](https://home-assistant.io/cookbook/) and contributors.
 
 ## Layout
@@ -23,7 +23,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ## Devices
 - RPi3 on Raspian Jessie
 - Nest Thermostat
-- Wemo Light Switches
+- Wemo Light & Insight Switches
 - Roomba 980
 - Withings WS-50
 - Nvidia Shield TV
@@ -35,6 +35,8 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Turn the inside camera on/off if we leave/arrive.
 - Turn the patio light on/off with the sun if we are away.
 - Turn the patio light off if we arrive home.
+- Commute high traffic notifications.
+- Roomba scheduling and docking. 
 
 ## To-do & Problems
 - Plex Media Server isn't working?
