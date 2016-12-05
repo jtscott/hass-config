@@ -117,6 +117,9 @@
     entity_id: group.family_devices
     from: 'not_home'
     to: 'home'
+  condition:
+    - condition: time
+      before: '22:00'
   action:
     - service: switch.turn_on
       entity_id: switch.wemo_insight
@@ -173,7 +176,7 @@
 - alias: Roomba Schedule
   trigger:
     platform: time
-    after: '08:00:00'
+    after: '08:30:00'
   condition:
     condition: and
     conditions:
