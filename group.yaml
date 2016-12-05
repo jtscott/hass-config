@@ -7,8 +7,8 @@ default_view:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip
     - sensor.climate_operation_mode
-    - sensor.home_humidity
-    - sensor.home_temperature
+    - sensor.home_thermostat_humidity
+    - sensor.home_thermostat_temperature
     - sensor.co2
     - sensor.scale
     - group.switches
@@ -18,7 +18,6 @@ default_view:
     - group.motion
     - climate.home
     - media_player.my_shield_console
-    - media_player.un65f8000
     - camera.hemlock__kitchen
 
 ###########################################
@@ -95,6 +94,7 @@ Forecast:
    - sensor.pws_feelslike_c
    - sensor.dark_sky_daily_low_temperature
    - sensor.dark_sky_daily_high_temperature
+   - sensor.air_quality
    - sensor.pws_uv
    - sensor.dark_sky_precip_probability
    - sensor.pws_precip_today_metric
@@ -151,6 +151,7 @@ Date_Time:
   entities:
     - sensor.date
     - sensor.time
+
 ###########################################
 # Hidden Groups
 ###########################################

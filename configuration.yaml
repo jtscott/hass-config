@@ -20,6 +20,8 @@ http:
   cors_allowed_origins:
     - https://riffz.ca
   use_x_forwarded_for: true
+  ip_ban_enabled: true
+  login_attempts_threshold: 7
   trusted_networks:
     - 192.168.1.0/24
 
@@ -62,10 +64,8 @@ panel_iframe: !include panel_iframe.yaml
 # Third Party Platforms
 ###########################################
 nest:
-  username: !secret email_account
-  password: !secret nest_password
-  #client_id: !secret nest_client_id
-  #client_secret: !secret nest_client_secret
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
 
 ifttt:
   key: !secret ifttt_api

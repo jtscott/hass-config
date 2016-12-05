@@ -11,9 +11,9 @@ group.switches:
 ###########################################
 sensor.climate_operation_mode:
   friendly_name: Nest
-sensor.home_temperature:
+sensor.home_thermostat_temperature:
   friendly_name: 'Inside'
-sensor.home_humidity:
+sensor.home_thermostat_humidity:
   friendly_name: 'Humidity'
 sensor.co2_ppm:
   sensor_class: gas
@@ -113,6 +113,9 @@ sensor.sunrise:
   icon: mdi:weather-sunset-up
 sensor.sunset:
   icon: mdi:weather-sunset-down
+sensor.air_quality:
+  friendly_name: "Air Quality"
+  icon: mdi:hospital
 
 ###########################################
 # Travel Sensors
