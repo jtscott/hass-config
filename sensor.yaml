@@ -8,11 +8,19 @@
     - 'time_date'
     - 'date_time'
     - 'time_utc'
+
 - platform: nest
   monitored_conditions:
   - 'temperature'
   - 'humidity'
   - 'operation_mode'
+
+- platform: template
+  sensors:
+    climate_operation_mode:
+      value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
+      entity_id: climate.home
+
 - platform: nzbget
   host: !secret nas_address
   port: 6789
@@ -20,24 +28,47 @@
   password: !secret nzbget_password
   monitored_variables:
   - download_rate
+
+- platform: template
+  sensors:
+    netatmo_motion:
+      value_template: >-
+        {%- if is_state("binary_sensor.kitchen_motion", "on") %}
+            Detected
+        {% elif is_state("binary_sensor.kitchen_motion", "off") %}
+            Quiet
+        {%- endif %}
+
+# - platform: sonarr
+  # api_key: !secret sonarr_api
+  # host: 192.168.1.35
+  # port: 8989
+  # monitored_conditions:
+  # - upcoming
+  # days: 1
+
+###########################################
+# Withings
+###########################################
 - platform: command_line
   unit_of_measurement: 'ppm'
   command: 'bash /home/pi/.homeassistant/withings/withings_co2.sh'
   name: 'CO2'
   scan_interval: 60
+
 - platform: command_line
   unit_of_measurement: 'C'
   command: 'bash /home/pi/.homeassistant/withings/withings_temp.sh'
   name: 'Scale'
   scan_interval: 60
-- platform: template
-  sensors:
-    climate_operation_mode:
-      value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
-      entity_id: climate.home
+
+###########################################
+# Roomba
+###########################################
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 1 -d \",\" | sed -e 's/^\"//' -e 's/\"$//'"
   name: 'Roomba Phase'
+
 - platform: template
   sensors:
     roomba_status:
@@ -49,30 +80,16 @@
           {% elif is_state("sensor.roomba_phase", "stuck") %}
               Stuck
           {%- endif %}
-- platform: template
-  sensors:
-    netatmo_motion:
-      value_template: >-
-        {%- if is_state("binary_sensor.kitchen_motion", "on") %}
-            Detected
-        {% elif is_state("binary_sensor.kitchen_motion", "off") %}
-            Quiet
-        {%- endif %}
+
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 11 | cut -f 1 -d \",\""
   name: 'Roomba Battery'
   unit_of_measurement: '%'
+
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | sed 's/[^0-9]*//g'"
   name: 'Roomba Coverage'
   unit_of_measurement: 'sqft'
-# - platform: sonarr
-  # api_key: !secret sonarr_api
-  # host: 192.168.1.35
-  # port: 8989
-  # monitored_conditions:
-  # - upcoming
-  # days: 1
 
 ###########################################
 # Weather Sensors
@@ -82,12 +99,14 @@
   - 'temperature'
   - 'humidity'
   - 'symbol'
+
 - platform: darksky
   api_key: !secret darksky_api
   monitored_conditions:
   - 'precip_probability'
   - 'temperature_min'
   - 'temperature_max'
+
 - platform: wunderground
   api_key: !secret wunderground_api
   monitored_conditions:
@@ -95,6 +114,7 @@
   - 'wind_kph'
   - 'UV'
   - 'precip_today_metric'
+
 - platform: template
   sensors:
     solar_angle:
@@ -107,6 +127,7 @@
     sunset:
       value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_setting)-(43200)) | timestamp_local) [11:16] }} pm'
       friendly_name: 'Sunset'
+
 - platform: waqi
   locations:
     - calgary
@@ -123,6 +144,7 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address1
+
 - platform: google_travel_time
   name: Home to Supported Lifestyles
   api_key: !secret google_maps
@@ -132,10 +154,13 @@
 ###########################################
 # Debug Sensors
 ###########################################
+- platform: api_streams
+
 - platform: command_line
   command: "pip show homeassistant | grep -w \"^Version:\" | cut -d : -f2 | sed -e 's/^[ \t]*//'"
   name: 'HASS Installed'
   scan_interval: 60
+
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
   username: !secret email_account
@@ -147,22 +172,25 @@
     Accept: application/vnd.github.v3+json
     Content-Type: application/json
     User-Agent: Home Assistant REST sensor
-- platform: api_streams
+
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.15 -a GETSIGNALSTRENGTH'
   name: 'Wemo Insight'
   scan_interval: 60
+
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.16 -a GETSIGNALSTRENGTH'
   name: 'Wemo Bedroom'
   scan_interval: 60
+
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.14 -a GETSIGNALSTRENGTH'
   name: 'Wemo Patio'
   scan_interval: 60
+
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.13 -a GETSIGNALSTRENGTH'
