@@ -54,7 +54,7 @@ camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml
 notify: !include notify.yaml
-automation: !include automation.yaml
+automation: !include_dir_merge_list automation
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
 #emulated_hue: !include emulated_hue.yaml
