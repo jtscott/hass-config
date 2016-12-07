@@ -30,6 +30,7 @@
       command_off: 'wemo -h 192.168.2.13 -a OFF'
       command_state: 'wemo -h 192.168.2.13 -a GETSTATE'
       value_template: '{{ value == "ON" }}'
+
 - platform: template
   switches:
     livingroomtv:
