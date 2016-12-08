@@ -53,9 +53,7 @@ debug:
     - group.arrival_departure_automation
     - group.roomba_automation
     - group.wemo_signal
-    - sensor.hass_release
-    - sensor.hass_installed
-    - sensor.connected_clients
+    - group.system_status
 
 ###########################################
 # Visible Cards
@@ -140,6 +138,14 @@ Wemo_Signal:
     - sensor.wemo_patio
     - sensor.wemo_bedroom
     - sensor.wemo_insight    
+
+System_Status:
+  name: "System Status"
+  entities:
+    - sensor.since_last_boot_templated
+    - sensor.hass_release
+    - sensor.hass_installed
+    - sensor.connected_clients
 
 Motion:
   name: "Motion"

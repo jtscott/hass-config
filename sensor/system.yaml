@@ -58,11 +58,5 @@
         {%- endif -%}
         {%- if seconds > 0 -%}
           {%- if hours > 0 or minutes > 0 -%}
-            {{ ', ' }}
-          {%- endif -%}
-          {%- if seconds == 1 -%}
-            1 second
-          {%- else -%}
-            {{ seconds }} seconds
           {%- endif -%}
         {%- endif -%}

@@ -5,6 +5,8 @@ group.date_time:
   order: 1
 group.switches:
   order: 2
+group.system_status:
+  order: 3
 
 ###########################################
 # Home Sensors
@@ -155,11 +157,14 @@ automation.on_while_away:
 # Debug
 ###########################################
 sensor.connected_clients:
-  friendly_name: 'Connected'
+  friendly_name: 'Connections'
+  icon: mdi:lan-connect
 sensor.hass_installed:
   friendly_name: 'Installed'
+  icon: mdi:folder-download
 sensor.hass_release:
   friendly_name: 'Release'
+  icon: mdi:github-circle
 sensor.wemo_front_door:
   icon: mdi:signal-variant
 sensor.wemo_patio:
@@ -168,3 +173,6 @@ sensor.wemo_bedroom:
   icon: mdi:signal-variant
 sensor.wemo_insight:
   icon: mdi:signal-variant
+sensor.since_last_boot_templated:
+  friendly_name: "Uptime"
+  icon: mdi:timer
