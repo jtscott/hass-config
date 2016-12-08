@@ -4,7 +4,7 @@
       command_on: 'node /home/pi/.homeassistant/roomba/roomba_clean.js'
       command_off: 'node /home/pi/.homeassistant/roomba/roomba_dock.js'
       command_state: 'node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 2 -d "\""'
-      value_template: '{{ value == "clean" }}'
+      value_template: '{{ value == "run" }}'
     netatmo_camera:
       command_on: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh on'
       command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh off'
