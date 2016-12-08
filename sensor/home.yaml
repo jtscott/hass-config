@@ -1,0 +1,40 @@
+###########################################
+# Home Sensors
+###########################################
+- platform: nest
+  monitored_conditions:
+  - 'temperature'
+  - 'humidity'
+  - 'operation_mode'
+
+- platform: template
+  sensors:
+    climate_operation_mode:
+      value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
+      entity_id: climate.home
+
+- platform: nzbget
+  host: !secret nas_address
+  port: 6789
+  username: !secret nzbget_username
+  password: !secret nzbget_password
+  monitored_variables:
+  - download_rate
+
+- platform: template
+  sensors:
+    netatmo_motion:
+      value_template: >-
+        {%- if is_state("binary_sensor.kitchen_motion", "on") %}
+            Detected
+        {% elif is_state("binary_sensor.kitchen_motion", "off") %}
+            Quiet
+        {%- endif %}
+
+- platform: sonarr
+  api_key: !secret sonarr_api
+  host: 192.168.1.35
+  port: 8989
+  monitored_conditions:
+  - upcoming
+  days: 1

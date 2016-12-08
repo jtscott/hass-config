@@ -1,0 +1,14 @@
+###########################################
+# Travel Sensors
+###########################################
+- platform: google_travel_time
+  name: Home to Enmax
+  api_key: !secret google_maps
+  origin: zone.home
+  destination: !secret work_address1
+
+- platform: google_travel_time
+  name: Home to Supported Lifestyles
+  api_key: !secret google_maps
+  origin: zone.home
+  destination: !secret work_address2

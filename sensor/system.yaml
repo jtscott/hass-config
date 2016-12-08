@@ -1,0 +1,68 @@
+###########################################
+# System Sensors
+###########################################
+- platform: api_streams
+
+- platform: command_line
+  command: "pip show homeassistant | grep -w \"^Version:\" | cut -d : -f2 | sed -e 's/^[ \t]*//'"
+  name: 'HASS Installed'
+  scan_interval: 60
+
+- platform: rest
+  resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+  username: !secret email_account
+  password: !secret github_token
+  authentication: basic
+  value_template: '{{ value_json.tag_name }}'
+  name: 'HASS Release'
+  headers:
+    Accept: application/vnd.github.v3+json
+    Content-Type: application/json
+    User-Agent: Home Assistant REST sensor
+
+- platform: systemmonitor
+  resources:
+    - type: since_last_boot
+
+- platform: template
+  sensors:
+    since_last_boot_templated:
+      value_template: >-
+        {%- set slb = states.sensor.since_last_boot.state.split(' ') -%}
+        {%- set count = slb | length -%}
+        {%- set hms = slb[count - 1] -%}
+        {%- set hms_trimmed = hms.split('.')[0] -%}
+        {%- set hms_split = hms_trimmed.split(':') -%}
+        {%- set hours = hms_split[0] | int -%}
+        {%- set minutes = hms_split[1] | int -%}
+        {%- set seconds = hms_split[2] | int -%}
+        {%- if count == 3 -%}
+          {{ slb[0] ~ ' ' ~ slb[1] ~ ' ' }}
+        {%- endif -%}
+        {%- if hours > 0 -%}
+          {%- if hours == 1 -%}
+            1 hour
+          {%- else -%}
+            {{ hours }} hours
+          {%- endif -%}
+        {%- endif -%}
+        {%- if minutes > 0 -%}
+          {%- if hours > 0 -%}
+            {{ ', ' }}
+          {%- endif -%}
+          {%- if minutes == 1 -%}
+            1 minute
+          {%- else -%}
+            {{ minutes }} minutes
+          {%- endif -%}
+        {%- endif -%}
+        {%- if seconds > 0 -%}
+          {%- if hours > 0 or minutes > 0 -%}
+            {{ ', ' }}
+          {%- endif -%}
+          {%- if seconds == 1 -%}
+            1 second
+          {%- else -%}
+            {{ seconds }} seconds
+          {%- endif -%}
+        {%- endif -%}

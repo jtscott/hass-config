@@ -48,7 +48,7 @@ sun:
 # Includes
 ###########################################
 climate: !include climate.yaml
-sensor: !include sensor.yaml
+sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
