@@ -13,9 +13,10 @@ default_view:
     - sensor.scale
     - group.switches
     - group.lights
-    - group.downloads
+    - group.media
     - group.roomba
     - group.motion
+    - group.tv_schedule
     - climate.home
     - media_player.my_shield_console
     - camera.hemlock__kitchen
@@ -78,8 +79,9 @@ roomba:
     - sensor.roomba_battery
     - sensor.roomba_coverage
 
-downloads:
+Media:
   entities:
+   - sensor.tv_schedule
    - sensor.nzbget_speed
 
 Travel:

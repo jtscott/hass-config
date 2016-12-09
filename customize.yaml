@@ -29,6 +29,9 @@ switch.livingroomtv:
 switch.shieldtv:
   friendly_name: 'Nvidia Shield'
   icon: mdi:cast  
+sensor.tv_schedule:
+  friendly_name: 'TV Today'
+  icon: mdi:movie
 
 ###########################################
 # Switches
