@@ -10,7 +10,7 @@
 - platform: template
   sensors:
     climate_operation_mode:
-      value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'unknown' }}"
+      value_template: "{{ states.climate.home.attributes.operation_mode if states.climate.home is not none else 'Unknown' }}"
       entity_id: climate.home
 
 - platform: nzbget
@@ -29,6 +29,8 @@
             Detected
         {% elif is_state("binary_sensor.kitchen_motion", "off") %}
             Quiet
+        {% else %}
+            n/a
         {%- endif %}
 
 - platform: sonarr

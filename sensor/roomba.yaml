@@ -15,6 +15,8 @@
               Cleaning
           {% elif is_state("sensor.roomba_phase", "stuck") %}
               Stuck
+          {% else %}
+              n/a
           {%- endif %}
 
 - platform: command_line
@@ -26,3 +28,21 @@
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | sed 's/[^0-9]*//g'"
   name: 'Roomba Coverage'
   unit_of_measurement: 'sqft'
+
+- platform: command_line
+  command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 3 | sed 's/[^0-9]*//g'"
+  name: 'Roomba Maintenance Flag'
+
+- platform: template
+  sensors:
+    roomba_maintenance_template:
+      value_template: >
+        {% if is_state("sensor.roomba_maintenance_flag", "0" or "4") %}
+            Ready
+        {% elif is_state("sensor.roomba_maintenance_flag", "1") %}
+            Bin Full
+        {% elif is_state("sensor.roomba_maintenance_flag", "12") %}
+            Starting
+        {% else %}
+            n/a
+        {% endif %}

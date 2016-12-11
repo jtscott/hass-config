@@ -68,6 +68,9 @@ sensor.roomba_battery:
 sensor.roomba_status:
   icon: mdi:autorenew
   friendly_name: 'Status'
+sensor.roomba_maintenance_template:
+  icon: mdi:delete-sweep
+  friendly_name: 'Maintenance'
 sensor.roomba_coverage:
   icon: mdi:vector-triangle
   friendly_name: 'Coverage'

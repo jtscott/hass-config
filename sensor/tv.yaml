@@ -6,4 +6,6 @@
         {% if not attr=="friendly_name" and not attr=="icon" and not attr=="unit_of_measurement" %}
         {{attr}} 
         {%- endif %}
+        {% else %}
+            n/a
         {%- endfor -%}

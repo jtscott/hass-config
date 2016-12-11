@@ -76,6 +76,7 @@ roomba:
   entities:
     - switch.roomba
     - sensor.roomba_status
+    - sensor.roomba_maintenance_template
     - sensor.roomba_battery
     - sensor.roomba_coverage
 

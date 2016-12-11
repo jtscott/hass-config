@@ -59,4 +59,6 @@
         {%- if seconds > 0 -%}
           {%- if hours > 0 or minutes > 0 -%}
           {%- endif -%}
+        {% else %}
+            n/a
         {%- endif -%}

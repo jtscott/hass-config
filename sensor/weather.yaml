@@ -41,4 +41,4 @@
 - platform: template
   sensors:
     air_quality:
-      value_template: "{% if states('sensor.waqi_calgary_central_2_alberta') | float <= 50 %}Good{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 51 %}Moderate{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 101%}Poor{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 151%}Bad{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 201%}Unhealthy{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 301%}Dangerous{% endif %}"
+      value_template: "{% if states('sensor.waqi_calgary_central_2_alberta') | float <= 50 %}Good{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 51 %}Moderate{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 101%}Poor{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 151%}Bad{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 201%}Unhealthy{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 301%}Dangerous{% else %}n/a{% endif %}"
