@@ -2,10 +2,8 @@
   sensors: 
     tv_schedule:
       value_template: >-
-        {% for attr in states.sensor.sonarr_upcoming.attributes %}
-        {% if not attr=="friendly_name" and not attr=="icon" and not attr=="unit_of_measurement" %}
-        {{attr}} 
-        {%- endif %}
-        {% else %}
-            n/a
+        {%- for attr in states.sensor.sonarr_upcoming.attributes -%}
+        {%- if not attr=="friendly_name" and not attr=="icon" and not attr=="unit_of_measurement" -%}
+        {{attr}}{% if not loop.last %}, {% endif %}
+        {%- endif -%}
         {%- endfor -%}
