@@ -4,7 +4,6 @@
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 1 -d \",\" | sed -e 's/^\"//' -e 's/\"$//'"
   name: 'Roomba Phase'
-  scan_interval: 60
 
 - platform: template
   sensors:
