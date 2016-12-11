@@ -4,6 +4,7 @@
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 1 -d \",\" | sed -e 's/^\"//' -e 's/\"$//'"
   name: 'Roomba Phase'
+  scan_interval: 60
 
 - platform: template
   sensors:
@@ -23,15 +24,18 @@
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 11 | cut -f 1 -d \",\""
   name: 'Roomba Battery'
   unit_of_measurement: '%'
+  scan_interval: 60
 
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 17 | sed 's/[^0-9]*//g'"
   name: 'Roomba Coverage'
   unit_of_measurement: 'sqft'
+  scan_interval: 60
 
 - platform: command_line
   command: "node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 3 | sed 's/[^0-9]*//g'"
   name: 'Roomba Maintenance Flag'
+  scan_interval: 60
 
 - platform: template
   sensors:
