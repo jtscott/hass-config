@@ -11,11 +11,13 @@
         value_template: >-
           {%- if is_state("sensor.roomba_phase", "charge") %}
               Docked
-          {% elif is_state("sensor.roomba_phase", "run") %}
+          {%- elif is_state("sensor.roomba_phase", "run") %}
               Cleaning
-          {% elif is_state("sensor.roomba_phase", "stuck") %}
+          {%- elif is_state("sensor.roomba_phase", "stuck") %}
               Stuck
-          {% else %}
+          {%- elif is_state("sensor.roomba_phase", "stop") %}
+              Stopped
+          {%- else %}
               n/a
           {%- endif %}
 
