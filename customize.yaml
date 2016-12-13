@@ -13,9 +13,9 @@ group.system_status:
 ###########################################
 sensor.climate_operation_mode:
   friendly_name: Nest
-sensor.home_thermostat_temperature:
+sensor.family_room_thermostat_nest_temperature:
   friendly_name: 'Inside'
-sensor.home_thermostat_humidity:
+sensor.family_room_thermostat_nest_humidity:
   friendly_name: 'Humidity'
 sensor.co2_ppm:
   sensor_class: gas

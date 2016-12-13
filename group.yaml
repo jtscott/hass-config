@@ -7,8 +7,8 @@ default_view:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary_ip
     - sensor.climate_operation_mode
-    - sensor.home_thermostat_humidity
-    - sensor.home_thermostat_temperature
+    - sensor.family_room_thermostat_nest_humidity
+    - sensor.family_room_thermostat_nest_temperature
     - sensor.co2
     - sensor.scale
     - group.switches
@@ -17,7 +17,7 @@ default_view:
     - group.roomba
     - group.motion
     - group.tv_schedule
-    - climate.home
+    - climate.family_room_nest
     - media_player.my_shield_console
     - camera.hemlock__kitchen
 
