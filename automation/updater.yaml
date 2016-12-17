@@ -1,0 +1,14 @@
+###########################################
+# Update Notification
+###########################################
+- alias: Update Notification
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: notify.pushover
+      data:
+        title: Home Assistant
+        message: 'Version {{ states.updater.updater.state }} is now available.'
+        data:
+          sound: cosmic

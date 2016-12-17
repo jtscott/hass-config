@@ -158,7 +158,9 @@ automation.off_while_away:
   icon: mdi:city
 automation.on_while_away:
   icon: mdi:city
-
+automation.update_notification:
+  icon: mdi:message-alert
+  
 ###########################################
 # Debug
 ###########################################

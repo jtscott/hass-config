@@ -53,8 +53,8 @@ debug:
     - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
-    - group.wemo_signal
     - group.system_status
+#    - group.wemo_signal
 
 ###########################################
 # Visible Cards
@@ -134,13 +134,13 @@ Roomba_Automation:
     - automation.roomba_schedule
     - automation.roomba_stop
 
-Wemo_Signal:
-  name: "Wemo Signal Strength"
-  entities:
-    - sensor.wemo_front_door
-    - sensor.wemo_patio
-    - sensor.wemo_bedroom
-    - sensor.wemo_insight    
+# Wemo_Signal:
+  # name: "Wemo Signal Strength"
+  # entities:
+    # - sensor.wemo_front_door
+    # - sensor.wemo_patio
+    # - sensor.wemo_bedroom
+    # - sensor.wemo_insight    
 
 System_Status:
   name: "System Status"
@@ -149,6 +149,7 @@ System_Status:
     - sensor.hass_release
     - sensor.hass_installed
     - sensor.connected_clients
+    - automation.update_notification
 
 Motion:
   name: "Motion"
