@@ -95,6 +95,7 @@ Forecast:
    - sensor.pws_feelslike_c
    - sensor.dark_sky_daily_low_temperature
    - sensor.dark_sky_daily_high_temperature
+   - sensor.air_pressure_template
    - sensor.air_quality
    - sensor.pws_uv
    - sensor.dark_sky_precip_probability

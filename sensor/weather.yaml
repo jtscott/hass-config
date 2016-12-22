@@ -13,6 +13,12 @@
   - 'precip_probability'
   - 'temperature_min'
   - 'temperature_max'
+  - 'pressure'
+
+- platform: template
+  sensors:
+    air_pressure_template:
+      value_template: "{% if states('sensor.dark_sky_pressure') | float <= 980 %}Low{% elif states('sensor.dark_sky_pressure') | float >= 1000 %}Good{% elif states('sensor.dark_sky_pressure') | float >= 1020 %}High{% else %}n/a{% endif %}"
 
 - platform: wunderground
   api_key: !secret wunderground_api

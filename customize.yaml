@@ -103,6 +103,9 @@ sensor.dark_sky_daily_high_temperature:
 sensor.dark_sky_precip_probability:
   friendly_name: 'Chance of Rain'
   icon: mdi:weather-rainy
+sensor.air_pressure_template:
+  friendly_name: 'Air Pressure'
+  icon: mdi:gauge
 sensor.pws_feelslike_c:
   friendly_name: 'Feels Like'
   icon: mdi:human-male-female

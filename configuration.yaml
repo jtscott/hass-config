@@ -17,8 +17,9 @@ homeassistant:
 frontend:
 http:
   api_password: !secret http_password
+  # base_url: !secret base_url
   cors_allowed_origins:
-    - https://riffz.ca
+    - !secret base_origin
   use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 7

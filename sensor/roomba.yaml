@@ -44,10 +44,16 @@
       value_template: >
         {% if is_state("sensor.roomba_maintenance_flag", "0") %}
             Ready
-        {% elif is_state("sensor.roomba_maintenance_flag", "4") %}
-            Ready
         {% elif is_state("sensor.roomba_maintenance_flag", "1") %}
             Bin Full
+        {% elif is_state("sensor.roomba_maintenance_flag", "2") %}
+            Bin Detached
+        {% elif is_state("sensor.roomba_maintenance_flag", "4") %}
+            Ready
+        {% elif is_state("sensor.roomba_maintenance_flag", "5") %}
+            Bin Full
+        {% elif is_state("sensor.roomba_maintenance_flag", "6") %}
+            Bin Detached
         {% elif is_state("sensor.roomba_maintenance_flag", "12") %}
             Starting
         {% else %}
