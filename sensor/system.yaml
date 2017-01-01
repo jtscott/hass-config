@@ -20,6 +20,11 @@
     Content-Type: application/json
     User-Agent: Home Assistant REST sensor
 
+- platform: command_line
+  command: "df -h | grep root | awk '{print $4}'"
+  name: "SD Free Space"
+  scan_interval: 60
+
 - platform: systemmonitor
   resources:
     - type: since_last_boot

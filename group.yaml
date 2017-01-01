@@ -150,6 +150,7 @@ System_Status:
     - sensor.hass_release
     - sensor.hass_installed
     - sensor.connected_clients
+    - sensor.sd_free_space
     - automation.update_notification
 
 Motion:

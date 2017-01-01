@@ -176,6 +176,8 @@ sensor.hass_installed:
 sensor.hass_release:
   friendly_name: 'Release'
   icon: mdi:github-circle
+sensor.sd_free_space:
+  icon: mdi:sd
 sensor.wemo_front_door:
   icon: mdi:signal-variant
 sensor.wemo_patio:
