@@ -1,0 +1,46 @@
+###########################################
+# Climate
+###########################################
+- alias: Heat On
+  trigger:
+    platform: numeric_state
+    entity_id: climate.family_room_nest
+    value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
+    below: '22'
+  condition:
+   - condition: numeric_state
+     entity_id: 'sensor.yr_temperature'
+     below: '-10'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        operation_mode: heat
+    - service: climate.set_temperature
+      data:
+        temperature: 25
+    - service: notify.pushover
+      data:
+        title: Thermostat
+        message: 'Turned on, inside {{ states.climate.family_room_nest.attributes.current_temperature }}C'
+        data:
+          sound: cosmic
+
+- alias: Heat Off
+  trigger:
+    platform: numeric_state
+    entity_id: climate.family_room_nest
+    value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
+    above: '24'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        operation_mode: eco
+    - service: climate.set_temperature
+      data:
+        temperature: 18
+    - service: notify.pushover
+      data:
+        title: Thermostat
+        message: 'Turned off, inside {{ states.climate.family_room_nest.attributes.current_temperature }}C'
+        data:
+          sound: cosmic
