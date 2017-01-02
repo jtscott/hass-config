@@ -53,12 +53,18 @@ debug:
     - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
+    - group.climate_automation
     - group.system_status
 #    - group.wemo_signal
 
 ###########################################
 # Visible Cards
 ###########################################
+Motion:
+  name: "Motion"
+  entities:
+    - sensor.netatmo_motion
+
 switches:
   entities:
    - switch.livingroomtv
@@ -85,6 +91,12 @@ Media:
    - sensor.tv_schedule
    - sensor.nzbget_speed
 
+Date_Time:
+  name: "Date & Time"
+  entities:
+    - sensor.date
+    - sensor.time
+
 Travel:
   entities:
     - sensor.home_to_enmax
@@ -107,6 +119,16 @@ Sun:
     - sensor.solar_angle
     - sensor.sunrise
     - sensor.sunset
+  
+System_Status:
+  name: "System Status"
+  entities:
+    - sensor.since_last_boot_templated
+    - sensor.connected_clients
+    - sensor.hass_release
+    - sensor.hass_installed
+    - sensor.sd_free_space
+    - automation.update_notification
 
 Sunrise_Automation:
   name: "Sunrise Automation"
@@ -135,6 +157,12 @@ Roomba_Automation:
     - automation.roomba_schedule
     - automation.roomba_stop
 
+Climate_Automation:
+  name: "Climate Automation"
+  entities:
+    - automation.heat_on
+    - automation.heat_off
+
 # Wemo_Signal:
   # name: "Wemo Signal Strength"
   # entities:
@@ -142,27 +170,6 @@ Roomba_Automation:
     # - sensor.wemo_patio
     # - sensor.wemo_bedroom
     # - sensor.wemo_insight    
-
-System_Status:
-  name: "System Status"
-  entities:
-    - sensor.since_last_boot_templated
-    - sensor.hass_release
-    - sensor.hass_installed
-    - sensor.connected_clients
-    - sensor.sd_free_space
-    - automation.update_notification
-
-Motion:
-  name: "Motion"
-  entities:
-    - sensor.netatmo_motion
-
-Date_Time:
-  name: "Date & Time"
-  entities:
-    - sensor.date
-    - sensor.time
 
 ###########################################
 # Hidden Groups

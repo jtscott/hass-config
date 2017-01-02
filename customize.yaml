@@ -163,7 +163,11 @@ automation.on_while_away:
   icon: mdi:city
 automation.update_notification:
   icon: mdi:message-alert
-  
+automation.heat_on:
+  icon: mdi:nest-thermostat
+automation.heat_off:
+  icon: mdi:nest-thermostat
+
 ###########################################
 # Debug
 ###########################################
