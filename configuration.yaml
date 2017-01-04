@@ -58,6 +58,7 @@ notify: !include notify.yaml
 automation: !include_dir_merge_list automation
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
+input_select: !include input_select.yaml
 #emulated_hue: !include emulated_hue.yaml
 #script: !include script.yaml
 
@@ -76,3 +77,8 @@ netatmo:
   secret_key: !secret netatmo_sk
   username: !secret email_account
   password: !secret netatmo_password
+
+remote:
+  - platform: harmony
+    name: 'Living Room'
+    host: 192.168.2.55

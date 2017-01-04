@@ -30,7 +30,7 @@
     platform: numeric_state
     entity_id: climate.family_room_nest
     value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
-    above: '24'
+    above: '23'
   action:
     - service: climate.set_operation_mode
       data:

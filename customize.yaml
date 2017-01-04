@@ -1,12 +1,20 @@
 ###########################################
-# Group Order
+# Home Group Order
+###########################################
+group.lights:
+  order: 1
+group.netatmo:
+  order: 2
+group.roomba:
+  order: 3
+
+###########################################
+# Calgary Group Order
 ###########################################
 group.date_time:
   order: 1
-group.switches:
-  order: 2
 group.system_status:
-  order: 3
+  order: 2
 
 ###########################################
 # Home Sensors
@@ -32,6 +40,8 @@ switch.shieldtv:
 sensor.tv_schedule:
   friendly_name: 'TV Today'
   icon: mdi:movie
+sensor.current_activity:
+  icon: mdi:play-pause
 
 ###########################################
 # Switches
@@ -53,7 +63,7 @@ switch.roomba:
   friendly_name: 'Roomba'
 switch.netatmo_camera:
   icon: mdi:camera
-  friendly_name: 'Netatmo Welcome'
+  friendly_name: 'Camera Toggle'
 
 ###########################################
 # Sensors
@@ -76,7 +86,7 @@ sensor.roomba_coverage:
   friendly_name: 'Coverage'
 sensor.netatmo_motion:
   icon: mdi:run
-  friendly_name: 'Netatmo Welcome'
+  friendly_name: 'Motion Sensor'
 
 ###########################################
 # Devices

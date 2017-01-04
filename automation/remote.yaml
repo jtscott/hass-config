@@ -1,0 +1,21 @@
+alias: Harmony
+hide_entity: True
+trigger:
+  platform: state
+  entity_id: input_select.harmony
+  from: 'Select Activity'
+action:
+  - service: remote.turn_on
+    entity_id: remote.living_room
+    data_template:
+      activity: >-
+        {% if is_state("input_select.harmony", "Watch TV") %}
+          23413216
+        {% elif is_state("input_select.harmony", "Watch Shield") %}
+          23483375
+        {% else %}
+        {% endif %}
+  - service: input_select.select_option
+    entity_id: input_select.harmony
+    data:
+      option: "Select Activity"

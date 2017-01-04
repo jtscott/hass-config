@@ -13,14 +13,6 @@
       value_template: "{{ states.climate.family_room_nest.attributes.operation_mode if states.climate.family_room_nest is not none else 'Unknown' }}"
       entity_id: climate.family_room_nest
 
-- platform: nzbget
-  host: !secret nas_address
-  port: 6789
-  username: !secret nzbget_username
-  password: !secret nzbget_password
-  monitored_variables:
-  - download_rate
-
 - platform: template
   sensors:
     netatmo_motion:
@@ -40,3 +32,11 @@
   monitored_conditions:
   - upcoming
   days: 1
+
+# - platform: nzbget
+  # host: !secret nas_address
+  # port: 6789
+  # username: !secret nzbget_username
+  # password: !secret nzbget_password
+  # monitored_variables:
+  # - download_rate

@@ -11,15 +11,13 @@ default_view:
     - sensor.family_room_thermostat_nest_temperature
     - sensor.co2
     - sensor.scale
-    - group.switches
     - group.lights
     - group.media
     - group.roomba
-    - group.motion
+    - group.netatmo
     - group.tv_schedule
     - climate.family_room_nest
     - media_player.my_shield_console
-    - camera.hemlock__kitchen
 
 ###########################################
 # Calgary Tab
@@ -58,18 +56,22 @@ debug:
 #    - group.wemo_signal
 
 ###########################################
-# Visible Cards
+# Home Cards
 ###########################################
-Motion:
-  name: "Motion"
+Netatmo:
+  name: "Netatmo Welcome"
   entities:
+    - switch.netatmo_camera
     - sensor.netatmo_motion
+    - camera.hemlock__kitchen
 
-switches:
+Media:
   entities:
+   - sensor.current_activity
+   - input_select.harmony
    - switch.livingroomtv
    - switch.shieldtv
-   - switch.netatmo_camera
+   - sensor.tv_schedule
 
 lights:
   entities:
@@ -86,11 +88,9 @@ roomba:
     - sensor.roomba_battery
     - sensor.roomba_coverage
 
-Media:
-  entities:
-   - sensor.tv_schedule
-   - sensor.nzbget_speed
-
+###########################################
+# Calgary Cards
+###########################################
 Date_Time:
   name: "Date & Time"
   entities:
@@ -119,7 +119,10 @@ Sun:
     - sensor.solar_angle
     - sensor.sunrise
     - sensor.sunset
-  
+
+###########################################
+# System Cards
+###########################################
 System_Status:
   name: "System Status"
   entities:

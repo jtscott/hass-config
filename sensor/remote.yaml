@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+    current_activity:
+      friendly_name: 'Current Activity'
+      value_template: >-
+        {%- if ("states.remote.living_room.attributes.current_activity", "PowerOff") %}
+            Off
+        {% elif ("states.remote.living_room.attributes.current_activity", "Watch TV") %}
+            Watching TV
+        {% elif ("states.remote.living_room.attributes.current_activity", "Watch Plex") %}
+            Watching Shield
+        {% else %}
+            n/a
+        {%- endif %}
