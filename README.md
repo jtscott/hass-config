@@ -30,6 +30,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Netatmo Welcome
 - Unifi Wireless
 - Samsung UN65F8000
+- Harmony Hub
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
