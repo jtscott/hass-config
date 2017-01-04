@@ -37,7 +37,8 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Turn the patio light on/off with the sun if we are away.
 - Turn the patio light off if we arrive home.
 - Commute high traffic notifications.
-- Roomba scheduling and docking. 
+- Roomba scheduling and docking.
+- Climate control based on internal and external temperatures.
 
 ## To-do & Problems
 - Plex Media Server isn't working?
