@@ -1,10 +1,9 @@
-alias: Harmony
-hide_entity: True
-trigger:
-  platform: state
-  entity_id: input_select.harmony
-  from: 'Select Activity'
-action:
+- alias: Harmony
+  trigger:
+    platform: state
+    entity_id: input_select.harmony
+    from: 'Select Activity'
+  action:
   - service: remote.turn_on
     entity_id: remote.living_room
     data_template:
