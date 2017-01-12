@@ -57,7 +57,7 @@ switch.bedroom:
   friendly_name: 'Bedroom'
 switch.wemo_insight:
   icon: mdi:power-plug
-  friendly_name: 'Christmas Tree'
+  friendly_name: 'Bedroom Lamp'
 switch.roomba:
   icon: mdi:robot
   friendly_name: 'Roomba'
@@ -119,7 +119,7 @@ sensor.air_pressure_template:
 sensor.pws_feelslike_c:
   friendly_name: 'Feels Like'
   icon: mdi:human-male-female
-sensor.pws_uv:
+sensor.uv_rating_template:
   friendly_name: 'UV Level'
   icon: mdi:sunglasses
 sensor.pws_wind_kph:

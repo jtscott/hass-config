@@ -108,7 +108,7 @@ Forecast:
    - sensor.dark_sky_daily_high_temperature
    - sensor.air_pressure_template
    - sensor.air_quality
-   - sensor.pws_uv
+   - sensor.uv_rating_template
    - sensor.dark_sky_precip_probability
    - sensor.pws_precip_today_metric
    - sensor.pws_wind_kph
