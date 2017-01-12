@@ -6,7 +6,7 @@
     platform: numeric_state
     entity_id: climate.family_room_nest
     value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
-    below: '22'
+    below: '23'
   condition:
    - condition: numeric_state
      entity_id: 'sensor.yr_temperature'

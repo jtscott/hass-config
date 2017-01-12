@@ -15,7 +15,6 @@ default_view:
     - group.media
     - group.roomba
     - group.netatmo
-    - group.tv_schedule
     - climate.family_room_nest
     - media_player.my_shield_console
 
