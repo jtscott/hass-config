@@ -30,6 +30,11 @@
 
 - platform: template
   sensors:
+    uv_rating_template:
+      value_template: "{% if states('sensor.pws_uv') | float <= 2 %}Low{% elif states('sensor.pws_uv') | float >= 3 %}Moderate{% elif states('sensor.pws_uv') | float >= 6 %}High{% elif states('sensor.pws_uv') | float >= 9 %}Extreme{% else %}n/a{% endif %}"  
+
+- platform: template
+  sensors:
     solar_angle:
       value_template: '{{ states.sun.sun.attributes.elevation }}'
       friendly_name: 'Solar Angle'
