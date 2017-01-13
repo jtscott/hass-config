@@ -7,3 +7,9 @@
         {{attr}}{% if not loop.last %}, {% endif %}
         {%- endif -%}
         {%- endfor -%}
+
+- platform: template
+  sensors:
+    now_playing_template:
+      value_template: '{{ states.media_player.my_shield_console.attributes.media_title }}'
+      friendly_name: 'Now Playing'
