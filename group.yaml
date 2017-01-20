@@ -73,14 +73,14 @@ Media:
    - switch.shieldtv
    - sensor.tv_schedule
 
-lights:
+Lights:
   entities:
    - switch.front_door
    - switch.patio
    - switch.bedroom
    - switch.wemo_insight
 
-roomba:
+Roomba:
   entities:
     - switch.roomba
     - sensor.roomba_status

@@ -12,10 +12,10 @@ catch (err) {
   console.log("unable to read file '" + secretsFile + "': ", err)
 }
 
-var myRobotViaCloud = new dorita980.Cloud(secrets.username, secrets.password); // No need robot IP
+var myRobotViaLocal = new dorita980.Local(secrets.username, secrets.password); // No need robot IP
 
 // start to clean!
-myRobotViaCloud.start().then((response) => {
+myRobotViaLocal.start().then((response) => {
   console.log(response);
 }).catch((err) => {
   console.log(err);

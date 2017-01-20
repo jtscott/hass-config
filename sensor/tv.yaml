@@ -1,3 +1,10 @@
+- platform: plex
+  sensors:
+  host: !secret nas_address
+  username: !secret email_account
+  password: !secret plex_password
+  server: nas
+
 - platform: template
   sensors: 
     tv_schedule:

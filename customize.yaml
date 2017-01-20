@@ -58,7 +58,7 @@ switch.bedroom:
   icon: mdi:lightbulb
   friendly_name: 'Bedroom'
 switch.wemo_insight:
-  icon: mdi:power-plug
+  icon: mdi:lamp
   friendly_name: 'Bedroom Lamp'
 switch.roomba:
   icon: mdi:robot

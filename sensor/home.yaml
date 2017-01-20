@@ -32,11 +32,3 @@
   monitored_conditions:
   - upcoming
   days: 1
-
-# - platform: nzbget
-  # host: !secret nas_address
-  # port: 6789
-  # username: !secret nzbget_username
-  # password: !secret nzbget_password
-  # monitored_variables:
-  # - download_rate

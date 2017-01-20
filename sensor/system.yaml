@@ -4,7 +4,7 @@
 - platform: api_streams
 
 - platform: command_line
-  command: "pip show homeassistant | grep -w \"^Version:\" | cut -d : -f2 | sed -e 's/^[ \t]*//'"
+  command: "hass --version"
   name: 'HASS Installed'
   scan_interval: 60
 
