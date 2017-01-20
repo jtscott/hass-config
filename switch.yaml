@@ -1,9 +1,9 @@
 - platform: command_line
   switches:
     roomba:
-      command_on: 'node /home/pi/.homeassistant/roomba/roomba_clean.js'
-      command_off: 'node /home/pi/.homeassistant/roomba/roomba_dock.js'
-      command_state: 'node /home/pi/.homeassistant/roomba/roomba_status.js | grep robot_status | cut -d : -f 5 | cut -f 2 -d "\""'
+      command_on: "curl -s http://192.168.1.37:8484/api/local/action/start"
+      command_off: "curl -s http://192.168.1.37:8484/api/local/action/stop"
+      command_state: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.cycle | sed -e 's/^\"//' -e 's/\"$//'"
       value_template: '{{ value == "run" }}'
     netatmo_camera:
       command_on: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh on'

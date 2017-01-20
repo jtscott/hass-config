@@ -83,8 +83,10 @@ Lights:
 Roomba:
   entities:
     - switch.roomba
-    - sensor.roomba_status
+    - sensor.roomba_cycle_template
+    - sensor.roomba_phase_template
     - sensor.roomba_maintenance_template
+    - sensor.roomba_notready_template
     - sensor.roomba_battery
     - sensor.roomba_coverage
 
