@@ -1,10 +1,11 @@
 ###########################################
 # Roomba
 ###########################################
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.cycle | sed -e 's/^\"//' -e 's/\"$//'"
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Cycle'
-
+  value_template: '{{ value_json.ok.cycle }}'
+  
 - platform: template
   sensors:
     roomba_cycle_template:
@@ -21,67 +22,72 @@
               None
           {%- endif %}
 
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.phase | sed -e 's/^\"//' -e 's/\"$//'"
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Phase'
+  value_template: '{{ value_json.ok.phase }}'
 
 - platform: template
   sensors:
     roomba_phase_template:
         value_template: >-
-          {%- if is_state("sensor.roomba_cycle", "charge") %}
+          {%- if is_state("sensor.roomba_phase", "charge") %}
               Charging
-          {%- elif is_state("sensor.roomba_cycle", "run") %}
+          {%- elif is_state("sensor.roomba_phase", "run") %}
               Cleaning
-          {%- elif is_state("sensor.roomba_cycle", "stuck") %}
+          {%- elif is_state("sensor.roomba_phase", "stuck") %}
               Stuck
-          {%- elif is_state("sensor.roomba_cycle", "stop") %}
+          {%- elif is_state("sensor.roomba_phase", "stop") %}
               Stopped
           {%- else %}
               None
           {%- endif %}
 
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.notReady"
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba NotReady Flag'
-
+  value_template: '{{ value_json.ok.notReady }}'
+  
 - platform: template
   sensors:
     roomba_notready_template:
       value_template: >
         {% if is_state("sensor.roomba_notready_flag", "0") %}
-            Ready
+          Ready
         {% elif is_state("sensor.roomba_notready_flag", "1") %}
-            Cliff
+          Cliff
         {% elif is_state("sensor.roomba_notready_flag", "2") %}
-            Wheels Dropped
+          Wheels Dropped
         {% elif is_state("sensor.roomba_notready_flag", "3") %}
-            Left Wheel Dropped
+          Left Wheel Dropped
         {% elif is_state("sensor.roomba_notready_flag", "4") %}
-            Right Wheel Dropped
+          Right Wheel Dropped
         {% elif is_state("sensor.roomba_notready_flag", "7") %}
-           Bin Missing
+          Bin Missing
         {% elif is_state("sensor.roomba_notready_flag", "18") %}
-           Docking Failed
+          Docking Failed
         {% else %}
-           Error
+          Error
         {% endif %}
-          
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.batPct"
+
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Battery'
+  value_template: '{{ value_json.ok.batPct }}'
   unit_of_measurement: '%'
   scan_interval: 60
 
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.sqft"
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Coverage'
+  value_template: '{{ value_json.ok.sqft }}'
   unit_of_measurement: 'sqft'
   scan_interval: 60
 
-- platform: command_line
-  command: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.flags"
+- platform: rest
+  resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Maintenance Flag'
+  value_template: '{{ value_json.ok.flags }}'
   scan_interval: 60
 
 - platform: template
