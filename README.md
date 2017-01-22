@@ -1,9 +1,8 @@
 # My Home Assistant Configuration
-Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on a RPi3. Note that Netatmo Welcome, Withings, and Roomba devices have custom scripts for their integration.
+Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on a RPi3. Note that Netatmo Welcome and Withings devices have custom scripts for their integration.
 
 ## Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
-- NPM for Roomba/dorita980 and [wemo-cli](https://www.npmjs.com/package/belkin-wemo-command-line-tools)
 - Curl
 
 ## Shout Out
@@ -31,6 +30,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Unifi Wireless
 - Samsung UN65F8000
 - Harmony Hub
+- Plex Media Server
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
@@ -39,6 +39,3 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Commute high traffic notifications.
 - Roomba scheduling and docking.
 - Climate control based on internal and external temperatures.
-
-## To-do & Problems
-- Plex Media Server isn't working?

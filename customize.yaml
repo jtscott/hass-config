@@ -36,7 +36,10 @@ switch.livingroomtv:
   icon: mdi:television
 switch.shieldtv:
   friendly_name: 'Nvidia Shield'
-  icon: mdi:cast  
+  icon: mdi:cast
+sensor.plex:
+  friendly_name: 'Plex'
+  icon: mdi:plex
 sensor.tv_schedule:
   friendly_name: 'TV Today'
   icon: mdi:movie
