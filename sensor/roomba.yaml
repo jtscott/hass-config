@@ -12,8 +12,8 @@
         value_template: >-
           {%- if is_state("sensor.roomba_cycle", "charge") %}
               Docked
-          {%- elif is_state("sensor.roomba_cycle", "run") %}
-              Running
+          {%- elif is_state("sensor.roomba_cycle", "clean") %}
+              Cleaning
           {%- elif is_state("sensor.roomba_cycle", "stuck") %}
               Stuck
           {%- elif is_state("sensor.roomba_cycle", "stop") %}
@@ -64,6 +64,8 @@
           Right Wheel Dropped
         {% elif is_state("sensor.roomba_notready_flag", "7") %}
           Bin Missing
+        {% elif is_state("sensor.roomba_notready_flag", "15") %}
+          Low Battery
         {% elif is_state("sensor.roomba_notready_flag", "18") %}
           Docking Failed
         {% else %}
