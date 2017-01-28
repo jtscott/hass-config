@@ -1,8 +1,0 @@
-unifi:
-  title: 'Wireless'
-  url: !secret unifi_url
-  icon: mdi:wifi
-roomba:
-  title: 'Roomba'
-  url: !secret roomba_url
-  icon: mdi:robot
