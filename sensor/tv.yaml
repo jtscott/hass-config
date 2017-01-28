@@ -14,17 +14,3 @@
         {{attr}}{% if not loop.last %}, {% endif %}
         {%- endif -%}
         {%- endfor -%}
-
-- platform: template
-  sensors:
-    now_playing_template:
-      friendly_name: 'Now Playing'
-      #value_template: '{{ states.media_player.my_shield_console.attributes.media_title }}'
-      value_template: >-
-        {%- if is_state("{{ states.media_player.my_shield_console }}", "playing") %}
-          {{ states.media_player.my_shield_console.attributes.media_title }}
-        {%- elif is_state("sensor.current_activity", "Watch TV") %}
-          Cable
-        {%- else %}
-          None
-        {%- endif %}

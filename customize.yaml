@@ -45,8 +45,6 @@ sensor.tv_schedule:
   icon: mdi:movie
 sensor.current_activity:
   icon: mdi:play-pause
-sensor.now_playing_template:
-  icon: mdi:video
 
 ###########################################
 # Switches

@@ -67,8 +67,6 @@ Netatmo:
 Media:
   entities:
    - sensor.current_activity
-   - sensor.now_playing_template
-   - sensor.plex
    - input_select.harmony
    - switch.livingroomtv
    - switch.shieldtv
