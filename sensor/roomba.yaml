@@ -66,6 +66,8 @@
           Bin Missing
         {% elif is_state("sensor.roomba_notready_flag", "15") %}
           Low Battery
+        {% elif is_state("sensor.roomba_notready_flag", "16") %}
+          Tilted
         {% elif is_state("sensor.roomba_notready_flag", "18") %}
           Docking Failed
         {% else %}
