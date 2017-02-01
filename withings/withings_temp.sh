@@ -6,7 +6,7 @@ CURUSER=$(cat /home/pi/.homeassistant/withings/secrets.txt | cut -d , -f3)
 DEVICEID=$(cat /home/pi/.homeassistant/withings/secrets.txt | cut -d , -f4)
 
 #Authenticate
-curl -s -c /home/pi/.homeassistant/withings/cookies.txt -b /home/pi/.homeassistant/withings/cookies.txt 'https://account.withings.com/connectionuser/account_login?appname=my2&appliver=a9467957&r=https%3A%2F%2Fhealthmate.withings.com%2F' --data 'email='"$USERNAME"'&password='"$PASSWORD"'&is_admin='
+curl -s -c /home/pi/.homeassistant/withings/cookies.txt -b /home/pi/.homeassistant/withings/cookies.txt 'https://account.withings.com/connectionuser/account_login?appname=my2&appliver=a9467957&r=https%3A%2F%2Fhealthmate.withings.com%2F' --data 'email='"$USERNAME"'&password='"$PASSWORD"'&is_admin=' > /dev/null
 #Grab Session
 SESSIONKEY=$(cat /home/pi/.homeassistant/withings/cookies.txt | grep session | cut -f7 -d$'\t')
 #Grab Temperature
