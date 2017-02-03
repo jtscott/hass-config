@@ -10,7 +10,7 @@
   condition:
    - condition: numeric_state
      entity_id: 'sensor.yr_temperature'
-     below: '-10'
+     below: '-5'
   action:
     - service: climate.set_operation_mode
       data:
