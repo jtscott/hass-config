@@ -212,3 +212,9 @@ sensor.wemo_insight:
 sensor.since_last_boot_templated:
   friendly_name: "Uptime"
   icon: mdi:timer
+sensor.cpu_use:
+  friendly_name: 'Processor'
+  icon: mdi:chip
+sensor.ram_use:
+  friendly_name: 'Memory Use'
+  icon: mdi:memory

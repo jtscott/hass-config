@@ -133,6 +133,8 @@ System_Status:
     - sensor.hass_release
     - sensor.hass_installed
     - sensor.sd_free_space
+    - sensor.cpu_use
+    - sensor.ram_use
     - automation.update_notification
 
 Sunrise_Automation:

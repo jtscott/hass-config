@@ -28,6 +28,8 @@
 - platform: systemmonitor
   resources:
     - type: since_last_boot
+    - type: memory_use_percent
+    - type: processor_use
 
 - platform: template
   sensors:
