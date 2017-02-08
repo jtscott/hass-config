@@ -3,14 +3,9 @@
 ###########################################
 - alias: Heat On
   trigger:
-    platform: numeric_state
+    platform: state
     entity_id: climate.family_room_nest
-    value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
-    below: '23'
-  condition:
-   - condition: numeric_state
-     entity_id: 'sensor.yr_temperature'
-     below: '-5'
+    state: '21'
   action:
     - service: climate.set_operation_mode
       data:
@@ -27,10 +22,9 @@
 
 - alias: Heat Off
   trigger:
-    platform: numeric_state
+    platform: state
     entity_id: climate.family_room_nest
-    value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
-    above: '23'
+    state: '24'
   action:
     - service: climate.set_operation_mode
       data:
@@ -44,3 +38,4 @@
         message: 'Turned off, inside {{ states.climate.family_room_nest.attributes.current_temperature }}C'
         data:
           sound: cosmic
+#value_template: '{{ states.climate.family_room_nest.attributes.current_temperature }}'
