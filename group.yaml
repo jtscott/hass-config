@@ -36,7 +36,7 @@ Calgary:
     - sensor.yr_symbol
     - group.travel
     - group.forecast
-    - group.sun
+    - group.sun_moon
     - group.date_time
 
 ###########################################
@@ -116,11 +116,13 @@ Forecast:
    - sensor.pws_wind_kph
    - camera.yyc_doppler
 
-Sun:
+Sun_Moon:
+  name: "Sun & Moon"
   entities:
     - sensor.solar_angle
     - sensor.sunrise
     - sensor.sunset
+    - sensor.moon
 
 ###########################################
 # System Cards

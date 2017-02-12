@@ -146,6 +146,9 @@ sensor.sunset:
 sensor.air_quality:
   friendly_name: "Air Quality"
   icon: mdi:hospital
+sensor.moon:
+  friendly_name: "Moon"
+  icon: mdi:weather-night
 
 ###########################################
 # Travel Sensors
