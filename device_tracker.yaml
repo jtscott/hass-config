@@ -6,4 +6,3 @@
   port: 8443
   username: !secret unifi_user
   password: !secret unifi_password
-- platform: bluetooth_tracker

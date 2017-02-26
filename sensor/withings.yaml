@@ -3,12 +3,18 @@
 ###########################################
 - platform: command_line
   unit_of_measurement: 'ppm'
-  command: 'bash /home/pi/.homeassistant/withings/withings_co2.sh'
+  command: 'bash /config/withings/withings_co2.sh'
   name: 'CO2'
   scan_interval: 60
 
 - platform: command_line
   unit_of_measurement: 'C'
-  command: 'bash /home/pi/.homeassistant/withings/withings_temp.sh'
+  command: 'bash /config/withings/withings_temp.sh'
   name: 'Scale'
+  scan_interval: 60
+
+- platform: command_line
+  unit_of_measurement: '%'
+  command: 'bash /config/withings/withings_battery.sh'
+  name: 'Scale Battery'
   scan_interval: 60

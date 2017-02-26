@@ -52,6 +52,7 @@ debug:
     - group.roomba_automation
     - group.climate_automation
     - group.system_status
+    - group.withings_scale
 #    - group.wemo_signal
 
 ###########################################
@@ -172,6 +173,11 @@ Climate_Automation:
     - automation.heat_on
     - automation.heat_off
 
+Withings_Scale:
+  name: "Withings Scale"
+  entities:
+    - sensor.scale_battery
+ 
 # Wemo_Signal:
   # name: "Wemo Signal Strength"
   # entities:

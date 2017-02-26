@@ -6,9 +6,9 @@
       command_state: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.cycle | sed -e 's/^\"//' -e 's/\"$//'"
       value_template: '{{ value == "clean" }}'
     netatmo_camera:
-      command_on: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh on'
-      command_off: 'bash /home/pi/.homeassistant/netatmo/netatmo_switch.sh off'
-      command_state: 'bash /home/pi/.homeassistant/netatmo/netatmo_status.sh'
+      command_on: 'bash /config/netatmo/netatmo_switch.sh on'
+      command_off: 'bash /config/netatmo/netatmo_switch.sh off'
+      command_state: 'bash /config/netatmo/netatmo_status.sh'
       value_template: '{{ value == "on" }}'
     wemo_insight:
       command_on: 'wemo -h 192.168.2.15 -a ON'

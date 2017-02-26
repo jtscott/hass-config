@@ -103,6 +103,8 @@ sensor.netatmo_motion:
 climate.home:
   icon: mdi:thermometer
   friendly_name: 'Nest'
+sensor.scale_battery:
+  icon: mdi:battery-50
 
 ###########################################
 # Weather Sensors
