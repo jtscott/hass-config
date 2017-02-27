@@ -62,6 +62,7 @@ system:
     - group.system_status
     - group.withings_scale
     - group.wemo_signal
+    - group.roomba_debug
 
 ###########################################
 # Home Cards
@@ -93,10 +94,8 @@ Roomba:
     - switch.roomba
     - sensor.roomba_cycle_template
     - sensor.roomba_phase_template
-    - sensor.roomba_runtime
     - sensor.roomba_maintenance_template
-    - sensor.roomba_notready_template
-    - sensor.roomba_battery
+    - sensor.roomba_runtime
     - sensor.roomba_coverage
 
 ###########################################
@@ -194,6 +193,12 @@ Wemo_Signal:
     - sensor.wemo_patio
     - sensor.wemo_bedroom
     - sensor.wemo_insight    
+
+Roomba_Debug:
+  name: "Roomba Debug"
+  entities:
+    - sensor.roomba_notready_template
+    - sensor.roomba_battery
 
 ###########################################
 # Hidden Groups
