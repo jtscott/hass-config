@@ -40,20 +40,28 @@ Calgary:
     - group.date_time
 
 ###########################################
-# Debug Tab
+# Automation Tab
 ###########################################
-debug:
+automation:
   view: yes
-  name: Debug
+  name: Automation
   entities:
     - group.sunrise_automation
     - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
     - group.climate_automation
+
+###########################################
+# System Tab
+###########################################
+system:
+  view: yes
+  name: System
+  entities:
     - group.system_status
     - group.withings_scale
-#    - group.wemo_signal
+    - group.wemo_signal
 
 ###########################################
 # Home Cards
@@ -85,6 +93,7 @@ Roomba:
     - switch.roomba
     - sensor.roomba_cycle_template
     - sensor.roomba_phase_template
+    - sensor.roomba_runtime
     - sensor.roomba_maintenance_template
     - sensor.roomba_notready_template
     - sensor.roomba_battery
@@ -135,7 +144,7 @@ System_Status:
     - sensor.connected_clients
     - sensor.hass_release
     - sensor.hass_installed
-    - sensor.sd_free_space
+    - sensor.disk_free_space
     - sensor.cpu_use
     - sensor.ram_use
     - automation.update_notification
@@ -178,13 +187,13 @@ Withings_Scale:
   entities:
     - sensor.scale_battery
  
-# Wemo_Signal:
-  # name: "Wemo Signal Strength"
-  # entities:
-    # - sensor.wemo_front_door
-    # - sensor.wemo_patio
-    # - sensor.wemo_bedroom
-    # - sensor.wemo_insight    
+Wemo_Signal:
+  name: "Wemo Signal Strength"
+  entities:
+    - sensor.wemo_front_door
+    - sensor.wemo_patio
+    - sensor.wemo_bedroom
+    - sensor.wemo_insight    
 
 ###########################################
 # Hidden Groups

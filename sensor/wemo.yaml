@@ -1,26 +1,26 @@
 ###########################################
 # Wemo Signal
 ###########################################
-# - platform: command_line
-  # unit_of_measurement: '%'
-  # command: 'wemo -h 192.168.2.15 -a GETSIGNALSTRENGTH'
-  # name: 'Wemo Insight'
-  # scan_interval: 60
+- platform: command_line
+  unit_of_measurement: '%'
+  command: 'wemo -h 192.168.2.15 -a GETSIGNALSTRENGTH'
+  name: 'Wemo Insight'
+  scan_interval: 60
 
-# - platform: command_line
-  # unit_of_measurement: '%'
-  # command: 'wemo -h 192.168.2.16 -a GETSIGNALSTRENGTH'
-  # name: 'Wemo Bedroom'
-  # scan_interval: 60
+- platform: command_line
+  unit_of_measurement: '%'
+  command: 'wemo -h 192.168.2.16 -a GETSIGNALSTRENGTH'
+  name: 'Wemo Bedroom'
+  scan_interval: 60
 
-# - platform: command_line
-  # unit_of_measurement: '%'
-  # command: 'wemo -h 192.168.2.14 -a GETSIGNALSTRENGTH'
-  # name: 'Wemo Patio'
-  # scan_interval: 60
+- platform: command_line
+  unit_of_measurement: '%'
+  command: 'wemo -h 192.168.2.14 -a GETSIGNALSTRENGTH'
+  name: 'Wemo Patio'
+  scan_interval: 60
 
-# - platform: command_line
-  # unit_of_measurement: '%'
-  # command: 'wemo -h 192.168.2.13 -a GETSIGNALSTRENGTH'
-  # name: 'Wemo Front Door'
-  # scan_interval: 60
+- platform: command_line
+  unit_of_measurement: '%'
+  command: 'wemo -h 192.168.2.13 -a GETSIGNALSTRENGTH'
+  name: 'Wemo Front Door'
+  scan_interval: 60

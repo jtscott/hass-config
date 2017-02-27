@@ -21,8 +21,8 @@
     User-Agent: Home Assistant REST sensor
 
 - platform: command_line
-  command: "df -h | grep root | awk '{print $4}'"
-  name: "SD Free Space"
+  command: "df -h | grep none | awk '{print $4}'"
+  name: "Disk Free Space"
   scan_interval: 60
 
 - platform: systemmonitor

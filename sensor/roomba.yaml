@@ -115,3 +115,10 @@
         {% else %}
             n/a
         {% endif %}
+
+- platform: history_stats
+  name: Roomba Runtime
+  entity_id: switch.roomba
+  state: 'on'
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'

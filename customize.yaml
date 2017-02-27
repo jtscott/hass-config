@@ -9,13 +9,13 @@ group.roomba:
   order: 3
 
 ###########################################
-# Calgary Group Order
+# System Group Order
 ###########################################
 group.date_time:
   order: 1
 group.system_status:
   order: 2
-
+ 
 ###########################################
 # Home Sensors
 ###########################################
@@ -93,6 +93,9 @@ sensor.roomba_notready_template:
 sensor.roomba_coverage:
   icon: mdi:vector-triangle
   friendly_name: 'Coverage'
+sensor.roomba_runtime:
+  icon: mdi:timelapse
+  friendly_name: 'Runtime'
 sensor.netatmo_motion:
   icon: mdi:run
   friendly_name: 'Motion Sensor'
@@ -204,8 +207,8 @@ sensor.hass_installed:
 sensor.hass_release:
   friendly_name: 'Release'
   icon: mdi:github-circle
-sensor.sd_free_space:
-  icon: mdi:sd
+sensor.disk_free_space:
+  icon: mdi:harddisk
 sensor.wemo_front_door:
   icon: mdi:signal-variant
 sensor.wemo_patio:
