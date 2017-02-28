@@ -40,6 +40,18 @@ Calgary:
     - group.date_time
 
 ###########################################
+# System Tab
+###########################################
+system:
+  view: yes
+  name: System
+  entities:
+    - group.system_status
+    - group.withings_scale
+    - group.wemo_signal
+    - group.roomba_debug
+
+###########################################
 # Automation Tab
 ###########################################
 automation:
@@ -51,18 +63,6 @@ automation:
     - group.arrival_departure_automation
     - group.roomba_automation
     - group.climate_automation
-
-###########################################
-# System Tab
-###########################################
-system:
-  view: yes
-  name: System
-  entities:
-    - group.system_status
-    - group.withings_scale
-    - group.wemo_signal
-    - group.roomba_debug
 
 ###########################################
 # Home Cards
