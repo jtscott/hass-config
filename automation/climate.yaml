@@ -5,14 +5,14 @@
   trigger:
     platform: state
     entity_id: climate.family_room_nest
-    state: '21'
+    state: '21.0'
   action:
     - service: climate.set_operation_mode
       data:
         operation_mode: heat
     - service: climate.set_temperature
       data:
-        temperature: 25
+        temperature: 25.0
     - service: notify.pushover
       data:
         title: Thermostat
@@ -24,14 +24,14 @@
   trigger:
     platform: state
     entity_id: climate.family_room_nest
-    state: '24'
+    state: '24.0'
   action:
     - service: climate.set_operation_mode
       data:
         operation_mode: eco
     - service: climate.set_temperature
       data:
-        temperature: 18
+        temperature: 18.0
     - service: notify.pushover
       data:
         title: Thermostat
