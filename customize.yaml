@@ -84,9 +84,12 @@ sensor.roomba_cycle_template:
 sensor.roomba_phase_template:
   icon: mdi:blur-radial
   friendly_name: 'Phase'
-sensor.roomba_maintenance_template:
+sensor.roomba_bin_state_template:
   icon: mdi:delete-sweep
-  friendly_name: 'Maintenance'
+  friendly_name: 'Bin State'
+sensor.roomba_bin_presence_template:
+  icon: mdi:delete-sweep
+  friendly_name: 'Bin Status'
 sensor.roomba_notready_template:
   icon: mdi:image-broken-variant
   friendly_name: 'Errors'
@@ -96,6 +99,11 @@ sensor.roomba_coverage:
 sensor.roomba_runtime:
   icon: mdi:timelapse
   friendly_name: 'Runtime'
+sensor.roomba_firmware:
+  icon: mdi:floppy
+  friendly_name: 'Firmware'
+sensor.roomba_rssi:
+  icon: mdi:signal-variant
 sensor.netatmo_motion:
   icon: mdi:run
   friendly_name: 'Motion Sensor'

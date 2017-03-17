@@ -49,7 +49,7 @@ system:
     - group.system_status
     - group.withings_scale
     - group.wemo_signal
-    - group.roomba_debug
+    - group.roomba_system
 
 ###########################################
 # Automation Tab
@@ -94,7 +94,8 @@ Roomba:
     - switch.roomba
     - sensor.roomba_cycle_template
     - sensor.roomba_phase_template
-    - sensor.roomba_maintenance_template
+    - sensor.roomba_bin_presence_template
+    - sensor.roomba_bin_state_template
     - sensor.roomba_runtime
     - sensor.roomba_coverage
 
@@ -194,11 +195,12 @@ Wemo_Signal:
     - sensor.wemo_bedroom
     - sensor.wemo_insight    
 
-Roomba_Debug:
-  name: "Roomba Debug"
+Roomba_System:
+  name: "Roomba 980"
   entities:
-    - sensor.roomba_notready_template
+    - sensor.roomba_firmware
     - sensor.roomba_battery
+    - sensor.roomba_rssi    
 
 ###########################################
 # Hidden Groups
