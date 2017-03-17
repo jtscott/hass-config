@@ -6,3 +6,4 @@
   port: 8443
   username: !secret unifi_user
   password: !secret unifi_password
+  verify_ssl: false
