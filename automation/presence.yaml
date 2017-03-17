@@ -28,6 +28,8 @@
   action:
     - service: switch.turn_on
       entity_id: switch.wemo_insight
+    - service: switch.turn_on
+      entity_id: switch.front_door
 
 - alias: Off While Away
   trigger:
