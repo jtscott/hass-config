@@ -3,7 +3,7 @@
     roomba:
       command_on: "curl -s http://192.168.1.37:8484/api/local/action/start"
       command_off: "curl -s http://192.168.1.37:8484/api/local/action/stop"
-      command_state: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .ok.cycle | sed -e 's/^\"//' -e 's/\"$//'"
+      command_state: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .cleanMissionStatus.cycle | sed -e 's/^\"//' -e 's/\"$//'"
       value_template: '{{ value == "clean" }}'
     netatmo_camera:
       command_on: 'bash /config/netatmo/netatmo_switch.sh on'

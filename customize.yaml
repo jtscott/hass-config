@@ -104,6 +104,7 @@ sensor.roomba_firmware:
   friendly_name: 'Firmware'
 sensor.roomba_rssi:
   icon: mdi:signal-variant
+  friendly_name: 'RSSI'
 sensor.netatmo_motion:
   icon: mdi:run
   friendly_name: 'Motion Sensor'
