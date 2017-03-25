@@ -45,6 +45,10 @@ sensor.tv_schedule:
   icon: mdi:movie
 sensor.current_activity:
   icon: mdi:play-pause
+device_tracker.jaredsrotary:
+  friendly_name: 'Jared'
+device_tracker.brittanysiphone:
+  friendly_name: 'Brittany'
 
 ###########################################
 # Switches

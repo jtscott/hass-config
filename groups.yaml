@@ -5,7 +5,7 @@ default_view:
   view: yes
   entities:
     - device_tracker.brittanysiphone
-    - device_tracker.jaredsrotary_ip
+    - device_tracker.jaredsrotary
     - sensor.climate_operation_mode
     - sensor.family_room_thermostat_nest_humidity
     - sensor.family_room_thermostat_nest_temperature
@@ -207,5 +207,4 @@ Roomba_System:
 ###########################################
 family_devices:
     - device_tracker.brittanysiphone
-    - device_tracker.jaredsrotary_ip
-    - device_tracker.jaredsrotary_bt
+    - device_tracker.jaredsrotary
