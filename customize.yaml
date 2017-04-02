@@ -175,6 +175,8 @@ sensor.home_to_enmax:
   icon: mdi:car
 sensor.home_to_supported_lifestyles:
   icon: mdi:car
+sensor.home_to_acadia:
+  icon: mdi:car
 
 ###########################################
 # Automation
