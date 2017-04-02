@@ -60,6 +60,7 @@ notify: !include notify.yaml
 automation: !include_dir_merge_list automation
 media_player: !include media_player.yaml
 input_select: !include input_select.yaml
+alert: !include alert.yaml
 #emulated_hue: !include emulated_hue.yaml
 
 ###########################################

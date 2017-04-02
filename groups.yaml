@@ -56,13 +56,14 @@ system:
 ###########################################
 automation:
   view: yes
-  name: Automation
+  name: Alerts & Automation
   entities:
     - group.sunrise_automation
     - group.presence_automation
     - group.arrival_departure_automation
     - group.roomba_automation
     - group.climate_automation
+    - group.alerts
 
 ###########################################
 # Home Cards
@@ -201,6 +202,13 @@ Roomba_System:
     - sensor.roomba_firmware
     - sensor.roomba_battery
     - sensor.roomba_rssi    
+
+###########################################
+# Alerts
+###########################################
+Alerts:
+    - alert.roomba_bin_full
+    - alert.scale_battery_low
 
 ###########################################
 # Hidden Groups

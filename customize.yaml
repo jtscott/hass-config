@@ -209,6 +209,14 @@ automation.heat_off:
   icon: mdi:nest-thermostat
 
 ###########################################
+# Alerts
+###########################################
+alert.roomba_bin_full:
+  icon: mdi:alert
+alert.scale_battery_low:
+  icon: mdi:alert
+
+###########################################
 # Debug
 ###########################################
 sensor.connected_clients:

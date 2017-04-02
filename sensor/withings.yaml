@@ -18,3 +18,8 @@
   command: 'bash /config/withings/withings_battery.sh'
   name: 'Scale Battery'
   scan_interval: 60
+
+- platform: template
+  sensors:
+    scale_battery_low:
+      value_template: "{% if states('sensor.scale_battery') | float <= 15 %}true{% elif states('sensor.scale_battery') | float >= 16 %}false{% else %}n/a{% endif %}"
