@@ -114,6 +114,7 @@ Travel:
     - sensor.home_to_enmax
     - sensor.home_to_supported_lifestyles
     - sensor.home_to_acadia
+    - sensor.home_to_airport
 
 Forecast:
   entities:

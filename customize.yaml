@@ -177,6 +177,8 @@ sensor.home_to_supported_lifestyles:
   icon: mdi:car
 sensor.home_to_acadia:
   icon: mdi:car
+sensor.home_to_airport:
+  icon: mdi:airplane
 
 ###########################################
 # Automation

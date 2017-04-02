@@ -18,3 +18,9 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret acadia_address
+  
+- platform: google_travel_time
+  name: Home to Airport
+  api_key: !secret google_maps
+  origin: zone.home
+  destination: !secret airport_address
