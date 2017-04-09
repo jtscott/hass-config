@@ -16,7 +16,7 @@
           - thu
           - fri
       - condition: state
-        entity_id: device_tracker.bobbiiphone_ip
+        entity_id: device_tracker.bobbisiphone
         state: not_home
       - condition: state
         entity_id: group.family_devices
