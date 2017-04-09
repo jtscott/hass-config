@@ -15,3 +15,12 @@ scale_battery_low:
   can_acknowledge: True
   notifiers:
     - pushover
+
+wink_hub_offline:
+  name: Wink Hub is Offline
+  entity_id: sensor.wink_hub_status
+  state: 'Offline'
+  repeat: 240
+  can_acknowledge: True
+  notifiers:
+    - pushover

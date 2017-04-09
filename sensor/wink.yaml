@@ -4,7 +4,7 @@
         value_template: >-
           {%- if is_state("binary_sensor.wink_hub", "on") %}
               Online
-          {%- elif is_state("binary_sensor.wink_hub", "off") %}
+          {%- elif is_state("binary_sensor.wink_hub", "unavailable") %}
               Offline
           {%- else %}
               Error
@@ -19,8 +19,6 @@
   sensors:
     wink_hub_firmware_state:
         value_template: '{{ states.binary_sensor.wink_hub.attributes["update needed"] }}'
-
-
 
 - platform: template
   sensors:
