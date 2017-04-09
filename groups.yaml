@@ -193,6 +193,8 @@ Wink_Hub:
   name: "Wink Hub"
   entities:
     - sensor.wink_hub_status
+    - sensor.wink_hub_firmware_state_template
+    - sensor.wink_hub_firmware_version
 
 Withings_Scale:
   name: "Withings Scale"

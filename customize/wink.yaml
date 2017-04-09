@@ -4,3 +4,11 @@
 sensor.wink_hub_status:
   icon: mdi:dns
   friendly_name: 'Status'
+
+sensor.wink_hub_firmware_state_template:
+  icon: mdi:update
+  friendly_name: 'Firmware State'
+ 
+sensor.wink_hub_firmware_version:
+  icon: mdi:floppy
+  friendly_name: 'Firmware Version'

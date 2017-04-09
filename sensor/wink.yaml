@@ -9,3 +9,25 @@
           {%- else %}
               Error
           {%- endif %}
+
+- platform: template
+  sensors:
+    wink_hub_firmware_state:
+        value_template: '{{ states.binary_sensor.wink_hub.attributes["update needed"] }}'
+
+- platform: template
+  sensors:
+    wink_hub_firmware_version:
+        value_template: '{{ states.binary_sensor.wink_hub.attributes["firmware version"] }}'
+
+- platform: template
+  sensors:
+    wink_hub_firmware_state_template:
+        value_template: >-
+          {%- if is_state("sensor.wink_hub_firmware_state", "False") %}
+              Up-to-Date
+          {%- elif is_state("sensor.wink_hub_firmware_state", "True") %}
+              Update Available
+          {%- else %}
+              Error
+          {%- endif %}  
