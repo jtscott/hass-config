@@ -1,0 +1,7 @@
+Media:
+  entities:
+   - sensor.current_activity
+   - input_select.harmony
+   - switch.livingroomtv
+   - switch.shieldtv
+   - sensor.tv_schedule

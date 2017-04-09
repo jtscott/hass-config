@@ -1,0 +1,5 @@
+Climate_Automation:
+  name: "Climate Automation"
+  entities:
+    - automation.heat_on
+    - automation.heat_off

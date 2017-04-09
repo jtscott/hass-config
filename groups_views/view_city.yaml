@@ -1,0 +1,20 @@
+###########################################
+# Calgary Tab
+###########################################
+Calgary:
+  view: yes
+  name: Calgary
+  entities:
+    - camera.glenmore__macleod
+    - camera.glenmore__crowchild
+    - camera.4_ave__9_st
+    - camera.5_ave__7_st
+    - camera.bow__6_ave
+    - sun.sun
+    - sensor.yr_temperature
+    - sensor.yr_humidity
+    - sensor.yr_symbol
+    - group.travel
+    - group.forecast
+    - group.sun_moon
+    - group.date_time

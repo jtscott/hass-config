@@ -1,0 +1,5 @@
+Date_Time:
+  name: "Date & Time"
+  entities:
+    - sensor.date
+    - sensor.time

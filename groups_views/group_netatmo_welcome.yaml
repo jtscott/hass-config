@@ -1,0 +1,6 @@
+Netatmo:
+  name: "Netatmo Welcome"
+  entities:
+    - switch.netatmo_camera
+    - sensor.netatmo_motion
+    - camera.hemlock__kitchen

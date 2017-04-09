@@ -1,0 +1,26 @@
+Forecast:
+  entities:
+   - sensor.pws_feelslike_c
+   - sensor.dark_sky_daily_low_temperature
+   - sensor.dark_sky_daily_high_temperature
+   - sensor.air_pressure_template
+   - sensor.air_quality
+   - sensor.uv_rating_template
+   - sensor.dark_sky_precip_probability
+   - sensor.pws_precip_today_metric
+   - sensor.pws_wind_kph
+   - camera.yyc_doppler
+
+Sun_Moon:
+  name: "Sun & Moon"
+  entities:
+    - sensor.solar_angle
+    - sensor.sunrise
+    - sensor.sunset
+    - sensor.moon
+
+Sunrise_Automation:
+  name: "Sunrise Automation"
+  entities:
+    - automation.sunrise_away_lights
+    - automation.sunset_away_lights

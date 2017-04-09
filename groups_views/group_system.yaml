@@ -1,0 +1,44 @@
+Roomba_System:
+  name: "Roomba 980"
+  entities:
+    - sensor.roomba_firmware
+    - sensor.roomba_battery
+    - sensor.roomba_rssi
+
+System_Status:
+  name: "System Status"
+  entities:
+    - sensor.since_last_boot_templated
+    - sensor.connected_clients
+    - sensor.hass_release
+    - sensor.hass_installed
+    - sensor.disk_free_space
+    - sensor.cpu_use
+    - sensor.ram_use
+    - automation.update_notification
+
+Wink_Hub:
+  name: "Wink Hub"
+  entities:
+    - sensor.wink_hub_status
+    - sensor.wink_hub_firmware_state_template
+    - sensor.wink_hub_firmware_version
+
+Wink_Automation:
+  name: "Wink"
+  entities:
+    - automation.wink_hub_update
+
+Withings_Scale:
+  name: "Withings Scale"
+  entities:
+    - sensor.scale_battery
+    - sensor.scale_firmware
+ 
+Wemo_Signal:
+  name: "Wemo Signal Strength"
+  entities:
+    - sensor.front_door_switch_signal
+    - sensor.patio_switch_signal
+    - sensor.bedroom_switch_signal
+    - sensor.insight_switch_signal

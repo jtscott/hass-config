@@ -1,0 +1,13 @@
+###########################################
+# Automation Tab
+###########################################
+automation:
+  view: yes
+  name: Automation
+  entities:
+    - group.sunrise_automation
+    - group.presence_automation
+    - group.arrival_departure_automation
+    - group.roomba_automation
+    - group.climate_automation
+    - group.wink_automation

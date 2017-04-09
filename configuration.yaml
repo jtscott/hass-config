@@ -55,7 +55,7 @@ sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
-group: !include groups.yaml
+group: !include_dir_merge_named groups_views
 notify: !include notify.yaml
 automation: !include_dir_merge_list automation
 media_player: !include media_player.yaml

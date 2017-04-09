@@ -1,0 +1,12 @@
+###########################################
+# System Tab
+###########################################
+system:
+  view: yes
+  name: System
+  entities:
+    - group.system_status
+    - group.withings_scale
+    - group.wemo_signal
+    - group.roomba_system
+    - group.wink_hub

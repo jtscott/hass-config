@@ -1,0 +1,15 @@
+Roomba:
+  entities:
+    - switch.roomba
+    - sensor.roomba_cycle_template
+    - sensor.roomba_phase_template
+    - sensor.roomba_bin_presence_template
+    - sensor.roomba_bin_state_template
+    - sensor.roomba_runtime
+    - sensor.roomba_coverage
+
+Roomba_Automation:
+  name: "Roomba Automation"
+  entities:
+    - automation.roomba_schedule
+    - automation.roomba_stop

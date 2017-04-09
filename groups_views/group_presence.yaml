@@ -1,0 +1,14 @@
+Presence_Automation:
+  name: "Presence Automation"
+  entities:
+    - automation.off_while_home
+    - automation.on_while_home
+    - automation.off_while_away
+    - automation.on_while_away
+
+Arrival_Departure_Automation:
+  name: "Arrival & Departure Automation"
+  entities:
+    - automation.patio_off_after_arrival
+    - automation.patio_on_after_departure
+    - automation.commute_notification
