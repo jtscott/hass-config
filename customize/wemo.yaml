@@ -1,14 +1,14 @@
 ###########################################
 # Sensors
 ###########################################
-sensor.wemo_front_door:
+sensor.front_door_switch_signal:
   icon: mdi:signal-variant
 
-sensor.wemo_patio:
+sensor.patio_switch_signal:
   icon: mdi:signal-variant
 
-sensor.wemo_bedroom:
+sensor.bedroom_switch_signal:
   icon: mdi:signal-variant
 
-sensor.wemo_insight:
+sensor.insight_switch_signal:
   icon: mdi:signal-variant

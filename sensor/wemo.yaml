@@ -4,23 +4,23 @@
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.15 -a GETSIGNALSTRENGTH'
-  name: 'Wemo Insight'
+  name: 'Insight Switch Signal'
   scan_interval: 60
 
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.16 -a GETSIGNALSTRENGTH'
-  name: 'Wemo Bedroom'
+  name: 'Bedroom Switch Signal'
   scan_interval: 60
 
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.14 -a GETSIGNALSTRENGTH'
-  name: 'Wemo Patio'
+  name: 'Patio Switch Signal'
   scan_interval: 60
 
 - platform: command_line
   unit_of_measurement: '%'
   command: 'wemo -h 192.168.2.13 -a GETSIGNALSTRENGTH'
-  name: 'Wemo Front Door'
+  name: 'Front Door Switch Signal'
   scan_interval: 60

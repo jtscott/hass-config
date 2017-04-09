@@ -211,10 +211,10 @@ Withings_Scale:
 Wemo_Signal:
   name: "Wemo Signal Strength"
   entities:
-    - sensor.wemo_front_door
-    - sensor.wemo_patio
-    - sensor.wemo_bedroom
-    - sensor.wemo_insight    
+    - sensor.front_door_switch_signal
+    - sensor.patio_switch_signal
+    - sensor.bedroom_switch_signal
+    - sensor.insight_switch_signal
 
 Roomba_System:
   name: "Roomba 980"
