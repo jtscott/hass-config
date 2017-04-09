@@ -21,7 +21,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ![Debug](https://www.dropbox.com/s/qx3ibaoaw93pvze/debug.PNG?raw=1)
 
 ## Devices
-- RPi3 on Raspian Jessie
+- Wink Hub 2
 - Nest Thermostat
 - Wemo Light & Insight Switches
 - Roomba 980
