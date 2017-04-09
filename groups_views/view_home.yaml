@@ -19,3 +19,4 @@ default_view:
     - media_player.my_shield_console
     - alert.roomba_bin_full
     - alert.scale_battery_low
+    - alert.wink_hub_offline
