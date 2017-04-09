@@ -90,6 +90,8 @@ Lights:
    - switch.patio
    - switch.bedroom
    - switch.wemo_insight
+   - light.bathroom_1
+   - light.bathroom_2
 
 Roomba:
   entities:

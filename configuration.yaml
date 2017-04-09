@@ -79,6 +79,9 @@ netatmo:
   username: !secret email_account
   password: !secret netatmo_password
 
+wink:
+  email: !secret email_account
+  password: !secret wink_password
 remote:
   - platform: harmony
     name: 'Living Room'
