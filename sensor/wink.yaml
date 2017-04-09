@@ -12,13 +12,15 @@
 
 - platform: template
   sensors:
-    wink_hub_firmware_state:
-        value_template: '{{ states.binary_sensor.wink_hub.attributes["update needed"] }}'
+    wink_hub_firmware_version:
+        value_template: '{{ states.binary_sensor.wink_hub.attributes["firmware version"] }}'
 
 - platform: template
   sensors:
-    wink_hub_firmware_version:
-        value_template: '{{ states.binary_sensor.wink_hub.attributes["firmware version"] }}'
+    wink_hub_firmware_state:
+        value_template: '{{ states.binary_sensor.wink_hub.attributes["update needed"] }}'
+
+
 
 - platform: template
   sensors:
