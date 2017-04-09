@@ -12,3 +12,10 @@ sensor.wink_hub_firmware_state_template:
 sensor.wink_hub_firmware_version:
   icon: mdi:floppy
   friendly_name: 'Firmware Version'
+  
+###########################################
+# Automation
+###########################################
+automation.wink_hub_update:
+  icon: mdi:dns
+  friendly_name: 'Firmware Update Notification'

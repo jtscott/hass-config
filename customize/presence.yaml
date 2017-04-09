@@ -1,0 +1,17 @@
+###########################################
+# Automation
+###########################################
+automation.sunrise_away_lights:
+  icon: mdi:weather-sunset-up
+automation.sunset_away_lights:
+  icon: mdi:weather-sunset-down
+
+automation.off_while_home:
+  icon: mdi:home
+automation.on_while_home:
+  icon: mdi:home
+
+automation.off_while_away:
+  icon: mdi:city
+automation.on_while_away:
+  icon: mdi:city

@@ -5,6 +5,15 @@ alert.roomba_bin_full:
   icon: mdi:alert
 
 ###########################################
+# Automation
+###########################################
+automation.roomba_schedule:
+  icon: mdi:play-circle
+
+automation.roomba_stop:
+  icon: mdi:stop-circle
+
+###########################################
 # Switches
 ###########################################
 switch.roomba:

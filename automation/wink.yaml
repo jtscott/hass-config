@@ -1,0 +1,12 @@
+- alias: Wink Hub Update
+  trigger:
+    platform: state
+    entity_id: sensor.wink_hub_firmware_state
+    state: 'True'
+  action:
+    - service: notify.pushover
+      data:
+        title: Wink Hub
+        message: 'Wink Hub firmware update is available.'
+        data:
+          sound: cosmic

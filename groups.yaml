@@ -66,6 +66,7 @@ automation:
     - group.arrival_departure_automation
     - group.roomba_automation
     - group.climate_automation
+    - group.wink_automation
 
 ###########################################
 # Home Cards
@@ -195,6 +196,11 @@ Wink_Hub:
     - sensor.wink_hub_status
     - sensor.wink_hub_firmware_state_template
     - sensor.wink_hub_firmware_version
+
+Wink_Automation:
+  name: "Wink"
+  entities:
+    - automation.wink_hub_update
 
 Withings_Scale:
   name: "Withings Scale"

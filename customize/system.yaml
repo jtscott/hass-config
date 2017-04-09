@@ -27,3 +27,9 @@ sensor.ram_use:
 sensor.since_last_boot_templated:
   friendly_name: "Uptime"
   icon: mdi:timer
+
+###########################################
+# Automation
+###########################################
+automation.update_notification:
+  icon: mdi:message-alert
