@@ -19,6 +19,11 @@
   name: 'Scale Battery'
   scan_interval: 60
 
+- platform: command_line
+  command: 'bash /config/withings/withings_firmware.sh'
+  name: 'Scale Firmware'
+  scan_interval: 60
+
 - platform: template
   sensors:
     scale_battery_low:

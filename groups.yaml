@@ -206,6 +206,7 @@ Withings_Scale:
   name: "Withings Scale"
   entities:
     - sensor.scale_battery
+    - sensor.scale_firmware
  
 Wemo_Signal:
   name: "Wemo Signal Strength"
@@ -221,8 +222,7 @@ Roomba_System:
     - sensor.roomba_firmware
     - sensor.roomba_battery
     - sensor.roomba_rssi    
-
-    
+  
 
 ###########################################
 # Hidden Groups
