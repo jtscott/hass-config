@@ -1,0 +1,72 @@
+###########################################
+# Sun & Moon
+###########################################
+sensor.solar_angle:
+  icon: mdi:vector-curve
+
+sensor.sunrise:
+  icon: mdi:weather-sunset-up
+
+sensor.sunset:
+  icon: mdi:weather-sunset-down
+
+sensor.moon:
+  friendly_name: "Moon"
+  icon: mdi:weather-night
+
+###########################################
+# YR
+###########################################
+sensor.yr_temperature:
+  friendly_name: 'Outside'
+
+sensor.yr_humidity:
+  friendly_name: 'Humidity'
+
+sensor.yr_symbol:
+  friendly_name: 'Conditions'
+
+###########################################
+# Dark Sky
+###########################################
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+  
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+  
+sensor.dark_sky_precip_probability:
+  friendly_name: 'Chance of Rain'
+  icon: mdi:weather-rainy
+  
+sensor.air_pressure_template:
+  friendly_name: 'Air Pressure'
+  icon: mdi:gauge
+
+###########################################
+# Weather Underground
+###########################################
+sensor.pws_feelslike_c:
+  friendly_name: 'Feels Like'
+  icon: mdi:human-male-female
+
+sensor.pws_wind_kph:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy
+
+sensor.pws_precip_today_metric:
+  friendly_name: 'Amount of Rain'
+  icon: mdi:cup-water
+
+sensor.uv_rating_template:
+  friendly_name: 'UV Level'
+  icon: mdi:sunglasses
+
+###########################################
+# World Air Quality Index (WAQI)
+###########################################
+sensor.air_quality:
+  friendly_name: "Air Quality"
+  icon: mdi:hospital

@@ -1,0 +1,11 @@
+- platform: template
+  sensors:
+    wink_hub_status:
+        value_template: >-
+          {%- if is_state("binary_sensor.wink_hub", "on") %}
+              Online
+          {%- elif is_state("binary_sensor.wink_hub", "off") %}
+              Offline
+          {%- else %}
+              Error
+          {%- endif %}

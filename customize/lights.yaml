@@ -1,0 +1,18 @@
+###########################################
+# Switches
+###########################################
+switch.front_door:
+  icon: mdi:lightbulb
+  friendly_name: 'Front Door'
+
+switch.patio:
+  icon: mdi:lightbulb
+  friendly_name: 'Patio'
+
+switch.bedroom:
+  icon: mdi:lightbulb
+  friendly_name: 'Bedroom'
+
+switch.wemo_insight:
+  icon: mdi:lamp
+  friendly_name: 'Bedroom Lamp'

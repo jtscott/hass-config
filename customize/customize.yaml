@@ -1,0 +1,17 @@
+###########################################
+# Home Group Order
+###########################################
+group.lights:
+  order: 1
+group.netatmo:
+  order: 2
+group.roomba:
+  order: 3
+
+###########################################
+# System Group Order
+###########################################
+group.date_time:
+  order: 1
+group.system_status:
+  order: 2

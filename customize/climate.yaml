@@ -1,0 +1,30 @@
+###########################################
+# Alerts
+###########################################
+alert.scale_battery_low:
+  icon: mdi:alert
+
+###########################################
+# Nest
+###########################################
+climate.home:
+  icon: mdi:thermometer
+  friendly_name: 'Nest'
+
+sensor.climate_operation_mode:
+  friendly_name: Nest
+
+sensor.family_room_thermostat_nest_temperature:
+  friendly_name: 'Inside'
+
+sensor.family_room_thermostat_nest_humidity:
+  friendly_name: 'Humidity'
+
+###########################################
+# Withings
+###########################################
+sensor.co2_ppm:
+  sensor_class: gas
+
+sensor.scale_battery:
+  icon: mdi:battery-50

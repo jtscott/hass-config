@@ -1,0 +1,29 @@
+###########################################
+# Sensors
+###########################################
+sensor.connected_clients:
+  friendly_name: 'Connections'
+  icon: mdi:lan-connect
+
+sensor.cpu_use:
+  friendly_name: 'Processor'
+  icon: mdi:chip
+
+sensor.disk_free_space:
+  icon: mdi:harddisk
+
+sensor.hass_installed:
+  friendly_name: 'Installed'
+  icon: mdi:folder-download
+
+sensor.hass_release:
+  friendly_name: 'Release'
+  icon: mdi:github-circle
+
+sensor.ram_use:
+  friendly_name: 'Memory Use'
+  icon: mdi:memory
+
+sensor.since_last_boot_templated:
+  friendly_name: "Uptime"
+  icon: mdi:timer

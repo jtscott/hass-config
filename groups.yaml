@@ -52,6 +52,7 @@ system:
     - group.withings_scale
     - group.wemo_signal
     - group.roomba_system
+    - group.wink_hub
 
 ###########################################
 # Automation Tab
@@ -188,6 +189,11 @@ Climate_Automation:
     - automation.heat_on
     - automation.heat_off
 
+Wink_Hub:
+  name: "Wink Hub"
+  entities:
+    - sensor.wink_hub_status
+
 Withings_Scale:
   name: "Withings Scale"
   entities:
@@ -207,6 +213,8 @@ Roomba_System:
     - sensor.roomba_firmware
     - sensor.roomba_battery
     - sensor.roomba_rssi    
+
+    
 
 ###########################################
 # Hidden Groups

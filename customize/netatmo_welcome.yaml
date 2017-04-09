@@ -1,0 +1,13 @@
+###########################################
+# Switches
+###########################################
+switch.netatmo_camera:
+  icon: mdi:camera
+  friendly_name: 'Camera Toggle'
+
+###########################################
+# Sensors
+###########################################
+sensor.netatmo_motion:
+  icon: mdi:run
+  friendly_name: 'Motion Sensor'

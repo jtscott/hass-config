@@ -1,0 +1,6 @@
+###########################################
+# Sensors
+###########################################
+sensor.wink_hub_status:
+  icon: mdi:dns
+  friendly_name: 'Status'

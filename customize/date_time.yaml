@@ -1,0 +1,8 @@
+###########################################
+# Sensors
+###########################################
+sensor.date:
+  icon: mdi:calendar
+
+sensor.time:
+  icon: mdi:clock

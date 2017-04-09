@@ -1,0 +1,30 @@
+###########################################
+# Switches
+###########################################
+switch.livingroomtv:
+  friendly_name: 'Samsung TV'
+  icon: mdi:television
+
+switch.shieldtv:
+  friendly_name: 'Nvidia Shield'
+  icon: mdi:cast
+
+###########################################
+# Sensors
+###########################################
+sensor.current_activity:
+  icon: mdi:play-pause
+
+sensor.nzbget_speed:
+  icon: mdi:cloud-download
+
+sensor.plex:
+  friendly_name: 'Plex'
+  icon: mdi:plex
+  
+media_player.my_shield_console:
+  friendly_name: 'Nvidia Shield'
+
+sensor.tv_schedule:
+  friendly_name: 'TV Today'
+  icon: mdi:movie
