@@ -87,3 +87,5 @@ remote:
 wink:
   email: !secret email_account
   password: !secret wink_password
+  client_id: !secret wink_client_id
+  client_secret: !secret wink_client_secret
