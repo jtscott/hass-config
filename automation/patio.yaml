@@ -46,3 +46,14 @@
         message: Turned on.
         data:
           sound: cosmic
+
+###########################################
+# Patio Camera
+###########################################
+- alias: Homestreamer Camera Scrape
+  trigger:
+    platform: time
+    minutes: '/1'
+    seconds: 00
+  action:
+    - service: shell_command.scrape_patio_camera

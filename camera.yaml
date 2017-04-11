@@ -23,3 +23,6 @@
   home: Hemlock
   cameras:
     - Kitchen
+- platform: local_file
+  name: 'Patio'
+  file_path: /usr/src/app/capture.png

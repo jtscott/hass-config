@@ -15,6 +15,7 @@ default_view:
     - group.media
     - group.roomba
     - group.netatmo
+    - camera.patio
     - climate.family_room_nest
     - media_player.my_shield_console
     - alert.roomba_bin_full

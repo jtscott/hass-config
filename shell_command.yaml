@@ -1,0 +1,1 @@
+scrape_patio_camera: phantomjs /config/homestreamer/cam3.js

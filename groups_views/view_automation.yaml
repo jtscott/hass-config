@@ -11,3 +11,4 @@ automation:
     - group.roomba_automation
     - group.climate_automation
     - group.wink_automation
+    - group.scheduled_tasks
