@@ -1,7 +1,7 @@
 - platform: unifi
   track_new_devices: no
-  interval_seconds: 12
-  consider_home: 30
+  interval_seconds: 10
+  consider_home: 60
   host: !secret unifi_ip
   port: 8443
   username: !secret unifi_user
