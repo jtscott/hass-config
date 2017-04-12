@@ -1,12 +1,16 @@
 ###########################################
 # Home Group Order
 ###########################################
-group.lights:
+alert.roomba_bin_full:
   order: 1
-group.netatmo:
+group.lights:
   order: 2
-group.roomba:
+group.netatmo:
   order: 3
+camera.patio:
+  order: 4
+group.roomba:
+  order: 5
 
 ###########################################
 # System Group Order

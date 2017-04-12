@@ -1,0 +1,21 @@
+default_view:
+  entities:
+  - device_tracker.brittanysiphone
+  - device_tracker.jaredsrotary
+  - sensor.climate_operation_mode
+  - sensor.family_room_thermostat_nest_humidity
+  - sensor.family_room_thermostat_nest_temperature
+  - sensor.co2
+  - sensor.scale
+  - alert.roomba_bin_full
+  - alert.scale_battery_low
+  - alert.wink_hub_offline
+  - group.lights
+  - climate.family_room_nest
+  - group.netatmo
+  - camera.patio
+  - group.roomba
+  - group.media
+  - media_player.my_shield_console
+  name: default_view
+  view: true
