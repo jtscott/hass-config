@@ -1,9 +1,20 @@
+###########################################
+# Media
+###########################################
 - platform: plex
   sensors:
   host: !secret nas_address
   username: !secret email_account
   password: !secret plex_password
   server: nas
+
+- platform: sonarr
+  api_key: !secret sonarr_api
+  host: 192.168.1.35
+  port: 8989
+  monitored_conditions:
+  - upcoming
+  days: 1
 
 - platform: template
   sensors: 
