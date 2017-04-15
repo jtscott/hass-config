@@ -11,13 +11,13 @@ default_view:
     - sensor.family_room_thermostat_nest_temperature
     - sensor.co2
     - sensor.scale
-    - group.lights
-    - group.media
-    - group.roomba
-    - group.netatmo
-    - camera.patio
-    - climate.family_room_nest
-    - media_player.my_shield_console
     - alert.roomba_bin_full
     - alert.scale_battery_low
     - alert.wink_hub_offline
+    - group.lights
+    - climate.family_room_nest
+    - group.netatmo
+    - camera.patio
+    - group.roomba
+    - group.media
+    - media_player.my_shield_console
