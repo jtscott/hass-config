@@ -5,12 +5,15 @@
   monitored_conditions:
   - 'temperature'
   - 'humidity'
-  - 'operation_mode' - platform: template
+  - 'operation_mode' 
+
+- platform: template
   sensors:
     climate_operation_mode:
-      value_template: "{{ states.climate.family_room_nest.attributes.operation_mode if states.climate.family_room_nest is not none else 
-'Unknown' }}"
-      entity_id: climate.family_room_nest - platform: template
+      value_template: "{{ states.climate.family_room_nest.attributes.operation_mode if states.climate.family_room_nest is not none else 'Unknown' }}"
+      entity_id: climate.family_room_nest 
+
+- platform: template
   sensors:
     netatmo_motion:
       value_template: >-
