@@ -51,17 +51,19 @@ config:
 # Includes
 ###########################################
 alert: !include alert.yaml
-climate: !include climate.yaml
-sensor: !include_dir_merge_list sensor
-switch: !include switch.yaml
+automation: !include_dir_merge_list automation
 camera: !include camera.yaml
+climate: !include climate.yaml
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
-notify: !include notify.yaml
-automation: !include_dir_merge_list automation
-media_player: !include media_player.yaml
 input_select: !include input_select.yaml
+media_player: !include media_player.yaml
+notify: !include notify.yaml
+panel_iframe: !include panel_iframe.yaml
+script: !include script.yaml
+sensor: !include_dir_merge_list sensor
 shell_command: !include shell_command.yaml
+switch: !include switch.yaml
 #emulated_hue: !include emulated_hue.yaml
 
 ###########################################
@@ -86,8 +88,9 @@ remote:
     host: !secret harmony_ip
 
 wink:
-  email: !secret email_account
-  password: !secret wink_password
-#  client_id: !secret wink_client_id
-#  client_secret: !secret wink_client_secret
-
+  access_token: !secret wink_access_token
+  #refresh_token: !secret wink_refresh_token
+  #email: !secret email_account
+  #password: !secret wink_password
+  #client_id: !secret wink_client_id
+  #client_secret: !secret wink_client_secret

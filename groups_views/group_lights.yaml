@@ -4,5 +4,5 @@ Lights:
    - switch.patio
    - switch.bedroom
    - switch.wemo_insight
-   - light.bathroom_1
-   - light.bathroom_2
+   - light.closet_1
+   - light.closet_2
