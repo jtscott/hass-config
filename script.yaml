@@ -1,0 +1,5 @@
+goodnight:
+  sequence:
+    - service: automation.turnoff
+      data:
+        entity_id: automation.off_while_away
