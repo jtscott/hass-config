@@ -32,6 +32,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Samsung UN65F8000
 - Harmony Hub
 - Plex Media Server
+- [iPhone Live-Reporter+](https://itunes.apple.com/us/app/live-reporter-security-and-broadcasting-camera/id1033020349?mt=8)
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
