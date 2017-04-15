@@ -19,6 +19,28 @@
   name: 'Scale Battery'
   scan_interval: 60
 
+- platform: template
+  sensors:
+    scale_battery_template:
+      friendly_name: "Battery"
+      unit_of_measurement: "%"
+      value_template: >-
+        {%- if states.sensor.scale_battery.state %}
+          {{ states.sensor.scale_battery.state|round }}
+        {% else %}
+          {{ states.sensor.scale_battery.state }}
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("sensor.scale_battery", "unknown") %}
+          mdi:battery-unknown
+        {% elif states('sensor.scale_battery_template') | float <= 5 %}
+          mdi:battery-outline
+        {% elif states('sensor.scale_battery_template') | float >= 95 %}
+          mdi:battery
+        {% else %}
+          mdi:battery-{{(states.sensor.scale_battery_template.state|float / 10)|round*10}}
+        {% endif %}
+
 - platform: command_line
   command: 'bash /config/withings/withings_firmware.sh'
   name: 'Scale Firmware'

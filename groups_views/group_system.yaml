@@ -32,7 +32,7 @@ Wink_Automation:
 Withings_Scale:
   name: "Withings Scale"
   entities:
-    - sensor.scale_battery
+    - sensor.scale_battery_template
     - sensor.scale_firmware
  
 Wemo_Signal:
