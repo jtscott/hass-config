@@ -81,6 +81,30 @@
   unit_of_measurement: '%'
   scan_interval: 60
 
+- platform: template
+  sensors:
+    roomba_battery_template:
+      friendly_name: "Battery"
+      unit_of_measurement: "%"
+      value_template: >-
+        {%- if states.sensor.roomba_battery.state %}
+          {{ states.sensor.roomba_battery.state|round }}
+        {% else %}
+          {{ states.sensor.roomba_battery.state }}
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("sensor.roomba_battery", "unknown") %}
+          mdi:battery-unknown
+        {%- elif is_state("sensor.roomba_phase", "charge") %}
+          mdi:battery-charging
+        {% elif states('sensor.roomba_battery_template') | float <= 5 %}
+          mdi:battery-outline
+        {% elif states('sensor.roomba_battery_template') | float >= 95 %}
+          mdi:battery
+        {% else %}
+          mdi:battery-{{(states.sensor.roomba_battery_template.state|float / 10)|round*10}}
+        {% endif %}
+
 - platform: rest
   resource: http://192.168.1.37:8484/api/local/info/mission
   name: 'Roomba Coverage'

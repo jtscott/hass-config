@@ -23,10 +23,6 @@ switch.roomba:
 ###########################################
 # Sensors
 ###########################################
-sensor.roomba_battery:
-  icon: mdi:car-battery
-  friendly_name: 'Battery'
-
 sensor.roomba_bin_state_template:
   icon: mdi:delete-sweep
   friendly_name: 'Bin State'
