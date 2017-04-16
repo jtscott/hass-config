@@ -46,6 +46,8 @@ logger:
 sun:
 # Configuration panel
 config:
+#iOS
+ios:
 
 ###########################################
 # Includes
