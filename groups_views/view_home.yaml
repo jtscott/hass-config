@@ -3,6 +3,7 @@
 ###########################################
 default_view:
   view: yes
+  icon: mdi:home
   entities:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary

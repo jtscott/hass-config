@@ -3,6 +3,7 @@
 ###########################################
 Calgary:
   view: yes
+  icon: mdi:city
   name: Calgary
   entities:
     - camera.glenmore__macleod

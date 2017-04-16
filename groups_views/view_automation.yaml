@@ -3,6 +3,7 @@
 ###########################################
 automation:
   view: yes
+  icon: mdi:settings
   name: Automation
   entities:
     - group.sunrise_automation

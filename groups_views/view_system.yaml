@@ -3,6 +3,7 @@
 ###########################################
 system:
   view: yes
+  icon: mdi:server
   name: System
   entities:
     - group.system_status
