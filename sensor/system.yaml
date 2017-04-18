@@ -4,7 +4,7 @@
 - platform: api_streams
 
 - platform: command_line
-  command: "hass --version"
+  command: "python -m homeassistant --version"
   name: 'HASS Installed'
   scan_interval: 60
 
