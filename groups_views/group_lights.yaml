@@ -1,8 +1,14 @@
 Lights:
   entities:
-   - switch.front_door
-   - switch.patio
-   - switch.bedroom
-   - switch.wemo_insight
-   - light.closet_1
-   - light.closet_2
+    - switch.front_door
+    - switch.patio
+    - switch.bedroom
+    - switch.wemo_insight
+    - group.closet_lights
+
+Closet_Lights:
+  name: "Closet Lights"
+  icon: mdi:lightbulb
+  entities:
+    - light.closet_1
+    - light.closet_2
