@@ -17,8 +17,7 @@ default_view:
     - alert.wink_hub_offline
     - group.lights
     - climate.family_room_nest
-    - group.netatmo
-    - camera.patio
+    - group.cameras
     - group.roomba
     - group.media
     - media_player.my_shield_console

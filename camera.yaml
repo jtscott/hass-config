@@ -26,12 +26,3 @@
 - platform: mjpeg
   mjpeg_url: http://192.168.1.35:8080/mjpegfeed?oid=1&size=1080x720
   name: 'Patio'
-# - platform: local_file
-  # name: 'Patio'
-  # file_path: /usr/src/app/capture.png
-# - platform: ffmpeg
-  # name: 'Patio'
-  # ffmpeg_bin: /usr/bin/ffmpeg
-  # input: -rtsp_transport tcp -i rtsp://192.168.2.60:554/
-  #extra_arguments: -pred 1 -q:v 2
-  #extra_arguments: -q:v 2

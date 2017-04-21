@@ -10,6 +10,8 @@
   action:
     - service: switch.turn_off
       entity_id: switch.netatmo_camera
+    - service: switch.turn_off
+      entity_id: switch.patio_camera
 
 - alias: On While Home
   trigger:
@@ -50,3 +52,5 @@
   action:
     - service: switch.turn_on
       entity_id: switch.netatmo_camera
+    - service: switch.turn_off
+      entity_id: switch.patio_camera
