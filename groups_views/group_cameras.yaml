@@ -1,0 +1,8 @@
+Cameras:
+  name: "Cameras"
+  entities:
+    - switch.netatmo_camera
+    - sensor.netatmo_motion
+    - switch.patio_camera
+    - camera.hemlock__kitchen
+    - camera.patio

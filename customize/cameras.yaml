@@ -1,0 +1,16 @@
+###########################################
+# Switches
+###########################################
+switch.netatmo_camera:
+  icon: mdi:camera
+  friendly_name: 'Kitchen Camera'
+switch.patio_camera:
+  icon: mdi:camera
+  friendly_name: 'Patio Camera'
+
+###########################################
+# Sensors
+###########################################
+sensor.netatmo_motion:
+  icon: mdi:run
+  friendly_name: 'Kitchen Motion'
