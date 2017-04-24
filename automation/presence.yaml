@@ -52,5 +52,5 @@
   action:
     - service: switch.turn_on
       entity_id: switch.netatmo_camera
-    - service: switch.turn_off
+    - service: switch.turn_on
       entity_id: switch.patio_camera
