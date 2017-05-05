@@ -1,6 +1,7 @@
 Lights:
   entities:
     - switch.front_door
+    - light.kitchen
     - switch.patio
     - switch.bedroom
     - switch.wemo_insight

@@ -3,7 +3,7 @@
 ###########################################
 default_view:
   view: yes
-  icon: mdi:home
+  icon: mdi:home-assistant
   entities:
     - device_tracker.brittanysiphone
     - device_tracker.jaredsrotary
@@ -16,6 +16,7 @@ default_view:
     - alert.scale_battery_low
     - alert.wink_hub_offline
     - group.lights
+    - group.sensors
     - climate.family_room_nest
     - group.cameras
     - group.roomba

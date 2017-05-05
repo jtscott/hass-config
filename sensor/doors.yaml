@@ -1,0 +1,34 @@
+- platform: template
+  sensors:
+    patio_door_opened_template:
+        friendly_name: "Patio Door"
+        value_template: >-
+          {%- if is_state("binary_sensor.patio_door_opened", "on") %}
+              Open
+          {%- elif is_state("binary_sensor.patio_door_opened", "off") %}
+              Cleaning
+          {%- else %}
+              None
+          {%- endif %}
+
+- platform: template
+  sensors:
+    patio_door_opened_battery_template:
+      friendly_name: "Patio Door Battery"
+      unit_of_measurement: "%"
+      value_template: >-
+        {%- if states.binary_sensor.patio_door_opened.attributes.battery_level %}
+          {{ states.binary_sensor.patio_door_opened.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.patio_door_opened.attributes.battery_level }}
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.patio_door_opened", "unknown") %}
+          mdi:battery-unknown
+        {% elif states('sensor.patio_door_opened_battery_template') | float <= 5 %}
+          mdi:battery-outline
+        {% elif states('sensor.patio_door_opened_battery_template') | float >= 95 %}
+          mdi:battery
+        {% else %}
+          mdi:battery-{{(states.binary_sensor.patio_door_opened.attributes.battery_level|float / 10)|round*10}}
+        {% endif %}

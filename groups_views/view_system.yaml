@@ -11,3 +11,4 @@ system:
     - group.wemo_signal
     - group.roomba_system
     - group.wink_hub
+    - group.sensor_batteries

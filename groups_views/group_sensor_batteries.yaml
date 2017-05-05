@@ -1,0 +1,4 @@
+Sensor_Batteries:
+    name: "Sensor Batteries"
+    entities:
+      - sensor.patio_door_opened_battery_template
