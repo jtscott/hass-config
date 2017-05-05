@@ -6,7 +6,7 @@
           {%- if is_state("binary_sensor.patio_door_opened", "on") %}
               Open
           {%- elif is_state("binary_sensor.patio_door_opened", "off") %}
-              Cleaning
+              Closed
           {%- else %}
               None
           {%- endif %}
