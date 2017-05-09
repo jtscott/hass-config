@@ -3,6 +3,7 @@ Lights:
     - switch.front_door
     - light.kitchen
     - switch.patio
+    - light.office
     - switch.bedroom
     - switch.wemo_insight
     - group.closet_lights
