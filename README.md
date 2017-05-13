@@ -12,8 +12,10 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Layout
 - The *Home* group is the default_view and shows relevant house based sensors.
-- The *Calgary* group is a local dashboard with the most useful region based information. Designed to start the day quickly and get us out the door.
-- The *Debug* group shows automation toggles and HASS version check.
+- The *Weather* group is a dashboard with the most forecast information.
+- The *City* group is a dashboard with the most useful region based information. Designed to start the day quickly and get us out the door.
+- The *System* group shows the docker host status, version & firmware information, batteries, and signal strengths.
+- The *Automations* group has toggles for various automations.
 
 ## Screenshots
 ![Home Screen](https://www.dropbox.com/s/xlvqcir6aca3zv0/home.png?raw=1)
@@ -26,6 +28,8 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Wink Hub 2
 - Nest Thermostat
 - Wemo Light & Insight Switches
+- GE Smart Dimmer Z-Wave Switches
+- Aeotec Recessed Door Sensor
 - Roomba 980
 - Withings WS-50
 - Nvidia Shield TV
