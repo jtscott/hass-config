@@ -19,6 +19,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Screenshots
 ![Home Screen](https://www.dropbox.com/s/xlvqcir6aca3zv0/home.png?raw=1)
+![Security](https://www.dropbox.com/s/uh25niflfb2dcgt/security.PNG?raw=1)
 ![Weather](https://www.dropbox.com/s/y0ywfv9fs6z5m6j/weather.PNG?raw=1)
 ![Calgary](https://www.dropbox.com/s/ng2ejh96jn8g52k/calgary.PNG?raw=1)
 ![System](https://www.dropbox.com/s/qx3ibaoaw93pvze/debug.PNG?raw=1)
