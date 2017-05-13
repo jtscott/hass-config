@@ -1,0 +1,24 @@
+###########################################
+# Sun & Moon Sensors
+###########################################
+- platform: template
+  sensors:
+    day_night:
+      friendly_name: 'Day/Night'
+      value_template: '{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'
+      icon_template: '{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'
+
+- platform: template
+  sensors:
+    solar_angle:
+      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      friendly_name: 'Solar Angle'
+      unit_of_measurement: 'degrees'
+    sunrise:
+      value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_rising)) | timestamp_local) [11:16] }} am'
+      friendly_name: 'Sunrise'
+    sunset:
+      value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_setting)-(43200)) | timestamp_local) [11:16] }} pm'
+      friendly_name: 'Sunset'
+
+- platform: moon

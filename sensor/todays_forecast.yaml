@@ -1,0 +1,129 @@
+###########################################
+# Today's Forecast Sensors
+###########################################
+- platform: yr
+  monitored_conditions:
+  - 'temperature'
+  - 'humidity'
+  - 'symbol'
+
+- platform: darksky
+  api_key: !secret darksky_api
+  forecast:
+  - 1
+  monitored_conditions:
+  - 'precip_probability'
+  - 'temperature_min'
+  - 'temperature_max'
+  - 'apparent_temperature'
+  - 'pressure'
+  - 'wind_speed'
+  - 'precip_type'
+  - 'precip_intensity'
+  - 'precip_probability'
+  - 'precip_intensity_max'
+  - 'cloud_cover'
+  - 'wind_bearing'
+  - 'wind_speed'
+
+- platform: template
+  sensors:
+    air_pressure_template:
+      value_template: "{% if states('sensor.dark_sky_pressure') | float <= 980 %}Low{% elif states('sensor.dark_sky_pressure') | float >= 1000 %}Good{% elif states('sensor.dark_sky_pressure') | float >= 1020 %}High{% else %}n/a{% endif %}"
+
+- platform: template
+  sensors:
+    dark_sky_precip_type_template:
+      friendly_name: "Precipitation"
+      value_template: >-
+        {%- if is_state("sensor.dark_sky_precip", "rain") %}
+          Rain
+        {%- elif is_state("sensor.dark_sky_precip", "snow") %}
+          Snow
+        {%- elif is_state("sensor.dark_sky_precip", "hail") %}
+          Hail
+        {%- elif is_state("sensor.dark_sky_precip", "snowy-rainy") %}
+          Snowy Rain
+        {% else %}
+          None
+        {% endif %}
+      icon_template: >-
+        {%- if is_state("sensor.dark_sky_precip", "rain") %}
+          mdi:weather-rainy
+        {%- elif is_state("sensor.dark_sky_precip", "snow") %}
+          mdi:weather-snowy
+        {%- elif is_state("sensor.dark_sky_precip", "hail") %}
+          mdi:weather-hail
+        {%- elif is_state("sensor.dark_sky_precip", "snowy-rainy") %}
+          mdi:snowy-rainy
+        {% else %}
+          mdi:weather-sunny
+        {% endif %}
+        
+- platform: template
+  sensors:
+    dark_sky_precip_probability_template:
+      friendly_name: "Precipitation"
+      unit_of_measurement: "%"
+      value_template: >-
+        {%- if states.sensor.dark_sky_precip_probability.state %}
+          {{ states.sensor.dark_sky_precip_probability.state|round }}
+        {% else %}
+          {{ states.sensor.dark_sky_precip_probability.state }}
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("sensor.dark_sky_precip", "rain") %}
+          mdi:weather-rainy
+        {%- elif is_state("sensor.dark_sky_precip", "snow") %}
+          mdi:weather-snowy
+        {%- elif is_state("sensor.dark_sky_precip", "hail") %}
+          mdi:weather-hail
+        {%- elif is_state("sensor.dark_sky_precip", "snowy-rainy") %}
+          mdi:snowy-rainy
+        {% else %}
+          mdi:weather-sunny
+        {% endif %}
+
+- platform: template
+  sensors:
+    dark_sky_wind_bearing_template:
+      friendly_name: 'Wind Direction'
+      value_template: >-
+        {%if states.sensor.dark_sky_wind_bearing.state | float<=11 %}North
+        {% elif states.sensor.dark_sky_wind_bearing.state | float>348 %}North
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=34 | float>11 %}North North East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=56 | float>34 %}North East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=79 | float>56 %}East North East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=101 | float>79 %}East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=124 | float>101 %}East South East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=146 | float>124 %}South East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=169 | float>146 %}South South East
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=191 | float>169 %}South
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=214 | float>191 %}South South West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=236 | float>214 %}South West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=259 | float>236 %}West South West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=281 | float>259 %}West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=304 | float>281 %}West North West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=326 | float>304 %}West North West
+        {% elif states.sensor.dark_sky_wind_bearing.state | float<=348 | float>326 %}North North West
+        {%- endif %}
+
+- platform: wunderground
+  api_key: !secret wunderground_api
+  monitored_conditions:
+  - 'UV'
+
+- platform: template
+  sensors:
+    uv_rating_template:
+      value_template: "{% if states('sensor.pws_uv') | float <= 2 %}Low{% elif states('sensor.pws_uv') | float >= 3 %}Moderate{% elif states('sensor.pws_uv') | float >= 6 %}High{% elif states('sensor.pws_uv') | float >= 9 %}Extreme{% else %}n/a{% endif %}"  
+
+- platform: waqi
+  token: !secret waqi_api
+  locations:
+    - calgary
+
+- platform: template
+  sensors:
+    air_quality:
+      value_template: "{% if states('sensor.waqi_calgary_central_2_alberta') | float <= 50 %}Good{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 51 %}Moderate{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 101%}Poor{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 151%}Bad{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 201%}Unhealthy{% elif states('sensor.waqi_calgary_central_2_alberta') | float >= 301%}Dangerous{% else %}n/a{% endif %}"

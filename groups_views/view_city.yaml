@@ -16,6 +16,7 @@ Calgary:
     - sensor.yr_humidity
     - sensor.yr_symbol
     - group.travel
-    - group.forecast
+    - group.todays_forecast
+    - group.tomorrows_forecast
     - group.sun_moon
     - group.date_time

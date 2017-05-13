@@ -1,15 +1,32 @@
-Forecast:
+Todays_Forecast:
+  name: "Today's Forecast"
   entities:
-   - sensor.pws_feelslike_c
+   - sensor.dark_sky_apparent_temperature
    - sensor.dark_sky_daily_low_temperature
    - sensor.dark_sky_daily_high_temperature
    - sensor.air_pressure_template
    - sensor.air_quality
    - sensor.uv_rating_template
-   - sensor.dark_sky_precip_probability
-   - sensor.pws_precip_today_metric
-   - sensor.pws_wind_kph
+   - sensor.dark_sky_cloud_coverage
+   - sensor.dark_sky_precip_type_template
+   - sensor.dark_sky_precip_probability_template
+   - sensor.dark_sky_daily_max_precip_intensity
+   - sensor.dark_sky_wind_bearing_template
+   - sensor.dark_sky_wind_speed
    - camera.yyc_doppler
+
+Tomorrows_Forecast:
+  name: "Tomorrow's Forecast"
+  entities:
+   - sensor.dark_sky_daily_low_temperature_1
+   - sensor.dark_sky_daily_high_temperature_1
+   - sensor.air_pressure_tomorrow_template
+   - sensor.dark_sky_cloud_coverage_1
+   - sensor.dark_sky_precip_type_tomorrow_template
+   - sensor.dark_sky_precip_probability_tomorrow_template
+   - sensor.dark_sky_daily_max_precip_intensity_1
+   - sensor.dark_sky_wind_bearing_tomorrow_template
+   - sensor.dark_sky_wind_speed_1
 
 Sun_Moon:
   name: "Sun & Moon"
