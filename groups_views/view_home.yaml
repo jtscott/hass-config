@@ -16,9 +16,7 @@ default_view:
     - alert.scale_battery_low
     - alert.wink_hub_offline
     - group.lights
-    - group.sensors
     - climate.family_room_nest
-    - group.cameras
     - group.roomba
     - group.media
     - media_player.my_shield_console

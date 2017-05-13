@@ -1,0 +1,9 @@
+###########################################
+# Security Tab
+###########################################
+Security:
+  view: yes
+  icon: mdi:security-home
+  entities:
+    - group.sensors
+    - group.cameras
