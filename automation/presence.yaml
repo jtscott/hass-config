@@ -23,6 +23,11 @@
     condition: and
     conditions:
       - condition: state
+        entity_id: group.family_devices
+        state: 'not_home'
+        for:
+            minutes: 10
+      - condition: state
         entity_id: sun.sun
         state: 'below_horizon'
       - condition: time
