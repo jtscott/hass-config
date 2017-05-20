@@ -41,7 +41,7 @@ recorder:
 logbook:
 # Limit debug info
 logger:
-  default: warn
+  default: error
 # Track the sun
 sun:
 # Configuration panel
@@ -96,3 +96,10 @@ wink:
   #password: !secret wink_password
   #client_id: !secret wink_client_id
   #client_secret: !secret wink_client_secret
+
+wemo:
+  static:
+    - 192.168.2.15
+    - 192.168.2.16
+    - 192.168.2.14
+    - 192.168.2.13

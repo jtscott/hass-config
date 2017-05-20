@@ -22,6 +22,6 @@ switch.bedroom:
   icon: mdi:lightbulb
   friendly_name: 'Bedroom'
 
-switch.wemo_insight:
+switch.bedroom_lamp:
   icon: mdi:lamp
   friendly_name: 'Bedroom Lamp'

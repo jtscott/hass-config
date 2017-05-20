@@ -34,11 +34,3 @@ Withings_Scale:
   entities:
     - sensor.scale_battery_template
     - sensor.scale_firmware
- 
-Wemo_Signal:
-  name: "Wemo Signal Strength"
-  entities:
-    - sensor.front_door_switch_signal
-    - sensor.patio_switch_signal
-    - sensor.bedroom_switch_signal
-    - sensor.insight_switch_signal

@@ -5,7 +5,7 @@ Lights:
     - switch.patio
     - light.office
     - switch.bedroom
-    - switch.wemo_insight
+    - switch.bedroom_lamp
     - group.closet_lights
 
 Closet_Lights:
