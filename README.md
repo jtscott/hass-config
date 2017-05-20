@@ -3,7 +3,6 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
-- NPM for [Belkin-WeMo-Command-Line-Tools](https://github.com/agilemation/Belkin-WeMo-Command-Line-Tools)
 - Curl
 
 ## Shout Out
