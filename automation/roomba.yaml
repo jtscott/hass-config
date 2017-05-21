@@ -30,23 +30,3 @@
         message: 'Cleaning started.'
         data:
           sound: cosmic
-
-- alias: Roomba Stop
-  trigger:
-    platform: state
-    entity_id: group.all_devices
-    from: 'not_home'
-    to: 'home'
-  condition:
-    - condition: state
-      entity_id: switch.roomba
-      state: 'on'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.roomba
-    - service: notify.pushover
-      data:
-        title: Roomba
-        message: 'Cleaning stopped.'
-        data:
-          sound: cosmic

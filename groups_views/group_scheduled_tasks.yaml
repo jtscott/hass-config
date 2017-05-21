@@ -1,4 +1,0 @@
-Scheduled_Tasks:
-  name: "Scheduled Tasks"
-  entities:
-    - automation.homestreamer_camera_scrape

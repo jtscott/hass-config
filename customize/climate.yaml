@@ -7,9 +7,9 @@ alert.scale_battery_low:
 ###########################################
 # Automation
 ###########################################
-automation.heat_on:
+automation.climate__nest__heat_on:
   icon: mdi:nest-thermostat
-automation.heat_off:
+automation.climate__nest__heat_off:
   icon: mdi:nest-thermostat
 
 ###########################################

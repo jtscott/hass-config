@@ -6,12 +6,12 @@ automation.sunrise_away_lights:
 automation.sunset_away_lights:
   icon: mdi:weather-sunset-down
 
-automation.off_while_home:
+automation.presence__arrival__turn_off:
   icon: mdi:home
-automation.on_while_home:
+automation.presence__arrival__turn_on:
   icon: mdi:home
 
-automation.off_while_away:
+automation.presence__departure__turn_off:
   icon: mdi:city
-automation.on_while_away:
+automation.presence__departure__turn_on:
   icon: mdi:city

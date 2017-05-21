@@ -1,10 +1,10 @@
 Presence_Automation:
   name: "Presence Automation"
   entities:
-    - automation.off_while_home
-    - automation.on_while_home
-    - automation.off_while_away
-    - automation.on_while_away
+    - automation.presence__arrival__turn_off
+    - automation.presence__arrival__turn_on
+    - automation.presence__departure__turn_off
+    - automation.presence__departure__turn_on
 
 Arrival_Departure_Automation:
   name: "Arrival & Departure Automation"

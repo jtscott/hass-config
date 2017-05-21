@@ -10,7 +10,7 @@ alert.roomba_bin_full:
 automation.roomba_schedule:
   icon: mdi:play-circle
 
-automation.roomba_stop:
+automation.robots__roomba__stop:
   icon: mdi:stop-circle
 
 ###########################################

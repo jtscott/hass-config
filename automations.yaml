@@ -1,0 +1,124 @@
+- action:
+  - alias: ''
+    data:
+      entity_id: climate.family_room_nest
+      operation_mode: heat
+    service: climate.set_operation_mode
+  - data:
+      entity_id: climate.family_room_nest
+      temperature: '25.0'
+    service: climate.set_temperature
+  - data:
+      data:
+        sound: cosmic
+      message: Turned on, inside {{ states.climate.family_room_nest.attributes.current_temperature
+        }}C
+      title: Thermostat
+    service: notify.pushover
+  alias: Climate - Nest - Heat On
+  id: '1495331032264'
+  trigger:
+  - below: '22.0'
+    entity_id: climate.family_room_nest
+    platform: numeric_state
+- action:
+  - alias: ''
+    data:
+      entity_id: climate.family_room_nest
+      operation_mode: eco
+    service: climate.set_operation_mode
+  - data:
+      data:
+        sound: cosmic
+      message: Turned off, inside {{ states.climate.family_room_nest.attributes.current_temperature
+        }}C
+      title: Thermostat
+    service: notify.pushover
+  alias: Climate - Nest - Heat Off
+  id: '1495332149964'
+  trigger:
+  - above: '23.0'
+    entity_id: climate.family_room_nest
+    platform: numeric_state
+- action:
+  - data:
+      entity_id: switch.netatmo_camera
+    service: switch.turn_off
+  - data:
+      entity_id: switch.patio_camera
+    service: switch.turn_off
+  alias: Presence - Arrival - Turn Off
+  id: '1495332504335'
+  trigger:
+  - entity_id: group.family_devices
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      entity_id: group.lights
+    service: switch.turn_off
+  alias: Presence - Departure - Turn Off
+  id: '1495332885604'
+  trigger:
+  - entity_id: group.family_devices
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      entity_id: switch.netatmo_camera
+    service: switch.turn_on
+  - data:
+      entity_id: switch.patio_camera
+    service: switch.turn_on
+  alias: Presence - Departure - Turn On
+  id: '1495333355800'
+  trigger:
+  - entity_id: group.family_devices
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      entity_id: switch.roomba
+    service: switch.turn_off
+  - data:
+      data:
+        sound: cosmic
+      message: Cleaning stopped.
+      title: Roomba
+    service: notify.pushover
+  alias: Robots - Roomba - Stop
+  id: '1495333490008'
+  trigger:
+  - entity_id: group.all_devices
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      data:
+        sound: cosmic
+      message: Firmware update is available.
+      title: Wink Hub
+    service: notify.pushover
+  alias: System - Wink Hub - Update Notification
+  id: '1495335051423'
+  trigger:
+  - entity_id: sensor.wink_hub_firmware_state
+    from: 'False'
+    platform: state
+    to: 'True'
+- action:
+  - data:
+      data:
+        sound: cosmic
+      message: Version {{ states.updater.updater.state }} is now available.
+      title: Home Assistant
+    service: notify.pushover
+  alias: System - HASS - Update Notification
+  id: '1495335216971'
+  trigger:
+  - entity_id: updater.updater
+    platform: state

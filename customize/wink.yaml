@@ -16,6 +16,6 @@ sensor.wink_hub_firmware_version:
 ###########################################
 # Automation
 ###########################################
-automation.wink_hub_update:
+automation.system__wink_hub__update_notification:
   icon: mdi:dns
   friendly_name: 'Firmware Update Notification'

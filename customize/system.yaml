@@ -31,8 +31,5 @@ sensor.since_last_boot_templated:
 ###########################################
 # Automation
 ###########################################
-automation.update_notification:
+automation.system__hass__update_notification:
   icon: mdi:message-alert
-
-automation.homestreamer_camera_scrape:
-  icon: mdi:settings

@@ -1,19 +1,7 @@
 ###########################################
 # Presence Based Rules
 ###########################################
-- alias: Off While Home
-  trigger:
-    platform: state
-    entity_id: group.family_devices
-    from: 'not_home'
-    to: 'home'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.netatmo_camera
-    - service: switch.turn_off
-      entity_id: switch.patio_camera
-
-- alias: On While Home
+- alias: "Presence - Arrival - Turn On"
   trigger:
     platform: state
     entity_id: group.family_devices
@@ -37,25 +25,3 @@
       entity_id: switch.wemo_insight
     - service: switch.turn_on
       entity_id: switch.front_door
-
-- alias: Off While Away
-  trigger:
-    platform: state
-    entity_id: group.family_devices
-    from: 'home'
-    to: 'not_home'
-  action:
-    - service: switch.turn_off
-      entity_id: group.lights
-
-- alias: On While Away
-  trigger:
-    platform: state
-    entity_id: group.family_devices
-    from: 'home'
-    to: 'not_home'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.netatmo_camera
-    - service: switch.turn_on
-      entity_id: switch.patio_camera
