@@ -10,7 +10,7 @@ homeassistant:
   unit_system: metric
   #http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Edmonton
-  #customize must nested within homeassistant entity  
+  #customize must nested within homeassistant entity
   customize: !include_dir_merge_named customize
 
 # Enables the frontend
@@ -59,6 +59,7 @@ camera: !include camera.yaml
 climate: !include climate.yaml
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
+input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
@@ -91,10 +92,10 @@ remote:
     host: !secret harmony_ip
 
 wink:
-  access_token: !secret wink_access_token
+  #access_token: !secret wink_access_token
   #refresh_token: !secret wink_refresh_token
-  #email: !secret email_account
-  #password: !secret wink_password
+  email: !secret email_account
+  password: !secret wink_password
   #client_id: !secret wink_client_id
   #client_secret: !secret wink_client_secret
 

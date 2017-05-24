@@ -122,3 +122,23 @@
   trigger:
   - entity_id: updater.updater
     platform: state
+- action:
+  - data:
+      entity_id: input_boolean.patio_door_state
+    service: input_boolean.turn_on
+  alias: Doors - State - Patio Sensor Open
+  id: '1495669571169'
+  trigger:
+  - entity_id: binary_sensor.patio_door_opened
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      entity_id: input_boolean.patio_door_state
+    service: input_boolean.turn_off
+  alias: Doors - State - Patio Sensor Closed
+  id: '1495669649899'
+  trigger:
+  - entity_id: binary_sensor.patio_door_opened
+    platform: state
+    to: 'off'
