@@ -7,3 +7,6 @@
   username: !secret unifi_user
   password: !secret unifi_password
   verify_ssl: false
+- platform: trackr
+  username: !secret email_account
+  password: !secret trackr_password

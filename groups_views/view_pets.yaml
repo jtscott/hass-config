@@ -1,0 +1,9 @@
+###########################################
+# Pets Tab
+###########################################
+Pets:
+  view: yes
+  icon: mdi:cat
+  entities:
+    - group.alfred
+    - group.george

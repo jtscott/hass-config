@@ -1,0 +1,7 @@
+George:
+  entities:
+    - device_tracker.george
+
+Alfred:
+  entities:
+    - device_tracker.alfie
