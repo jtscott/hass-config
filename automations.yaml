@@ -142,3 +142,28 @@
   - entity_id: binary_sensor.patio_door_opened
     platform: state
     to: 'off'
+- action:
+  - data:
+      data:
+        sound: cosmic
+      message: Firmware {{trigger.from_state}} upgraded to version {{trigger.to_state}}
+      title: Roomba
+    service: notify.pushover
+  alias: System - Roomba - Firmware Update
+  id: '1495808493058'
+  trigger:
+  - entity_id: sensor.roomba_firmware
+    platform: state
+- action:
+  - alias: ''
+    data:
+      data:
+        sound: cosmic
+      message: It is now {{states.sensor.dark_sky_precip_type_template.state}}ing.
+      title: Weather
+    service: notify.pushover
+  alias: Weather - Alert - State Change
+  id: '1496632276640'
+  trigger:
+  - entity_id: sensor.dark_sky_precip_type_template
+    platform: state
