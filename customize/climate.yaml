@@ -20,7 +20,7 @@ climate.home:
   friendly_name: 'Nest'
 
 sensor.climate_operation_mode:
-  friendly_name: Nest
+  friendly_name: 'Nest'
 
 sensor.family_room_thermostat_nest_temperature:
   friendly_name: 'Inside'
