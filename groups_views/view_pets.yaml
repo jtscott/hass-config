@@ -5,5 +5,7 @@ Pets:
   view: yes
   icon: mdi:cat
   entities:
+    - device_tracker.george
+    - device_tracker.alfie
     - group.alfred
     - group.george

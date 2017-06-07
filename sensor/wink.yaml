@@ -1,3 +1,6 @@
+###########################################
+# Wink Sensors
+###########################################
 - platform: template
   sensors:
     wink_hub_status:
@@ -30,4 +33,4 @@
               Update Available
           {%- else %}
               Error
-          {%- endif %}  
+          {%- endif %}

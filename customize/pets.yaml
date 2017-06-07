@@ -1,0 +1,28 @@
+###########################################
+# Device Tracker
+###########################################
+device_tracker.george:
+  friendly_name: 'George'
+
+device_tracker.alfie:
+  friendly_name: 'Alfie'
+
+###########################################
+# George
+###########################################
+sensor.george_last_seen_template:
+  friendly_name: 'Last Seen'
+  icon: mdi:crosshairs-gps
+sensor.george_ear_tattoo_template:
+  friendly_name: 'Tattoo'
+  icon: mdi:tag-text-outline
+sensor.george_petlynx_template:
+  friendly_name: 'Petlynx'
+  icon: mdi:puzzle
+
+###########################################
+# Alfred
+###########################################
+sensor.alfred_last_seen_template:
+  friendly_name: 'Last Seen'
+  icon: mdi:crosshairs-gps

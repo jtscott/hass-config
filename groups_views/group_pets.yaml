@@ -1,7 +1,11 @@
 George:
   entities:
-    - device_tracker.george
+    - sensor.george_last_seen_template
+    - sensor.george_trackr_battery_template
+    - sensor.george_ear_tattoo_template
+    - sensor.george_petlynx_template
 
 Alfred:
   entities:
-    - device_tracker.alfie
+    - sensor.alfred_last_seen_template
+    - sensor.alfred_trackr_battery_template
