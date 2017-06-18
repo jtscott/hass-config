@@ -10,14 +10,23 @@
 
 - platform: sonarr
   api_key: !secret sonarr_api
-  host: 192.168.1.35
+  host: !secret nas_address
   port: 8989
   monitored_conditions:
   - upcoming
   days: 1
 
+# - platform: radarr
+#   api_key: !secret radarr_api
+#   host: !secret nas_address
+#   port: 7878
+#   urlbase: /radarr
+#   monitored_conditions:
+#   - upcoming
+#   days: 15
+
 - platform: template
-  sensors: 
+  sensors:
     tv_schedule:
       value_template: >-
         {%- for attr in states.sensor.sonarr_upcoming.attributes -%}
