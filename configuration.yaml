@@ -28,6 +28,7 @@ http:
 
 # Checks for available updates
 updater:
+  include_used_components: true
 # Auto Discovery
 discovery:
 # Voice commands
@@ -61,6 +62,7 @@ device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
+light: !include light.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 panel_iframe: !include panel_iframe.yaml
