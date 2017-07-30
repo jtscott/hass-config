@@ -94,10 +94,8 @@ remote:
     host: !secret harmony_ip
 
 wink:
-  #access_token: !secret wink_access_token
-  #refresh_token: !secret wink_refresh_token
-  email: !secret email_account
-  password: !secret wink_password
+  #email: !secret email_account
+  #password: !secret wink_password
   #client_id: !secret wink_client_id
   #client_secret: !secret wink_client_secret
 
