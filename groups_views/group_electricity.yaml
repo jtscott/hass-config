@@ -1,0 +1,3 @@
+Electricity:
+  entities:
+    - sensor.rro_rate

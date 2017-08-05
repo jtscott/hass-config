@@ -1,0 +1,8 @@
+###########################################
+# Electricity
+###########################################
+- platform: command_line
+  unit_of_measurement: 'Cents'
+  command: 'bash /config/electricity/rrorates.sh'
+  name: 'RRO Rate'
+  scan_interval: 60
