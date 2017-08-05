@@ -166,4 +166,5 @@
   id: '1496632276640'
   trigger:
   - entity_id: sensor.dark_sky_precip_type_template
+    from: None
     platform: state
