@@ -37,7 +37,7 @@ conversation:
 history:
 # Retention
 recorder:
-  purge_days: 30
+  purge_days: 7
 # View all events in a logbook
 logbook:
 # Limit debug info
@@ -65,12 +65,10 @@ input_select: !include input_select.yaml
 light: !include light.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
-panel_iframe: !include panel_iframe.yaml
 script: !include script.yaml
 sensor: !include_dir_merge_list sensor
 shell_command: !include shell_command.yaml
 switch: !include switch.yaml
-#emulated_hue: !include emulated_hue.yaml
 
 ###########################################
 # Third Party Platforms
@@ -101,7 +99,7 @@ wink:
 
 wemo:
   static:
-    - 192.168.2.15
+#    - 192.168.2.15 wemo insight switch
     - 192.168.2.16
     - 192.168.2.14
     - 192.168.2.13

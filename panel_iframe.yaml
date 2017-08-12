@@ -1,4 +1,0 @@
-patio_camera:
-  title: 'Patio Camera'
-  url: !secret patio_camera_ip
-  icon: mdi:video
