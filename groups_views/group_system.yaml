@@ -1,9 +1,8 @@
 Roomba_System:
   name: "Roomba 980"
   entities:
-    - sensor.roomba_firmware
+    - sensor.roomba_firmware_template
     - sensor.roomba_battery_template
-    - sensor.roomba_rssi
 
 System_Status:
   name: "System Status"

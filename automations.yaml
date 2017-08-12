@@ -89,7 +89,7 @@
       message: Cleaning stopped.
       title: Roomba
     service: notify.pushover
-  alias: Robots - Roomba - Stop
+  alias: Vacuum - Roomba - Stop
   id: '1495333490008'
   trigger:
   - entity_id: group.all_devices

@@ -31,30 +31,14 @@ sensor.roomba_bin_presence_template:
   icon: mdi:delete-sweep
   friendly_name: 'Bin Status'
 
-sensor.roomba_coverage:
-  icon: mdi:vector-triangle
-  friendly_name: 'Coverage'
-
 sensor.roomba_cycle_template:
   icon: mdi:autorenew
   friendly_name: 'Cycle'
 
-sensor.roomba_firmware:
+sensor.roomba_firmware_template:
   icon: mdi:floppy
   friendly_name: 'Firmware'
-
-sensor.roomba_notready_template:
-  icon: mdi:image-broken-variant
-  friendly_name: 'Errors'
-  
-sensor.roomba_phase_template:
-  icon: mdi:blur-radial
-  friendly_name: 'Phase'
 
 sensor.roomba_runtime:
   icon: mdi:timelapse
   friendly_name: 'Runtime'
-
-sensor.roomba_rssi:
-  icon: mdi:signal-variant
-  friendly_name: 'RSSI'
