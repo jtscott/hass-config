@@ -168,3 +168,27 @@
   - entity_id: sensor.dark_sky_precip_type_template
     from: None
     platform: state
+- action:
+  - delay: 00:02:00
+  - data:
+      entity_id: patio
+    service: switch.turn_off
+  - alias: ''
+    data:
+      data:
+        data:
+          sound: cosmic
+        message: Turned off.
+        title: Patio Light
+    service: notify.pushover
+  alias: Switch - State - Patio Off
+  condition:
+  - condition: state
+    entity_id: switch.patio
+    state: 'off'
+  id: '1502578688632'
+  trigger:
+  - entity_id: group.family_devices
+    from: not_home
+    platform: state
+    to: home
