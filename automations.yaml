@@ -181,7 +181,7 @@
         message: Turned off.
         title: Patio Light
     service: notify.pushover
-  alias: Switch - State - Patio Off
+  alias: Presence - Arrival - Patio Off
   condition:
   - condition: state
     entity_id: switch.patio
@@ -192,3 +192,51 @@
     from: not_home
     platform: state
     to: home
+- action:
+  - data:
+      entity_id: switch.patio
+    service: switch.turn_on
+  - data:
+      data:
+        data:
+          sound: cosmic
+        message: Turned on before sunset.
+        title: Patio Light
+    service: notify.pushover
+  alias: Sunset - Patio - Turn On
+  condition:
+  - condition: state
+    entity_id: group.family_devices
+    state: not_home
+  - condition: state
+    entity_id: switch.patio
+    state: 'off'
+  id: '1502640064196'
+  trigger:
+  - event: sunset
+    offset: -00:30:00
+    platform: sun
+- action:
+  - data:
+      entity_id: switch.patio
+    service: switch.turn_off
+  - data:
+      data:
+        data:
+          sound: cosmic
+        message: Turned off after sunrise.
+        title: Patio Light
+    service: notify.pushover
+  alias: Sunset - Patio - Turn Off
+  condition:
+  - condition: state
+    entity_id: group.family_devices
+    state: not_home
+  - condition: state
+    entity_id: switch.patio
+    state: 'on'
+  id: '1502640226429'
+  trigger:
+  - event: sunrise
+    offset: +00:30:00
+    platform: sun

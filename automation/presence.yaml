@@ -21,7 +21,7 @@
       - condition: time
         before: '22:00'
   action:
-    - service: switch.turn_on
-      entity_id: switch.wemo_insight
+    - service: light.turn_on
+      entity_id: light.kitchen
     - service: switch.turn_on
       entity_id: switch.front_door
