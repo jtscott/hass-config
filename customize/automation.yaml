@@ -1,9 +1,14 @@
 ###########################################
 # Automation
 ###########################################
-automation.sunrise_away_lights:
+automation.presence__arrival__patio_off:
+  icon: mdi:home
+automation.presence__departure__patio_on:
+  icon: mdi:city
+
+automation.sunset__patio__turn_off:
   icon: mdi:weather-sunset-up
-automation.sunset_away_lights:
+automation.sunset__patio__turn_on:
   icon: mdi:weather-sunset-down
 
 automation.presence__arrival__turn_off:
@@ -15,3 +20,6 @@ automation.presence__departure__turn_off:
   icon: mdi:city
 automation.presence__departure__turn_on:
   icon: mdi:city
+
+automation.weather__alert__state_change:
+  icon: mdi:message-alert

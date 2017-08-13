@@ -1,0 +1,34 @@
+Climate_Automation:
+  name: "Climate Automation"
+  entities:
+    - automation.climate__nest__heat_off
+    - automation.climate__nest__heat_on
+
+Presence_Automation:
+  name: "Presence Automation"
+  entities:
+    - automation.presence__arrival__turn_off
+    - automation.presence__arrival__turn_on
+    - automation.presence__departure__turn_off
+    - automation.presence__departure__turn_on
+
+Arrival_Departure_Automation:
+  name: "Arrival & Departure Automation"
+  entities:
+    - automation.presence__arrival__patio_off
+    - automation.presence__arrival__turn_off
+    - automation.presence__arrival__turn_on
+    - automation.presence__departure__patio_on
+    - automation.presence__departure__turn_off
+    - automation.presence__departure__turn_on
+
+Sunrise_Automation:
+  name: "Sunrise Automation"
+  entities:
+    - automation.sunset__patio__turn_on
+    - automation.sunset__patio__turn_off
+
+Weather_Automation:
+  name: "Weather Automation"
+  entities:
+    - automation.weather__alert__state_change

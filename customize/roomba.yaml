@@ -8,17 +8,13 @@ alert.roomba_bin_full:
 # Automation
 ###########################################
 automation.roomba_schedule:
-  icon: mdi:play-circle
+  icon: mdi:roomba
 
-automation.robots__roomba__stop:
+automation.vacuum__roomba__stop:
   icon: mdi:stop-circle
 
-###########################################
-# Switches
-###########################################
-switch.roomba:
-  icon: mdi:robot
-  friendly_name: 'Roomba'
+automation.system__roomba__firmware_update:
+  icon: mdi:message-alert
 
 ###########################################
 # Sensors

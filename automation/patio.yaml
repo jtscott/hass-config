@@ -1,7 +1,7 @@
 ###########################################
 # Patio Light
 ###########################################
-- alias: Patio On After Departure
+- alias: "Presence - Departure - Patio On"
   trigger:
     platform: state
     entity_id: group.family_devices

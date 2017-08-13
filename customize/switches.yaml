@@ -1,13 +1,4 @@
 ###########################################
-# Automation
-###########################################
-automation.patio_off_after_arrival:
-  icon: mdi:login
-
-automation.patio_on_after_departure:
-  icon: mdi:logout
-
-###########################################
 # Switches
 ###########################################
 switch.front_door:

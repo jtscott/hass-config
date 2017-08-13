@@ -35,9 +35,3 @@ Sun_Moon:
     - sensor.sunrise
     - sensor.sunset
     - sensor.moon
-
-Sunrise_Automation:
-  name: "Sunrise Automation"
-  entities:
-    - automation.sunrise_away_lights
-    - automation.sunset_away_lights

@@ -3,6 +3,7 @@ Roomba_System:
   entities:
     - sensor.roomba_firmware_template
     - sensor.roomba_battery_template
+    - automation.system__roomba__firmware_update
 
 System_Status:
   name: "System Status"
@@ -22,10 +23,6 @@ Wink_Hub:
     - sensor.wink_hub_status
     - sensor.wink_hub_firmware_state_template
     - sensor.wink_hub_firmware_version
-
-Wink_Automation:
-  name: "Wink"
-  entities:
     - automation.system__wink_hub__update_notification
 
 Withings_Scale:
