@@ -64,7 +64,7 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
-script: !include script.yaml
+script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 shell_command: !include shell_command.yaml
 switch: !include switch.yaml
@@ -92,10 +92,6 @@ remote:
     host: !secret harmony_ip
 
 wink:
-  #email: !secret email_account
-  #password: !secret wink_password
-  #client_id: !secret wink_client_id
-  #client_secret: !secret wink_client_secret
 
 wemo:
   static:

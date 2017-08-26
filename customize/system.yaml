@@ -12,7 +12,7 @@ sensor.cpu_use:
 sensor.disk_free_space:
   icon: mdi:harddisk
 
-sensor.hass_installed:
+sensor.current_version:
   friendly_name: 'Installed'
   icon: mdi:folder-download
 

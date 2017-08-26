@@ -3,10 +3,7 @@
 ###########################################
 - platform: api_streams
 
-- platform: command_line
-  command: "python -m homeassistant --version"
-  name: 'HASS Installed'
-  scan_interval: 60
+- platform: version
 
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest

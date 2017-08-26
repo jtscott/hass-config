@@ -11,7 +11,7 @@ System_Status:
     - sensor.since_last_boot_templated
     - sensor.connected_clients
     - sensor.hass_release
-    - sensor.hass_installed
+    - sensor.current_version
     - sensor.disk_free_space
     - sensor.cpu_use
     - sensor.ram_use
