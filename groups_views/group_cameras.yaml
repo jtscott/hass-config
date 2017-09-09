@@ -2,6 +2,12 @@ Cameras:
   name: "Cameras"
   entities:
     - switch.netatmo_camera
-    - switch.patio_camera
     - camera.hemlock__kitchen
     - camera.patio
+    - camera.front_door
+
+Patio_Camera_Events:
+  name: "Patio Camera Events"
+  entities:
+    - sensor.captured_today_patio
+    - sensor.last_patio

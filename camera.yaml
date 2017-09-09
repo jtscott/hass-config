@@ -23,6 +23,5 @@
   home: Hemlock
   cameras:
     - Kitchen
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.35:8080/mjpegfeed?oid=1&size=1080x720
-  name: 'Patio'
+- platform: arlo
+  ffmpeg_arguments: '-pred 1 -q:v 2'

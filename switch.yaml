@@ -10,11 +10,6 @@
       command_off: 'bash /config/netatmo/netatmo_switch.sh off'
       command_state: 'bash /config/netatmo/netatmo_status.sh'
       value_template: '{{ value == "on" }}'
-    patio_camera:
-      command_on: 'curl -s http://192.168.1.35:8080/allon?ot=2&oid=1 > /dev/null'
-      command_off: 'curl -s http://192.168.1.35:8080/alloff?ot=2&oid=1 > /dev/null'
-      command_state: 'curl -s http://192.168.1.35:8080/getobjectlist | grep Patio | cut -d , -f 5'
-      value_template: '{{ value == "Online" }}'
 
 - platform: template
   switches:

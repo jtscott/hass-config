@@ -6,8 +6,9 @@ system:
   icon: mdi:server
   name: System
   entities:
+    - group.arlo_hub
+    - group.roomba_system
+    - group.sensor_batteries
     - group.system_status
     - group.withings_scale
-    - group.roomba_system
     - group.wink_hub
-    - group.sensor_batteries

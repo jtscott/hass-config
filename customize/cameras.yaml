@@ -4,9 +4,6 @@
 switch.netatmo_camera:
   icon: mdi:camera
   friendly_name: 'Kitchen Camera'
-switch.patio_camera:
-  icon: mdi:camera
-  friendly_name: 'Patio Camera'
 
 ###########################################
 # Sensors

@@ -7,3 +7,4 @@ Security:
   entities:
     - group.sensors
     - group.cameras
+    - group.patio_camera_events

@@ -73,12 +73,16 @@ vacuum: !include vacuum.yaml
 ###########################################
 # Third Party Platforms
 ###########################################
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
 
 ifttt:
   key: !secret ifttt_api
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
 
 netatmo:
   api_key: !secret netatmo_apik
