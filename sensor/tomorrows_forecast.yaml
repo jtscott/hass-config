@@ -4,6 +4,7 @@
 - platform: template
   sensors:
     air_pressure_tomorrow_template:
+      friendly_name: 'Air Pressure'
       value_template: "{% if states('sensor.dark_sky_pressure_1') | float <= 980 %}Low{% elif states('sensor.dark_sky_pressure_1') | float >= 1000 %}Good{% elif states('sensor.dark_sky_pressure_1') | float >= 1020 %}High{% else %}n/a{% endif %}"
 
 - platform: template
@@ -34,11 +35,11 @@
         {% else %}
           mdi:weather-sunny
         {% endif %}
-        
+
 - platform: template
   sensors:
     dark_sky_precip_probability_tomorrow_template:
-      friendly_name: "Precipitation"
+      friendly_name: 'Chance of Precipitation'
       unit_of_measurement: "%"
       value_template: >-
         {%- if states.sensor.dark_sky_precip_probability_1.state %}

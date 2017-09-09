@@ -1,5 +1,0 @@
-Sensors:
-  name: "Sensors"
-  entities:
-    - sensor.netatmo_motion
-    - sensor.patio_door_opened_template

@@ -11,7 +11,7 @@ homeassistant:
   #http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Edmonton
   #customize must nested within homeassistant entity
-  customize: !include_dir_merge_named customize
+  customize: !include customize.yaml
 
 # Enables the frontend
 frontend:

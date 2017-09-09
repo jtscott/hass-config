@@ -28,6 +28,7 @@
 - platform: template
   sensors:
     tv_schedule:
+      friendly_name: 'TV Today'
       value_template: >-
         {%- for attr in states.sensor.sonarr_upcoming.attributes -%}
         {%- if not attr=="friendly_name" and not attr=="icon" and not attr=="unit_of_measurement" -%}

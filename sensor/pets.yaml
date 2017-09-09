@@ -4,21 +4,25 @@
 - platform: template
   sensors:
     george_last_seen_template:
+      friendly_name: 'Last Seen'
       value_template: "{{ states.device_tracker.george.attributes.last_seen }}"
 
 - platform: template
   sensors:
     george_ear_tattoo_template:
+      friendly_name: 'Tattoo'
       value_template: !secret george_tattoo
 
 - platform: template
   sensors:
     george_petlynx_template:
+      friendly_name: 'Petlynx'
       value_template: !secret george_petlynx
 
 - platform: template
   sensors:
     alfred_last_seen_template:
+      friendly_name: 'Last Seen'
       value_template: "{{ states.device_tracker.alfie.attributes.last_seen }}"
 
 - platform: template

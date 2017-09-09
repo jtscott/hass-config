@@ -5,6 +5,7 @@ Security:
   view: yes
   icon: mdi:security-home
   entities:
+    - sensor.patio_door_opened_template
     - group.sensors
     - group.cameras
     - group.patio_camera_events

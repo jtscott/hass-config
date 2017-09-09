@@ -6,6 +6,7 @@
       command_state: "curl -s http://192.168.1.37:8484/api/local/info/mission | jq .cleanMissionStatus.cycle | sed -e 's/^\"//' -e 's/\"$//'"
       value_template: '{{ value == "clean" }}'
     netatmo_camera:
+      friendly_name: 'Kitchen Camera'
       command_on: 'bash /config/netatmo/netatmo_switch.sh on'
       command_off: 'bash /config/netatmo/netatmo_switch.sh off'
       command_state: 'bash /config/netatmo/netatmo_status.sh'
@@ -14,6 +15,7 @@
 - platform: template
   switches:
     livingroomtv:
+      friendly_name: 'Samsung TV'
       value_template: "{{ is_state('media_player.un65f8000', 'on') }}"
       turn_on:
         service: remote.send_command
@@ -28,6 +30,7 @@
 - platform: template
   switches:
     shieldtv:
+      friendly_name: 'Nvidia Shield'
       value_template: "{% if states('media_player.my_shield_console') == 'playing' %}true{% else %}false{% endif %}"
       turn_on:
         service: media_player.turn_on

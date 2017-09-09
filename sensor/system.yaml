@@ -31,6 +31,7 @@
 - platform: template
   sensors:
     since_last_boot_templated:
+      friendly_name: "Uptime"
       value_template: >-
         {%- set slb = states.sensor.since_last_boot.state.split(' ') -%}
         {%- set count = slb | length -%}

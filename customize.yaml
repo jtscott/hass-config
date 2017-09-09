@@ -1,0 +1,234 @@
+group.default_view:
+  order: 1
+group.security:
+  order: 2
+group.weather:
+  order: 3
+group.calgary:
+  order: 4
+group.system:
+  order: 5
+group.automation:
+  order: 6
+group.date_time:
+  order: 1
+group.system_status:
+  order: 2
+group.lights:
+  order: 2
+group.netatmo:
+  order: 3
+camera.patio:
+  order: 4
+group.roomba:
+  order: 5
+alert.scale_battery_low:
+  icon: mdi:alert
+alert.roomba_bin_full:
+  order: 1
+  icon: mdi:alert
+automation.climate__nest__heat_on:
+  icon: mdi:nest-thermostat
+automation.climate__nest__heat_off:
+  icon: mdi:nest-thermostat
+automation.presence__arrival__patio_off:
+  icon: mdi:home
+automation.presence__departure__patio_on:
+  icon: mdi:city
+automation.presence__arrival__turn_off:
+  icon: mdi:home
+automation.presence__arrival__turn_on:
+  icon: mdi:home
+automation.presence__departure__turn_off:
+  icon: mdi:city
+automation.presence__departure__turn_on:
+  icon: mdi:city
+automation.roomba_schedule:
+  icon: mdi:roomba
+automation.sunset__patio__turn_off:
+  icon: mdi:weather-sunset-up
+automation.sunset__patio__turn_on:
+  icon: mdi:weather-sunset-down
+automation.system__hass__update_notification:
+  icon: mdi:message-alert
+automation.system__roomba__firmware_update:
+  icon: mdi:message-alert
+automation.vacuum__roomba__stop:
+  icon: mdi:stop-circle
+automation.weather__alert__state_change:
+  icon: mdi:message-alert
+automation.system__wink_hub__update_notification:
+  icon: mdi:message-alert
+climate.home:
+  icon: mdi:thermometer
+  friendly_name: Nest
+device_tracker.jaredsrotary:
+  friendly_name: 'Jared'
+device_tracker.brittanysiphone:
+  friendly_name: 'Brittany'
+device_tracker.george:
+  friendly_name: 'George'
+device_tracker.alfie:
+  friendly_name: 'Alfie'
+media_player.my_shield_console:
+  friendly_name: 'Nvidia Shield'
+sensor.air_pressure_template:
+  icon: mdi:gauge
+sensor.air_pressure_tomorrow_template:
+  icon: mdi:gauge
+sensor.air_quality:
+  friendly_name: "Air Quality"
+  icon: mdi:hospital
+sensor.alfred_last_seen_template:
+  icon: mdi:crosshairs-gps
+sensor.climate_operation_mode:
+  friendly_name: Nest
+sensor.co2_ppm:
+  sensor_class: gas
+sensor.connected_clients:
+  friendly_name: 'Connections'
+  icon: mdi:lan-connect
+sensor.cpu_use:
+  friendly_name: 'Processor'
+  icon: mdi:chip
+sensor.current_activity:
+  icon: mdi:play-pause
+sensor.current_version:
+  friendly_name: 'Installed'
+  icon: mdi:folder-download
+sensor.dark_sky_apparent_temperature:
+  friendly_name: 'Feels Like'
+  icon: mdi:human-male-female
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+sensor.dark_sky_daily_low_temperature_1:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+sensor.dark_sky_daily_high_temperature_1:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+sensor.dark_sky_cloud_coverage:
+  friendly_name: 'Cloud Coverage'
+  icon: mdi:weather-partlycloudy
+sensor.dark_sky_cloud_coverage_1:
+  friendly_name: 'Cloud Coverage'
+  icon: mdi:weather-partlycloudy
+sensor.dark_sky_precip_probability_template:
+  icon: mdi:weather-rainy
+sensor.dark_sky_precip_probability_tomorrow_template:
+  icon: mdi:weather-rainy
+sensor.dark_sky_daily_max_precip_intensity:
+  friendly_name: 'Amount of Precipitation'
+  icon: mdi:cup-water
+sensor.dark_sky_daily_max_precip_intensity_1:
+  friendly_name: 'Amount of Precipitation'
+  icon: mdi:cup-water
+sensor.dark_sky_wind_bearing_template:
+  icon: mdi:compass-outline
+sensor.dark_sky_wind_bearing_tomorrow_template:
+  icon: mdi:compass-outline
+sensor.dark_sky_wind_speed:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy
+sensor.dark_sky_wind_speed_1:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy
+sensor.date:
+  icon: mdi:calendar
+sensor.disk_free_space:
+  icon: mdi:harddisk
+sensor.family_room_thermostat_nest_temperature:
+  friendly_name: Inside
+sensor.family_room_thermostat_nest_humidity:
+  friendly_name: Humidity
+sensor.george_last_seen_template:
+  icon: mdi:crosshairs-gps
+sensor.george_ear_tattoo_template:
+  icon: mdi:tag-text-outline
+sensor.george_petlynx_template:
+  icon: mdi:puzzle
+sensor.hass_release:
+  friendly_name: 'Release'
+  icon: mdi:github-circle
+sensor.home_to_enmax:
+  icon: mdi:car
+sensor.home_to_supported_lifestyles:
+  icon: mdi:car
+sensor.home_to_acadia:
+  icon: mdi:car
+sensor.home_to_airport:
+  icon: mdi:airplane
+sensor.moon:
+  friendly_name: "Moon"
+  icon: mdi:weather-night
+sensor.netatmo_motion:
+  friendly_name: Kitchen Motion
+  icon: mdi:run
+sensor.patio_door_opened_template:
+  icon: mdi:export
+sensor.ram_use:
+  friendly_name: 'Memory Use'
+  icon: mdi:memory
+sensor.roomba_bin_state_template:
+  icon: mdi:delete-sweep
+sensor.roomba_bin_presence_template:
+  icon: mdi:delete-sweep
+sensor.roomba_cycle_template:
+  icon: mdi:autorenew
+sensor.roomba_firmware_template:
+  icon: mdi:floppy
+sensor.roomba_runtime:
+  icon: mdi:timelapse
+  friendly_name: 'Runtime'
+sensor.rro_rate:
+  icon: mdi:power-plug
+sensor.solar_angle:
+  icon: mdi:vector-curve
+sensor.sunrise:
+  icon: mdi:weather-sunset-up
+sensor.sunset:
+  icon: mdi:weather-sunset-down
+sensor.scale_firmware:
+  friendly_name: Firmware Version
+  icon: mdi:floppy
+sensor.since_last_boot_templated:
+  icon: mdi:timer
+sensor.time:
+  icon: mdi:clock
+sensor.tv_schedule:
+  icon: mdi:movie
+sensor.uv_rating_template:
+  icon: mdi:sunglasses
+sensor.wink_hub_status:
+  icon: mdi:dns
+sensor.wink_hub_firmware_state_template:
+  icon: mdi:update
+sensor.wink_hub_firmware_version:
+  icon: mdi:floppy
+sensor.yr_temperature:
+  friendly_name: 'Outside'
+sensor.yr_humidity:
+  friendly_name: 'Humidity'
+sensor.yr_symbol:
+  friendly_name: 'Conditions'
+switch.bedroom:
+  icon: mdi:lightbulb
+  friendly_name: 'Bedroom'
+switch.front_door:
+  icon: mdi:lightbulb
+  friendly_name: 'Front Door'
+switch.livingroomtv:
+  icon: mdi:television
+switch.netatmo_camera:
+  icon: mdi:camera
+switch.patio:
+  icon: mdi:lightbulb
+  friendly_name: 'Patio'
+switch.shieldtv:
+  icon: mdi:cast
+zone.home:
+  track_ios: true

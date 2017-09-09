@@ -1,5 +1,0 @@
-###########################################
-# Sensors
-###########################################
-sensor.patio_door_opened_template:
-  icon: mdi:export
