@@ -35,3 +35,4 @@ Sun_Moon:
     - sensor.sunrise
     - sensor.sunset
     - sensor.moon
+    - sensor.season_template

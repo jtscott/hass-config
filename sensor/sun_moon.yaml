@@ -22,3 +22,35 @@
       friendly_name: 'Sunset'
 
 - platform: moon
+
+- platform: season
+  type: astronomical
+
+- platform: template
+  sensors:
+    season_template:
+      friendly_name: "Season"
+      value_template: >-
+        {%- if is_state("sensor.season", "Spring") %}
+          Spring
+        {%- elif is_state("sensor.season", "Summer") %}
+          Summer
+        {%- elif is_state("sensor.dark_sky_precip", "Autumn") %}
+          Autumn
+        {%- elif is_state("sensor.dark_sky_precip", "Winter") %}
+          Winter
+        {% else %}
+          None
+        {% endif %}
+      icon_template: >-
+        {%- if is_state("sensor.season", "Spring") %}
+          mdi:weather-sunset
+        {%- elif is_state("sensor.season", "Summer") %}
+          mdi:weather-sunny
+        {%- elif is_state("sensor.season", "Autumn") %}
+          mdi:leaf
+        {%- elif is_state("sensor.season", "Winter") %}
+          mdi:weather-snowy
+        {% else %}
+          mdi:weather-snowy-rainy
+        {% endif %}
