@@ -11,3 +11,9 @@ Patio_Camera_Events:
   entities:
     - sensor.captured_today_patio
     - sensor.last_patio
+
+Front_Door_Camera_Events:
+  name: "Patio Camera Events"
+  entities:
+    - sensor.captured_today_front_door
+    - sensor.last_front_door
