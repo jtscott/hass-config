@@ -63,21 +63,21 @@ climate.home:
   icon: mdi:thermometer
   friendly_name: Nest
 device_tracker.jaredsrotary:
-  friendly_name: 'Jared'
+  friendly_name: Jared
 device_tracker.brittanysiphone:
-  friendly_name: 'Brittany'
+  friendly_name: Brittany
 device_tracker.george:
-  friendly_name: 'George'
+  friendly_name: George
 device_tracker.alfie:
-  friendly_name: 'Alfie'
+  friendly_name: Alfie
 media_player.my_shield_console:
-  friendly_name: 'Nvidia Shield'
+  friendly_name: Nvidia Shield
 sensor.air_pressure_template:
   icon: mdi:gauge
 sensor.air_pressure_tomorrow_template:
   icon: mdi:gauge
 sensor.air_quality:
-  friendly_name: "Air Quality"
+  friendly_name: Air Quality
   icon: mdi:hospital
 sensor.alfred_last_seen_template:
   icon: mdi:crosshairs-gps
@@ -86,56 +86,56 @@ sensor.climate_operation_mode:
 sensor.co2_ppm:
   sensor_class: gas
 sensor.connected_clients:
-  friendly_name: 'Connections'
+  friendly_name: Connections
   icon: mdi:lan-connect
 sensor.cpu_use:
-  friendly_name: 'Processor'
+  friendly_name: Processor
   icon: mdi:chip
 sensor.current_activity:
   icon: mdi:play-pause
 sensor.current_version:
-  friendly_name: 'Installed'
+  friendly_name: Installed
   icon: mdi:folder-download
 sensor.dark_sky_apparent_temperature:
-  friendly_name: 'Feels Like'
+  friendly_name: Feels Like
   icon: mdi:human-male-female
 sensor.dark_sky_daily_low_temperature:
-  friendly_name: 'Low'
+  friendly_name: Low
   icon: mdi:temperature-celsius
 sensor.dark_sky_daily_low_temperature_1:
-  friendly_name: 'Low'
+  friendly_name: Low
   icon: mdi:temperature-celsius
 sensor.dark_sky_daily_high_temperature:
-  friendly_name: 'High'
+  friendly_name: High
   icon: mdi:temperature-celsius
 sensor.dark_sky_daily_high_temperature_1:
-  friendly_name: 'High'
+  friendly_name: High
   icon: mdi:temperature-celsius
 sensor.dark_sky_cloud_coverage:
-  friendly_name: 'Cloud Coverage'
+  friendly_name: Cloud Coverage
   icon: mdi:weather-partlycloudy
 sensor.dark_sky_cloud_coverage_1:
-  friendly_name: 'Cloud Coverage'
+  friendly_name: Cloud Coverage
   icon: mdi:weather-partlycloudy
 sensor.dark_sky_precip_probability_template:
   icon: mdi:weather-rainy
 sensor.dark_sky_precip_probability_tomorrow_template:
   icon: mdi:weather-rainy
 sensor.dark_sky_daily_max_precip_intensity:
-  friendly_name: 'Amount of Precipitation'
+  friendly_name: Amount of Precipitation
   icon: mdi:cup-water
 sensor.dark_sky_daily_max_precip_intensity_1:
-  friendly_name: 'Amount of Precipitation'
+  friendly_name: Amount of Precipitation
   icon: mdi:cup-water
 sensor.dark_sky_wind_bearing_template:
   icon: mdi:compass-outline
 sensor.dark_sky_wind_bearing_tomorrow_template:
   icon: mdi:compass-outline
 sensor.dark_sky_wind_speed:
-  friendly_name: 'Wind Speed'
+  friendly_name: Wind Speed
   icon: mdi:weather-windy
 sensor.dark_sky_wind_speed_1:
-  friendly_name: 'Wind Speed'
+  friendly_name: Wind Speed
   icon: mdi:weather-windy
 sensor.date:
   icon: mdi:calendar
@@ -152,7 +152,7 @@ sensor.george_ear_tattoo_template:
 sensor.george_petlynx_template:
   icon: mdi:puzzle
 sensor.hass_release:
-  friendly_name: 'Release'
+  friendly_name: Release
   icon: mdi:github-circle
 sensor.home_to_enmax:
   icon: mdi:car
@@ -163,7 +163,7 @@ sensor.home_to_acadia:
 sensor.home_to_airport:
   icon: mdi:airplane
 sensor.moon:
-  friendly_name: "Moon"
+  friendly_name: Moon
   icon: mdi:weather-night
 sensor.netatmo_motion:
   friendly_name: Kitchen Motion
@@ -171,7 +171,7 @@ sensor.netatmo_motion:
 sensor.patio_door_opened_template:
   icon: mdi:export
 sensor.ram_use:
-  friendly_name: 'Memory Use'
+  friendly_name: Memory Use
   icon: mdi:memory
 sensor.roomba_bin_state_template:
   icon: mdi:delete-sweep
@@ -183,7 +183,7 @@ sensor.roomba_firmware_template:
   icon: mdi:floppy
 sensor.roomba_runtime:
   icon: mdi:timelapse
-  friendly_name: 'Runtime'
+  friendly_name: Runtime
 sensor.rro_rate:
   icon: mdi:power-plug
 sensor.solar_angle:
@@ -210,25 +210,29 @@ sensor.wink_hub_firmware_state_template:
 sensor.wink_hub_firmware_version:
   icon: mdi:floppy
 sensor.yr_temperature:
-  friendly_name: 'Outside'
+  friendly_name: Outside
 sensor.yr_humidity:
-  friendly_name: 'Humidity'
+  friendly_name: Humidity
 sensor.yr_symbol:
-  friendly_name: 'Conditions'
+  friendly_name: Conditions
 switch.bedroom:
   icon: mdi:lightbulb
-  friendly_name: 'Bedroom'
+  friendly_name: Bedroom
 switch.front_door:
   icon: mdi:lightbulb
-  friendly_name: 'Front Door'
+  friendly_name: Front Door
 switch.livingroomtv:
   icon: mdi:television
 switch.netatmo_camera:
   icon: mdi:camera
 switch.patio:
   icon: mdi:lightbulb
-  friendly_name: 'Patio'
+  friendly_name: Patio
 switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
+automation.presence__arrival__arlo_motion_off:
+  icon: mdi:home
+automation.presence__departure__arlo_motion_on:
+  icon: mdi:city

@@ -11,6 +11,8 @@ Presence_Automation:
     - automation.presence__arrival__turn_on
     - automation.presence__departure__turn_off
     - automation.presence__departure__turn_on
+    - automation.presence__arrival__arlo_motion_off
+    - automation.presence__departure__arlo_motion_on
 
 Arrival_Departure_Automation:
   name: "Arrival & Departure Automation"

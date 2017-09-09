@@ -240,3 +240,33 @@
   - event: sunrise
     offset: +00:30:00
     platform: sun
+- action:
+  - data:
+      entity_id: camera.front_door
+    service: camera.disable_motion_detection
+  - data:
+      entity_id: camera.patio
+    service: camera.disable_motion_detection
+  alias: Presence - Arrival - Arlo Motion Off
+  condition: []
+  id: '1504982133471'
+  trigger:
+  - entity_id: group.family_devices
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      entity_id: camera.front_door
+    service: camera.enable_motion_detection
+  - data:
+      entity_id: camera.patio
+    service: camera.enable_motion_detection
+  alias: Presence - Departure - Arlo Motion On
+  condition: []
+  id: '1504982395047'
+  trigger:
+  - entity_id: group.family_devices
+    from: home
+    platform: state
+    to: not_home
