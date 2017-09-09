@@ -1,12 +1,12 @@
 # My Home Assistant Configuration
-Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/) on a RPi3. Note that Netatmo Welcome and Withings devices have custom scripts for their integration.
+Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/). Note that Netatmo Welcome and Withings devices have custom scripts for their integration.
 
 ## Requirements
-- Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). RPi raspian jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
+- Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). Jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
 - Curl
 
 ## Shout Out
-- Check out Facu ZAK's Roomba 980 [Library](https://github.com/koalazak/dorita980) and [Rest API](https://github.com/koalazak/rest980) it saved me a lot of work!
+- Check out Facu ZAK's Roomba 980 [Library](https://github.com/koalazak/dorita980) and [Rest API](https://github.com/koalazak/rest980)!
 - All the [HASS examples](https://home-assistant.io/cookbook/) and contributors.
 
 ## Layout
@@ -25,20 +25,19 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ![Automations](https://www.dropbox.com/s/ks0phkdk0q33xdx/automation.PNG?raw=1)
 
 ## Devices
-- Wink Hub 2
-- Nest Thermostat
-- Wemo Light & Insight Switches
-- GE Smart Dimmer Z-Wave Switches
 - Aeotec Recessed Door Sensor
-- Roomba 980
-- Withings WS-50
-- Nvidia Shield TV
-- Netatmo Welcome
-- Unifi Wireless
-- Samsung UN65F8000
+- Arlo Pro Cameras
+- GE Smart Dimmer Z-Wave Switches
+- Nest Thermostat
 - Harmony Hub
-- Plex Media Server
-- [iPhone Live-Reporter+](https://itunes.apple.com/us/app/live-reporter-security-and-broadcasting-camera/id1033020349?mt=8) and [iSpyConnect](https://www.ispyconnect.com/default.aspx)
+- Netatmo Welcome Camera
+- Nvidia Shield TV
+- Roomba 980
+- Samsung UN65F8000
+- Unifi Wireless
+- Wemo Light & Insight Switches
+- Wink Hub 2
+- Withings WS-50
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
