@@ -123,6 +123,7 @@ ios:
 alert: !include alert.yaml
 automation old: !include_dir_merge_list automation
 automation: !include automations.yaml
+binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
 climate: !include climate.yaml
 device_tracker: !include device_tracker.yaml

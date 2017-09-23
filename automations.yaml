@@ -270,3 +270,20 @@
     from: home
     platform: state
     to: not_home
+- action:
+  - after: 08:30
+    condition: time
+  - data:
+      entity_id: vacuum.roomba
+    service: vacuum.turn_on
+  alias: Vacuum - Roomba - Schedule
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  id: '1506136149206'
+  trigger:
+  - entity_id: group.family_devices
+    from: home
+    platform: state
+    to: not_home
