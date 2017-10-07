@@ -276,6 +276,12 @@
   - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
+  - data:
+      data:
+        sound: cosmic
+      message: Cleaning Started
+      title: roomba
+    service: notify.pushover
   alias: Vacuum - Roomba - Schedule
   condition:
   - condition: state
