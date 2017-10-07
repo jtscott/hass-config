@@ -271,7 +271,7 @@
     platform: state
     to: not_home
 - action:
-  - after: 08:30
+  - before: '12:00'
     condition: time
   - data:
       entity_id: vacuum.roomba
