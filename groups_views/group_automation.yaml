@@ -34,3 +34,9 @@ Weather_Automation:
   name: "Weather Automation"
   entities:
     - automation.weather__alert__state_change
+
+Theme_Automation:
+  name: "Theme Automation"
+  entities:
+    - automation.theme__day_mode
+    - automation.theme__night_mode
