@@ -293,3 +293,25 @@
     from: home
     platform: state
     to: not_home
+- action:
+  - data:
+      data:
+        name: PmxMononight
+    service: frontend.set_theme
+  alias: Theme - Night Mode
+  condition: []
+  id: '1508004325401'
+  trigger:
+  - at: '21:00'
+    platform: time
+- action:
+  - data:
+      data:
+        name: default
+    service: frontend.set_theme
+  alias: Theme - Day Mode
+  condition: []
+  id: '1508004389236'
+  trigger:
+  - at: 09:00
+    platform: time
