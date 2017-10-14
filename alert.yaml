@@ -9,7 +9,7 @@ roomba_bin_full:
 
 scale_battery_low:
   name: Scale Battery is Low
-  entity_id: binary_sensor.scale_battery_low
+  entity_id: sensor.scale_battery_low
   state: 'True'
   repeat: 240
   can_acknowledge: True
