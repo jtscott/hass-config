@@ -24,3 +24,19 @@ wink_hub_offline:
   can_acknowledge: True
   notifiers:
     - pushover
+
+device_tracker_george_battery_low:
+  name: George Tracker Battery Low
+  entity_id: sensor.device_tracker_george_battery_low
+  repeat: 240
+  can_acknowledge: True
+  notifiers:
+    - pushover
+
+device_tracker_alfie_battery_low:
+  name: Alfie Tracker Battery Low
+  entity_id: sensor.device_tracker_alfie_battery_low
+  repeat: 240
+  can_acknowledge: True
+  notifiers:
+    - pushover
