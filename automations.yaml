@@ -169,7 +169,7 @@
     from: None
     platform: state
 - action:
-  - delay: 00:02:00
+  - delay: 00:01:30
   - data:
       entity_id: patio
     service: switch.turn_off
@@ -185,7 +185,7 @@
   condition:
   - condition: state
     entity_id: switch.patio
-    state: 'off'
+    state: 'on'
   id: '1502578688632'
   trigger:
   - entity_id: group.family_devices
