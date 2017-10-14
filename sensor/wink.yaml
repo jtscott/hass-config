@@ -18,12 +18,12 @@
   sensors:
     wink_hub_firmware_version:
       friendly_name: 'Firmware Version'
-      value_template: '{{ states.binary_sensor.wink_hub.attributes["firmware version"] }}'
+      value_template: '{{ states.binary_sensor.wink_hub.attributes.firmware_version }}'
 
 - platform: template
   sensors:
     wink_hub_firmware_state:
-      value_template: '{{ states.binary_sensor.wink_hub.attributes["update needed"] }}'
+      value_template: '{{ states.binary_sensor.wink_hub.attributes.update_needed }}'
 
 - platform: template
   sensors:
