@@ -60,7 +60,7 @@
       value_template: >-
         {%- if "states.vacuum.roomba.attributes.bin_full", "false" %}
             Empty
-        {%- elif "states.vacuum.roomba.attributes.bin_present", "true" %}
+        {%- elif "states.vacuum.roomba.attributes.bin_full", "true" %}
             Full
         {%- else %}
             Offline
