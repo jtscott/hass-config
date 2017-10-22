@@ -195,8 +195,6 @@ sensor.sunset:
 sensor.scale_firmware:
   friendly_name: Firmware Version
   icon: mdi:floppy
-sensor.since_last_boot_templated:
-  icon: mdi:timer
 sensor.time:
   icon: mdi:clock
 sensor.tv_schedule:

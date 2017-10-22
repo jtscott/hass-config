@@ -13,7 +13,7 @@ Roomba_System:
 System_Status:
   name: "System Status"
   entities:
-    - sensor.since_last_boot_templated
+    - sensor.uptime
     - sensor.connected_clients
     - sensor.hass_release
     - sensor.current_version
