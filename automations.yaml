@@ -171,7 +171,7 @@
 - action:
   - delay: 00:01:30
   - data:
-      entity_id: patio
+      entity_id: switch.patio
     service: switch.turn_off
   - alias: ''
     data:
