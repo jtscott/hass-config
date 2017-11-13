@@ -70,8 +70,8 @@
       entity_id: switch.netatmo_camera
     service: switch.turn_on
   - data:
-      entity_id: switch.patio_camera
-    service: switch.turn_on
+      entity_id: alarm_control_panel.arlohub
+    service: alarm_control_panel.alarm_arm_away
   alias: Presence - Departure - Turn On
   id: '1495333355800'
   trigger:
@@ -242,11 +242,8 @@
     platform: sun
 - action:
   - data:
-      entity_id: camera.front_door
-    service: camera.disable_motion_detection
-  - data:
-      entity_id: camera.patio
-    service: camera.disable_motion_detection
+      entity_id: alarm_control_panel.arlohub
+    service: alarm_control_panel.alarm_arm_home
   alias: Presence - Arrival - Arlo Motion Off
   condition: []
   id: '1504982133471'
