@@ -238,3 +238,5 @@ automation.theme__day_mode:
   icon: mdi:weather-sunny
 automation.theme__night_mode:
   icon: mdi:weather-night
+switch.lamp:
+  icon: mdi:lightbulb

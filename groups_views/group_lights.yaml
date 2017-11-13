@@ -5,7 +5,7 @@ Lights:
     - switch.patio
     - light.office
     - switch.bedroom
-    - switch.bedroom_lamp
+    - switch.lamp
     - group.closet_lights
 
 Closet_Lights:

@@ -51,8 +51,6 @@ updater:
 # Includes
 ###########################################
 alert: !include alert.yaml
-alarm_control_panel:
-  - platform: arlo
 automation old: !include_dir_merge_list automation
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
@@ -77,6 +75,9 @@ arlo:
   username: !secret arlo_username
   password: !secret arlo_password
 
+alarm_control_panel:
+  - platform: arlo
+
 ifttt:
   key: !secret ifttt_api
 
@@ -99,7 +100,7 @@ wink:
 
 wemo:
   static:
-#    - 192.168.2.15 wemo insight switch
+    - 192.168.2.15
     - 192.168.2.16
     - 192.168.2.14
     - 192.168.2.13
