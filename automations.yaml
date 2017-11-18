@@ -44,9 +44,6 @@
   - data:
       entity_id: switch.netatmo_camera
     service: switch.turn_off
-  - data:
-      entity_id: switch.patio_camera
-    service: switch.turn_off
   alias: Presence - Arrival - Turn Off
   id: '1495332504335'
   trigger:
@@ -243,8 +240,8 @@
 - action:
   - data:
       entity_id: alarm_control_panel.arlohub
-    service: alarm_control_panel.alarm_arm_home
-  alias: Presence - Arrival - Arlo Motion Off
+    service: alarm_control_panel.alarm_disarm
+  alias: Presence - Arrival - Arlo Disarm
   condition: []
   id: '1504982133471'
   trigger:
@@ -254,12 +251,9 @@
     to: home
 - action:
   - data:
-      entity_id: camera.front_door
-    service: camera.enable_motion_detection
-  - data:
-      entity_id: camera.patio
-    service: camera.enable_motion_detection
-  alias: Presence - Departure - Arlo Motion On
+      entity_id: alarm_control_panel.arlohub
+    service: alarm_control_panel.alarm_arm_away
+  alias: Presence - Departure - Arlo Armed
   condition: []
   id: '1504982395047'
   trigger:
