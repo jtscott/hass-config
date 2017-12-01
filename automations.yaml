@@ -286,6 +286,9 @@
   - after: 08:00:00
     before: '16:00:00'
     condition: time
+  - below: '0.30'
+    condition: numeric_state
+    entity_id: sensor.roomba_runtime
   id: '1506136149206'
   trigger:
   - entity_id: group.family_devices
