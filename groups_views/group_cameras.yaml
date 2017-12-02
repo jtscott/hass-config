@@ -12,9 +12,11 @@ Patio_Camera_Events:
   entities:
     - sensor.captured_today_patio
     - sensor.last_patio
+    - sensor.patio_camera_battery_template
 
 Front_Door_Camera_Events:
   name: "Front Door Camera Events"
   entities:
     - sensor.captured_today_front_door
     - sensor.last_front_door
+    - sensor.front_door_camera_battery_template

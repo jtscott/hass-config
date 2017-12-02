@@ -10,3 +10,4 @@ Security:
     - group.cameras
     - group.patio_camera_events
     - group.front_door_camera_events
+    - group.arlo_hub
