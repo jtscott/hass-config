@@ -1,7 +1,7 @@
 Arlo_Hub:
   name: "Arlo Hub"
   entities:
-    - sensor.arlo_cameras
+    - alarm_control_panel.arlohub
 
 Roomba_System:
   name: "Roomba 980"
