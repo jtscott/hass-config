@@ -252,6 +252,12 @@
   - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_disarm
+  - data:
+      data:
+        sound: cosmic
+      message: Disarmed
+      title: Arlo
+    service: notify.pushover
   alias: Presence - Arrival - Arlo Disarm
   condition: []
   id: '1504982133471'
@@ -264,6 +270,12 @@
   - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_arm_away
+  - data:
+      data:
+        sound: cosmic
+      message: Armed
+      title: Arlo
+    service: notify.pushover
   alias: Presence - Departure - Arlo Armed
   condition: []
   id: '1504982395047'
