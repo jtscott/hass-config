@@ -30,7 +30,7 @@
           {{ states.vacuum.roomba.attributes.battery_level }}
         {%- endif %}
       icon_template: >-
-        {%- if is_state("sensor.roomba_cycle_template", "Docked") %}
+        {%- if is_state("sensor.roomba_cycle_template", "Charging") %}
           mdi:battery-charging
         {% elif states('sensor.roomba_battery_template') | float <= 5 %}
           mdi:battery-outline
