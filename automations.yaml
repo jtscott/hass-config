@@ -21,11 +21,15 @@
   - below: '22.0'
     entity_id: sensor.family_room_thermostat_nest_temperature
     platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: climate.family_room_nest
+    state: 'off'
 - action:
   - alias: ''
     data:
       entity_id: climate.family_room_nest
-      operation_mode: eco
+      operation_mode: 'off'
     service: climate.set_operation_mode
   - data:
       data:
@@ -40,6 +44,10 @@
   - above: '23.0'
     entity_id: sensor.family_room_thermostat_nest_temperature
     platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: climate.family_room_nest
+    state: heat
 - action:
   - data:
       entity_id: switch.netatmo_camera
