@@ -65,7 +65,6 @@ media_player: !include media_player.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
-shell_command: !include shell_command.yaml
 switch: !include switch.yaml
 vacuum: !include vacuum.yaml
 
