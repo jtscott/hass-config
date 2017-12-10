@@ -35,9 +35,9 @@
           Spring
         {%- elif is_state("sensor.season", "Summer") %}
           Summer
-        {%- elif is_state("sensor.dark_sky_precip", "Autumn") %}
+        {%- elif is_state("sensor.season", "Autumn") %}
           Autumn
-        {%- elif is_state("sensor.dark_sky_precip", "Winter") %}
+        {%- elif is_state("sensor.season", "Winter") %}
           Winter
         {% else %}
           None
