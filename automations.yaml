@@ -18,7 +18,7 @@
   alias: Climate - Nest - Heat On
   id: '1495331032264'
   trigger:
-  - below: '22.0'
+  - below: '21.5'
     entity_id: sensor.family_room_thermostat_nest_temperature
     platform: numeric_state
   condition:
@@ -41,7 +41,7 @@
   alias: Climate - Nest - Heat Off
   id: '1495332149964'
   trigger:
-  - above: '23.0'
+  - above: '22.0'
     entity_id: sensor.family_room_thermostat_nest_temperature
     platform: numeric_state
   condition:
