@@ -5,18 +5,7 @@
   sensors:
     roomba_cycle_template:
       friendly_name: 'Cycle'
-      value_template: >-
-        {%- if "states.vacuum.roomba.attributes.status", "Charging" %}
-          Docked
-        {%- elif "states.vacuum.roomba.attributes.status", "Running" %}
-          Cleaning
-        {%- elif "states.vacuum.roomba.attributes.status", "Stuck" %}
-          Stuck
-        {%- elif "states.vacuum.roomba.attributes.status", "Stopped" %}
-          Stopped
-        {%- else %}
-          None
-        {%- endif %}
+      value_template: '{{ states.vacuum.roomba.attributes.status }}'
 
 - platform: template
   sensors:

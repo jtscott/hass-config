@@ -9,5 +9,5 @@ Roomba:
 Roomba_Automation:
   name: "Roomba Automation"
   entities:
-    - automation.roomba_schedule
+    - automation.vacuum__roomba__schedule
     - automation.vacuum__roomba__stop

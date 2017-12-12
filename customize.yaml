@@ -240,3 +240,9 @@ automation.theme__night_mode:
   icon: mdi:weather-night
 switch.lamp:
   icon: mdi:lightbulb
+automation.presence__departure__arlo_armed:
+  icon: mdi:camcorder
+automation.presence__arrival__arlo_disarm:
+  icon: mdi:camcorder-off
+automation.vacuum__roomba__schedule:
+  icon: mdi:roomba
