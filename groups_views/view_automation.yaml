@@ -11,5 +11,4 @@ automation:
     - group.roomba_automation
     - group.climate_automation
     - group.wink_automation
-    - group.weather_automation
     - group.theme_automation

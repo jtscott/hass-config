@@ -171,20 +171,6 @@
   - entity_id: sensor.roomba_firmware
     platform: state
 - action:
-  - alias: ''
-    data:
-      data:
-        sound: cosmic
-      message: It is now {{states.sensor.dark_sky_precip_type_template.state}}ing.
-      title: Weather
-    service: notify.pushover
-  alias: Weather - Alert - State Change
-  id: '1496632276640'
-  trigger:
-  - entity_id: sensor.dark_sky_precip_type_template
-    from: None
-    platform: state
-- action:
   - delay: 00:01:30
   - data:
       entity_id: switch.patio
@@ -260,12 +246,6 @@
   - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_disarm
-  - data:
-      data:
-        sound: cosmic
-      message: Disarmed
-      title: Arlo
-    service: notify.pushover
   alias: Presence - Arrival - Arlo Disarm
   condition: []
   id: '1504982133471'
@@ -278,12 +258,6 @@
   - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_arm_away
-  - data:
-      data:
-        sound: cosmic
-      message: Armed
-      title: Arlo
-    service: notify.pushover
   alias: Presence - Departure - Arlo Armed
   condition: []
   id: '1504982395047'

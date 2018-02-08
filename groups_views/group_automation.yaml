@@ -22,11 +22,6 @@ Sunrise_Automation:
     - automation.sunset__patio__turn_on
     - automation.sunset__patio__turn_off
 
-Weather_Automation:
-  name: "Weather Automation"
-  entities:
-    - automation.weather__alert__state_change
-
 Theme_Automation:
   name: "Theme Automation"
   entities:
