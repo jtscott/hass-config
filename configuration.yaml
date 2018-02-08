@@ -78,7 +78,7 @@ arlo:
 alarm_control_panel:
   - platform: arlo
     home_mode_name: 'Disarmed'
-    away_mode_name: 'Armed'
+    away_mode_name: 'Away'
 
 ifttt:
   key: !secret ifttt_api
