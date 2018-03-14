@@ -11,3 +11,6 @@ Security:
     - group.patio_camera_events
     - group.front_door_camera_events
     - group.arlo_hub
+    - lock.back_door
+    - lock.front_door
+    - lock.garage

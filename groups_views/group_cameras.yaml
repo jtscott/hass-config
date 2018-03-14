@@ -3,7 +3,7 @@ Cameras:
   entities:
     - switch.netatmo_camera
     - sensor.netatmo_motion
-    - camera.hemlock__kitchen
+    - camera.7510__kitchen
     - camera.patio
     - camera.front_door
 

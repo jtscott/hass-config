@@ -56,10 +56,8 @@ automation old: !include_dir_merge_list automation
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
-climate: !include climate.yaml
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
-input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
@@ -83,10 +81,6 @@ alarm_control_panel:
 ifttt:
   key: !secret ifttt_api
 
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
 netatmo:
   api_key: !secret netatmo_apik
   secret_key: !secret netatmo_sk
@@ -103,6 +97,3 @@ wink:
 wemo:
   static:
     - 192.168.2.15
-    - 192.168.2.16
-    - 192.168.2.14
-    - 192.168.2.13

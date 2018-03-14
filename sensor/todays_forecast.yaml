@@ -112,7 +112,8 @@
 - platform: wunderground
   api_key: !secret wunderground_api
   monitored_conditions:
-  - 'UV'
+  - alerts
+  - UV
 
 - platform: template
   sensors:

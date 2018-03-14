@@ -1,26 +1,8 @@
 ###########################################
 # Climate
 ###########################################
-- platform: nest
-  monitored_conditions:
-  - 'temperature'
-  - 'humidity'
-  - 'operation_mode' 
-
 - platform: template
   sensors:
     climate_operation_mode:
       value_template: "{{ states.climate.family_room_nest.attributes.operation_mode if states.climate.family_room_nest is not none else 'Unknown' }}"
-      entity_id: climate.family_room_nest 
-
-- platform: template
-  sensors:
-    netatmo_motion:
-      value_template: >-
-        {%- if is_state("binary_sensor.kitchen_motion", "on") %}
-            Detected
-        {% elif is_state("binary_sensor.kitchen_motion", "off") %}
-            Quiet
-        {% else %}
-            n/a
-        {%- endif %}
+      entity_id: climate.family_room_nest
