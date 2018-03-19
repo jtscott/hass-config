@@ -9,6 +9,12 @@ default_view:
     - device_tracker.jaredsrotary
     - sensor.co2
     - sensor.scale
+    - sensor.main_floor_temperature
+    - sensor.main_floor_humidity
+    - sensor.downstairs_temperature
+    - sensor.master_bedroom_temperature
+    - sensor.kitchen_nest_protect_co_status
+    - sensor.kitchen_nest_protect_smoke_status
     - alert.roomba_bin_full
     - alert.scale_battery_low
     - alert.wink_hub_offline
@@ -16,3 +22,4 @@ default_view:
     - group.roomba
     - group.media
     - media_player.my_shield_console
+    - climate.main_floor

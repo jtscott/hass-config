@@ -18,7 +18,7 @@ group.lights:
   order: 2
 group.netatmo:
   order: 3
-camera.patio:
+camera.backyard:
   order: 4
 group.roomba:
   order: 5
@@ -27,14 +27,6 @@ alert.scale_battery_low:
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
-automation.climate__nest__heat_on:
-  icon: mdi:nest-thermostat
-automation.climate__nest__heat_off:
-  icon: mdi:nest-thermostat
-automation.presence__arrival__patio_off:
-  icon: mdi:home
-automation.presence__departure__patio_on:
-  icon: mdi:city
 automation.presence__arrival__turn_off:
   icon: mdi:home
 automation.presence__arrival__turn_on:
@@ -45,10 +37,6 @@ automation.presence__departure__turn_on:
   icon: mdi:city
 automation.roomba_schedule:
   icon: mdi:roomba
-automation.sunset__patio__turn_off:
-  icon: mdi:weather-sunset-up
-automation.sunset__patio__turn_on:
-  icon: mdi:weather-sunset-down
 automation.system__hass__update_notification:
   icon: mdi:message-alert
 automation.system__roomba__firmware_update:
@@ -168,8 +156,6 @@ sensor.moon:
 sensor.netatmo_motion:
   friendly_name: Kitchen Motion
   icon: mdi:run
-sensor.patio_door_opened_template:
-  icon: mdi:export
 sensor.ram_use:
   friendly_name: Memory Use
   icon: mdi:memory
@@ -223,9 +209,6 @@ switch.livingroomtv:
   icon: mdi:television
 switch.netatmo_camera:
   icon: mdi:camera
-switch.patio:
-  icon: mdi:lightbulb
-  friendly_name: Patio
 switch.shieldtv:
   icon: mdi:cast
 zone.home:
@@ -246,3 +229,19 @@ automation.presence__arrival__arlo_disarm:
   icon: mdi:camcorder-off
 automation.vacuum__roomba__schedule:
   icon: mdi:roomba
+sensor.downstairs_temperature_2:
+  friendly_name: Downstairs
+sensor.downstairs_temperature:
+  friendly_name: Downstairs
+sensor.master_bedroom_temperature_2:
+  friendly_name: Master Bedroom
+sensor.master_bedroom_temperature:
+  friendly_name: Master Bedroom
+sensor.kitchen_nest_protect_co_status:
+  friendly_name: Kitchen CO
+sensor.kitchen_nest_protect_smoke_status:
+  friendly_name: Kitchen Smoke
+sensor.main_floor_humidity:
+  friendly_name: Humidity
+sensor.main_floor_temperature:
+  friendly_name: Temperature

@@ -5,10 +5,9 @@ Security:
   view: yes
   icon: mdi:security-home
   entities:
-    - sensor.patio_door_opened_template
     - group.sensors
     - group.cameras
-    - group.patio_camera_events
+    - group.backyard_camera_events
     - group.front_door_camera_events
     - group.arlo_hub
     - lock.back_door

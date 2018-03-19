@@ -78,6 +78,9 @@ alarm_control_panel:
     home_mode_name: 'Disarmed'
     away_mode_name: 'Away'
 
+ecobee:
+  api_key: !secret ecobee_api
+
 ifttt:
   key: !secret ifttt_api
 
@@ -86,6 +89,10 @@ netatmo:
   secret_key: !secret netatmo_sk
   username: !secret email_account
   password: !secret netatmo_password
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
 
 remote:
   - platform: harmony

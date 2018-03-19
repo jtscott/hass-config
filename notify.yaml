@@ -6,6 +6,3 @@
   name: HTML5
   gcm_api_key: !secret google_api
   gcm_sender_id: !secret google_projectid
-- platform: nfandroidtv
-  name: ShieldTV
-  host: 192.168.1.60

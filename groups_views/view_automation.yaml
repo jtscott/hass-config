@@ -6,9 +6,4 @@ automation:
   icon: mdi:settings
   name: Automation
   entities:
-    - group.sunrise_automation
-    - group.presence_automation
     - group.roomba_automation
-    - group.climate_automation
-    - group.wink_automation
-    - group.theme_automation

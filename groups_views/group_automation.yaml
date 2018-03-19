@@ -1,9 +1,3 @@
-Climate_Automation:
-  name: "Climate Automation"
-  entities:
-    - automation.climate__nest__heat_off
-    - automation.climate__nest__heat_on
-
 Presence_Automation:
   name: "Presence Automation"
   entities:
@@ -11,19 +5,3 @@ Presence_Automation:
     - automation.presence__arrival__turn_on
     - automation.presence__departure__turn_off
     - automation.presence__departure__turn_on
-    - automation.presence__arrival__arlo_disarm
-    - automation.presence__departure__arlo_armed
-    - automation.presence__arrival__patio_off
-    - automation.presence__departure__patio_on
-
-Sunrise_Automation:
-  name: "Sunrise Automation"
-  entities:
-    - automation.sunset__patio__turn_on
-    - automation.sunset__patio__turn_off
-
-Theme_Automation:
-  name: "Theme Automation"
-  entities:
-    - automation.theme__day_mode
-    - automation.theme__night_mode

@@ -1,54 +1,4 @@
 - action:
-  - alias: ''
-    data:
-      entity_id: climate.family_room_nest
-      operation_mode: heat
-    service: climate.set_operation_mode
-  - data:
-      entity_id: climate.family_room_nest
-      temperature: '25.0'
-    service: climate.set_temperature
-  - data:
-      data:
-        sound: cosmic
-      message: Turned on, inside {{ states.climate.family_room_nest.attributes.current_temperature
-        }}C
-      title: Thermostat
-    service: notify.pushover
-  alias: Climate - Nest - Heat On
-  id: '1495331032264'
-  trigger:
-  - below: '21.5'
-    entity_id: sensor.family_room_thermostat_nest_temperature
-    platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: climate.family_room_nest
-    state: 'off'
-- action:
-  - alias: ''
-    data:
-      entity_id: climate.family_room_nest
-      operation_mode: 'off'
-    service: climate.set_operation_mode
-  - data:
-      data:
-        sound: cosmic
-      message: Turned off, inside {{ states.climate.family_room_nest.attributes.current_temperature
-        }}C
-      title: Thermostat
-    service: notify.pushover
-  alias: Climate - Nest - Heat Off
-  id: '1495332149964'
-  trigger:
-  - above: '21.5'
-    entity_id: sensor.family_room_thermostat_nest_temperature
-    platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: climate.family_room_nest
-    state: heat
-- action:
   - data:
       entity_id: switch.netatmo_camera
     service: switch.turn_off
@@ -140,26 +90,6 @@
     platform: state
 - action:
   - data:
-      entity_id: input_boolean.patio_door_state
-    service: input_boolean.turn_on
-  alias: Doors - State - Patio Sensor Open
-  id: '1495669571169'
-  trigger:
-  - entity_id: binary_sensor.patio_door_opened
-    platform: state
-    to: 'on'
-- action:
-  - data:
-      entity_id: input_boolean.patio_door_state
-    service: input_boolean.turn_off
-  alias: Doors - State - Patio Sensor Closed
-  id: '1495669649899'
-  trigger:
-  - entity_id: binary_sensor.patio_door_opened
-    platform: state
-    to: 'off'
-- action:
-  - data:
       data:
         sound: cosmic
       message: Firmware {{trigger.from_state}} upgraded to version {{trigger.to_state}}
@@ -244,30 +174,6 @@
     platform: sun
 - action:
   - data:
-      entity_id: alarm_control_panel.arlohub
-    service: alarm_control_panel.alarm_disarm
-  alias: Presence - Arrival - Arlo Disarm
-  condition: []
-  id: '1504982133471'
-  trigger:
-  - entity_id: group.family_devices
-    from: not_home
-    platform: state
-    to: home
-- action:
-  - data:
-      entity_id: alarm_control_panel.arlohub
-    service: alarm_control_panel.alarm_arm_away
-  alias: Presence - Departure - Arlo Armed
-  condition: []
-  id: '1504982395047'
-  trigger:
-  - entity_id: group.family_devices
-    from: home
-    platform: state
-    to: not_home
-- action:
-  - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
   - data:
@@ -292,25 +198,3 @@
     from: home
     platform: state
     to: not_home
-- action:
-  - data:
-      data:
-        name: PmxMononight
-    service: frontend.set_theme
-  alias: Theme - Night Mode
-  condition: []
-  id: '1508004325401'
-  trigger:
-  - at: '21:00'
-    platform: time
-- action:
-  - data:
-      data:
-        name: default
-    service: frontend.set_theme
-  alias: Theme - Day Mode
-  condition: []
-  id: '1508004389236'
-  trigger:
-  - at: 09:00
-    platform: time

@@ -1,13 +1,6 @@
 ###########################################
 # Media
 ###########################################
-- platform: plex
-  sensors:
-  host: !secret nas_address
-  username: !secret email_account
-  password: !secret plex_password
-  server: nas
-
 - platform: sonarr
   api_key: !secret sonarr_api
   host: !secret nas_address

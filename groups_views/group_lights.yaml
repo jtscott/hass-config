@@ -1,16 +1,3 @@
 Lights:
   entities:
-    - switch.front_door
-    - light.kitchen
-    - switch.patio
-    - light.office
-    - switch.bedroom
     - switch.lamp
-    - group.closet_lights
-
-Closet_Lights:
-  name: "Closet Lights"
-  icon: mdi:lightbulb
-  entities:
-    - light.closet_1
-    - light.closet_2

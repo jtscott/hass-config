@@ -4,5 +4,5 @@
 - platform: template
   sensors:
     climate_operation_mode:
-      value_template: "{{ states.climate.family_room_nest.attributes.operation_mode if states.climate.family_room_nest is not none else 'Unknown' }}"
-      entity_id: climate.family_room_nest
+      value_template: "{{ states.climate.main_floor.attributes.operation_mode if states.climate.main_floor is not none else 'Unknown' }}"
+      entity_id: climate.main_floor

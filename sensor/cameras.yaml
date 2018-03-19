@@ -14,24 +14,24 @@
 
 - platform: template
   sensors:
-    patio_camera_battery_template:
-      friendly_name: "Patio Camera Battery"
+    backyard_camera_battery_template:
+      friendly_name: "Backyard Camera Battery"
       unit_of_measurement: "%"
       value_template: >-
-        {%- if states.camera.patio.attributes.battery_level %}
-          {{ states.camera.patio.attributes.battery_level|round }}
+        {%- if states.camera.backyard.attributes.battery_level %}
+          {{ states.camera.backyard.attributes.battery_level|round }}
         {% else %}
-          {{ states.camera.patio.attributes.battery_level }}
+          {{ states.camera.backyard.attributes.battery_level }}
         {%- endif %}
       icon_template: >-
-        {%- if is_state("states.camera.patio.attributes.battery_level", "unknown") %}
+        {%- if is_state("states.camera.backyard.attributes.battery_level", "unknown") %}
           mdi:battery-unknown
-        {% elif states('sensor.patio_camera_battery_template') | float <= 5 %}
+        {% elif states('sensor.backyard_camera_battery_template') | float <= 5 %}
           mdi:battery-outline
-        {% elif states('sensor.patio_camera_battery_template') | float >= 95 %}
+        {% elif states('sensor.backyard_camera_battery_template') | float >= 95 %}
           mdi:battery
         {% else %}
-          mdi:battery-{{(states.sensor.patio_camera_battery_template.state|float / 10)|round*10}}
+          mdi:battery-{{(states.sensor.backyard_camera_battery_template.state|float / 10)|round*10}}
         {% endif %}
 
 - platform: template
