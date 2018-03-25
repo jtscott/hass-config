@@ -1,9 +1,9 @@
 group.default_view:
   order: 1
 group.security:
-  order: 2
-group.weather:
   order: 3
+group.weather:
+  order: 4
 group.calgary:
   order: 4
 group.system:
@@ -247,3 +247,6 @@ sensor.main_floor_temperature:
   friendly_name: Main Floor
 sensor.scale:
   friendly_name: Master Bath
+group.media_2:
+  order: 3
+group.pets: {}
