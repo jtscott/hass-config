@@ -1,12 +1,15 @@
 - platform: unifi
-  track_new_devices: no
-  consider_home: 60
   host: !secret unifi_ip
   port: 8443
   username: !secret unifi_user
   password: !secret unifi_password
   verify_ssl: false
-  detection_time: 180
+  detection_time: 60
+  ssid_filter:
+    - 'znqp'
+  new_device_defaults:
+    track_new_devices: False
+    consider_home: 60
 
 - platform: trackr
   username: !secret email_account
