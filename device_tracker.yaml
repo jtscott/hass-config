@@ -5,11 +5,12 @@
   password: !secret unifi_password
   verify_ssl: false
   detection_time: 60
+  consider_home: 180
   ssid_filter:
     - 'znqp'
   new_device_defaults:
     track_new_devices: False
-    consider_home: 60
+    
 
 - platform: trackr
   username: !secret email_account
