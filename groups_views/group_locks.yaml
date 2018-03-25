@@ -4,3 +4,8 @@ Locks:
     - lock.back_door
     - lock.front_door
     - lock.garage
+
+Locks_Status:
+  name: "Lock Status"
+  entities:
+    - sensor.lock_back_door_battery_template
