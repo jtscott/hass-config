@@ -31,13 +31,13 @@
     season_template:
       friendly_name: "Season"
       value_template: >-
-        {%- if is_state("sensor.season", "Spring") %}
+        {%- if is_state("sensor.season", "spring") %}
           Spring
-        {%- elif is_state("sensor.season", "Summer") %}
+        {%- elif is_state("sensor.season", "summer") %}
           Summer
-        {%- elif is_state("sensor.season", "Autumn") %}
+        {%- elif is_state("sensor.season", "autumn") %}
           Autumn
-        {%- elif is_state("sensor.season", "Winter") %}
+        {%- elif is_state("sensor.season", "winter") %}
           Winter
         {% else %}
           None
