@@ -1,16 +1,5 @@
 - action:
   - data:
-      entity_id: switch.netatmo_camera
-    service: switch.turn_off
-  alias: Presence - Arrival - Turn Off
-  id: '1495332504335'
-  trigger:
-  - entity_id: group.family_devices
-    from: not_home
-    platform: state
-    to: home
-- action:
-  - data:
       entity_id: group.lights
     service: switch.turn_off
   alias: Presence - Departure - Turn Off
@@ -21,9 +10,6 @@
     platform: state
     to: not_home
 - action:
-  - data:
-      entity_id: switch.netatmo_camera
-    service: switch.turn_on
   - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_arm_away
@@ -66,20 +52,6 @@
   - data:
       data:
         sound: cosmic
-      message: Firmware update is available.
-      title: Wink Hub
-    service: notify.pushover
-  alias: System - Wink Hub - Update Notification
-  id: '1495335051423'
-  trigger:
-  - entity_id: sensor.wink_hub_firmware_state
-    from: 'False'
-    platform: state
-    to: 'True'
-- action:
-  - data:
-      data:
-        sound: cosmic
       message: Version {{ states.updater.updater.state }} is now available.
       title: Home Assistant
     service: notify.pushover
@@ -88,90 +60,6 @@
   trigger:
   - entity_id: updater.updater
     platform: state
-- action:
-  - data:
-      data:
-        sound: cosmic
-      message: Firmware {{trigger.from_state}} upgraded to version {{trigger.to_state}}
-      title: Roomba
-    service: notify.pushover
-  alias: System - Roomba - Firmware Update
-  id: '1495808493058'
-  trigger:
-  - entity_id: sensor.roomba_firmware
-    platform: state
-- action:
-  - delay: 00:01:30
-  - data:
-      entity_id: switch.patio
-    service: switch.turn_off
-  - alias: ''
-    data:
-      data:
-        data:
-          sound: cosmic
-        message: Turned off.
-        title: Patio Light
-    service: notify.pushover
-  alias: Presence - Arrival - Patio Off
-  condition:
-  - condition: state
-    entity_id: switch.patio
-    state: 'on'
-  id: '1502578688632'
-  trigger:
-  - entity_id: group.family_devices
-    from: not_home
-    platform: state
-    to: home
-- action:
-  - data:
-      entity_id: switch.patio
-    service: switch.turn_on
-  - data:
-      data:
-        data:
-          sound: cosmic
-        message: Turned on before sunset.
-        title: Patio Light
-    service: notify.pushover
-  alias: Sunset - Patio - Turn On
-  condition:
-  - condition: state
-    entity_id: group.family_devices
-    state: not_home
-  - condition: state
-    entity_id: switch.patio
-    state: 'off'
-  id: '1502640064196'
-  trigger:
-  - event: sunset
-    offset: -00:30:00
-    platform: sun
-- action:
-  - data:
-      entity_id: switch.patio
-    service: switch.turn_off
-  - data:
-      data:
-        data:
-          sound: cosmic
-        message: Turned off after sunrise.
-        title: Patio Light
-    service: notify.pushover
-  alias: Sunset - Patio - Turn Off
-  condition:
-  - condition: state
-    entity_id: group.family_devices
-    state: not_home
-  - condition: state
-    entity_id: switch.patio
-    state: 'on'
-  id: '1502640226429'
-  trigger:
-  - event: sunrise
-    offset: +00:30:00
-    platform: sun
 - action:
   - data:
       entity_id: vacuum.roomba
@@ -189,7 +77,7 @@
     state: 'on'
   - condition: template
     value_template: '{{ states.sensor.roomba_runtime.state | float < 0.50 }}'
-  - after: 08:30:00
+  - after: '08:30:00'
     before: '17:00:00'
     condition: time
   id: '1506136149206'
