@@ -43,13 +43,13 @@
           None
         {% endif %}
       icon_template: >-
-        {%- if is_state("sensor.season", "Spring") %}
+        {%- if is_state("sensor.season_template", "Spring") %}
           mdi:weather-sunset
-        {%- elif is_state("sensor.season", "Summer") %}
+        {%- elif is_state("sensor.season_template", "Summer") %}
           mdi:weather-sunny
-        {%- elif is_state("sensor.season", "Autumn") %}
+        {%- elif is_state("sensor.season_template", "Autumn") %}
           mdi:leaf
-        {%- elif is_state("sensor.season", "Winter") %}
+        {%- elif is_state("sensor.season_template", "Winter") %}
           mdi:weather-snowy
         {% else %}
           mdi:weather-snowy-rainy
