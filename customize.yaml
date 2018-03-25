@@ -244,4 +244,6 @@ sensor.kitchen_nest_protect_smoke_status:
 sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
-  friendly_name: Temperature
+  friendly_name: Main Floor
+sensor.scale:
+  friendly_name: Master Bath
