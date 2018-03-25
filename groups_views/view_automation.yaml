@@ -7,3 +7,4 @@ automation:
   name: Automation
   entities:
     - group.roomba_automation
+    - group.presence_automation
