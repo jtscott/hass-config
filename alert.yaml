@@ -7,35 +7,10 @@ roomba_bin_full:
   notifiers:
     - pushover
 
-scale_battery_low:
-  name: Scale Battery is Low
-  entity_id: sensor.scale_battery_low
-  state: 'True'
-  repeat: 240
-  can_acknowledge: True
-  notifiers:
-    - pushover
-
 wink_hub_offline:
   name: Wink Hub is Offline
   entity_id: sensor.wink_hub_status
   state: 'Offline'
-  repeat: 240
-  can_acknowledge: True
-  notifiers:
-    - pushover
-
-device_tracker_george_battery_low:
-  name: George Tracker Battery Low
-  entity_id: sensor.device_tracker_george_battery_low
-  repeat: 240
-  can_acknowledge: True
-  notifiers:
-    - pushover
-
-device_tracker_alfie_battery_low:
-  name: Alfie Tracker Battery Low
-  entity_id: sensor.device_tracker_alfie_battery_low
   repeat: 240
   can_acknowledge: True
   notifiers:
