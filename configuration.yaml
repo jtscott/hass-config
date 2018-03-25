@@ -75,7 +75,7 @@ arlo:
 
 alarm_control_panel:
   - platform: arlo
-    home_mode_name: 'Disarmed'
+    home_mode_name: 'Home'
     away_mode_name: 'Away'
 
 ecobee:
@@ -83,12 +83,6 @@ ecobee:
 
 ifttt:
   key: !secret ifttt_api
-
-netatmo:
-  api_key: !secret netatmo_apik
-  secret_key: !secret netatmo_sk
-  username: !secret email_account
-  password: !secret netatmo_password
 
 nest:
   client_id: !secret nest_client_id

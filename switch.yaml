@@ -1,12 +1,3 @@
-- platform: command_line
-  switches:
-    netatmo_camera:
-      friendly_name: 'Kitchen Camera'
-      command_on: 'bash /config/netatmo/netatmo_switch.sh on'
-      command_off: 'bash /config/netatmo/netatmo_switch.sh off'
-      command_state: 'bash /config/netatmo/netatmo_status.sh'
-      value_template: '{{ value == "on" }}'
-
 - platform: template
   switches:
     livingroomtv:

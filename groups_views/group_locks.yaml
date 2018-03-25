@@ -1,0 +1,6 @@
+Locks:
+  name: "Locks"
+  entities:
+    - lock.back_door
+    - lock.front_door
+    - lock.garage

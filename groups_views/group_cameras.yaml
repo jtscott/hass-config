@@ -1,18 +1,23 @@
 Cameras:
   name: "Cameras"
   entities:
-    - switch.netatmo_camera
-    - sensor.netatmo_motion
-    - camera.7510__kitchen
-    - camera.backyard
+    - camera.kitchen
+    - camera.patio
     - camera.front_door
 
-Patio_Camera_Events:
+Kitchen_Camera_Events:
+  name: "Kitchen Camera Events"
+  entities:
+    - sensor.captured_today_kitchen
+    - sensor.last_kitchen
+    - sensor.kitchen_camera_battery_template
+
+Backyard_Camera_Events:
   name: "Backyard Camera Events"
   entities:
-    - sensor.captured_today_backyard
-    - sensor.last_backyard
-    - sensor.backyard_camera_battery_template
+    - sensor.captured_today_patio
+    - sensor.last_patio
+    - sensor.patio_camera_battery_template
 
 Front_Door_Camera_Events:
   name: "Front Door Camera Events"

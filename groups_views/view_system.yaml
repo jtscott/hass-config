@@ -11,3 +11,4 @@ system:
     - group.system_status
     - group.withings_scale
     - group.wink_hub
+    - group.nest_protect

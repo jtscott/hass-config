@@ -1,0 +1,17 @@
+###########################################
+#  Kitchen
+###########################################
+- platform: template
+  sensors:
+    kitchen_nest_protect_status:
+        friendly_name: 'Kitchen Nest Protect'
+        value_template: >-
+          {%- if is_state("binary_sensor.kitchen_nest_protect_online", "on") %}
+              Online
+          {%- elif is_state("binary_sensor.kitchen_nest_protect_online", "off") %}
+              Offline
+          {%- else %}
+              Unknown
+          {%- endif %}
+        icon_template: mdi:nest-protect
+
