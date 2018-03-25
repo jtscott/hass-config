@@ -1,0 +1,6 @@
+Safety:
+  name: "Safety"
+  entities:
+    - sensor.co2
+    - sensor.kitchen_nest_protect_co_status
+    - sensor.kitchen_nest_protect_smoke_status

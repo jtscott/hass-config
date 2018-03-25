@@ -238,9 +238,11 @@ sensor.master_bedroom_temperature_2:
 sensor.master_bedroom_temperature:
   friendly_name: Master Bedroom
 sensor.kitchen_nest_protect_co_status:
-  friendly_name: Kitchen CO
+  friendly_name: Kitchen CO2
+  icon: mdi:google-circles-extended
 sensor.kitchen_nest_protect_smoke_status:
   friendly_name: Kitchen Smoke
+  icon: mdi:fire
 sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
@@ -250,3 +252,6 @@ sensor.scale:
 group.media_2:
   order: 3
 group.pets: {}
+sensor.co2:
+  friendly_name: Master Bath CO2
+  icon: mdi:google-circles-extended
