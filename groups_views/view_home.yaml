@@ -18,8 +18,12 @@ default_view:
     - alert.roomba_bin_full
     - alert.wink_hub_offline
     - alert.kitchen_nest_protect_offline
+    - climate.main_floor
     - group.lights
     - group.roomba
     - group.media
     - media_player.my_shield_console
-    - climate.main_floor
+    - media_player.bedroom_home
+    - media_player.family_room_speaker
+    - media_player.living_room_home
+    - media_player.office_speaker
