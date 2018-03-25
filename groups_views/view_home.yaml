@@ -16,8 +16,8 @@ default_view:
     - sensor.kitchen_nest_protect_co_status
     - sensor.kitchen_nest_protect_smoke_status
     - alert.roomba_bin_full
-    - alert.scale_battery_low
     - alert.wink_hub_offline
+    - alert.kitchen_nest_protect_offline
     - group.lights
     - group.roomba
     - group.media
