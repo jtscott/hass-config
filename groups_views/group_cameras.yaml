@@ -4,6 +4,7 @@ Cameras:
     - camera.kitchen
     - camera.patio
     - camera.front_door
+    - camera.garage
 
 Kitchen_Camera_Events:
   name: "Kitchen Camera Events"
@@ -25,3 +26,10 @@ Front_Door_Camera_Events:
     - sensor.captured_today_front_door
     - sensor.last_front_door
     - sensor.front_door_camera_battery_template
+
+Garage_Camera_Events:
+  name: "Garage Camera Events"
+  entities:
+    - sensor.captured_today_garage
+    - sensor.last_garage
+    - sensor.garage_camera_battery_template
