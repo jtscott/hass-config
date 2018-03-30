@@ -12,3 +12,4 @@ media:
     - media_player.family_room_speaker
     - media_player.living_room_home
     - media_player.office_speaker
+    - media_player.everywhere
