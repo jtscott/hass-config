@@ -1,5 +1,6 @@
 deps/
 local/
+tts/
 *.conf
 *.db
 *.log

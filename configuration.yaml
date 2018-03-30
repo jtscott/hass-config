@@ -20,7 +20,7 @@ frontend:
 
 http:
   api_password: !secret http_password
-  # base_url: !secret base_url
+  base_url: !secret base_url
   cors_allowed_origins:
     - !secret base_origin
   use_x_forwarded_for: true
@@ -36,17 +36,23 @@ config:
 conversation:
 discovery:
 history:
-ios:
 logbook:
 logger:
   default: error
-map:
 recorder:
   purge_keep_days: 7
   purge_interval: 1
-sun:
 updater:
   include_used_components: true
+
+###########################################
+# Simple Components
+###########################################  
+ios:
+map:
+sun:
+tts:
+  - platform: google
 
 ###########################################
 # Includes

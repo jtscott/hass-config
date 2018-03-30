@@ -25,17 +25,14 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ![Automations](https://www.dropbox.com/s/ks0phkdk0q33xdx/automation.PNG?raw=1)
 
 ## Devices
-- Aeotec Recessed Door Sensor
 - Arlo Pro Cameras
-- GE Smart Dimmer Z-Wave Switches
-- Nest Thermostat
+- Ecobee Thermostat
 - Harmony Hub
-- Netatmo Welcome Camera
 - Nvidia Shield TV
 - Roomba 980
 - Samsung UN65F8000
 - Unifi Wireless
-- Wemo Light & Insight Switches
+- Wemo Insight Switch
 - Wink Hub 2
 - Withings WS-50
 
