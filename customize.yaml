@@ -1,55 +1,43 @@
 group.default_view:
   order: 1
 group.security:
+  order: 2
+group.pets:
   order: 3
+group.media_2:
+  order: 4
 group.weather:
-  order: 4
+  order: 5
 group.calgary:
-  order: 4
-group.system:
-  order: 5
-group.automation:
   order: 6
-group.date_time:
-  order: 1
-group.system_status:
-  order: 2
-group.lights:
-  order: 2
-group.netatmo:
-  order: 3
-camera.backyard:
-  order: 4
-group.roomba:
-  order: 5
+group.system:
+  order: 7
+group.automation:
+  order: 8
 alert.scale_battery_low:
   icon: mdi:alert
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
-automation.presence__arrival__turn_off:
+automation.presence__arrival:
   icon: mdi:home
-automation.presence__arrival__turn_on:
-  icon: mdi:home
-automation.presence__departure__turn_off:
+automation.presence__departure:
   icon: mdi:city
-automation.presence__departure__turn_on:
-  icon: mdi:city
-automation.roomba_schedule:
+automation.vacuum__schedule:
   icon: mdi:roomba
+automation.vacuum__stop:
+  icon: mdi:stop-circle
 automation.system__hass__update_notification:
   icon: mdi:message-alert
 automation.system__roomba__firmware_update:
   icon: mdi:message-alert
-automation.vacuum__roomba__stop:
-  icon: mdi:stop-circle
 automation.weather__alert__state_change:
   icon: mdi:message-alert
 automation.system__wink_hub__update_notification:
   icon: mdi:message-alert
 climate.home:
   icon: mdi:thermometer
-  friendly_name: Nest
+  friendly_name: Ecobee
 device_tracker.jaredsrotary:
   friendly_name: Jared
 device_tracker.brittanysiphone:
@@ -70,7 +58,7 @@ sensor.air_quality:
 sensor.alfred_last_seen_template:
   icon: mdi:crosshairs-gps
 sensor.climate_operation_mode:
-  friendly_name: Nest
+  friendly_name: Ecobee
 sensor.co2_ppm:
   sensor_class: gas
 sensor.connected_clients:
@@ -153,9 +141,6 @@ sensor.home_to_airport:
 sensor.moon:
   friendly_name: Moon
   icon: mdi:weather-night
-sensor.netatmo_motion:
-  friendly_name: Kitchen Motion
-  icon: mdi:run
 sensor.ram_use:
   friendly_name: Memory Use
   icon: mdi:memory
@@ -213,22 +198,8 @@ switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
-automation.presence__arrival__arlo_motion_off:
-  icon: mdi:home
-automation.presence__departure__arlo_motion_on:
-  icon: mdi:city
-automation.theme__day_mode:
-  icon: mdi:weather-sunny
-automation.theme__night_mode:
-  icon: mdi:weather-night
 switch.lamp:
   icon: mdi:lightbulb
-automation.presence__departure__arlo_armed:
-  icon: mdi:camcorder
-automation.presence__arrival__arlo_disarm:
-  icon: mdi:camcorder-off
-automation.vacuum__roomba__schedule:
-  icon: mdi:roomba
 sensor.downstairs_temperature_2:
   friendly_name: Downstairs
 sensor.downstairs_temperature:
@@ -249,9 +220,10 @@ sensor.main_floor_temperature:
   friendly_name: Main Floor
 sensor.scale:
   friendly_name: Master Bath
-group.media_2:
-  order: 3
-group.pets: {}
 sensor.co2:
   friendly_name: Master Bath CO2
   icon: mdi:google-circles-extended
+automation.announcement__brittany_home:
+  icon: mdi:bullhorn
+automation.announcement__jared_home:
+  icon: mdi:bullhorn

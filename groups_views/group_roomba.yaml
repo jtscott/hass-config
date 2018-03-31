@@ -5,9 +5,3 @@ Roomba:
     - sensor.roomba_bin_presence_template
     - sensor.roomba_bin_state_template
     - sensor.roomba_runtime
-
-Roomba_Automation:
-  name: "Roomba Automation"
-  entities:
-    - automation.vacuum__roomba__schedule
-    - automation.vacuum__roomba__stop

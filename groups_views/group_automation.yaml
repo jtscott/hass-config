@@ -1,7 +1,17 @@
+Announcement_Automation:
+  name: "Announcement Automation"
+  entities:
+    - automation.announcement__brittany_home
+    - automation.announcement__jared_home
+
 Presence_Automation:
   name: "Presence Automation"
   entities:
-    - automation.presence__arrival__turn_off
-    - automation.presence__arrival__turn_on
-    - automation.presence__departure__turn_off
-    - automation.presence__departure__turn_on
+    - automation.presence__arrival
+    - automation.presence__departure
+
+Roomba_Automation:
+  name: "Roomba Automation"
+  entities:
+    - automation.vacuum__schedule
+    - automation.vacuum__stop

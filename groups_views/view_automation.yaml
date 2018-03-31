@@ -8,3 +8,4 @@ automation:
   entities:
     - group.roomba_automation
     - group.presence_automation
+    - group.announcement_automation
