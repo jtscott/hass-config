@@ -1,19 +1,11 @@
 - action:
   - data:
-      entity_id: group.lights
-    service: switch.turn_off
-  alias: Presence - Departure - Turn Off
-  id: '1495332885604'
-  trigger:
-  - entity_id: group.family_devices
-    from: home
-    platform: state
-    to: not_home
-- action:
-  - data:
       entity_id: alarm_control_panel.arlohub
     service: alarm_control_panel.alarm_arm_away
-  alias: Presence - Departure - Turn On
+  - data:
+      entity_id: group.lights
+    service: switch.turn_off
+  alias: Presence - Departure
   id: '1495333355800'
   trigger:
   - entity_id: group.family_devices
@@ -33,7 +25,7 @@
   - data:
       entity_id: vacuum.roomba
     service: vacuum.return_to_base
-  alias: Vacuum - Roomba - Stop
+  alias: Vacuum - Stop
   id: '1495333490008'
   trigger:
   - entity_id: group.family_devices
@@ -50,18 +42,6 @@
     state: 'on'
 - action:
   - data:
-      data:
-        sound: cosmic
-      message: Version {{ states.updater.updater.state }} is now available.
-      title: Home Assistant
-    service: notify.pushover
-  alias: System - HASS - Update Notification
-  id: '1495335216971'
-  trigger:
-  - entity_id: updater.updater
-    platform: state
-- action:
-  - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
   - data:
@@ -70,14 +50,14 @@
       message: Cleaning Started
       title: roomba
     service: notify.pushover
-  alias: Vacuum - Roomba - Schedule
+  alias: Vacuum - Schedule
   condition:
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
   - condition: template
     value_template: '{{ states.sensor.roomba_runtime.state | float < 0.50 }}'
-  - after: '08:30:00'
+  - after: 08:30:00
     before: '17:00:00'
     condition: time
   id: '1506136149206'
@@ -86,3 +66,15 @@
     from: home
     platform: state
     to: not_home
+- action:
+  - data:
+      entity_id: alarm_control_panel.arlohub
+    service: alarm_control_panel.alarm_arm_home
+  alias: Presence - Arrival
+  condition: []
+  id: '1522516504908'
+  trigger:
+  - entity_id: group.family_devices
+    from: not_home
+    platform: state
+    to: home

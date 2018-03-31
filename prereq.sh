@@ -11,7 +11,7 @@ fi
 
 pip3 install --upgrade --force-reinstall netdisco
 apt-get update && apt-get --yes --force-yes upgrade
-apt-get install --yes --force-yes avahi-daemon avahi-utils
+apt-get install --yes --force-yes avahi-daemon avahi-utils libavahi-compat-libdnssd-dev
 update-rc.d dbus enable
 update-rc.d avahi-daemon enable
 /etc/init.d/dbus start
