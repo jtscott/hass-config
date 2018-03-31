@@ -78,3 +78,53 @@
     from: not_home
     platform: state
     to: home
+- action:
+  - data:
+      entity_id: script.1522520378551
+    service: script.turn_on
+  - data:
+      entity_id: media_player.everywhere
+      message: Jared is home!
+    service: tts.google_say
+  - data:
+      entity_id: script.1522520324671
+    service: script.turn_on
+  alias: Announcement - Jared Home
+  condition:
+  - after: '10:00'
+    before: '20:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.brittanysiphone
+    state: home
+  id: '1522524371982'
+  trigger:
+  - entity_id: device_tracker.jaredsrotary
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      entity_id: script.1522520378551
+    service: script.turn_on
+  - data:
+      entity_id: media_player.everywhere
+      message: Brittany is home!
+    service: tts.google_say
+  - data:
+      entity_id: script.1522520324671
+    service: script.turn_on
+  alias: Announcement - Brittany Home
+  condition:
+  - after: '10:00'
+    before: '20:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.jaredsrotary
+    state: home
+  id: '1522524618882'
+  trigger:
+  - entity_id: device_tracker.brittanysiphone
+    from: not_home
+    platform: state
+    to: home
