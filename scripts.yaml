@@ -3,36 +3,36 @@
   sequence:
   - data:
       entity_id: media_player.office_speaker
-      volume_level: '0.50'
+      volume_level: '0.30'
     service: media_player.volume_set
   - data:
       entity_id: media_player.bedroom_home
-      volume_level: '0.50'
+      volume_level: '0.30'
     service: media_player.volume_set
   - data:
       entity_id: media_player.family_room_speaker
-      volume_level: '0.50'
+      volume_level: '0.30'
     service: media_player.volume_set
   - data:
       entity_id: media_player.living_room_home
-      volume_level: '0.50'
+      volume_level: '0.30'
     service: media_player.volume_set
 '1522520378551':
   alias: Google Home - Volume - Announcement
   sequence:
   - data:
       entity_id: media_player.office_speaker
-      volume_level: '0.75'
+      volume_level: '0.60'
     service: media_player.volume_set
   - data:
       entity_id: media_player.bedroom_home
-      volume_level: '0.75'
+      volume_level: '0.60'
     service: media_player.volume_set
   - data:
       entity_id: media_player.family_room_speaker
-      volume_level: '0.75'
+      volume_level: '0.60'
     service: media_player.volume_set
   - data:
       entity_id: media_player.living_room_home
-      volume_level: '0.75'
+      volume_level: '0.60'
     service: media_player.volume_set
