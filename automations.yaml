@@ -60,6 +60,12 @@
   - after: 08:30:00
     before: '17:00:00'
     condition: time
+  - condition: state
+    entity_id: binary_sensor.downstairs_occupancy
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_occupancy
+    state: 'off'
   id: '1506136149206'
   trigger:
   - entity_id: group.family_devices

@@ -227,3 +227,5 @@ automation.announcement__brittany_home:
   icon: mdi:bullhorn
 automation.announcement__jared_home:
   icon: mdi:bullhorn
+group.arlo_hub:
+  order: 1
