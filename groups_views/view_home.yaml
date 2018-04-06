@@ -19,3 +19,4 @@ default_view:
     - group.lights
     - group.roomba
     - group.safety
+    - group.occupancy

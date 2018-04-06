@@ -1,0 +1,3 @@
+Occupancy:
+  - sensor.master_bedroom_occupancy
+  - sensor.downstairs_occupancy

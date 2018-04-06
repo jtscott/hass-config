@@ -229,3 +229,15 @@ automation.announcement__jared_home:
   icon: mdi:bullhorn
 group.arlo_hub:
   order: 1
+binary_sensor.master_bedroom_occupancy:
+  friendly_name: Master Bedroom
+  icon: mdi:bed-empty
+binary_sensor.downstairs_occupancy:
+  friendly_name: Downstairs Occupancy
+  icon: mdi:theater
+sensor.master_bedroom_occupancy:
+  friendly_name: Master Bedroom
+  icon: mdi:bed-empty
+sensor.downstairs_occupancy:
+  friendly_name: Downstairs
+  icon: mdi:theater
