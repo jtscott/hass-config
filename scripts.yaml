@@ -36,3 +36,37 @@
       entity_id: media_player.living_room_home
       volume_level: '0.60'
     service: media_player.volume_set
+'1523136987222':
+  alias: Google Home - Volume - High
+  sequence:
+  - data:
+      entity_id: media_player.office_speaker
+      volume_level: '1.00'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bedroom_home
+      volume_level: '1.00'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.family_room_speaker
+      volume_level: '1.00'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.living_room_home
+      volume_level: '1.00'
+    service: media_player.volume_set
+'1523136244144':
+  alias: Fido
+  sequence:
+  - data:
+      entity_id: script.1523136987222
+    service: script.toggle
+  - data:
+      entity_id: media_player.everywhere
+      media_content_id: https://home.eatsleepbreach.ca/local/bullmastiff.mp3
+      media_content_type: audio/mp4
+    service: media_player.play_media
+  - delay: 00:00:30
+  - data:
+      entity_id: script.1522520324671
+    service: script.toggle

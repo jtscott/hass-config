@@ -241,3 +241,5 @@ sensor.master_bedroom_occupancy:
 sensor.downstairs_occupancy:
   friendly_name: Downstairs
   icon: mdi:theater
+script.1523136244144:
+  icon: mdi:bone

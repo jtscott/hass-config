@@ -12,3 +12,7 @@ system:
     - group.withings_scale
     - group.wink_hub
     - group.nest_protect
+    - group.backyard_camera_events
+    - group.front_door_camera_events
+    - group.kitchen_camera_events
+    - group.garage_camera_events

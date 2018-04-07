@@ -7,9 +7,6 @@ Security:
   entities:
     - group.sensors
     - group.cameras
-    - group.backyard_camera_events
-    - group.front_door_camera_events
-    - group.kitchen_camera_events
-    - group.garage_camera_events
     - group.arlo_hub
     - group.locks
+    - group.fido
