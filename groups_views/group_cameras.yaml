@@ -1,3 +1,9 @@
+Arlo_Hub:
+  name: "Arlo Hub"
+  entities:
+    - switch.security_cameras
+    - alarm_control_panel.arlohub
+
 Cameras:
   name: "Cameras"
   entities:

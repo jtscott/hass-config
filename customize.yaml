@@ -245,3 +245,5 @@ script.1523136244144:
   icon: mdi:bone
 vacuum.roomba:
   icon: mdi:roomba
+switch.security_cameras:
+  icon: mdi:cctv
