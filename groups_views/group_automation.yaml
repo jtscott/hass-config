@@ -1,9 +1,3 @@
-Announcement_Automation:
-  name: "Announcement Automation"
-  entities:
-    - automation.announcement__brittany_home
-    - automation.announcement__jared_home
-
 Presence_Automation:
   name: "Presence Automation"
   entities:
