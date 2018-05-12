@@ -10,6 +10,7 @@ tts/
 *.db-journal
 *.uuid
 .HA_VERSION
+.homekit.state
 entity_registry.yaml
 known_devices.yaml
 secrets.yaml

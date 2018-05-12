@@ -38,7 +38,10 @@ discovery:
 history:
 logbook:
 logger:
-  default: error
+  default: warning
+  logs:
+    homeassistant.components.homekit: debug
+    pyhap: debug
 recorder:
   purge_keep_days: 7
   purge_interval: 1
@@ -64,6 +67,7 @@ binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
+#homekit: !include homekit.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
