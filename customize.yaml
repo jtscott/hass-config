@@ -243,3 +243,5 @@ sensor.downstairs_occupancy:
   icon: mdi:theater
 script.1523136244144:
   icon: mdi:bone
+vacuum.roomba:
+  icon: mdi:roomba
