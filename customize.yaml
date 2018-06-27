@@ -247,3 +247,7 @@ vacuum.roomba:
   icon: mdi:roomba
 switch.security_cameras:
   icon: mdi:cctv
+light.dining_room:
+  icon: mdi:light-switch
+light.theater:
+  icon: mdi:light-switch

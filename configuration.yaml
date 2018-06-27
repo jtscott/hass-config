@@ -26,8 +26,6 @@ http:
   use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 7
-  trusted_networks:
-    - 192.168.1.0/24
 
 ###########################################
 # Core Components
@@ -51,6 +49,7 @@ updater:
 ###########################################
 # Simple Components
 ###########################################  
+cloud:
 ios:
 map:
 sun:
