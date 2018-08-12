@@ -244,7 +244,7 @@ sensor.downstairs_occupancy:
 script.1523136244144:
   icon: mdi:bone
 vacuum.roomba:
-  icon: mdi:roomba
+  icon: mdi:robot-vacuum
 switch.security_cameras:
   icon: mdi:cctv
 light.dining_room:

@@ -1,6 +1,8 @@
 deps/
 local/
 tts/
+.cloud/
+.storage/
 *.conf
 *.db
 *.log
