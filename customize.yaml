@@ -24,7 +24,7 @@ automation.presence__arrival:
 automation.presence__departure:
   icon: mdi:city
 automation.vacuum__schedule:
-  icon: mdi:roomba
+  icon: mdi:robot-vacuum
 automation.vacuum__stop:
   icon: mdi:stop-circle
 automation.system__hass__update_notification:
