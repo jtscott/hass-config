@@ -42,14 +42,20 @@
             Offline
         {%- endif %}
 
+
+- platform: template
+  sensors:
+    roomba_bin_state:
+      value_template: '{{ states.vacuum.roomba.attributes.bin_full }}'
+
 - platform: template
   sensors:
     roomba_bin_state_template:
       friendly_name: 'Bin State'
       value_template: >-
-        {%- if "states.vacuum.roomba.attributes.bin_full", "true" %}
+        {%- if is_state('sensor.roomba_bin_state', 'True') %}
             Full
-        {%- elif "states.vacuum.roomba.attributes.bin_full", "false" %}
+        {%- elif is_state('sensor.roomba_bin_state', 'False') %}
             Empty
         {%- else %}
             Offline
