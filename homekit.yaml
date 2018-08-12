@@ -3,6 +3,14 @@ filter:
     - light
     - lock
     - switch
+  include_entities:
+    - climate.main_floor
+    - sensor.master_bedroom_occupancy
+    - sensor.master_bedroom_temperature
+    - sensor.downstairs_occupancy
+    - sensor.downstairs_temperature
+    - binary_sensor.master_bath_liquid_detected
+    - sensor.master_bath_temperature
   exclude_entities:
     - light.garage1
     - light.garage2
