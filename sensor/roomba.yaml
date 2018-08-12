@@ -47,10 +47,10 @@
     roomba_bin_state_template:
       friendly_name: 'Bin State'
       value_template: >-
-        {%- if "states.vacuum.roomba.attributes.bin_full", "false" %}
-            Empty
-        {%- elif "states.vacuum.roomba.attributes.bin_full", "true" %}
+        {%- if "states.vacuum.roomba.attributes.bin_full", "true" %}
             Full
+        {%- elif "states.vacuum.roomba.attributes.bin_full", "false" %}
+            Empty
         {%- else %}
             Offline
         {%- endif %}

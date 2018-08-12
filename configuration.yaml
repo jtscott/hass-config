@@ -24,6 +24,8 @@ http:
   cors_allowed_origins:
     - !secret base_origin
   use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.1.37
   ip_ban_enabled: true
   login_attempts_threshold: 7
 
@@ -31,8 +33,8 @@ http:
 # Core Components
 ###########################################
 config:
-conversation:
 discovery:
+conversation:
 history:
 logbook:
 logger:
@@ -66,7 +68,7 @@ binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups_views
-#homekit: !include homekit.yaml
+homekit: !include homekit.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml

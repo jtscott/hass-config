@@ -1,6 +1,12 @@
-homekit:
-  filter:
-    include_domains:
-      - light
-      - lock
-      - switch
+filter:
+  include_domains:
+    - light
+    - lock
+    - switch
+  exclude_entities:
+    - light.garage1
+    - light.garage2
+    - light.garage3
+    - light.garage4
+    - light.garage5
+    - light.garage6

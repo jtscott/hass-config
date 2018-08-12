@@ -40,7 +40,29 @@
   - condition: state
     entity_id: vacuum.roomba
     state: 'on'
-- action:
+- id: '1506136149206'
+  alias: Vacuum - Schedule
+  trigger:
+  - entity_id: group.family_devices
+    from: home
+    platform: state
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: template
+    value_template: '{{ states.sensor.roomba_runtime.state | float < 0.50 }}'
+  - after: 07:00:00
+    before: '15:00:00'
+    condition: time
+  - condition: state
+    entity_id: binary_sensor.downstairs_occupancy
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_occupancy
+    state: 'off'
+  action:
   - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
@@ -50,22 +72,6 @@
       message: Cleaning Started
       title: roomba
     service: notify.pushover
-  alias: Vacuum - Schedule
-  condition:
-  - condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
-  - condition: template
-    value_template: '{{ states.sensor.roomba_runtime.state | float < 0.50 }}'
-  - after: 08:30:00
-    before: '17:00:00'
-    condition: time
-  id: '1506136149206'
-  trigger:
-  - entity_id: group.family_devices
-    from: home
-    platform: state
-    to: not_home
 - action:
   - data:
       entity_id: alarm_control_panel.arlohub
