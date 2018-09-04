@@ -1,0 +1,4 @@
+Laundry:
+  entities:
+    - input_boolean.dryer_power_state
+    - input_boolean.washer_power_state

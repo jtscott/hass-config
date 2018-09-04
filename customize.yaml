@@ -251,3 +251,7 @@ light.dining_room:
   icon: mdi:light-switch
 light.theater:
   icon: mdi:light-switch
+input_boolean.washer_power_state:
+  icon: mdi:washing-machine
+input_boolean.dryer_power_state:
+  icon: mdi:tumble-dryer
