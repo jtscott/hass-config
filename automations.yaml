@@ -56,12 +56,6 @@
   - after: 07:00:00
     before: '15:00:00'
     condition: time
-  - condition: state
-    entity_id: binary_sensor.downstairs_occupancy
-    state: 'off'
-  - condition: state
-    entity_id: binary_sensor.master_bedroom_occupancy
-    state: 'off'
   action:
   - data:
       entity_id: vacuum.roomba
