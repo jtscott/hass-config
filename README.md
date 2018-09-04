@@ -1,5 +1,5 @@
 # My Home Assistant Configuration
-Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/). Note that Netatmo Welcome and Withings devices have custom scripts for their integration.
+Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/).
 
 ## Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). Jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
