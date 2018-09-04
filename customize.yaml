@@ -14,8 +14,6 @@ group.system:
   order: 7
 group.automation:
   order: 8
-alert.scale_battery_low:
-  icon: mdi:alert
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
@@ -163,9 +161,6 @@ sensor.sunrise:
   icon: mdi:weather-sunset-up
 sensor.sunset:
   icon: mdi:weather-sunset-down
-sensor.scale_firmware:
-  friendly_name: Firmware Version
-  icon: mdi:floppy
 sensor.time:
   icon: mdi:clock
 sensor.tv_schedule:
@@ -218,11 +213,6 @@ sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
   friendly_name: Main Floor
-sensor.scale:
-  friendly_name: Master Bath
-sensor.co2:
-  friendly_name: Master Bath CO2
-  icon: mdi:google-circles-extended
 automation.announcement__brittany_home:
   icon: mdi:bullhorn
 automation.announcement__jared_home:

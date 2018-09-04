@@ -4,6 +4,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ## Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). Jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
 - Curl
+- Scripts based on Debian
 
 ## Shout Out
 - Check out Facu ZAK's Roomba 980 [Library](https://github.com/koalazak/dorita980) and [Rest API](https://github.com/koalazak/rest980)!
@@ -26,6 +27,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Devices
 - Arlo Pro Cameras
+- Chamberlain MyQ
 - Ecobee Thermostat
 - Harmony Hub
 - Nvidia Shield TV
@@ -34,7 +36,6 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Unifi Wireless
 - Wemo Insight Switch
 - Wink Hub 2
-- Withings WS-50
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.

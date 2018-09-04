@@ -24,9 +24,3 @@ Wink_Hub:
     - sensor.wink_hub_firmware_state_template
     - sensor.wink_hub_firmware_version
     - automation.system__wink_hub__update_notification
-
-Withings_Scale:
-  name: "Withings Scale"
-  entities:
-    - sensor.scale_battery_template
-    - sensor.scale_firmware
