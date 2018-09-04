@@ -3,6 +3,7 @@ filter:
     - light
     - lock
     - switch
+    - cover
   include_entities:
     - climate.main_floor
     - sensor.master_bedroom_occupancy

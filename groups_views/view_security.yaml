@@ -10,3 +10,4 @@ Security:
     - group.arlo_hub
     - group.locks
     - group.fido
+    - cover.garage_door
