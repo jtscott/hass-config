@@ -2,7 +2,7 @@
 # Travel Sensors
 ###########################################
 - platform: google_travel_time
-  name: Home to ENMAX
+  name: Home to Downtown
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address1

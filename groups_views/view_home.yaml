@@ -19,4 +19,3 @@ default_view:
     - group.roomba
     - group.safety
     - group.occupancy
-    - group.laundry
