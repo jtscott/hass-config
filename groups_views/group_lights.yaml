@@ -1,6 +1,6 @@
 Lights:
   entities:
-    - switch.lamp
+    - light.bedroom_lamp
     - light.dining_room
     - light.theater
     - light.front_door

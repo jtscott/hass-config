@@ -12,30 +12,10 @@ Cameras:
     - camera.front_door
     - camera.garage
 
-Kitchen_Camera_Events:
-  name: "Kitchen Camera Events"
+Camera_Status:
+  name: "Camera Status"
   entities:
-    - sensor.captured_today_kitchen
-    - sensor.last_kitchen
     - sensor.kitchen_camera_battery_template
-
-Backyard_Camera_Events:
-  name: "Backyard Camera Events"
-  entities:
-    - sensor.captured_today_patio
-    - sensor.last_patio
     - sensor.patio_camera_battery_template
-
-Front_Door_Camera_Events:
-  name: "Front Door Camera Events"
-  entities:
-    - sensor.captured_today_front_door
-    - sensor.last_front_door
     - sensor.front_door_camera_battery_template
-
-Garage_Camera_Events:
-  name: "Garage Camera Events"
-  entities:
-    - sensor.captured_today_garage
-    - sensor.last_garage
-    - sensor.garage_camera_battery_template
+    - sensor.garage_camera_battery_template 
