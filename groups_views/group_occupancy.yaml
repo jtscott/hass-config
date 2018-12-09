@@ -1,3 +1,6 @@
 Occupancy:
   - sensor.master_bedroom_occupancy
-  - sensor.downstairs_occupancy
+  - sensor.theater_occupancy
+  - sensor.office_occupancy
+  - sensor.living_room_occupancy
+  - sensor.guest_bedroom_occupancy
