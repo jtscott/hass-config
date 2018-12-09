@@ -194,7 +194,8 @@ switch.shieldtv:
 zone.home:
   track_ios: true
 switch.lamp:
-  icon: mdi:lightbulb
+  friendly_name: Amp
+  icon: mdi:boombox
 sensor.downstairs_temperature_2:
   friendly_name: Downstairs
 sensor.downstairs_temperature:
@@ -247,3 +248,30 @@ input_boolean.dryer_power_state:
   icon: mdi:tumble-dryer
 sensor.kitchen_nest_protect_status:
   icon: mdi:smoke-detector
+sensor.living_room_temperature:
+  friendly_name: Living Room
+sensor.office_temperature:
+  friendly_name: Office
+binary_sensor.theater_occupancy:
+  friendly_name: Theater Occupancy
+  icon: mdi:theater
+sensor.theater_occupancy:
+  friendly_name: Theater
+  icon: mdi:theater
+sensor.office_occupancy:
+  friendly_name: Office
+  icon: mdi:desktop-classic
+sensor.living_room_occupancy:
+  friendly_name: Living Room
+  icon: mdi:sofa
+sensor.theater_temperature:
+  friendly_name: Theater
+sensor.master_bathroom_temperature:
+  friendly_name: Master Bath
+sensor.guest_bedroom_temperature:
+  friendly_name: Guest Bedroom
+sensor.guest_bedroom_occupancy:
+  friendly_name: Guest Bedroom
+  icon: mdi:hotel
+input_boolean.homesitter:
+  icon: mdi:home-map-marker

@@ -1,6 +1,9 @@
-washer_power_state:
-  name: "Washer Power"
+homesitter:
+  name: "Home Sitter"
   initial: off
 dryer_power_state:
   name: "Dryer Power"
+  initial: off
+washer_power_state:
+  name: "Washer Power"
   initial: off
