@@ -4,4 +4,5 @@ Media:
    - input_select.harmony
    - switch.livingroomtv
    - switch.shieldtv
+   - switch.lamp
    - sensor.tv_schedule
