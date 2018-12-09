@@ -5,7 +5,6 @@ Todays_Forecast:
    - sensor.dark_sky_daily_low_temperature
    - sensor.dark_sky_daily_high_temperature
    - sensor.air_pressure_template
-   - sensor.air_quality
    - sensor.uv_rating_template
    - sensor.dark_sky_cloud_coverage
    - sensor.dark_sky_precip_type_template
