@@ -5,6 +5,8 @@ tts/
 .storage/
 *.conf
 *.db
+*.db-shm
+*.db-wal
 *.log
 *.sqlite
 *.txt

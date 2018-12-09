@@ -34,8 +34,6 @@ http:
 ###########################################
 config:
 discovery:
-  ignore:
-      - igd
 conversation:
 history:
 logbook:
@@ -77,7 +75,16 @@ notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
-#vacuum: !include vacuum.yaml
+vacuum: !include vacuum.yaml
+
+###########################################
+# iFrame
+###########################################
+panel_iframe:
+  nodered:
+    title: 'Node-RED'
+    url: 'https://192.168.1.37:1880'
+    icon: mdi:resistor-nodes
 
 ###########################################
 # Third Party Platforms
@@ -106,8 +113,8 @@ remote:
     name: 'Living Room'
     host: !secret harmony_ip
 
-wink:
-
 wemo:
   static:
     - 192.168.2.15
+
+wink:
