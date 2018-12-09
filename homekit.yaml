@@ -6,6 +6,7 @@ filter:
     - cover
   include_entities:
     - binary_sensor.master_bath_liquid_detected
+    - light.bedroom_lamp
   exclude_entities:
     - light.garage1
     - light.garage2
