@@ -2,6 +2,8 @@
   host: !secret unifi_ip
   username: !secret unifi_user
   password: !secret unifi_password
+  ssid_filter:
+      - 'znqp'
   verify_ssl: false
   detection_time: 60
   interval_seconds: 10
@@ -11,3 +13,6 @@
 - platform: trackr
   username: !secret email_account
   password: !secret trackr_password
+
+#- platform: googlehome
+#  host: 192.168.2.34
