@@ -12,27 +12,9 @@ group.calgary:
   order: 6
 group.system:
   order: 7
-group.automation:
-  order: 8
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
-automation.presence__arrival:
-  icon: mdi:home
-automation.presence__departure:
-  icon: mdi:city
-automation.vacuum__schedule:
-  icon: mdi:robot-vacuum
-automation.vacuum__stop:
-  icon: mdi:stop-circle
-automation.system__hass__update_notification:
-  icon: mdi:message-alert
-automation.system__roomba__firmware_update:
-  icon: mdi:message-alert
-automation.weather__alert__state_change:
-  icon: mdi:message-alert
-automation.system__wink_hub__update_notification:
-  icon: mdi:message-alert
 climate.home:
   icon: mdi:thermometer
   friendly_name: Ecobee
@@ -50,9 +32,6 @@ sensor.air_pressure_template:
   icon: mdi:gauge
 sensor.air_pressure_tomorrow_template:
   icon: mdi:gauge
-sensor.air_quality:
-  friendly_name: Air Quality
-  icon: mdi:hospital
 sensor.alfred_last_seen_template:
   icon: mdi:crosshairs-gps
 sensor.climate_operation_mode:
@@ -214,10 +193,6 @@ sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
   friendly_name: Main Floor
-automation.announcement__brittany_home:
-  icon: mdi:bullhorn
-automation.announcement__jared_home:
-  icon: mdi:bullhorn
 group.arlo_hub:
   order: 1
 binary_sensor.master_bedroom_occupancy:
