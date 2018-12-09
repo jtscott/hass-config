@@ -13,3 +13,5 @@ media:
     - media_player.living_room_home
     - media_player.office_speaker
     - media_player.everywhere
+    - media_player.chromecastaudio5662
+    - media_player.bedroom_display
