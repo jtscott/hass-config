@@ -1,20 +1,15 @@
 ###########################################
 # Today's Forecast Sensors
 ###########################################
-- platform: yr
-  monitored_conditions:
-  - 'temperature'
-  - 'humidity'
-  - 'symbol'
-
 - platform: darksky
   api_key: !secret darksky_api
   forecast:
   - 1
   monitored_conditions:
   - 'precip_probability'
-  - 'temperature_min'
-  - 'temperature_max'
+  - 'temperature_low'
+  - 'temperature_high'
+  - 'humidity'
   - 'apparent_temperature'
   - 'pressure'
   - 'wind_speed'
@@ -25,6 +20,7 @@
   - 'cloud_cover'
   - 'wind_bearing'
   - 'wind_speed'
+  - 'icon'
 
 - platform: template
   sensors:
