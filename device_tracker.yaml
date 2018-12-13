@@ -4,6 +4,7 @@
   password: !secret unifi_password
   ssid_filter:
       - 'znqp'
+      - 'znqp_iot'
   verify_ssl: false
   detection_time: 60
   interval_seconds: 10
@@ -15,4 +16,4 @@
   password: !secret trackr_password
 
 #- platform: googlehome
-#  host: 192.168.2.34
+#  host: !secret google_home_kitchen_ip
