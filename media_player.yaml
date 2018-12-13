@@ -1,4 +1,3 @@
 - platform: samsungtv
   host: !secret samsung_tv_ip
   name: UN65F8000
-- platform: cast
