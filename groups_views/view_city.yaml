@@ -6,16 +6,12 @@ Calgary:
   icon: mdi:city
   name: Calgary
   entities:
-    - sun.sun
-    - sensor.yr_temperature
-    - sensor.yr_humidity
-    - sensor.yr_symbol
     - camera.glenmore__macleod
     - camera.glenmore__crowchild
     - camera.4_ave__9_st
     - camera.5_ave__7_st
     - camera.bow__6_ave
     - camera.bow__sarcee
-    - group.travel
+    - group.commute
     - group.date_time
     - group.electricity
