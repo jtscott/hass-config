@@ -9,7 +9,6 @@ default_view:
     - device_tracker.jaredsrotary
     - sensor.main_floor_temperature
     - sensor.main_floor_humidity
-    - sensor.downstairs_temperature
     - sensor.master_bedroom_temperature
     - sensor.living_room_temperature
     - sensor.office_temperature
