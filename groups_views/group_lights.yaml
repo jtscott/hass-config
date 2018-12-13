@@ -3,7 +3,14 @@ Lights:
     - light.bedroom_lamp
     - light.dining_room
     - light.theater
+    - switch.theater_outlet_1
     - light.front_door
     - light.back_door
     - light.garage
     - input_boolean.homesitter
+
+Homesitter_Lights:
+  entities:
+    - light.bedroom_lamp
+    - light.dining_room
+    - light.theater
