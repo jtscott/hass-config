@@ -3,19 +3,16 @@ Roomba_System:
   entities:
     - sensor.roomba_firmware_template
     - sensor.roomba_battery_template
-    - automation.system__roomba__firmware_update
 
 System_Status:
   name: "System Status"
   entities:
-    - sensor.uptime
     - sensor.connected_clients
     - sensor.hass_release
     - sensor.current_version
-    - sensor.disk_free_space
-    - sensor.cpu_use
-    - sensor.ram_use
-    - automation.system__hass__update_notification
+    - sensor.disk_use_percent_
+    - sensor.processor_use
+    - sensor.memory_use_percent
 
 Wink_Hub:
   name: "Wink Hub"
@@ -23,4 +20,3 @@ Wink_Hub:
     - sensor.wink_hub_status
     - sensor.wink_hub_firmware_state_template
     - sensor.wink_hub_firmware_version
-    - automation.system__wink_hub__update_notification
