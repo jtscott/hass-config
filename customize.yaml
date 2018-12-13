@@ -15,7 +15,7 @@ group.system:
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
-climate.home:
+climate.main_floor:
   icon: mdi:thermometer
   friendly_name: Ecobee
 device_tracker.jaredsrotary:
@@ -26,7 +26,7 @@ device_tracker.george:
   friendly_name: George
 device_tracker.alfie:
   friendly_name: Alfie
-media_player.my_shield_console:
+media_player.shield:
   friendly_name: Nvidia Shield
 sensor.air_pressure_template:
   icon: mdi:gauge
@@ -36,12 +36,10 @@ sensor.alfred_last_seen_template:
   icon: mdi:crosshairs-gps
 sensor.climate_operation_mode:
   friendly_name: Ecobee
-sensor.co2_ppm:
-  sensor_class: gas
 sensor.connected_clients:
   friendly_name: Connections
   icon: mdi:lan-connect
-sensor.cpu_use:
+sensor.processor_use:
   friendly_name: Processor
   icon: mdi:chip
 sensor.current_activity:
@@ -52,16 +50,10 @@ sensor.current_version:
 sensor.dark_sky_apparent_temperature:
   friendly_name: Feels Like
   icon: mdi:human-male-female
-sensor.dark_sky_daily_low_temperature:
+sensor.dark_sky_overnight_low_temperature_1:
   friendly_name: Low
   icon: mdi:temperature-celsius
-sensor.dark_sky_daily_low_temperature_1:
-  friendly_name: Low
-  icon: mdi:temperature-celsius
-sensor.dark_sky_daily_high_temperature:
-  friendly_name: High
-  icon: mdi:temperature-celsius
-sensor.dark_sky_daily_high_temperature_1:
+sensor.dark_sky_daytime_high_temperature_1:
   friendly_name: High
   icon: mdi:temperature-celsius
 sensor.dark_sky_cloud_coverage:
@@ -74,10 +66,10 @@ sensor.dark_sky_precip_probability_template:
   icon: mdi:weather-rainy
 sensor.dark_sky_precip_probability_tomorrow_template:
   icon: mdi:weather-rainy
-sensor.dark_sky_daily_max_precip_intensity:
+sensor.dark_sky_precip_intensity:
   friendly_name: Amount of Precipitation
   icon: mdi:cup-water
-sensor.dark_sky_daily_max_precip_intensity_1:
+sensor.dark_sky_precip_intensity_1:
   friendly_name: Amount of Precipitation
   icon: mdi:cup-water
 sensor.dark_sky_wind_bearing_template:
@@ -92,12 +84,8 @@ sensor.dark_sky_wind_speed_1:
   icon: mdi:weather-windy
 sensor.date:
   icon: mdi:calendar
-sensor.disk_free_space:
+sensor.disk_use_percent_:
   icon: mdi:harddisk
-sensor.family_room_thermostat_nest_temperature:
-  friendly_name: Inside
-sensor.family_room_thermostat_nest_humidity:
-  friendly_name: Humidity
 sensor.george_last_seen_template:
   icon: mdi:crosshairs-gps
 sensor.george_ear_tattoo_template:
@@ -107,8 +95,6 @@ sensor.george_petlynx_template:
 sensor.hass_release:
   friendly_name: Release
   icon: mdi:github-circle
-sensor.home_to_enmax:
-  icon: mdi:car
 sensor.home_to_supported_lifestyles:
   icon: mdi:car
 sensor.home_to_acadia:
@@ -118,7 +104,7 @@ sensor.home_to_airport:
 sensor.moon:
   friendly_name: Moon
   icon: mdi:weather-night
-sensor.ram_use:
+sensor.memory_use_percent:
   friendly_name: Memory Use
   icon: mdi:memory
 sensor.roomba_bin_state_template:
@@ -152,22 +138,8 @@ sensor.wink_hub_firmware_state_template:
   icon: mdi:update
 sensor.wink_hub_firmware_version:
   icon: mdi:floppy
-sensor.yr_temperature:
-  friendly_name: Outside
-sensor.yr_humidity:
-  friendly_name: Humidity
-sensor.yr_symbol:
-  friendly_name: Conditions
-switch.bedroom:
-  icon: mdi:lightbulb
-  friendly_name: Bedroom
-switch.front_door:
-  icon: mdi:lightbulb
-  friendly_name: Front Door
 switch.livingroomtv:
   icon: mdi:television
-switch.netatmo_camera:
-  icon: mdi:camera
 switch.shieldtv:
   icon: mdi:cast
 zone.home:
@@ -175,12 +147,6 @@ zone.home:
 switch.lamp:
   friendly_name: Amp
   icon: mdi:boombox
-sensor.downstairs_temperature_2:
-  friendly_name: Downstairs
-sensor.downstairs_temperature:
-  friendly_name: Downstairs
-sensor.master_bedroom_temperature_2:
-  friendly_name: Master Bedroom
 sensor.master_bedroom_temperature:
   friendly_name: Master Bedroom
 sensor.kitchen_nest_protect_co_status:
@@ -193,20 +159,12 @@ sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
   friendly_name: Main Floor
-group.arlo_hub:
-  order: 1
 binary_sensor.master_bedroom_occupancy:
   friendly_name: Master Bedroom
   icon: mdi:bed-empty
-binary_sensor.downstairs_occupancy:
-  friendly_name: Downstairs Occupancy
-  icon: mdi:theater
 sensor.master_bedroom_occupancy:
   friendly_name: Master Bedroom
   icon: mdi:bed-empty
-sensor.downstairs_occupancy:
-  friendly_name: Downstairs
-  icon: mdi:theater
 script.1523136244144:
   icon: mdi:bone
 vacuum.roomba:
@@ -250,3 +208,6 @@ sensor.guest_bedroom_occupancy:
   icon: mdi:hotel
 input_boolean.homesitter:
   icon: mdi:home-map-marker
+switch.theater_outlet_1:
+  friendly_name: Christmas Tree
+  icon: mdi:pine-tree
