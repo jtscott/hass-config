@@ -86,14 +86,14 @@ panel_iframe:
 ###########################################
 # Third Party Platforms
 ###########################################
-#arlo:
-#  username: !secret arlo_username
-#  password: !secret arlo_password
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
 
-#alarm_control_panel:
-#  - platform: arlo
-#    home_mode_name: 'Home'
-#    away_mode_name: 'Away'
+alarm_control_panel:
+  - platform: arlo
+    home_mode_name: 'Home'
+    away_mode_name: 'Away'
 
 ecobee:
   api_key: !secret ecobee_api
