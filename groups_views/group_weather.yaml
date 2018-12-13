@@ -2,27 +2,25 @@ Todays_Forecast:
   name: "Today's Forecast"
   entities:
    - sensor.dark_sky_apparent_temperature
-   - sensor.dark_sky_daily_low_temperature
-   - sensor.dark_sky_daily_high_temperature
    - sensor.air_pressure_template
    - sensor.uv_rating_template
    - sensor.dark_sky_cloud_coverage
    - sensor.dark_sky_precip_type_template
    - sensor.dark_sky_precip_probability_template
-   - sensor.dark_sky_daily_max_precip_intensity
+   - sensor.dark_sky_precip_intensity
    - sensor.dark_sky_wind_bearing_template
    - sensor.dark_sky_wind_speed
 
 Tomorrows_Forecast:
   name: "Tomorrow's Forecast"
   entities:
-   - sensor.dark_sky_daily_low_temperature_1
-   - sensor.dark_sky_daily_high_temperature_1
+   - sensor.dark_sky_overnight_low_temperature_1
+   - sensor.dark_sky_daytime_high_temperature_1
    - sensor.air_pressure_tomorrow_template
    - sensor.dark_sky_cloud_coverage_1
    - sensor.dark_sky_precip_type_tomorrow_template
    - sensor.dark_sky_precip_probability_tomorrow_template
-   - sensor.dark_sky_daily_max_precip_intensity_1
+   - sensor.dark_sky_precip_intensity_1
    - sensor.dark_sky_wind_bearing_tomorrow_template
    - sensor.dark_sky_wind_speed_1
 
