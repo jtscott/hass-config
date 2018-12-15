@@ -144,7 +144,7 @@ switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
-switch.lamp:
+switch.wemo_outlet_1:
   friendly_name: Amp
   icon: mdi:boombox
 sensor.master_bedroom_temperature:
