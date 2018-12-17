@@ -211,3 +211,7 @@ input_boolean.homesitter:
 switch.theater_outlet_1:
   friendly_name: Christmas Tree
   icon: mdi:pine-tree
+sensor.washer_template:
+  icon: mdi:washing-machine
+sensor.dryer_template:
+  icon: mdi:tumble-dryer

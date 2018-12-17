@@ -1,0 +1,28 @@
+###########################################
+# Laundry
+###########################################
+- platform: template
+  sensors:
+    washer_template:
+      friendly_name: 'Washer'
+      value_template: >-
+        {%- if is_state('device_tracker.washerwm5000hva', 'home') %}
+            Washing
+        {%- elif is_state('device_tracker.washerwm5000hva', 'not_home') %}
+            Off
+        {%- else %}
+            Unavailable
+        {%- endif %}
+
+- platform: template
+  sensors:
+    dryer_template:
+      friendly_name: 'Dryer'
+      value_template: >-
+        {%- if is_state('device_tracker.dryerdlex5000v', 'home') %}
+            Drying
+        {%- elif is_state('device_tracker.dryerdlex5000v', 'not_home') %}
+            Off
+        {%- else %}
+            Unavailable
+        {%- endif %}
