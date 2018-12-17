@@ -7,7 +7,7 @@ media:
   name: Media
   entities:
     - group.media
-    - media_player.shield
+    - media_player.my_shield_console
     - media_player.bedroom_home
     - media_player.family_room_speaker
     - media_player.living_room_home

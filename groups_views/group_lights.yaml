@@ -7,7 +7,6 @@ Lights:
     - light.front_door
     - light.back_door
     - light.garage
-    - input_boolean.homesitter
 
 Homesitter_Lights:
   entities:

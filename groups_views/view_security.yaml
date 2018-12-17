@@ -11,3 +11,4 @@ Security:
     - group.locks
     - group.fido
     - cover.garage_door
+    - input_boolean.homesitter
