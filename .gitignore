@@ -1,6 +1,7 @@
 deps/
 local/
 tts/
+www/state_image/
 .cloud/
 .storage/
 *.conf
