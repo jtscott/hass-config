@@ -215,3 +215,7 @@ sensor.washer_template:
   icon: mdi:washing-machine
 sensor.dryer_template:
   icon: mdi:tumble-dryer
+light.office:
+  icon: mdi:light-switch
+light.kitchen:
+  icon: mdi:light-switch

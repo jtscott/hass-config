@@ -1,8 +1,10 @@
 Lights:
   entities:
-    - light.bedroom_lamp
+    - light.kitchen
     - light.dining_room
     - light.theater
+    - light.office
+    - light.bedroom_lamp
     - switch.theater_outlet_1
     - light.front_door
     - light.back_door
