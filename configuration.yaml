@@ -23,8 +23,6 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret trusted_proxy
-  ip_ban_enabled: true
-  login_attempts_threshold: 7
 
 ###########################################
 # Core Components
@@ -73,6 +71,7 @@ script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
 vacuum: !include vacuum.yaml
+zone: !include zone.yaml
 
 ###########################################
 # iFrame
