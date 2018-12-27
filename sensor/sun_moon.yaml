@@ -21,6 +21,12 @@
       value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_setting)-(43200)) | timestamp_local) [11:16] }} pm'
       friendly_name: 'Sunset'
 
+- platform: template
+  sensors:
+    sun_elevation:
+      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      unit_of_measurement: 'degrees'
+
 - platform: moon
 
 - platform: season
