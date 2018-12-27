@@ -7,6 +7,8 @@ filter:
   include_entities:
     - binary_sensor.master_bath_liquid_detected
     - light.bedroom_lamp
+    - light.office
+    - light.kitchen
   exclude_entities:
     - light.garage1
     - light.garage2
