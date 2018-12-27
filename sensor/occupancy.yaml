@@ -36,6 +36,14 @@
           {%- else %}
               None
           {%- endif %}
+        icon_template: >-
+          {%- if is_state("binary_sensor.office_occupancy", "on") %}
+              mdi:run-fast
+          {%- elif is_state("binary_sensor.office_occupancy", "off") %}
+              mdi:run
+          {%- else %}
+              None
+          {%- endif %}
 
 - platform: template
   sensors:
