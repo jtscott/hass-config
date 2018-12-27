@@ -6,3 +6,9 @@
     climate_operation_mode:
       value_template: "{{ states.climate.main_floor.attributes.operation_mode if states.climate.main_floor is not none else 'Unknown' }}"
       entity_id: climate.main_floor
+
+- platform: template
+  sensors:
+    climate_away_mode:
+      friendly_name: 'Away Mode'
+      value_template: '{{ states.climate.main_floor.attributes.away_mode }}'
