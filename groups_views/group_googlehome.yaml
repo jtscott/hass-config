@@ -3,6 +3,6 @@ GoogleHome:
     - media_player.bedroom_display
     - media_player.office_speaker
     - media_player.family_room_speaker
-    - media_player.chromecastaudio5662
+    - media_player.chomecast_audio_kitchen_ceiling
     - media_player.main_floor_2
     - media_player.kitchen_home
