@@ -219,3 +219,11 @@ light.office:
   icon: mdi:light-switch
 light.kitchen:
   icon: mdi:light-switch
+light.bedroom_lamp:
+  icon: mdi:lamp
+light.garage:
+  icon: mdi:garage
+light.front_door:
+  icon: mdi:home
+light.back_door:
+  icon: mdi:home
