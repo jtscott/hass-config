@@ -1,0 +1,4 @@
+- platform: template
+  sensors:
+    light_office_brightness:
+      value_template: '{{ states.light.office.attributes.brightness }}'
