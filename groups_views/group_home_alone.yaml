@@ -1,0 +1,4 @@
+Home_Alone:
+  entities:
+    - script.1523136244144
+    - input_boolean.homesitter

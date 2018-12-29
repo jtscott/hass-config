@@ -18,8 +18,9 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - The *Automations* group has toggles for various automations.
 
 ## Screenshots
-![Home Screen](https://www.dropbox.com/s/xlvqcir6aca3zv0/home.png?raw=1)
+![Home Screen](https://www.dropbox.com/s/oozno5iu2dpfgsv/home.png?raw=1)
 ![Security](https://www.dropbox.com/s/uh25niflfb2dcgt/security.PNG?raw=1)
+![Media](https://www.dropbox.com/s/5udxxqetcfai705/media.PNG?raw=1)
 ![Weather](https://www.dropbox.com/s/y0ywfv9fs6z5m6j/weather.PNG?raw=1)
 ![Calgary](https://www.dropbox.com/s/ng2ejh96jn8g52k/calgary.PNG?raw=1)
 ![System](https://www.dropbox.com/s/qx3ibaoaw93pvze/debug.PNG?raw=1)
@@ -36,11 +37,9 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Unifi Wireless
 - Wemo Insight Switch
 - Wink Hub 2
+- Google Home, Mini, Hub
+- Trackr
 
 ## Automations
 - Turn the inside camera on/off if we leave/arrive.
-- Turn the patio light on/off with the sun if we are away.
-- Turn the patio light off if we arrive home.
-- Commute high traffic notifications.
 - Roomba scheduling and docking.
-- Climate control based on internal and external temperatures.

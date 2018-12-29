@@ -227,3 +227,5 @@ light.front_door:
   icon: mdi:home
 light.back_door:
   icon: mdi:home
+group.home_alone:
+  friendly_name: Home Alone

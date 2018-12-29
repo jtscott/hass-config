@@ -9,6 +9,5 @@ Security:
     - group.cameras
     - group.arlo_hub
     - group.locks
-    - group.fido
+    - group.home_alone
     - cover.garage_door
-    - input_boolean.homesitter
