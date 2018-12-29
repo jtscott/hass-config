@@ -1,0 +1,47 @@
+listen_port: 80
+advertise_ip: !secret advertise_ip
+expose_by_default: true
+exposed_domains:
+  - light
+  - switch
+entities:
+  switch.theater_outlet_1:
+    name: "Theater Outlet 1"
+  light.theater:
+    name: "Theater Light"
+  switch.shieldtv:
+    hidden: true
+  switch.livingroomtv:
+    hidden: true
+  switch.security_cameras:
+    hidden: true
+  switch.wemo_outlet_1:
+    hidden: true
+  light.office:
+    hidden: true
+  light.kitchen:
+    hidden: true
+  light.dining_room:
+    hidden: true
+  light.bedroom_lamp:
+    hidden: true
+  light.outside:
+    hidden: true
+  light.front_door:
+    hidden: true
+  light.back_door:
+    hidden: true
+  light.garage:
+    hidden: true
+  light.garage1:
+    hidden: true
+  light.garage2:
+    hidden: true
+  light.garage3:
+    hidden: true
+  light.garage4:
+    hidden: true
+  light.garage5:
+    hidden: true
+  light.garage6:
+    hidden: true
