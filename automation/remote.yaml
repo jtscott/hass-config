@@ -8,10 +8,12 @@
     entity_id: remote.living_room
     data_template:
       activity: >-
-        {% if is_state("input_select.harmony", "Watch TV") %}
-          23413216
-        {% elif is_state("input_select.harmony", "Watch Shield") %}
-          23483375
+        {% if is_state("input_select.harmony", "Watch Plex") %}
+          27670057
+        {% elif is_state("input_select.harmony", "Watch DVD") %}
+          37587221
+        {% elif is_state("input_select.harmony", "Power Off") %}
+          -1
         {% else %}
         {% endif %}
   - service: input_select.select_option
