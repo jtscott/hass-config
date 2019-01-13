@@ -4,7 +4,6 @@ Lights:
     - light.dining_room
     - light.theater
     - light.office
-    - light.bedroom_lamp
     - switch.theater_outlet_1
     - light.front_door
     - light.back_door
@@ -12,6 +11,7 @@ Lights:
 
 Homesitter_Lights:
   entities:
-    - light.bedroom_lamp
+    - light.office
     - light.dining_room
     - light.theater
+    - light.kitchen
