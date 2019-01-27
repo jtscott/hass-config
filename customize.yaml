@@ -84,7 +84,7 @@ sensor.dark_sky_wind_speed_1:
   icon: mdi:weather-windy
 sensor.date:
   icon: mdi:calendar
-sensor.disk_use_percent_:
+sensor.disk_use_percent:
   icon: mdi:harddisk
 sensor.george_last_seen_template:
   icon: mdi:crosshairs-gps
@@ -209,8 +209,8 @@ sensor.guest_bedroom_occupancy:
 input_boolean.homesitter:
   icon: mdi:home-map-marker
 switch.theater_outlet_1:
-  friendly_name: Christmas Tree
-  icon: mdi:pine-tree
+  friendly_name: Theater Outlet
+  icon: mdi:power-socket-us
 sensor.washer_template:
   icon: mdi:washing-machine
 sensor.dryer_template:
@@ -223,7 +223,7 @@ light.bedroom_lamp:
   icon: mdi:lamp
 light.garage:
   icon: mdi:garage
-light.front_door:
+light.front_door_2:
   icon: mdi:home
 light.back_door:
   icon: mdi:home

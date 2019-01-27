@@ -1,20 +1,20 @@
-Roomba_System:
+roomba_system:
   name: "Roomba 980"
   entities:
     - sensor.roomba_firmware_template
     - sensor.roomba_battery_template
 
-System_Status:
+system_status:
   name: "System Status"
   entities:
     - sensor.connected_clients
     - sensor.hass_release
     - sensor.current_version
-    - sensor.disk_use_percent_
+    - sensor.disk_use_percent
     - sensor.processor_use
     - sensor.memory_use_percent
 
-Wink_Hub:
+wink_hub:
   name: "Wink Hub"
   entities:
     - sensor.wink_hub_status

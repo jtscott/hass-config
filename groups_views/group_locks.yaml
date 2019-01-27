@@ -1,11 +1,11 @@
-Locks:
+locks:
   name: "Locks"
   entities:
     - lock.back_door
     - lock.front_door
     - lock.garage
 
-Locks_Status:
+locks_status:
   name: "Lock Status"
   entities:
     - sensor.lock_back_door_battery_template

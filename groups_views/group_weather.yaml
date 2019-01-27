@@ -1,4 +1,4 @@
-Todays_Forecast:
+todays_forecast:
   name: "Today's Forecast"
   entities:
    - sensor.dark_sky_apparent_temperature
@@ -11,7 +11,7 @@ Todays_Forecast:
    - sensor.dark_sky_wind_bearing_template
    - sensor.dark_sky_wind_speed
 
-Tomorrows_Forecast:
+tomorrows_forecast:
   name: "Tomorrow's Forecast"
   entities:
    - sensor.dark_sky_overnight_low_temperature_1
@@ -24,7 +24,7 @@ Tomorrows_Forecast:
    - sensor.dark_sky_wind_bearing_tomorrow_template
    - sensor.dark_sky_wind_speed_1
 
-Sun_Moon:
+sun_moon:
   name: "Sun & Moon"
   entities:
     - sensor.day_night

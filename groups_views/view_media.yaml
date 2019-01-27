@@ -4,7 +4,7 @@
 media:
   view: yes
   icon: mdi:theater
-  name: Media
+  name: "Media"
   entities:
     - group.media
     - media_player.my_shield_console

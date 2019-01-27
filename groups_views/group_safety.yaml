@@ -1,4 +1,4 @@
-Safety:
+safety:
   name: "Safety"
   entities:
     - sensor.kitchen_nest_protect_co_status

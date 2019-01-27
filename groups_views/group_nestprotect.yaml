@@ -1,4 +1,4 @@
-Nest_Protect:
+nest_protect:
   name: "Nest Protect"
   entities:
     - sensor.kitchen_nest_protect_status

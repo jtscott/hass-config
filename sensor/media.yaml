@@ -9,15 +9,6 @@
   - upcoming
   days: 1
 
-# - platform: radarr
-#   api_key: !secret radarr_api
-#   host: !secret nas_address
-#   port: 7878
-#   urlbase: /radarr
-#   monitored_conditions:
-#   - upcoming
-#   days: 15
-
 - platform: template
   sensors:
     tv_schedule:

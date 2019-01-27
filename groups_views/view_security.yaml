@@ -1,7 +1,7 @@
 ###########################################
 # Security Tab
 ###########################################
-Security:
+security:
   view: yes
   icon: mdi:security-home
   entities:

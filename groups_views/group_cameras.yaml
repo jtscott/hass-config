@@ -1,10 +1,10 @@
-Arlo_Hub:
+arlo_hub:
   name: "Arlo Hub"
   entities:
     - switch.security_cameras
     - alarm_control_panel.arlohub
 
-Cameras:
+cameras:
   name: "Cameras"
   entities:
     - camera.kitchen
@@ -12,7 +12,7 @@ Cameras:
     - camera.front_door
     - camera.garage
 
-Camera_Status:
+camera_status:
   name: "Camera Status"
   entities:
     - sensor.kitchen_camera_battery_template

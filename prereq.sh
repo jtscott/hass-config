@@ -9,7 +9,7 @@ if [ ! -f /usr/bin/jq ]; then
   mv jq-linux64 /usr/bin/jq
 fi
 
-pip3 install --upgrade --force-reinstall netdisco
+#pip3 install --upgrade --force-reinstall netdisco
 apt-get update && apt-get --yes --force-yes upgrade
 apt-get install --yes --force-yes avahi-daemon avahi-utils libavahi-compat-libdnssd-dev libgmp-dev libmpfr-dev libmpc-dev
 update-rc.d dbus enable

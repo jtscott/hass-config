@@ -1,4 +1,5 @@
-Media:
+media:
+  name: "Media"
   entities:
    - sensor.current_activity
    - input_select.harmony

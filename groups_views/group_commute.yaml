@@ -1,4 +1,5 @@
-Commute:
+commute:
+  name: "Commute"
   entities:
     - sensor.home_to_supported_lifestyles
     - sensor.home_to_acadia

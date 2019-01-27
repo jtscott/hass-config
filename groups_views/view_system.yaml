@@ -4,7 +4,6 @@
 system:
   view: yes
   icon: mdi:server
-  name: System
   entities:
     - group.roomba_system
     - group.sensor_batteries

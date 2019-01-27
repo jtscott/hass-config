@@ -1,6 +1,6 @@
 push:
   categories:
-    - name: Alarm
+    - name: alarm
       identifier: 'alarm'
       actions:
         - identifier: 'SILENCE_ALARM'
@@ -9,7 +9,7 @@ push:
           authenticationRequired: no
           destructive: yes
           behavior: 'default'
-    - name: Siren
+    - name: siren
       identifier: 'siren'
       actions:
         - identifier: 'ACTIVATE_SIRENS'

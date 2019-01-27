@@ -1,15 +1,16 @@
-Lights:
+lights:
+  name: "Lights"
   entities:
     - light.kitchen
     - light.dining_room
     - light.theater
     - light.office
     - switch.theater_outlet_1
-    - light.front_door
+    - light.front_door_2
     - light.back_door
     - light.garage
 
-Homesitter_Lights:
+homesitter_lights:
   entities:
     - light.office
     - light.dining_room

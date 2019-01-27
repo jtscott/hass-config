@@ -1,17 +1,16 @@
 ###########################################
 # Calgary Tab
 ###########################################
-Calgary:
+calgary:
   view: yes
   icon: mdi:city
-  name: Calgary
   entities:
-    - camera.glenmore__macleod
-    - camera.glenmore__crowchild
-    - camera.4_ave__9_st
-    - camera.5_ave__7_st
-    - camera.bow__6_ave
-    - camera.bow__sarcee
+    - camera.glenmore_macleod
+    - camera.glenmore_crowchild
+    - camera.4_ave_9_st
+    - camera.5_ave_7_st
+    - camera.bow_6_ave
+    - camera.bow_sarcee
     - group.commute
     - group.date_time
     - group.electricity
