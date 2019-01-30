@@ -81,16 +81,12 @@
               None
           {%- endif %}
 
-- platform: history_stats
-  name: "Family Hometime"
-  entity_id: group.family_devices
-  state: 'home'
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+- platform: template
+  sensors:
+    family_last_changed:
+      value_template: "{{ relative_time(states.group.family_devices.last_changed).split(' ')[0] }}"
 
-- platform: history_stats
-  name: "Occupancy Hometime"
-  entity_id: group.binary_occupancy
-  state: 'on'
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+- platform: template
+  sensors:
+    occupancy_last_changed:
+      value_template: "{{ relative_time(states.group.binary_occupancy.last_changed).split(' ')[0] }}"
