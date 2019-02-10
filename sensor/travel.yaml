@@ -6,21 +6,11 @@
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret work_address1
-
-- platform: google_travel_time
-  name: Home to Supported Lifestyles
-  api_key: !secret google_maps
-  origin: zone.home
-  destination: !secret work_address2
-
-- platform: google_travel_time
-  name: Home to Acadia
-  api_key: !secret google_maps
-  origin: zone.home
-  destination: !secret acadia_address
+  scan_interval: 600
   
 - platform: google_travel_time
   name: Home to Airport
   api_key: !secret google_maps
   origin: zone.home
   destination: !secret airport_address
+  scan_interval: 600
