@@ -1,6 +1,7 @@
 group.default_view:
   order: 1
 group.security:
+  icon: mdi:shield-home
   order: 2
 group.pets:
   order: 3
@@ -229,3 +230,7 @@ light.back_door:
   icon: mdi:home
 group.home_alone:
   friendly_name: Home Alone
+sensor.home_to_downtown:
+  icon: mdi:city
+input_select.harmony:
+  friendly_name: Harmony Activity
