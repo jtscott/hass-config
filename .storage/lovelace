@@ -1,0 +1,849 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "device_tracker.jaredsrotary",
+                        "device_tracker.brittanysiphone",
+                        "sensor.main_floor_temperature",
+                        "sensor.main_floor_humidity",
+                        "sensor.living_room_temperature",
+                        "sensor.kitchen_nest_protect_co_status",
+                        "sensor.kitchen_nest_protect_smoke_status"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.front_door_2"
+                                },
+                                {
+                                    "entity": "light.back_door"
+                                },
+                                {
+                                    "entity": "light.garage"
+                                }
+                            ],
+                            "title": "Outside Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.kitchen"
+                                },
+                                {
+                                    "entity": "light.dining_room"
+                                }
+                            ],
+                            "title": "Main Floor Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "cover.garage_door"
+                                },
+                                {
+                                    "entity": "lock.front_door"
+                                },
+                                {
+                                    "entity": "lock.front_door"
+                                },
+                                {
+                                    "entity": "lock.garage"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Doors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.living_room_occupancy"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Occupancy",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "vacuum.roomba",
+                                "sensor.roomba_cycle_template",
+                                "sensor.roomba_bin_presence_template",
+                                "sensor.roomba_bin_state_template",
+                                "sensor.roomba_runtime"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Roomba",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.googlehome9046",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.googlehome9046",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.chromecastaudio2180",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.chromecastaudio2180",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.googlehome6972",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.googlehome6972",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        }
+                    ],
+                    "icon": "mdi:numeric-1-circle",
+                    "panel": false,
+                    "path": "mainfloor",
+                    "title": "Main Floor"
+                },
+                {
+                    "badges": [
+                        "sensor.office_temperature",
+                        "sensor.master_bedroom_temperature",
+                        "sensor.master_bathroom_temperature"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.office"
+                                }
+                            ],
+                            "title": "Upstairs Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.washer_template"
+                                },
+                                {
+                                    "entity": "sensor.dryer_template"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Laundry",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.master_bedroom_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.office_occupancy"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Occupancy",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.office_speaker_2",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.office_speaker_2",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.googlehomehub8562",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.googlehomehub8562",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        }
+                    ],
+                    "icon": "mdi:numeric-2-circle",
+                    "path": "upstairs",
+                    "title": "Upstairs"
+                },
+                {
+                    "badges": [
+                        "sensor.theater_temperature",
+                        "sensor.guest_bedroom_temperature"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.current_activity"
+                                },
+                                {
+                                    "entity": "input_select.harmony"
+                                },
+                                {
+                                    "entity": "switch.livingroomtv"
+                                },
+                                {
+                                    "entity": "switch.shieldtv"
+                                },
+                                {
+                                    "entity": "switch.wemo_outlet_1"
+                                },
+                                {
+                                    "entity": "sensor.tv_schedule"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Media",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.theater"
+                                },
+                                {
+                                    "entity": "switch.theater_outlet_1"
+                                }
+                            ],
+                            "title": "Downstairs Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.googlehome6057",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.googlehome6057",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.shield",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.shield",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.theater_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.guest_bedroom_occupancy"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Occupancy",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:alpha-b-circle",
+                    "path": "downstairs",
+                    "title": "Downstairs"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "alarm_control_panel.arlohub",
+                            "type": "alarm-panel"
+                        },
+                        {
+                            "entities": [
+                                "script.1523136244144"
+                            ],
+                            "title": "Fido",
+                            "type": "entities"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.front_door",
+                                    "entity": "camera.front_door",
+                                    "style": {
+                                        "height": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "alarm_control_panel.arlohub",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": 0,
+                                        "padding": "16px 8px 16px 8px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "100%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_front_door",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_front_door",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "4px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_front_door",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": "48px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_front_door",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "40px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.last_front_door",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "top": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.patio",
+                                    "entity": "camera.patio",
+                                    "style": {
+                                        "height": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "alarm_control_panel.arlohub",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": 0,
+                                        "padding": "16px 8px 16px 8px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "100%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_patio",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_patio",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "4px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_patio",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": "48px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_patio",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "40px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.last_patio",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "top": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.garage",
+                                    "entity": "camera.garage",
+                                    "style": {
+                                        "height": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "alarm_control_panel.arlohub",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": 0,
+                                        "padding": "16px 8px 16px 8px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "100%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_garage",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_garage",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "4px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_garage",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": "48px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_garage",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "40px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.last_garage",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "top": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.kitchen",
+                                    "entity": "camera.kitchen",
+                                    "style": {
+                                        "height": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "alarm_control_panel.arlohub",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": 0,
+                                        "padding": "16px 8px 16px 8px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "100%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_kitchen",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_kitchen",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "4px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_kitchen",
+                                    "style": {
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "right": "48px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_kitchen",
+                                    "style": {
+                                        "bottom": "24px",
+                                        "right": "40px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.last_kitchen",
+                                    "style": {
+                                        "background-color": "rgba(0, 0, 0, 0.3)",
+                                        "font-weight": "bold",
+                                        "right": 0,
+                                        "top": 0,
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
+                            "type": "picture-elements"
+                        }
+                    ],
+                    "icon": "mdi:shield-home",
+                    "panel": false,
+                    "path": "security",
+                    "title": "Security"
+                },
+                {
+                    "badges": [
+                        "device_tracker.george",
+                        "device_tracker.alfie"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.alfred_last_seen_template",
+                                "sensor.alfred_trackr_battery_template"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Alfred",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.george_last_seen_template",
+                                "sensor.george_trackr_battery_template",
+                                "sensor.george_ear_tattoo_template",
+                                "sensor.george_petlynx_template"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "George",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:cat",
+                    "path": "pets",
+                    "title": "Pets"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.dark_sky_apparent_temperature",
+                                "sensor.air_pressure_template",
+                                "sensor.uv_rating_template",
+                                "sensor.dark_sky_cloud_coverage",
+                                "sensor.dark_sky_precip_type_template",
+                                "sensor.dark_sky_precip_probability_template",
+                                "sensor.dark_sky_precip_intensity",
+                                "sensor.dark_sky_wind_bearing_template",
+                                "sensor.dark_sky_wind_speed"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Today's Forecast",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.dark_sky_overnight_low_temperature_1",
+                                "sensor.dark_sky_daytime_high_temperature_1",
+                                "sensor.air_pressure_tomorrow_template",
+                                "sensor.dark_sky_cloud_coverage_1",
+                                "sensor.dark_sky_precip_type_tomorrow_template",
+                                "sensor.dark_sky_precip_probability_tomorrow_template",
+                                "sensor.dark_sky_precip_intensity_1",
+                                "sensor.dark_sky_wind_bearing_tomorrow_template",
+                                "sensor.dark_sky_wind_speed_1"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Tomorrow's Forecast",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.day_night",
+                                "sensor.solar_angle",
+                                "sensor.sunrise",
+                                "sensor.sunset",
+                                "sensor.moon",
+                                "sensor.season_template"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Sun & Moon",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.yyc_doppler",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "icon": "mdi:weather-partlycloudy",
+                    "path": "weather",
+                    "title": "Weather"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.date",
+                                "sensor.time"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Date & Time",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.rro_rate"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Electricity",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.home_to_airport"
+                                },
+                                {
+                                    "entity": "sensor.home_to_downtown"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Commute",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.bow_sarcee",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.bow_6_ave",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.5_ave_7_st",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.glenmore_crowchild",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.4_ave_9_st",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.glenmore_macleod",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "icon": "mdi:city",
+                    "path": "calgary",
+                    "title": "Calgary"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.roomba_firmware_template",
+                                "sensor.roomba_battery_template"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Roomba 980",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.connected_clients"
+                                },
+                                {
+                                    "entity": "sensor.hass_release"
+                                },
+                                {
+                                    "entity": "sensor.current_version"
+                                },
+                                {
+                                    "entity": "sensor.disk_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "System Status",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.wink_hub_status",
+                                "sensor.wink_hub_firmware_state_template",
+                                "sensor.wink_hub_firmware_version"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Wink Hub",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.kitchen_nest_protect_status"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Nest Protect",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:server",
+                    "path": "system",
+                    "title": "System"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

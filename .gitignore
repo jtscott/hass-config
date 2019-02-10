@@ -3,7 +3,9 @@ local/
 tts/
 www/state_image/
 .cloud/
-.storage/
+auth*
+core.*
+onboarding
 *.conf
 *.db
 *.db-shm
