@@ -295,14 +295,16 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "alarm_control_panel.arlohub",
-                            "type": "alarm-panel"
-                        },
-                        {
                             "entities": [
-                                "script.1523136244144"
+                                {
+                                    "entity": "alarm_control_panel.arlohub"
+                                },
+                                {
+                                    "entity": "script.1523136244144"
+                                }
                             ],
-                            "title": "Fido",
+                            "show_header_toggle": false,
+                            "title": "Security Panel",
                             "type": "entities"
                         },
                         {
@@ -445,6 +447,7 @@
                                     "entity": "sensor.signal_strength_patio",
                                     "style": {
                                         "bottom": "24px",
+                                        "font-color": "rgba(0, 0, 0, 0.3)",
                                         "right": "40px",
                                         "transform": "initial"
                                     },
@@ -453,7 +456,6 @@
                                 {
                                     "entity": "sensor.last_patio",
                                     "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
                                         "font-weight": "bold",
                                         "right": 0,
                                         "top": 0,

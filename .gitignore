@@ -3,6 +3,7 @@ local/
 tts/
 www/state_image/
 .cloud/
+.storage/tmp*
 auth*
 core.*
 onboarding
