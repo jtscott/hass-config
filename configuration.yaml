@@ -125,3 +125,4 @@ wemo:
     - 192.168.2.15
 
 wink:
+  local_control: true

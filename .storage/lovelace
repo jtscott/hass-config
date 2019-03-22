@@ -33,12 +33,9 @@
                             "entities": [
                                 {
                                     "entity": "light.kitchen"
-                                },
-                                {
-                                    "entity": "light.dining_room"
                                 }
                             ],
-                            "title": "Main Floor Lights",
+                            "title": "Kitchen",
                             "type": "entities"
                         },
                         {
@@ -71,7 +68,7 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Occupancy",
+                            "title": "Living Room",
                             "type": "entities"
                         },
                         {
@@ -113,6 +110,19 @@
                             "type": "conditional"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dining Room",
+                            "type": "entities"
+                        },
+                        {
                             "card": {
                                 "entity": "media_player.googlehome6972",
                                 "type": "media-control"
@@ -141,10 +151,17 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.office_occupancy"
+                                },
+                                {
                                     "entity": "light.office"
+                                },
+                                {
+                                    "entity": "sensor.office_window_template"
                                 }
                             ],
-                            "title": "Upstairs Lights",
+                            "show_header_toggle": false,
+                            "title": "Office",
                             "type": "entities"
                         },
                         {
@@ -166,11 +183,11 @@
                                     "entity": "sensor.master_bedroom_occupancy"
                                 },
                                 {
-                                    "entity": "sensor.office_occupancy"
+                                    "entity": "sensor.master_bedroom_window_template"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Occupancy",
+                            "title": "Master Bedroom",
                             "type": "entities"
                         },
                         {
@@ -198,6 +215,10 @@
                                 }
                             ],
                             "type": "conditional"
+                        },
+                        {
+                            "entity": "media_player.playstation_4",
+                            "type": "media-control"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -321,7 +342,7 @@
                                     "type": "image"
                                 },
                                 {
-                                    "entity": "alarm_control_panel.arlohub",
+                                    "entity": "sensor.last_front_door",
                                     "style": {
                                         "background-color": "rgba(0, 0, 0, 0.3)",
                                         "bottom": 0,
@@ -371,17 +392,6 @@
                                         "transform": "initial"
                                     },
                                     "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.last_front_door",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "top": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
                                 }
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
@@ -390,8 +400,8 @@
                         {
                             "elements": [
                                 {
-                                    "camera_image": "camera.patio",
-                                    "entity": "camera.patio",
+                                    "camera_image": "camera.backyard",
+                                    "entity": "camera.backyard",
                                     "style": {
                                         "height": "100%",
                                         "left": "50%",
@@ -399,69 +409,6 @@
                                         "width": "100%"
                                     },
                                     "type": "image"
-                                },
-                                {
-                                    "entity": "alarm_control_panel.arlohub",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16px 8px 16px 8px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_patio",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_patio",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "4px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_patio",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": "48px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_patio",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "font-color": "rgba(0, 0, 0, 0.3)",
-                                        "right": "40px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.last_patio",
-                                    "style": {
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "top": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
                                 }
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
@@ -481,7 +428,7 @@
                                     "type": "image"
                                 },
                                 {
-                                    "entity": "alarm_control_panel.arlohub",
+                                    "entity": "sensor.last_garage",
                                     "style": {
                                         "background-color": "rgba(0, 0, 0, 0.3)",
                                         "bottom": 0,
@@ -531,17 +478,6 @@
                                         "transform": "initial"
                                     },
                                     "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.last_garage",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "top": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
                                 }
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
@@ -561,7 +497,7 @@
                                     "type": "image"
                                 },
                                 {
-                                    "entity": "alarm_control_panel.arlohub",
+                                    "entity": "sensor.last_kitchen",
                                     "style": {
                                         "background-color": "rgba(0, 0, 0, 0.3)",
                                         "bottom": 0,
@@ -611,17 +547,6 @@
                                         "transform": "initial"
                                     },
                                     "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.last_kitchen",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "top": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
                                 }
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
