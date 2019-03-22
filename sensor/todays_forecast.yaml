@@ -105,12 +105,6 @@
         {% elif states.sensor.dark_sky_wind_bearing.state | float<=348 | float>326 %}North North West
         {%- endif %}
 
-- platform: wunderground
-  api_key: !secret wunderground_api
-  monitored_conditions:
-  - alerts
-  - UV
-
 - platform: template
   sensors:
     uv_rating_template:
