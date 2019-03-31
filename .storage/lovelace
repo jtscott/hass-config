@@ -17,7 +17,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.front_door_2"
+                                    "entity": "light.front_door_3"
                                 },
                                 {
                                     "entity": "light.back_door"
@@ -73,11 +73,21 @@
                         },
                         {
                             "entities": [
-                                "vacuum.roomba",
-                                "sensor.roomba_cycle_template",
-                                "sensor.roomba_bin_presence_template",
-                                "sensor.roomba_bin_state_template",
-                                "sensor.roomba_runtime"
+                                {
+                                    "entity": "sensor.vacuum_mainfloor_cycle_2"
+                                },
+                                {
+                                    "entity": "sensor.roomba_bin_state_template"
+                                },
+                                {
+                                    "entity": "sensor.roomba_bin_presence_template"
+                                },
+                                {
+                                    "entity": "sensor.roomba_runtime"
+                                },
+                                {
+                                    "entity": "sensor.roomba_battery_template"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Roomba",

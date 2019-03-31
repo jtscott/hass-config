@@ -81,7 +81,6 @@ notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
-vacuum: !include vacuum.yaml
 zone: !include zone.yaml
 
 ###########################################
@@ -110,6 +109,13 @@ ecobee:
 
 ifttt:
   key: !secret ifttt_api
+
+mqtt:
+    broker: 192.168.1.37
+    port: 1883
+    username: homeassistant
+    password: !secret mqtt_password
+    discovery: true
 
 nest:
   client_id: !secret nest_client_id
