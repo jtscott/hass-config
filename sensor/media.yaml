@@ -19,3 +19,10 @@
         {{attr}}{% if not loop.last %}, {% endif %}
         {%- endif -%}
         {%- endfor -%}
+
+- platform: template
+  sensors:
+    amp_wattage:
+      friendly_name: 'Watts'
+      value_template: '{{ states.switch.wemo_outlet_1.attributes.current_power_w|round }}'
+      unit_of_measurement: 'W'
