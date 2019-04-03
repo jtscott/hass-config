@@ -24,5 +24,10 @@
   sensors:
     amp_wattage:
       friendly_name: 'Watts'
-      value_template: '{{ states.switch.wemo_outlet_1.attributes.current_power_w|round }}'
+      value_template: >- 
+        {%- if states.switch.wemo_outlet_1.attributes.current_power_w %}
+          {{ states.switch.wemo_outlet_1.attributes.current_power_w|round }}
+        {% else %}
+          0
+        {%- endif %}
       unit_of_measurement: 'W'

@@ -248,10 +248,7 @@
                     "title": "Upstairs"
                 },
                 {
-                    "badges": [
-                        "sensor.theater_temperature",
-                        "sensor.guest_bedroom_temperature"
-                    ],
+                    "badges": [],
                     "cards": [
                         {
                             "entities": [
@@ -278,13 +275,20 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.theater_temperature"
+                                },
+                                {
+                                    "entity": "sensor.theater_occupancy"
+                                },
+                                {
                                     "entity": "light.theater"
                                 },
                                 {
                                     "entity": "switch.theater_outlet_1"
                                 }
                             ],
-                            "title": "Downstairs Lights",
+                            "show_header_toggle": false,
+                            "title": "Theater",
                             "type": "entities"
                         },
                         {
@@ -316,14 +320,14 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.theater_occupancy"
+                                    "entity": "sensor.guest_bedroom_temperature"
                                 },
                                 {
                                     "entity": "sensor.guest_bedroom_occupancy"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Occupancy",
+                            "title": "Guest Bedroom",
                             "type": "entities"
                         },
                         {
