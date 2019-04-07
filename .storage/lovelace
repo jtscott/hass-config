@@ -4,13 +4,21 @@
             "title": "Home",
             "views": [
                 {
-                    "badges": [
-                        "device_tracker.jaredsrotary",
-                        "device_tracker.brittanysiphone",
-                        "sensor.main_floor_temperature",
-                        "sensor.main_floor_humidity"
-                    ],
+                    "badges": [],
                     "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "alarm_control_panel.arlohub"
+                                },
+                                {
+                                    "entity": "script.1523136244144"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Security Panel",
+                            "type": "entities"
+                        },
                         {
                             "entities": [
                                 {
@@ -25,26 +33,6 @@
                             ],
                             "title": "Outside Lights",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.kitchen"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_nest_protect_smoke_status"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_nest_protect_co_status"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Kitchen",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "thermostat"
                         },
                         {
                             "entities": [
@@ -64,6 +52,34 @@
                             "show_header_toggle": false,
                             "title": "Doors",
                             "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:garage",
+                    "title": "Outside"
+                },
+                {
+                    "badges": [
+                        "device_tracker.jaredsrotary",
+                        "device_tracker.brittanysiphone",
+                        "sensor.main_floor_temperature",
+                        "sensor.main_floor_humidity"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.kitchen"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_nest_protect_smoke_status"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_nest_protect_co_status"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Kitchen",
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -77,6 +93,23 @@
                             "show_header_toggle": false,
                             "title": "Living Room",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dining Room",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "thermostat"
                         },
                         {
                             "entities": [
@@ -115,38 +148,25 @@
                         },
                         {
                             "card": {
-                                "entity": "media_player.chromecastaudio2180",
-                                "type": "media-control"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.chromecastaudio2180",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Dining Room",
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
                                 "entity": "media_player.googlehome6972",
                                 "type": "media-control"
                             },
                             "conditions": [
                                 {
                                     "entity": "media_player.googlehome6972",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.chromecastaudio2180",
+                                "type": "media-control"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.chromecastaudio2180",
                                     "state": "playing"
                                 }
                             ],
@@ -381,252 +401,6 @@
                     "title": "Downstairs"
                 },
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "alarm_control_panel.arlohub"
-                                },
-                                {
-                                    "entity": "script.1523136244144"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Security Panel",
-                            "type": "entities"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.front_door",
-                                    "entity": "camera.front_door",
-                                    "style": {
-                                        "height": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.last_front_door",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16px 8px 16px 8px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_front_door",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_front_door",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "4px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_front_door",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": "48px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_front_door",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "40px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.backyard",
-                                    "entity": "camera.backyard",
-                                    "style": {
-                                        "height": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.garage",
-                                    "entity": "camera.garage",
-                                    "style": {
-                                        "height": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.last_garage",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16px 8px 16px 8px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_garage",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_garage",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "4px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_garage",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": "48px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_garage",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "40px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.kitchen",
-                                    "entity": "camera.kitchen",
-                                    "style": {
-                                        "height": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.last_kitchen",
-                                    "style": {
-                                        "background-color": "rgba(0, 0, 0, 0.3)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16px 8px 16px 8px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_kitchen",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": 0,
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_kitchen",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "4px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_kitchen",
-                                    "style": {
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "right": "48px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.signal_strength_kitchen",
-                                    "style": {
-                                        "bottom": "24px",
-                                        "right": "40px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-icon"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/169testpattern.png",
-                            "type": "picture-elements"
-                        }
-                    ],
-                    "icon": "mdi:shield-home",
-                    "panel": false,
-                    "path": "security",
-                    "title": "Security"
-                },
-                {
                     "badges": [
                         "device_tracker.george",
                         "device_tracker.alfie"
@@ -781,9 +555,6 @@
                     "cards": [
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.connected_clients"
-                                },
                                 {
                                     "entity": "sensor.hass_release"
                                 },
