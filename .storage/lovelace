@@ -502,14 +502,6 @@
                         },
                         {
                             "entities": [
-                                "sensor.rro_rate"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Electricity",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
                                 {
                                     "entity": "sensor.home_to_airport"
                                 },
@@ -519,6 +511,14 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Commute",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.rro_rate"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Electricity",
                             "type": "entities"
                         },
                         {
