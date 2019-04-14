@@ -1,8 +1,6 @@
 ###########################################
 # System Sensors
 ###########################################
-- platform: api_streams
-
 - platform: version
 
 - platform: rest

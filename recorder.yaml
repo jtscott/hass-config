@@ -10,7 +10,6 @@ exclude:
   domains:
     - weblink
     - updater
-    - sensor
     - camera
   entities:
     - sensor.family_last_changed
