@@ -9,9 +9,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "alarm_control_panel.arlohub"
-                                },
-                                {
                                     "entity": "script.1523136244144"
                                 }
                             ],
@@ -22,7 +19,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.front_door_3"
+                                    "entity": "light.front_door_4"
                                 },
                                 {
                                     "entity": "light.back_door"
@@ -452,15 +449,33 @@
                         },
                         {
                             "entities": [
-                                "sensor.dark_sky_overnight_low_temperature_1",
-                                "sensor.dark_sky_daytime_high_temperature_1",
-                                "sensor.air_pressure_tomorrow_template",
-                                "sensor.dark_sky_cloud_coverage_1",
-                                "sensor.dark_sky_precip_type_tomorrow_template",
-                                "sensor.dark_sky_precip_probability_tomorrow_template",
-                                "sensor.dark_sky_precip_intensity_1",
-                                "sensor.dark_sky_wind_bearing_tomorrow_template",
-                                "sensor.dark_sky_wind_speed_1"
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_daytime_high_temperature_1d"
+                                },
+                                {
+                                    "entity": "sensor.air_pressure_tomorrow_template"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_cloud_coverage_1d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_precip_type_tomorrow_template"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_precip_probability_tomorrow_template"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_precip_intensity_1d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_wind_bearing_tomorrow_template"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_wind_speed_1d"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Tomorrow's Forecast",

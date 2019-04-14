@@ -1,16 +1,5 @@
 - action:
   - data:
-      entity_id: alarm_control_panel.arlohub
-    service: alarm_control_panel.alarm_arm_away
-  alias: Presence - Departure
-  id: '1495333355800'
-  trigger:
-  - entity_id: group.family_devices
-    from: home
-    platform: state
-    to: not_home
-- action:
-  - data:
       entity_id: vacuum.roomba
     service: vacuum.stop
   - data:
@@ -63,15 +52,3 @@
       message: Cleaning Started
       title: roomba
     service: notify.pushover
-- action:
-  - data:
-      entity_id: alarm_control_panel.arlohub
-    service: alarm_control_panel.alarm_arm_home
-  alias: Presence - Arrival
-  condition: []
-  id: '1522516504908'
-  trigger:
-  - entity_id: group.family_devices
-    from: not_home
-    platform: state
-    to: home

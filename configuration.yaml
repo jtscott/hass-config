@@ -31,32 +31,71 @@ config:
 discovery:
 conversation:
 history:
+  include:
+    domains:
+      - switch
+      - lock
+      - cover
+      - light
   exclude:
+    domains:
+      - weblink
+      - updater
+      - sensor
+      - camera
     entities:
       - sensor.family_last_changed
       - sensor.occupancy_last_changed
+
 logbook:
+  include:
+    domains:
+      - switch
+      - lock
+      - cover
+      - light
+  exclude:
+    domains:
+      - weblink
+      - updater
+      - sensor
+      - camera
+      - sun
+    entities:
+      - sensor.family_last_changed
+      - sensor.occupancy_last_changed
+      - sensor.time
+      - sensor.time_date 
+      - sensor.time_utc
+
 logger:
   default: warning
-  # logs:
-    # homeassistant.components.homekit: debug
-    # pyhap: debug
+
 recorder:
   purge_keep_days: 7
   purge_interval: 1
+  include:
+    domains:
+      - switch
+      - lock
+      - cover
+      - light
   exclude:
+    domains:
+      - weblink
+      - updater
+      - sensor
+      - camera
     entities:
       - sensor.family_last_changed
       - sensor.occupancy_last_changed
+
 updater:
   include_used_components: true
 
-system_health:
-
 ###########################################
 # Simple Components
-###########################################  
-map:
+###########################################
 sun:
 tts:
   - platform: google
@@ -95,15 +134,6 @@ panel_iframe:
 ###########################################
 # Third Party Platforms
 ###########################################
-arlo:
-  username: !secret arlo_username
-  password: !secret arlo_password
-
-alarm_control_panel:
-  - platform: arlo
-    home_mode_name: 'Home'
-    away_mode_name: 'Away'
-
 ecobee:
   api_key: !secret ecobee_api
 

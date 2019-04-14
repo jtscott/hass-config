@@ -27,7 +27,6 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ![Automations](https://www.dropbox.com/s/ks0phkdk0q33xdx/automation.PNG?raw=1)
 
 ## Devices
-- Arlo Pro Cameras
 - Chamberlain MyQ
 - Ecobee Thermostat
 - Harmony Hub
@@ -39,7 +38,3 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 - Wink Hub 2
 - Google Home, Mini, Hub
 - Trackr
-
-## Automations
-- Turn the inside camera on/off if we leave/arrive.
-- Roomba scheduling and docking.

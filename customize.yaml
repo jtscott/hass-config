@@ -51,16 +51,16 @@ sensor.current_version:
 sensor.dark_sky_apparent_temperature:
   friendly_name: Feels Like
   icon: mdi:human-male-female
-sensor.dark_sky_overnight_low_temperature_1:
+sensor.dark_sky_overnight_low_temperature_1d:
   friendly_name: Low
   icon: mdi:temperature-celsius
-sensor.dark_sky_daytime_high_temperature_1:
+sensor.dark_sky_daytime_high_temperature_1d:
   friendly_name: High
   icon: mdi:temperature-celsius
 sensor.dark_sky_cloud_coverage:
   friendly_name: Cloud Coverage
   icon: mdi:weather-partlycloudy
-sensor.dark_sky_cloud_coverage_1:
+sensor.dark_sky_cloud_coverage_1d:
   friendly_name: Cloud Coverage
   icon: mdi:weather-partlycloudy
 sensor.dark_sky_precip_probability_template:
@@ -70,7 +70,7 @@ sensor.dark_sky_precip_probability_tomorrow_template:
 sensor.dark_sky_precip_intensity:
   friendly_name: Amount of Precipitation
   icon: mdi:cup-water
-sensor.dark_sky_precip_intensity_1:
+sensor.dark_sky_precip_intensity_1d:
   friendly_name: Amount of Precipitation
   icon: mdi:cup-water
 sensor.dark_sky_wind_bearing_template:
@@ -80,7 +80,7 @@ sensor.dark_sky_wind_bearing_tomorrow_template:
 sensor.dark_sky_wind_speed:
   friendly_name: Wind Speed
   icon: mdi:weather-windy
-sensor.dark_sky_wind_speed_1:
+sensor.dark_sky_wind_speed_1d:
   friendly_name: Wind Speed
   icon: mdi:weather-windy
 sensor.date:
@@ -145,7 +145,7 @@ switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
-switch.wemo_outlet_1:
+switch.wemo_outlet_1d:
   friendly_name: Amp
   icon: mdi:boombox
 sensor.master_bedroom_temperature:
@@ -209,7 +209,7 @@ sensor.guest_bedroom_occupancy:
   icon: mdi:hotel
 input_boolean.homesitter:
   icon: mdi:home-map-marker
-switch.theater_outlet_1:
+switch.theater_outlet_1d:
   friendly_name: Theater Outlet
   icon: mdi:power-socket-us
 sensor.washer_template:

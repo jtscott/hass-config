@@ -24,15 +24,3 @@
       turn_off:
         service: media_player.turn_off
         entity_id: media_player.my_shield_console
-
-- platform: template
-  switches:
-    security_cameras:
-      friendly_name: 'Security Cameras'
-      value_template: "{% if states('alarm_control_panel.arlohub') == 'disarmed' %}false{% else %}true{% endif %}"
-      turn_on:
-        service: alarm_control_panel.alarm_arm_home
-        entity_id: alarm_control_panel.arlohub
-      turn_off:
-        service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.arlohub
