@@ -234,3 +234,5 @@ sensor.home_to_downtown:
   icon: mdi:city
 input_select.harmony:
   friendly_name: Harmony Activity
+switch.theater_outlet_1:
+  icon: mdi:power-socket-us

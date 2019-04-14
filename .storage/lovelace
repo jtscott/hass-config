@@ -5,6 +5,10 @@
                 {
                     "type": "js",
                     "url": "/local/monster-card.js?v=1"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/mini-media-player-bundle.js?v=1.0.4"
                 }
             ],
             "title": "Home",
@@ -55,23 +59,6 @@
                             "show_header_toggle": false,
                             "title": "Doors",
                             "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 60"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -151,43 +138,32 @@
                             "type": "entities"
                         },
                         {
-                            "card": {
-                                "entity": "media_player.googlehome9046",
-                                "type": "media-control"
-                            },
-                            "conditions": [
+                            "entities": [
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.main_floor_3",
+                                    "group": true,
+                                    "info": "short",
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
                                 {
                                     "entity": "media_player.googlehome9046",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "entity": "media_player.googlehome6972",
-                                "type": "media-control"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.googlehome6972",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "entity": "media_player.chromecastaudio2180",
-                                "type": "media-control"
-                            },
-                            "conditions": [
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
                                 {
                                     "entity": "media_player.chromecastaudio2180",
-                                    "state": "playing"
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.googlehome6972",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
-                            "type": "conditional"
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -250,34 +226,36 @@
                             "type": "entities"
                         },
                         {
-                            "card": {
-                                "entity": "media_player.office_speaker_2",
-                                "type": "media-control"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.office_speaker_2",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "entity": "media_player.googlehomehub8562",
-                                "type": "media-control"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.googlehomehub8562",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
                             "entity": "media_player.playstation_4",
                             "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "artwork": "full-cover",
+                                    "entity": "media_player.upstairs",
+                                    "group": true,
+                                    "info": "short",
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.chromecastaudio9881",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.googlehomehub8562",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.office_speaker_2",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -629,44 +607,41 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.battery_alfie_tracker"
-                                },
-                                {
-                                    "entity": "sensor.battery_george_tracker"
-                                },
-                                {
-                                    "entity": "sensor.battery_master_bath_liquid"
-                                },
-                                {
-                                    "entity": "sensor.battery_back_door_lock"
-                                },
-                                {
-                                    "entity": "sensor.battery_garage_lock"
-                                },
-                                {
-                                    "entity": "sensor.battery_garage_door"
-                                },
-                                {
-                                    "entity": "sensor.battery_front_door_lock"
-                                },
-                                {
-                                    "entity": "sensor.battery_dining_room_window"
-                                },
-                                {
-                                    "entity": "sensor.battery_master_bedroom_window"
-                                },
-                                {
-                                    "entity": "sensor.battery_office_window"
-                                },
-                                {
-                                    "entity": "sensor.vacuum_mainfloor_batpct"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Batteries",
-                            "type": "entities"
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 60"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Broken Entities",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "unknown"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:server",
