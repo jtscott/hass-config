@@ -1,6 +1,12 @@
 {
     "data": {
         "config": {
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/monster-card.js?v=1"
+                }
+            ],
             "title": "Home",
             "views": [
                 {
@@ -49,6 +55,23 @@
                             "show_header_toggle": false,
                             "title": "Doors",
                             "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 60"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:garage",
