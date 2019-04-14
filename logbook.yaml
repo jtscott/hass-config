@@ -1,0 +1,19 @@
+include:
+  domains:
+    - switch
+    - lock
+    - cover
+    - light
+exclude:
+  domains:
+    - weblink
+    - updater
+    - sensor
+    - camera
+    - sun
+  entities:
+    - sensor.family_last_changed
+    - sensor.occupancy_last_changed
+    - sensor.time
+    - sensor.time_date 
+    - sensor.time_utc

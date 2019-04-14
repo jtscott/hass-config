@@ -15,24 +15,31 @@
   name: "Vacuum Mainfloor BinFull"
   state_topic: "vacuum/mainfloor/status/binfull"
   force_update: true
+  
+- platform: mqtt
+  name: "Vacuum Mainfloor BinPresent"
+  state_topic: "vacuum/mainfloor/status/binpresent"
+  force_update: true
+
+- platform: mqtt
+  name: "Vacuum Mainfloor BatPct"
+  state_topic: "vacuum/mainfloor/status/batpct"
+  force_update: true
+  unit_of_measurement: '%'
+  device_class: battery
 
 - platform: template
   sensors:
     roomba_bin_state_template:
       friendly_name: 'Bin State'
       value_template: >-
-        {%- if is_state('sensor.vacuum_mainfloor_binpresent', 'true') %}
+        {%- if is_state('sensor.vacuum_mainfloor_binfull', 'true') %}
             Full
-        {%- elif is_state('sensor.vacuum_mainfloor_binpresente', 'false') %}
+        {%- elif is_state('sensor.vacuum_mainfloor_binfull', 'false') %}
             Empty
         {%- else %}
             Offline
         {%- endif %}
-  
-- platform: mqtt
-  name: "Vacuum Mainfloor BinPresent"
-  state_topic: "vacuum/mainfloor/status/binpresent"
-  force_update: true
 
 - platform: template
   sensors:
@@ -46,34 +53,6 @@
         {%- else %}
             Offline
         {%- endif %}
-  
-- platform: mqtt
-  name: "Vacuum Mainfloor BatPct"
-  state_topic: "vacuum/mainfloor/status/batpct"
-  force_update: true
-  unit_of_measurement: '%'
-
-- platform: template
-  sensors:
-    roomba_battery_template:
-      friendly_name: "Battery"
-      unit_of_measurement: "%"
-      value_template: >-
-        {%- if sensor.vacuum_mainfloor_batpct %}
-          {{ sensor.vacuum_mainfloor_batpct|round }}
-        {% else %}
-          {{ sensor.vacuum_mainfloor_batpct }}
-        {%- endif %}
-      icon_template: >-
-        {%- if is_state("sensor.vacuum_mainfloor_phase", "charge") %}
-          mdi:battery-charging
-        {% elif states('sensor.vacuum_mainfloor_batpct') | float <= 5 %}
-          mdi:battery-outline
-        {% elif states('sensor.vacuum_mainfloor_batpct') | float >= 95 %}
-          mdi:battery
-        {% else %}
-          mdi:battery-{{(sensor.vacuum_mainfloor_batpct|float / 10)|round*10}}
-        {% endif %}
 
 - platform: history_stats
   name: Roomba Runtime

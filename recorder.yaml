@@ -1,0 +1,17 @@
+purge_keep_days: 7
+purge_interval: 1
+include:
+  domains:
+    - switch
+    - lock
+    - cover
+    - light
+exclude:
+  domains:
+    - weblink
+    - updater
+    - sensor
+    - camera
+  entities:
+    - sensor.family_last_changed
+    - sensor.occupancy_last_changed

@@ -111,7 +111,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.vacuum_mainfloor_cycle_2"
+                                    "entity": "sensor.vacuum_mainfloor_cycle"
                                 },
                                 {
                                     "entity": "sensor.roomba_bin_state_template"
@@ -121,9 +121,6 @@
                                 },
                                 {
                                     "entity": "sensor.roomba_runtime"
-                                },
-                                {
-                                    "entity": "sensor.roomba_battery_template"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -606,6 +603,46 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Nest Protect",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.battery_alfie_tracker"
+                                },
+                                {
+                                    "entity": "sensor.battery_george_tracker"
+                                },
+                                {
+                                    "entity": "sensor.battery_master_bath_liquid"
+                                },
+                                {
+                                    "entity": "sensor.battery_back_door_lock"
+                                },
+                                {
+                                    "entity": "sensor.battery_garage_lock"
+                                },
+                                {
+                                    "entity": "sensor.battery_garage_door"
+                                },
+                                {
+                                    "entity": "sensor.battery_front_door_lock"
+                                },
+                                {
+                                    "entity": "sensor.battery_dining_room_window"
+                                },
+                                {
+                                    "entity": "sensor.battery_master_bedroom_window"
+                                },
+                                {
+                                    "entity": "sensor.battery_office_window"
+                                },
+                                {
+                                    "entity": "sensor.vacuum_mainfloor_batpct"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Batteries",
                             "type": "entities"
                         }
                     ],

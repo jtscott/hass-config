@@ -30,73 +30,15 @@ http:
 config:
 discovery:
 conversation:
-history:
-  include:
-    domains:
-      - switch
-      - lock
-      - cover
-      - light
-  exclude:
-    domains:
-      - weblink
-      - updater
-      - sensor
-      - camera
-    entities:
-      - sensor.family_last_changed
-      - sensor.occupancy_last_changed
-
-logbook:
-  include:
-    domains:
-      - switch
-      - lock
-      - cover
-      - light
-  exclude:
-    domains:
-      - weblink
-      - updater
-      - sensor
-      - camera
-      - sun
-    entities:
-      - sensor.family_last_changed
-      - sensor.occupancy_last_changed
-      - sensor.time
-      - sensor.time_date 
-      - sensor.time_utc
-
+system_health:
+history: !include history.yaml
+logbook: !include logbook.yaml
+recorder: !include recorder.yaml
+sun:
 logger:
   default: warning
-
-recorder:
-  purge_keep_days: 7
-  purge_interval: 1
-  include:
-    domains:
-      - switch
-      - lock
-      - cover
-      - light
-  exclude:
-    domains:
-      - weblink
-      - updater
-      - sensor
-      - camera
-    entities:
-      - sensor.family_last_changed
-      - sensor.occupancy_last_changed
-
 updater:
   include_used_components: true
-
-###########################################
-# Simple Components
-###########################################
-sun:
 tts:
   - platform: google
 

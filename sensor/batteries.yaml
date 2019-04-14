@@ -1,0 +1,91 @@
+###########################################
+# Window Sensors
+###########################################
+-  platform: template
+   sensors:
+     battery_dining_room_window:
+       value_template: '{{ state_attr("binary_sensor.dining_room_window","battery_level")|round }}'
+       friendly_name: "Dining Room Window Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+-  platform: template
+   sensors:
+     battery_master_bedroom_window:
+       value_template: '{{ state_attr("binary_sensor.master_bedroom_window","battery_level")|round }}'
+       friendly_name: "Master Bedroom Window Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+-  platform: template
+   sensors:
+     battery_office_window:
+       value_template: '{{ state_attr("binary_sensor.office_window","battery_level")|round }}'
+       friendly_name: "Office Window Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+###########################################
+# Door & Lock Sensors
+###########################################
+-  platform: template
+   sensors:
+     battery_garage_door:
+       value_template: '{{ state_attr("cover.garage_door","battery_level")|round }}'
+       friendly_name: "Garage Door Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+-  platform: template
+   sensors:
+     battery_front_door_lock:
+       value_template: '{{ state_attr("lock.front_door","battery_level")|round }}'
+       friendly_name: "Front Door Lock Battery"
+       unit_of_measurement: '%'
+       device_class: battery 
+
+-  platform: template
+   sensors:
+     battery_back_door_lock:
+       value_template: '{{ state_attr("lock.back_door","battery_level")|round }}'
+       friendly_name: "Back Door Lock Battery"
+       unit_of_measurement: '%'
+       device_class: battery 
+
+-  platform: template
+   sensors:
+     battery_garage_lock:
+       value_template: '{{ state_attr("lock.garage","battery_level")|round }}'
+       friendly_name: "Garage Door Lock Battery"
+       unit_of_measurement: '%'
+       device_class: battery 
+
+###########################################
+# Trackr
+###########################################
+-  platform: template
+   sensors:
+     battery_alfie_tracker:
+       value_template: '{{ state_attr("device_tracker.alfie","battery_level")|round }}'
+       friendly_name: "Alfie Tracker Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+     
+-  platform: template
+   sensors:
+     battery_george_tracker:
+       value_template: '{{ state_attr("device_tracker.george","battery_level")|round }}'
+       friendly_name: "George Tracker Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+###########################################
+# Sensors
+###########################################
+-  platform: template
+   sensors:
+     battery_master_bath_liquid:
+       value_template: '{{ state_attr("binary_sensor.master_bath_liquid_detected_3","battery_level")|round }}'
+       friendly_name: "Master Bath Liquid Sensor Battery"
+       unit_of_measurement: '%'
+       device_class: battery
