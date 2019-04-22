@@ -57,6 +57,6 @@
 - platform: history_stats
   name: Roomba Runtime
   entity_id: sensor.vacuum_mainfloor_cycle
-  state: 'start'
+  state: 'clean'
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'

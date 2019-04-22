@@ -17,6 +17,79 @@
                     "badges": [],
                     "cards": [
                         {
+                            "card": {
+                                "show_header_toggle": true,
+                                "title": "On",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "on"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 60"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Open",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Open"
+                                    },
+                                    {
+                                        "state": "unlocked"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        }
+                    ],
+                    "icon": "mdi:feature-search-outline",
+                    "title": "Status"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "entities": [
                                 {
                                     "entity": "script.1523136244144"
@@ -175,6 +248,15 @@
                     "badges": [],
                     "cards": [
                         {
+                            "artwork": "cover",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.office_temperature"
@@ -224,10 +306,6 @@
                             "show_header_toggle": false,
                             "title": "Master Bedroom",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.playstation_4",
-                            "type": "media-control"
                         },
                         {
                             "entities": [
@@ -396,15 +474,16 @@
                     "title": "Downstairs"
                 },
                 {
-                    "badges": [
-                        "device_tracker.george",
-                        "device_tracker.alfie"
-                    ],
+                    "badges": [],
                     "cards": [
                         {
                             "entities": [
-                                "sensor.alfred_last_seen_template",
-                                "sensor.alfred_trackr_battery_template"
+                                {
+                                    "entity": "device_tracker.alfie"
+                                },
+                                {
+                                    "entity": "sensor.alfred_last_seen_template"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Alfred",
@@ -412,10 +491,18 @@
                         },
                         {
                             "entities": [
-                                "sensor.george_last_seen_template",
-                                "sensor.george_trackr_battery_template",
-                                "sensor.george_ear_tattoo_template",
-                                "sensor.george_petlynx_template"
+                                {
+                                    "entity": "device_tracker.george"
+                                },
+                                {
+                                    "entity": "sensor.george_last_seen_template"
+                                },
+                                {
+                                    "entity": "sensor.george_ear_tattoo_template"
+                                },
+                                {
+                                    "entity": "sensor.george_petlynx_template"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "George",
@@ -605,23 +692,6 @@
                             "show_header_toggle": false,
                             "title": "Nest Protect",
                             "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 60"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
                         },
                         {
                             "card": {
