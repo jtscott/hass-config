@@ -24,3 +24,14 @@
       turn_off:
         service: media_player.turn_off
         entity_id: media_player.my_shield_console
+
+- platform: mqtt
+  name: Roomba
+  state_topic: 'vacuum/mainfloor/status/cycle'
+  command_topic: 'vacuum/mainfloor/switch/set'
+  payload_on: "start"
+  payload_off: "dock"
+  state_on: "clean"
+  state_off: "none"
+  qos: 0
+  retain: true

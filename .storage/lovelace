@@ -29,6 +29,9 @@
                                     },
                                     {
                                         "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "light.garage*"
                                     }
                                 ],
                                 "include": [
@@ -49,7 +52,7 @@
                                 "include": [
                                     {
                                         "entity_id": "sensor.battery_*",
-                                        "state": "< 60"
+                                        "state": "< 35"
                                     }
                                 ]
                             },
@@ -77,6 +80,32 @@
                                     },
                                     {
                                         "state": "unlocked"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Occupied",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "*bathroom*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Occupied"
                                     }
                                 ]
                             },
@@ -193,6 +222,9 @@
                         },
                         {
                             "entities": [
+                                {
+                                    "entity": "switch.roomba"
+                                },
                                 {
                                     "entity": "sensor.vacuum_mainfloor_cycle"
                                 },

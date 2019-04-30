@@ -237,3 +237,5 @@ input_select.harmony:
   friendly_name: Harmony Activity
 switch.theater_outlet_1:
   icon: mdi:power-socket-us
+switch.roomba:
+  icon: mdi:robot-vacuum
