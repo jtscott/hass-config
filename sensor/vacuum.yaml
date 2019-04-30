@@ -30,6 +30,19 @@
 
 - platform: template
   sensors:
+    roomba_cycle_template:
+      friendly_name: 'Cycle'
+      value_template: >-
+        {%- if is_state('sensor.vacuum_mainfloor_phase', 'charge') %}
+            Docked
+        {%- elif is_state('sensor.vacuum_mainfloor_cycle', 'clean') %}
+            Cleaning
+        {%- else %}
+            Offline
+        {%- endif %}
+  
+- platform: template
+  sensors:
     roomba_bin_state_template:
       friendly_name: 'Bin State'
       value_template: >-

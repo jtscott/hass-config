@@ -226,7 +226,7 @@
                                     "entity": "switch.roomba"
                                 },
                                 {
-                                    "entity": "sensor.vacuum_mainfloor_cycle"
+                                    "entity": "sensor.roomba_cycle_template"
                                 },
                                 {
                                     "entity": "sensor.roomba_bin_state_template"

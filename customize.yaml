@@ -112,7 +112,7 @@ sensor.roomba_bin_state_template:
   icon: mdi:delete-sweep
 sensor.roomba_bin_presence_template:
   icon: mdi:delete-sweep
-sensor.vacuum_mainfloor_cycle:
+sensor.roomba_cycle_template:
   friendly_name: Cycle
   icon: mdi:autorenew
 sensor.roomba_firmware_template:
