@@ -221,26 +221,94 @@
                             "type": "thermostat"
                         },
                         {
-                            "entities": [
+                            "elements": [
                                 {
-                                    "entity": "switch.roomba"
+                                    "service": "homeassistant.toggle",
+                                    "service_data": {
+                                        "entity_id": "switch.roomba"
+                                    },
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": 0,
+                                        "padding": "16x 4px 16px 16px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "100%"
+                                    },
+                                    "title": "On/Off",
+                                    "type": "service-button"
                                 },
                                 {
-                                    "entity": "sensor.roomba_cycle_template"
+                                    "entity": "switch.roomba",
+                                    "style": {
+                                        "left": "16%",
+                                        "top": "77%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
                                 },
                                 {
-                                    "entity": "sensor.roomba_bin_state_template"
+                                    "entity": "sensor.roomba_cycle_template",
+                                    "style": {
+                                        "bottom": "1px",
+                                        "font-weight": "bold",
+                                        "right": "50px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
                                 },
                                 {
-                                    "entity": "sensor.roomba_bin_presence_template"
-                                },
-                                {
-                                    "entity": "sensor.roomba_runtime"
+                                    "entity": "sensor.roomba_runtime",
+                                    "style": {
+                                        "bottom": "1px",
+                                        "font-weight": "bold",
+                                        "right": "5px",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Roomba",
-                            "type": "entities"
+                            "image": "https://home.eatsleepbreach.ca/local/roomba980.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "service": "homeassistant.toggle",
+                                    "service_data": {
+                                        "entity_id": "switch.guest_wifi"
+                                    },
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": 0,
+                                        "font-weight": "bold",
+                                        "left": "80%",
+                                        "padding": "16x 4px 16px 16px",
+                                        "text-transform": "uppercase",
+                                        "transform": "initial",
+                                        "width": "10%"
+                                    },
+                                    "title": "On/Off",
+                                    "type": "service-button"
+                                },
+                                {
+                                    "entity": "switch.guest_wifi",
+                                    "style": {
+                                        "left": "96%",
+                                        "top": "92%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png",
+                            "type": "picture-elements"
                         },
                         {
                             "entities": [

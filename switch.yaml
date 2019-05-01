@@ -35,3 +35,14 @@
   state_off: "none"
   qos: 0
   retain: true
+
+- platform: mqtt
+  name: Guest WiFi
+  state_topic: 'wifi/network/guest/status'
+  command_topic: 'wifi/network/guest/switch/set'
+  payload_on: "on"
+  payload_off: "off"
+  state_on: "enabled"
+  state_off: "disabled"
+  qos: 0
+  retain: true
