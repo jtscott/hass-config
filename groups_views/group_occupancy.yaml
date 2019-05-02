@@ -1,12 +1,3 @@
-occupancy:
-  name: "Occupancy"
-  entities:
-  - sensor.master_bedroom_occupancy
-  - sensor.theater_occupancy
-  - sensor.office_occupancy
-  - sensor.living_room_occupancy
-  - sensor.guest_bedroom_occupancy
-
 binary_occupancy:
   entities:
   - binary_sensor.master_bedroom_occupancy

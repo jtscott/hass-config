@@ -1,5 +1,0 @@
-home_alone:
-  name: "Home Alone"
-  entities:
-    - script.1523136244144
-    - input_boolean.homesitter

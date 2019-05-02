@@ -1,8 +1,0 @@
-roomba:
-  name: "Roomba"
-  entities:
-    - vacuum.roomba
-    - sensor.roomba_cycle_template
-    - sensor.roomba_bin_presence_template
-    - sensor.roomba_bin_state_template
-    - sensor.roomba_runtime

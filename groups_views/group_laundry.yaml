@@ -1,5 +1,0 @@
-laundry:
-  name: "Laundry"
-  entities:
-    - sensor.washer_template
-    - sensor.dryer_template

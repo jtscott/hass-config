@@ -1,9 +1,0 @@
-media:
-  name: "Media"
-  entities:
-   - sensor.current_activity
-   - input_select.harmony
-   - switch.livingroomtv
-   - switch.shieldtv
-   - switch.wemo_outlet_1
-   - sensor.tv_schedule
