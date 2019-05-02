@@ -244,7 +244,7 @@
                                     "entity": "switch.roomba",
                                     "style": {
                                         "left": "16%",
-                                        "top": "77%"
+                                        "top": "88%"
                                     },
                                     "tap_action": {
                                         "action": "toggle"
@@ -278,28 +278,11 @@
                         {
                             "elements": [
                                 {
-                                    "service": "homeassistant.toggle",
-                                    "service_data": {
-                                        "entity_id": "switch.guest_wifi"
-                                    },
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": "80%",
-                                        "padding": "16x 4px 16px 16px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "10%"
-                                    },
-                                    "title": "On/Off",
-                                    "type": "service-button"
-                                },
-                                {
                                     "entity": "switch.guest_wifi",
                                     "style": {
-                                        "left": "96%",
-                                        "top": "92%"
+                                        "left": "61%",
+                                        "top": "35%",
+                                        "transform": "scale(3,3)"
                                     },
                                     "tap_action": {
                                         "action": "toggle"
@@ -307,7 +290,7 @@
                                     "type": "state-icon"
                                 }
                             ],
-                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png",
+                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png?v=2",
                             "type": "picture-elements"
                         },
                         {
