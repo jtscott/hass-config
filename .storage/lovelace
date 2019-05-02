@@ -702,19 +702,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.home_to_airport"
-                                },
-                                {
-                                    "entity": "sensor.home_to_downtown"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Commute",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
                                 "sensor.rro_rate"
                             ],
                             "show_header_toggle": false,
