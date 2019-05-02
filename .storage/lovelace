@@ -348,13 +348,34 @@
                     "badges": [],
                     "cards": [
                         {
-                            "artwork": "cover",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
+                            "entities": [
+                                {
+                                    "entity": "sensor.master_bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.master_bedroom_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.master_bedroom_window_template"
+                                }
+                            ],
+                            "show_name": false,
+                            "show_state": true,
+                            "title": "Master Bedroom",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.master_bathroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.master_bath_leak_template"
+                                }
+                            ],
+                            "show_name": false,
+                            "title": "Master Bathroom",
+                            "type": "glance"
                         },
                         {
                             "entities": [
@@ -389,23 +410,13 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.master_bedroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.master_bathroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.master_bedroom_occupancy"
-                                },
-                                {
-                                    "entity": "sensor.master_bedroom_window_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Master Bedroom",
-                            "type": "entities"
+                            "artwork": "cover",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "entities": [
@@ -567,6 +578,20 @@
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/amplifier.png",
                             "type": "picture-elements"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.sump_pump_leak_template"
+                                },
+                                {
+                                    "entity": "sensor.water_heater_leak_template"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_name": true,
+                            "title": "Utilities",
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:alpha-b-circle",

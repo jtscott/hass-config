@@ -1,0 +1,62 @@
+- platform: template
+  sensors:
+   water_heater_leak_template:
+      friendly_name: 'Water Heater'
+      value_template: >-
+        {%- if is_state('binary_sensor.water_heater_leak', 'off') %}
+            Dry
+        {%- elif is_state('binary_sensor.water_heater_leak', 'on') %}
+            Wet
+        {%- else %}
+            Unknown
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state('binary_sensor.water_heater_leak', 'off') %}
+          mdi:water-off
+        {%- elif is_state('binary_sensor.water_heater_leak', 'on') %}
+          mdi:water-on
+        {% else %}
+          mdi:water-outline
+        {% endif %}
+
+- platform: template
+  sensors:
+   sump_pump_leak_template:
+      friendly_name: 'Sump Pump'
+      value_template: >-
+        {%- if is_state('binary_sensor.sump_pump_leak', 'off') %}
+            Dry
+        {%- elif is_state('binary_sensor.sump_pump_leak', 'on') %}
+            Wet
+        {%- else %}
+            Unknown
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state('binary_sensor.sump_pump_leak', 'off') %}
+          mdi:water-off
+        {%- elif is_state('binary_sensor.sump_pump_leak', 'on') %}
+          mdi:water-on
+        {% else %}
+          mdi:water-outline
+        {% endif %}
+
+- platform: template
+  sensors:
+   master_bath_leak_template:
+      friendly_name: 'Master Bath'
+      value_template: >-
+        {%- if is_state('binary_sensor.master_bath_leak', 'off') %}
+            Dry
+        {%- elif is_state('binary_sensor.master_bath_leak', 'on') %}
+            Wet
+        {%- else %}
+            Unknown
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state('binary_sensor.master_bath_leak', 'off') %}
+          mdi:water-off
+        {%- elif is_state('binary_sensor.master_bath_leak', 'on') %}
+          mdi:water-on
+        {% else %}
+          mdi:water-outline
+        {% endif %}
