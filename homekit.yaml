@@ -5,7 +5,6 @@ filter:
     - switch
     - cover
   include_entities:
-    - light.bedroom_lamp
     - light.office
     - light.kitchen
     - binary_sensor.master_bath_liquid_detected
