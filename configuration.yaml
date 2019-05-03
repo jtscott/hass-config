@@ -57,7 +57,6 @@ group: !include_dir_merge_named groups
 homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
-ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
