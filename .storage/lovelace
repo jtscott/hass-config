@@ -333,6 +333,25 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.office_temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_occupancy"
+                                },
+                                {
+                                    "entity": "light.office"
+                                },
+                                {
+                                    "entity": "sensor.office_window_template"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Office",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entity": "sensor.master_bedroom_temperature"
                                 },
                                 {
@@ -359,25 +378,6 @@
                             "show_name": false,
                             "title": "Master Bathroom",
                             "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.office_temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_occupancy"
-                                },
-                                {
-                                    "entity": "light.office"
-                                },
-                                {
-                                    "entity": "sensor.office_window_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Office",
-                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -440,6 +440,25 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.theater_temperature"
+                                },
+                                {
+                                    "entity": "sensor.theater_occupancy"
+                                },
+                                {
+                                    "entity": "light.theater"
+                                },
+                                {
+                                    "entity": "switch.theater_outlet_1"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Theater",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entity": "sensor.current_activity"
                                 },
                                 {
@@ -460,23 +479,10 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.theater_temperature"
-                                },
-                                {
-                                    "entity": "sensor.theater_occupancy"
-                                },
-                                {
-                                    "entity": "light.theater"
-                                },
-                                {
-                                    "entity": "switch.theater_outlet_1"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Theater",
-                            "type": "entities"
+                            "artwork": "cover",
+                            "entity": "media_player.my_shield_console",
+                            "icon": "mdi:television-classic",
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "card": {
@@ -490,32 +496,6 @@
                                 }
                             ],
                             "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "entity": "media_player.shield",
-                                "type": "media-control"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.shield",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.guest_bedroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.guest_bedroom_occupancy"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Guest Bedroom",
-                            "type": "entities"
                         },
                         {
                             "elements": [
@@ -561,6 +541,19 @@
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/amplifier.png",
                             "type": "picture-elements"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.guest_bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.guest_bedroom_occupancy"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Guest Bedroom",
+                            "type": "entities"
                         },
                         {
                             "entities": [
