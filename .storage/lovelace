@@ -412,6 +412,29 @@
                             },
                             "icon": "mdi:playstation",
                             "type": "custom:mini-media-player"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "media_player.upstairs",
+                                    "info": "short",
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.chromecastaudio9881",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.googlehomehub8562",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.office_speaker",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",

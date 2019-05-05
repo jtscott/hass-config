@@ -86,6 +86,16 @@ custom_updater:
 ###########################################
 # Third Party Platforms
 ###########################################
+cast:
+  media_player:
+    - host: 192.168.1.100
+    - host: 192.168.1.101
+    - host: 192.168.1.102
+    - host: 192.168.1.103
+    - host: 192.168.1.104
+    - host: 192.168.1.105
+    - host: 192.168.1.106
+
 ecobee:
   api_key: !secret ecobee_api
 
