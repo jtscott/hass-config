@@ -86,6 +86,7 @@ sensor.dark_sky_wind_speed_1d:
 sensor.date:
   icon: mdi:calendar
 sensor.disk_use_percent:
+  friendly_name: Disk
   icon: mdi:harddisk
 sensor.george_last_seen_template:
   icon: mdi:crosshairs-gps
@@ -106,7 +107,7 @@ sensor.moon:
   friendly_name: Moon
   icon: mdi:weather-night
 sensor.memory_use_percent:
-  friendly_name: Memory Use
+  friendly_name: Memory
   icon: mdi:memory
 sensor.roomba_bin_state_template:
   icon: mdi:delete-sweep
@@ -135,10 +136,13 @@ sensor.tv_schedule:
 sensor.uv_rating_template:
   icon: mdi:sunglasses
 sensor.wink_hub_status:
+  friendly_name: Wink Hub 2
   icon: mdi:dns
 sensor.wink_hub_firmware_state_template:
+  friendly_name: Firmware
   icon: mdi:update
 sensor.wink_hub_firmware_version:
+  friendly_name: Version
   icon: mdi:floppy
 switch.livingroomtv:
   icon: mdi:television

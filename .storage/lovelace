@@ -9,6 +9,18 @@
                 {
                     "type": "module",
                     "url": "/local/mini-media-player-bundle.js?v=1.0.4"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/mini-graph-card-bundle.js?v=0.3.3"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/simple-weather-card.bundle.js?v=0.3.0"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/tracker-card.js?track=true"
                 }
             ],
             "title": "Home",
@@ -333,13 +345,13 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "light.office"
+                                },
+                                {
                                     "entity": "sensor.office_temperature"
                                 },
                                 {
                                     "entity": "sensor.office_occupancy"
-                                },
-                                {
-                                    "entity": "light.office"
                                 },
                                 {
                                     "entity": "sensor.office_window_template"
@@ -393,41 +405,13 @@
                             "type": "entities"
                         },
                         {
-                            "artwork": "cover",
+                            "artwork": "full-cover-fit",
                             "entity": "media_player.playstation_4",
                             "hide": {
                                 "volume": true
                             },
                             "icon": "mdi:playstation",
                             "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "artwork": "full-cover",
-                                    "entity": "media_player.upstairs",
-                                    "group": true,
-                                    "info": "short",
-                                    "source": "icon",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.chromecastaudio9881",
-                                    "group": true,
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.googlehomehub8562",
-                                    "group": true,
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.office_speaker_2",
-                                    "group": true,
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -479,23 +463,18 @@
                             "type": "entities"
                         },
                         {
-                            "artwork": "cover",
+                            "artwork": "full-cover-fit",
                             "entity": "media_player.my_shield_console",
                             "icon": "mdi:television-classic",
                             "type": "custom:mini-media-player"
                         },
                         {
-                            "card": {
-                                "entity": "media_player.googlehome6057",
-                                "type": "media-control"
+                            "entity": "media_player.googlehome6057",
+                            "tts": {
+                                "enity_id": "media_player.googlehome6057",
+                                "platform": "google"
                             },
-                            "conditions": [
-                                {
-                                    "entity": "media_player.googlehome6057",
-                                    "state": "playing"
-                                }
-                            ],
-                            "type": "conditional"
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "elements": [
@@ -618,20 +597,44 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                "sensor.dark_sky_apparent_temperature",
-                                "sensor.air_pressure_template",
-                                "sensor.uv_rating_template",
-                                "sensor.dark_sky_cloud_coverage",
-                                "sensor.dark_sky_precip_type_template",
-                                "sensor.dark_sky_precip_probability_template",
-                                "sensor.dark_sky_precip_intensity",
-                                "sensor.dark_sky_wind_bearing_template",
-                                "sensor.dark_sky_wind_speed"
+                            "cards": [
+                                {
+                                    "backdrop": {
+                                        "day": "var(--primary-color)",
+                                        "night": "#40445a"
+                                    },
+                                    "entity": "weather.main_floor",
+                                    "type": "custom:simple-weather-card"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.uv_rating_template"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_cloud_coverage"
+                                        },
+                                        {
+                                            "entity": "sensor.air_pressure_template"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_precip_type_template"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_precip_probability_template"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_precip_intensity"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_wind_speed"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                }
                             ],
-                            "show_header_toggle": false,
                             "title": "Today's Forecast",
-                            "type": "entities"
+                            "type": "vertical-stack"
                         },
                         {
                             "entities": [
@@ -655,9 +658,6 @@
                                 },
                                 {
                                     "entity": "sensor.dark_sky_precip_intensity_1d"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_wind_bearing_tomorrow_template"
                                 },
                                 {
                                     "entity": "sensor.dark_sky_wind_speed_1d"
@@ -742,21 +742,44 @@
                     "badges": [],
                     "cards": [
                         {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.processor_use"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.memory_use_percent"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "#e74c3c",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.disk_use_percent"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.hass_release"
                                 },
                                 {
                                     "entity": "sensor.current_version"
-                                },
-                                {
-                                    "entity": "sensor.disk_use_percent"
-                                },
-                                {
-                                    "entity": "sensor.processor_use"
-                                },
-                                {
-                                    "entity": "sensor.memory_use_percent"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -765,21 +788,43 @@
                         },
                         {
                             "entities": [
-                                "sensor.wink_hub_status",
-                                "sensor.wink_hub_firmware_state_template",
-                                "sensor.wink_hub_firmware_version"
+                                {
+                                    "entity": "sensor.wink_hub_firmware_state_template"
+                                },
+                                {
+                                    "entity": "sensor.wink_hub_firmware_version"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Wink Hub",
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                "sensor.kitchen_nest_protect_status"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Nest Protect",
-                            "type": "entities"
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Hub Status",
+                                "type": "glance"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Online"
+                                    },
+                                    {
+                                        "state": "Offline"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "title": "Card Versions",
+                            "type": "custom:tracker-card"
                         },
                         {
                             "card": {
