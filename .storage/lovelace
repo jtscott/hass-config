@@ -289,7 +289,7 @@
                                 {
                                     "entity": "switch.roomba",
                                     "style": {
-                                        "left": "16%",
+                                        "left": "95%",
                                         "top": "88%"
                                     },
                                     "tap_action": {
@@ -300,9 +300,9 @@
                                 {
                                     "entity": "sensor.roomba_cycle_template",
                                     "style": {
-                                        "bottom": "1px",
+                                        "bottom": "0px",
                                         "font-weight": "bold",
-                                        "right": "50px",
+                                        "right": "16%",
                                         "transform": "initial"
                                     },
                                     "type": "state-label"
@@ -310,9 +310,9 @@
                                 {
                                     "entity": "sensor.roomba_runtime",
                                     "style": {
-                                        "bottom": "1px",
+                                        "bottom": "0px",
                                         "font-weight": "bold",
-                                        "right": "5px",
+                                        "right": "7%",
                                         "transform": "initial"
                                     },
                                     "type": "state-label"
@@ -362,7 +362,7 @@
                                 },
                                 {
                                     "artwork": "cover",
-                                    "entity": "media_player.googlehome6972",
+                                    "entity": "media_player.google_home_living_room",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 }
@@ -716,7 +716,8 @@
                             "type": "custom:mini-media-player"
                         },
                         {
-                            "entity": "media_player.googlehome6057",
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.google_home_theater",
                             "type": "custom:mini-media-player"
                         },
                         {
