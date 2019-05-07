@@ -12,3 +12,10 @@
     climate_away_mode:
       friendly_name: 'Away Mode'
       value_template: '{{ states.climate.main_floor.attributes.away_mode }}'
+
+- platform: template
+  sensors:
+    climate_main_floor_temperature:
+      friendly_name: 'Away Mode'
+      unit_of_measurement: '°C'
+      value_template: '{{ states.climate.main_floor.attributes.current_temperature }}'

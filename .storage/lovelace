@@ -203,17 +203,51 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.living_room_occupancy"
+                                    "entities": [
+                                        "sensor.living_room_occupancy"
+                                    ],
+                                    "type": "glance"
                                 },
                                 {
-                                    "entity": "sensor.living_room_temperature"
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.living_room_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Living Room",
-                            "type": "entities"
+                            "type": "horizontal-stack"
                         },
                         {
                             "entities": [
@@ -321,17 +355,55 @@
                                     "type": "custom:mini-media-player"
                                 },
                                 {
+                                    "artwork": "cover",
                                     "entity": "media_player.chromecastaudio2180",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
                                 {
+                                    "artwork": "cover",
                                     "entity": "media_player.googlehome6972",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#dc7a39",
+                                    "value": 22.5
+                                },
+                                {
+                                    "color": "#c53e4a",
+                                    "value": 23
+                                }
+                            ],
+                            "entities": [
+                                "sensor.climate_main_floor_temperature"
+                            ],
+                            "font_size": 60,
+                            "font_size_header": 12,
+                            "hours_to_show": 24,
+                            "line_color": "var(--accent-color)",
+                            "line_width": 8,
+                            "name": "Main Floor",
+                            "points_per_hour": 0.75,
+                            "type": "custom:mini-graph-card"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -348,12 +420,6 @@
                                     "entity": "light.office"
                                 },
                                 {
-                                    "entity": "sensor.office_temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_occupancy"
-                                },
-                                {
                                     "entity": "sensor.office_window_template"
                                 }
                             ],
@@ -362,34 +428,151 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.master_bedroom_temperature"
+                                    "entities": [
+                                        "sensor.office_occupancy"
+                                    ],
+                                    "type": "glance"
                                 },
                                 {
-                                    "entity": "sensor.master_bedroom_occupancy"
-                                },
-                                {
-                                    "entity": "sensor.master_bedroom_window_template"
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.office_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "show_name": false,
-                            "show_state": true,
-                            "title": "Master Bedroom",
-                            "type": "glance"
+                            "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.master_bathroom_temperature"
+                                    "entities": [
+                                        "sensor.master_bedroom_occupancy"
+                                    ],
+                                    "type": "glance"
                                 },
                                 {
-                                    "entity": "sensor.master_bath_leak_template"
+                                    "entities": [
+                                        "sensor.master_bedroom_window_template"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.master_bedroom_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "show_name": false,
-                            "title": "Master Bathroom",
-                            "type": "glance"
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.master_bath_leak_template"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.master_bathroom_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         },
                         {
                             "entities": [
@@ -403,15 +586,6 @@
                             "show_header_toggle": false,
                             "title": "Laundry",
                             "type": "entities"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
                         },
                         {
                             "cards": [
@@ -435,6 +609,15 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
+                            "type": "custom:mini-media-player"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -447,21 +630,62 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.theater_temperature"
-                                },
-                                {
-                                    "entity": "sensor.theater_occupancy"
-                                },
-                                {
                                     "entity": "light.theater"
                                 },
                                 {
                                     "entity": "switch.theater_outlet_1"
                                 }
                             ],
-                            "show_header_toggle": false,
+                            "show_header_toggle": true,
                             "title": "Theater",
                             "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.theater_occupancy"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.theater_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         },
                         {
                             "entities": [
@@ -493,10 +717,6 @@
                         },
                         {
                             "entity": "media_player.googlehome6057",
-                            "tts": {
-                                "enity_id": "media_player.googlehome6057",
-                                "platform": "google"
-                            },
                             "type": "custom:mini-media-player"
                         },
                         {
@@ -545,17 +765,51 @@
                             "type": "picture-elements"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.guest_bedroom_temperature"
+                                    "entities": [
+                                        "sensor.guest_bedroom_occupancy"
+                                    ],
+                                    "type": "glance"
                                 },
                                 {
-                                    "entity": "sensor.guest_bedroom_occupancy"
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.guest_bedroom_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "points_per_hour": 0.75,
+                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Guest Bedroom",
-                            "type": "entities"
+                            "type": "horizontal-stack"
                         },
                         {
                             "entities": [

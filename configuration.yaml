@@ -29,6 +29,11 @@ http:
 ###########################################
 config:
 discovery:
+  ignore:
+    - plex_mediaserver
+    - igd
+    - google_cast
+    - belkin_wemo
 conversation:
 system_health:
 history: !include history.yaml
@@ -69,7 +74,7 @@ zone: !include zone.yaml
 panel_iframe:
   nodered:
     title: 'Node-RED'
-    url: 'https://192.168.1.37:1880'
+    url: !secret node_red_url
     icon: mdi:resistor-nodes
     
 ###########################################
@@ -88,13 +93,14 @@ custom_updater:
 ###########################################
 cast:
   media_player:
-    - host: 192.168.1.100
-    - host: 192.168.1.101
-    - host: 192.168.1.102
-    - host: 192.168.1.103
-    - host: 192.168.1.104
-    - host: 192.168.1.105
-    - host: 192.168.1.106
+    - host: !secret google_home_office_ip
+    - host: !secret google_home_master_bedroom_ip
+    - host: !secret google_home_kitchen_ip
+    - host: !secret google_home_living_room_ip
+    - host: !secret google_home_kitchen_ip
+    - host: !secret google_home_theater_ip
+    - host: !secret chomecast_audio_kitchen_ip
+    - host: !secret chomecast_audio_master_bedroom_ip
 
 ecobee:
   api_key: !secret ecobee_api
@@ -103,7 +109,7 @@ ifttt:
   key: !secret ifttt_api
 
 mqtt:
-    broker: 192.168.1.37
+    broker: !secret mqtt_host
     port: 1883
     username: homeassistant
     password: !secret mqtt_password
@@ -120,7 +126,7 @@ remote:
 
 wemo:
   static:
-    - 192.168.2.15
+    - !secret wemo_wall_outlet1
 
 wink:
   local_control: true
