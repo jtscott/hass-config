@@ -17,9 +17,3 @@ update-rc.d dbus enable
 update-rc.d avahi-daemon enable
 /etc/init.d/dbus start
 /etc/init.d/avahi-daemon start
-
-# #Fix Roomba
-# git clone https://github.com/NickWaterton/Roomba980-Python.git /tmp/Roomba980-Python
-# rm -rf /usr/local/lib/python3.7/site-packages/roomba/*
-# cp -rf /tmp/Roomba980-Python/roomba/* /usr/local/lib/python3.7/site-packages/roomba/
-# rm -rf /tmp/*
