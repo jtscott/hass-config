@@ -55,7 +55,6 @@ automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
-emulated_hue: !include emulated_hue.yaml
 group: !include_dir_merge_named groups
 homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
