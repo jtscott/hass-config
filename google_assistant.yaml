@@ -6,6 +6,18 @@ entity_config:
     # expose: true
     # room: 'Front Door'
     # name: 'Front Door Light'
+  light.island:
+    expose: true
+    room: 'Kitchen'
+    name: 'Island'
+  light.dining_room:
+    expose: true
+    room: 'Dining Room'
+    name: 'Dining Room Light'
+  light.Office:
+    expose: true
+    room: 'Office'
+    name: 'Office Light'
   switch.theater_outlet_1:
     expose: true
     room: 'Theater'
@@ -14,3 +26,7 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Theater Light'
+  switch.wemo_outlet_1:
+    expose: true
+    room: 'Theater'
+    name: 'Amplifiers'

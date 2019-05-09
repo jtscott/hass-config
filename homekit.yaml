@@ -6,9 +6,11 @@ filter:
     - cover
   include_entities:
     - light.office
-    - light.kitchen
+    - light.island
+    - light.dining_room
     - light.theater
     - switch.theater_outlet_1
+    - switch.wemo_outlet_1
     - binary_sensor.master_bath_liquid_detected
     - binary_sensor.master_bedroom_window
     - binary_sensor.office_window

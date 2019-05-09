@@ -245,3 +245,5 @@ switch.roomba:
   icon: mdi:robot-vacuum
 switch.guest_wifi:
   icon: mdi:wifi
+light.island:
+  icon: mdi:ceiling-light

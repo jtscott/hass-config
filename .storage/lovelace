@@ -230,6 +230,9 @@
                                     "entity": "light.kitchen"
                                 },
                                 {
+                                    "entity": "light.island"
+                                },
+                                {
                                     "entity": "sensor.kitchen_nest_protect_smoke_status"
                                 },
                                 {
