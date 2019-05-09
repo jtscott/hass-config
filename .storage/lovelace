@@ -4,7 +4,19 @@
             "resources": [
                 {
                     "type": "js",
+                    "url": "/customcards/github/thomasloven/card-tools.js?track=true"
+                },
+                {
+                    "type": "js",
+                    "url": "/customcards/github/thomasloven/card-modder.js?track=true"
+                },
+                {
+                    "type": "js",
                     "url": "/local/monster-card.js?v=1"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/vertical-stack-in-card.js?v=0.1.2"
                 },
                 {
                     "type": "module",
@@ -21,6 +33,14 @@
                 {
                     "type": "module",
                     "url": "/local/tracker-card.js?track=true"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/simple-thermostat.js?v=1"
+                },
+                {
+                    "type": "module",
+                    "url": "/customcards/github/custom-cards/button-card.js?track=true"
                 }
             ],
             "title": "Home",
@@ -141,10 +161,25 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
+                            "elements": [
                                 {
-                                    "entity": "light.front_door_4"
-                                },
+                                    "entity": "switch.guest_wifi",
+                                    "style": {
+                                        "left": "61%",
+                                        "top": "35%",
+                                        "transform": "scale(3,3)"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png?v=2",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "entities": [
                                 {
                                     "entity": "light.back_door"
                                 },
@@ -203,6 +238,19 @@
                             "type": "entities"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dining Room",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -250,21 +298,54 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "light.dining_room"
+                                    "entity": "climate.main_floor",
+                                    "type": "custom:simple-thermostat"
                                 },
                                 {
-                                    "entity": "sensor.dining_room_window_template"
+                                    "animate": true,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#515b99",
+                                            "value": 15
+                                        },
+                                        {
+                                            "color": "#549cce",
+                                            "value": 21
+                                        },
+                                        {
+                                            "color": "#eaac3c",
+                                            "value": 21.5
+                                        },
+                                        {
+                                            "color": "#dc7a39",
+                                            "value": 22.5
+                                        },
+                                        {
+                                            "color": "#c53e4a",
+                                            "value": 23
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.climate_main_floor_temperature"
+                                    ],
+                                    "font_size": 60,
+                                    "font_size_header": 12,
+                                    "group": true,
+                                    "hours_to_show": 24,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "name": "Main Floor",
+                                    "points_per_hour": 0.75,
+                                    "show": {
+                                        "icon": false,
+                                        "name": false
+                                    },
+                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Dining Room",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "thermostat"
+                            "type": "vertical-stack"
                         },
                         {
                             "elements": [
@@ -322,88 +403,21 @@
                             "type": "picture-elements"
                         },
                         {
-                            "elements": [
+                            "cards": [
                                 {
-                                    "entity": "switch.guest_wifi",
-                                    "style": {
-                                        "left": "61%",
-                                        "top": "35%",
-                                        "transform": "scale(3,3)"
-                                    },
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "state-icon"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png?v=2",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "artwork": "cover",
-                                    "entity": "media_player.main_floor_3",
-                                    "group": true,
-                                    "info": "short",
-                                    "source": "icon",
+                                    "entity": "media_player.kitchen_ceiling",
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "media_player.googlehome9046",
-                                    "group": true,
+                                    "entity": "media_player.google_home_kitchen",
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "artwork": "cover",
-                                    "entity": "media_player.chromecastaudio2180",
-                                    "group": true,
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "cover",
                                     "entity": "media_player.google_home_living_room",
-                                    "group": true,
                                     "type": "custom:mini-media-player"
                                 }
                             ],
-                            "type": "entities"
-                        },
-                        {
-                            "animate": true,
-                            "color_thresholds": [
-                                {
-                                    "color": "#515b99",
-                                    "value": 15
-                                },
-                                {
-                                    "color": "#549cce",
-                                    "value": 21
-                                },
-                                {
-                                    "color": "#eaac3c",
-                                    "value": 21.5
-                                },
-                                {
-                                    "color": "#dc7a39",
-                                    "value": 22.5
-                                },
-                                {
-                                    "color": "#c53e4a",
-                                    "value": 23
-                                }
-                            ],
-                            "entities": [
-                                "sensor.climate_main_floor_temperature"
-                            ],
-                            "font_size": 60,
-                            "font_size_header": 12,
-                            "hours_to_show": 24,
-                            "line_color": "var(--accent-color)",
-                            "line_width": 8,
-                            "name": "Main Floor",
-                            "points_per_hour": 0.75,
-                            "type": "custom:mini-graph-card"
+                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -590,21 +604,15 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "media_player.upstairs",
-                                    "info": "short",
-                                    "source": "icon",
+                                    "entity": "media_player.master_bedroom_ceiling",
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "media_player.chromecastaudio9881",
+                                    "entity": "media_player.google_home_master_bedroom",
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "media_player.googlehomehub8562",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.office_speaker",
+                                    "entity": "media_player.google_home_office",
                                     "type": "custom:mini-media-player"
                                 }
                             ],

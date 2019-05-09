@@ -1,4 +1,0 @@
-- platform: myq
-  username: !secret email_account
-  password: !secret myq_password
-  type: chamberlain

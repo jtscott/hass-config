@@ -4,6 +4,7 @@ include:
     - lock
     - cover
     - light
+    - binary_sensor
 exclude:
   domains:
     - weblink

@@ -28,18 +28,17 @@ http:
 # Core Components
 ###########################################
 config:
+sun:
 discovery:
   ignore:
     - plex_mediaserver
     - igd
     - google_cast
     - belkin_wemo
-conversation:
 system_health:
 history: !include history.yaml
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
-sun:
 logger:
   default: warning
 updater:
@@ -89,6 +88,13 @@ custom_updater:
     - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
 
 ###########################################
+# Z-Wave
+###########################################
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+    
+###########################################
 # Third Party Platforms
 ###########################################
 cast:
@@ -97,13 +103,20 @@ cast:
     - host: !secret google_home_master_bedroom_ip
     - host: !secret google_home_kitchen_ip
     - host: !secret google_home_living_room_ip
-    - host: !secret google_home_kitchen_ip
     - host: !secret google_home_theater_ip
     - host: !secret chomecast_audio_kitchen_ip
     - host: !secret chomecast_audio_master_bedroom_ip
 
+# cover:
+  # - platform: myq
+    # username: !secret email_account
+    # password: !secret myq_password
+    # type: chamberlain
+
 ecobee:
   api_key: !secret ecobee_api
+
+google_assistant: !include google_assistant.yaml
 
 ifttt:
   key: !secret ifttt_api
@@ -126,7 +139,7 @@ remote:
 
 wemo:
   static:
-    - !secret wemo_wall_outlet1
+    - !secret wemo_insight_ip
 
 wink:
   local_control: true

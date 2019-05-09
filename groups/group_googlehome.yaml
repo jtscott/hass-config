@@ -1,7 +1,7 @@
 googlehome:
   entities:
-    - media_player.googlehome6057
-    - media_player.googlehome6972
-    - media_player.googlehome9046
-    - media_player.googlehomehub8562
-    - media_player.office_speaker_2
+    - media_player.google_home_office
+    - media_player.google_home_master_bedroom
+    - media_player.google_home_kitchen
+    - media_player.google_home_living_room
+    - media_player.google_home_theater

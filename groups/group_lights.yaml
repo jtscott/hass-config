@@ -10,7 +10,7 @@ inside_lights:
 outside_lights:
   name: "Outside Lights"
   entities:
-    - light.front_door_2
+    - light.front_door
     - light.back_door
     - light.garage
 

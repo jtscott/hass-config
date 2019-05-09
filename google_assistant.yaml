@@ -1,0 +1,12 @@
+project_id: !secret google_assistant_project_id
+api_key: !secret google_assistant_api_key
+expose_by_default: false
+entity_config:
+  # switch.front_door_light:
+    # expose: true
+    # room: 'Front Door'
+    # name: 'Front Door Light'
+  switch.theater_outlet_1:
+    expose: true
+    room: 'Theater'
+    name: 'Theater Outlet 1'
