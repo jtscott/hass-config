@@ -156,10 +156,10 @@ switch.wemo_outlet_1d:
 sensor.master_bedroom_temperature:
   friendly_name: Master Bedroom
 sensor.kitchen_nest_protect_co_status:
-  friendly_name: Kitchen CO2
+  friendly_name: CO2
   icon: mdi:google-circles-extended
 sensor.kitchen_nest_protect_smoke_status:
-  friendly_name: Kitchen Smoke
+  friendly_name: Smoke
   icon: mdi:fire
 sensor.main_floor_humidity:
   friendly_name: Humidity
@@ -247,3 +247,7 @@ switch.guest_wifi:
   icon: mdi:wifi
 light.island:
   icon: mdi:ceiling-light
+switch.front_door:
+  icon: mdi:light-switch
+switch.back_door:
+  icon: mdi:light-switch

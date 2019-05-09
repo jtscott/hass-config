@@ -2,21 +2,13 @@ inside_lights:
   name: "Inside Lights"
   entities:
     - light.office
-    - light.kitchen
+    - light.island
     - light.dining_room
     - light.theater
-    - switch.theater_outlet_1
 
 outside_lights:
   name: "Outside Lights"
   entities:
-    - light.front_door
-    - light.back_door
+    - switch.front_door
+    - switch.back_door
     - light.garage
-
-homesitter_lights:
-  entities:
-    - light.office
-    - light.kitchen
-    - light.dining_room
-    - light.theater

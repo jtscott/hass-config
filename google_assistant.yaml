@@ -1,11 +1,16 @@
 project_id: !secret google_assistant_project_id
 api_key: !secret google_assistant_api_key
+secure_devices_pin: !secret google_assistant_secure_pin
 expose_by_default: false
 entity_config:
-  # switch.front_door_light:
-    # expose: true
-    # room: 'Front Door'
-    # name: 'Front Door Light'
+  switch.front_door:
+    expose: true
+    room: 'Front Door'
+    name: 'Front Door Light'
+  switch.back_door:
+    expose: true
+    room: 'Back Door'
+    name: 'Back Door Light'
   light.island:
     expose: true
     room: 'Kitchen'
@@ -14,7 +19,11 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
-  light.Office:
+  cover.garage_door:
+    expose: true
+    room: 'Garage'
+    name: 'Garage Cover'
+  light.office:
     expose: true
     room: 'Office'
     name: 'Office Light'

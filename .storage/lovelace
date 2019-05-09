@@ -157,6 +157,9 @@
                             "entities": [
                                 {
                                     "entity": "script.1523136244144"
+                                },
+                                {
+                                    "entity": "input_boolean.homesitter"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -184,7 +187,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.back_door"
+                                    "entity": "switch.front_door"
+                                },
+                                {
+                                    "entity": "switch.back_door"
                                 },
                                 {
                                     "entity": "light.garage"
@@ -202,7 +208,7 @@
                                     "entity": "lock.front_door"
                                 },
                                 {
-                                    "entity": "lock.front_door"
+                                    "entity": "lock.back_door"
                                 },
                                 {
                                     "entity": "lock.garage"

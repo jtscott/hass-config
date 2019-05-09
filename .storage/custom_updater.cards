@@ -5,7 +5,7 @@
     },
     "mini-media-player-bundle": {
         "dir": "/config/www/",
-        "version": "1.1.1"
+        "version": "1.1.2"
     },
     "simple-weather-card.bundle": {
         "dir": "/config/www/",
@@ -29,7 +29,7 @@
     },
     "button-card": {
         "dir": "/config/www/github/custom-cards/",
-        "version": "1.6.0"
+        "version": "1.7.0"
     },
     "simple-thermostat": {
         "dir": "/config/www/github/nervetattoo/",
