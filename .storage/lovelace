@@ -1127,6 +1127,9 @@
                                 "include": [
                                     {
                                         "state": "unknown"
+                                    },
+                                    {
+                                        "state": "unavailable"
                                     }
                                 ]
                             },

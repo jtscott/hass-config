@@ -10,3 +10,7 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Theater Outlet 1'
+  light.theater:
+    expose: true
+    room: 'Theater'
+    name: 'Theater Light'
