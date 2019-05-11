@@ -15,6 +15,8 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ![Status](https://www.dropbox.com/s/44zs82n1el5entx/status.PNG?raw=1)
 ### Outside
 ![Outside](https://www.dropbox.com/s/6de2yt740tui38s/outside.PNG?raw=1)
+### Pets
+![Pets](https://www.dropbox.com/s/y24cwi4d9kyvq7d/pets.png?raw=1)
 ### 1F
 ![1F](https://www.dropbox.com/s/1qrztdywv4vlit2/1f.png?raw=1)
 ### 2F
