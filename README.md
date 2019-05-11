@@ -1,40 +1,46 @@
 # My Home Assistant Configuration
 Check out all the cool things you can do with [Home Assistant](https://home-assistant.io/).
 
+## Layout
+- The *Status* view shows things that are on, or open, or otherwise dynamic states we need to know about
+- The *Outside* view is for things like the security panel, perimeter lights, etc.
+- Each floor has its own view separated into 1 2 and B
+- The *Pets* view watches our cat pals
+- The *Weather* view is a dashboard with the most forecast information.
+- The *City* view is a dashboard with the most useful region based information. Designed to start the day quickly and get us out the door.
+- The *System* view shows the docker host status, version & firmware information, batteries, and signal strengths.
+
+## Screenshots
+### Status
+![Status] (https://www.dropbox.com/s/44zs82n1el5entx/status.PNG?raw=1)
+### Outside
+![Outside] (https://www.dropbox.com/s/6de2yt740tui38s/outside.PNG?raw=1)
+### 1F
+![1F](https://www.dropbox.com/s/1qrztdywv4vlit2/1f.png?raw=1)
+### 2F
+![2F](https://www.dropbox.com/s/ablt91smnny837p/2f.PNG?raw=1)
+### Basement
+![BF](https://www.dropbox.com/s/yxtuqwuzb8ofd6n/bf.PNG?raw=1)
+### Weather
+![Weather](https://www.dropbox.com/s/y0ywfv9fs6z5m6j/weather.PNG?raw=1)
+### City
+![Calgary](https://www.dropbox.com/s/ng2ejh96jn8g52k/calgary.PNG?raw=1)
+### System
+![System](https://www.dropbox.com/s/tmg8tpoowa1brls/system.PNG?raw=1)
+
 ## Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). Jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
 - Curl
 - Scripts based on Debian
 
-## Shout Out
-- Check out Facu ZAK's Roomba 980 [Library](https://github.com/koalazak/dorita980) and [Rest API](https://github.com/koalazak/rest980)!
-- All the [HASS examples](https://home-assistant.io/cookbook/) and contributors.
-
-## Layout
-- The *Home* group is the default_view and shows relevant house based sensors.
-- The *Weather* group is a dashboard with the most forecast information.
-- The *City* group is a dashboard with the most useful region based information. Designed to start the day quickly and get us out the door.
-- The *System* group shows the docker host status, version & firmware information, batteries, and signal strengths.
-- The *Automations* group has toggles for various automations.
-
-## Screenshots
-![Home Screen](https://www.dropbox.com/s/oozno5iu2dpfgsv/home.png?raw=1)
-![Security](https://www.dropbox.com/s/uh25niflfb2dcgt/security.PNG?raw=1)
-![Media](https://www.dropbox.com/s/5udxxqetcfai705/media.PNG?raw=1)
-![Weather](https://www.dropbox.com/s/y0ywfv9fs6z5m6j/weather.PNG?raw=1)
-![Calgary](https://www.dropbox.com/s/ng2ejh96jn8g52k/calgary.PNG?raw=1)
-![System](https://www.dropbox.com/s/qx3ibaoaw93pvze/debug.PNG?raw=1)
-![Automations](https://www.dropbox.com/s/ks0phkdk0q33xdx/automation.PNG?raw=1)
-
-## Devices
-- Chamberlain MyQ
-- Ecobee Thermostat
-- Harmony Hub
-- Nvidia Shield TV
-- Roomba 980
-- Samsung UN65F8000
-- Unifi Wireless
-- Wemo Insight Switch
-- Wink Hub 2
-- Google Home, Mini, Hub
-- Trackr
+## Custom Cards
+- https://github.com/kalkih/mini-graph-card
+- https://github.com/kalkih/simple-weather-card
+- https://github.com/kalkih/mini-media-player
+- https://github.com/thomasloven/lovelace-card-tools
+- https://github.com/thomasloven/lovelace-slider-entity-row
+- https://github.com/custom-cards/button-card
+- https://github.com/custom-cards/tracker-card
+- https://github.com/custom-cards/vertical-stack-in-card
+- https://github.com/ciotlosm/custom-lovelace/tree/master/monster-card
+- https://github.com/nervetattoo/simple-thermostat

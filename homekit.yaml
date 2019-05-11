@@ -9,6 +9,9 @@ filter:
     - light.island
     - light.dining_room
     - light.theater
+    - lock.front_door_lock
+    - lock.back_door_lock
+    - lock.garage_door_lock
     - switch.theater_outlet_1
     - switch.wemo_outlet_1
     - binary_sensor.master_bath_liquid_detected
