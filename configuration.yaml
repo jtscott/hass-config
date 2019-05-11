@@ -61,7 +61,7 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
-packages: !include_dir_named packages
+#packages: !include_dir_named packages
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
@@ -95,9 +95,10 @@ custom_updater:
 
 ###########################################
 # Z-Wave
+# https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name
 ###########################################
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/zwave
   network_key: !secret zwave_network_key
     
 ###########################################

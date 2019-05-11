@@ -29,7 +29,7 @@
     },
     "button-card": {
         "dir": "/config/www/github/custom-cards/",
-        "version": "1.7.0"
+        "version": "1.8.0"
     },
     "simple-thermostat": {
         "dir": "/config/www/github/nervetattoo/",
@@ -38,5 +38,9 @@
     "vertical-stack-in-card": {
         "dir": "/config/www/",
         "version": "v0.1.2"
+    },
+    "slider-entity-row": {
+        "dir": "/config/www/",
+        "version": "46be70"
     }
 }

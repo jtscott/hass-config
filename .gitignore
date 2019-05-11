@@ -18,6 +18,7 @@ onboarding
 *.db-journal
 *.json
 *.txt
+*.js
 .HA_VERSION
 .homekit.state
 .ios.conf

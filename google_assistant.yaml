@@ -19,7 +19,7 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
-  cover.garage_door:
+  cover.garage:
     expose: true
     room: 'Garage'
     name: 'Garage Cover'

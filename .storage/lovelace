@@ -16,6 +16,10 @@
                 },
                 {
                     "type": "js",
+                    "url": "/local/slider-entity-row.js?v=1"
+                },
+                {
+                    "type": "js",
                     "url": "/local/vertical-stack-in-card.js?v=0.1.2"
                 },
                 {
@@ -203,13 +207,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "cover.garage_door"
+                                    "entity": "cover.garage"
                                 },
                                 {
                                     "entity": "lock.front_door"
                                 },
                                 {
-                                    "entity": "lock.back_door"
+                                    "entity": "lock.back_door_lock"
                                 },
                                 {
                                     "entity": "lock.garage"
@@ -232,133 +236,28 @@
                     ],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "light.kitchen"
-                                },
-                                {
-                                    "entity": "light.island"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_nest_protect_smoke_status"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_nest_protect_co_status"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Kitchen",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Dining Room",
-                            "type": "entities"
-                        },
-                        {
                             "cards": [
                                 {
+                                    "entity": "light.island",
+                                    "toggle": true,
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.dining_room",
+                                    "toggle": true,
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
                                     "entities": [
-                                        "sensor.living_room_occupancy"
+                                        "sensor.kitchen_nest_protect_smoke_status",
+                                        "sensor.kitchen_nest_protect_co_status",
+                                        "sensor.dining_room_window_template"
                                     ],
                                     "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.living_room_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "climate.main_floor",
-                                    "type": "custom:simple-thermostat"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.climate_main_floor_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "name": "Main Floor",
-                                    "points_per_hour": 0.75,
-                                    "show": {
-                                        "icon": false,
-                                        "name": false
-                                    },
-                                    "type": "custom:mini-graph-card"
-                                }
-                            ],
-                            "type": "vertical-stack"
+                            "title": "Kitchen",
+                            "type": "custom:vertical-stack-in-card"
                         },
                         {
                             "elements": [
@@ -416,6 +315,49 @@
                             "type": "picture-elements"
                         },
                         {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#dc7a39",
+                                    "value": 22.5
+                                },
+                                {
+                                    "color": "#c53e4a",
+                                    "value": 23
+                                }
+                            ],
+                            "entities": [
+                                "sensor.main_floor_temperature",
+                                "sensor.living_room_temperature"
+                            ],
+                            "font_size": 60,
+                            "font_size_header": 12,
+                            "hours_to_show": 24,
+                            "line_color": "var(--accent-color)",
+                            "line_width": 8,
+                            "points_per_hour": 0.75,
+                            "show": {
+                                "legend": false
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entity": "media_player.kitchen_ceiling",
@@ -442,161 +384,75 @@
                     "badges": [],
                     "cards": [
                         {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#dc7a39",
+                                    "value": 22.5
+                                },
+                                {
+                                    "color": "#c53e4a",
+                                    "value": 23
+                                }
+                            ],
                             "entities": [
+                                "sensor.office_temperature",
+                                "sensor.master_bedroom_temperature",
+                                "sensor.master_bathroom_temperature"
+                            ],
+                            "font_size": 60,
+                            "font_size_header": 12,
+                            "hours_to_show": 24,
+                            "line_color": "var(--accent-color)",
+                            "line_width": 8,
+                            "points_per_hour": 0.75,
+                            "show": {
+                                "legend": false
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "cards": [
                                 {
-                                    "entity": "light.office"
+                                    "entities": [
+                                        {
+                                            "entity": "light.office"
+                                        }
+                                    ],
+                                    "type": "entities"
                                 },
                                 {
-                                    "entity": "sensor.office_window_template"
+                                    "entities": [
+                                        "sensor.office_occupancy",
+                                        "sensor.office_window_template"
+                                    ],
+                                    "type": "glance"
                                 }
                             ],
-                            "show_header_toggle": false,
                             "title": "Office",
-                            "type": "entities"
+                            "type": "custom:vertical-stack-in-card"
                         },
                         {
                             "cards": [
                                 {
                                     "entities": [
-                                        "sensor.office_occupancy"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.office_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        "sensor.master_bedroom_occupancy"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.master_bedroom_window_template"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.master_bedroom_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
+                                        "sensor.master_bedroom_occupancy",
+                                        "sensor.master_bedroom_window_template",
                                         "sensor.master_bath_leak_template"
                                     ],
                                     "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.master_bathroom_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
                                 }
                             ],
                             "type": "horizontal-stack"
@@ -649,6 +505,45 @@
                     "badges": [],
                     "cards": [
                         {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#dc7a39",
+                                    "value": 22.5
+                                },
+                                {
+                                    "color": "#c53e4a",
+                                    "value": 23
+                                }
+                            ],
+                            "entities": [
+                                "sensor.theater_temperature",
+                                "sensor.sensor.guest_bedroom_temperature"
+                            ],
+                            "font_size": 60,
+                            "font_size_header": 12,
+                            "hours_to_show": 24,
+                            "line_color": "var(--accent-color)",
+                            "line_width": 8,
+                            "points_per_hour": 0.75,
+                            "show": {
+                                "legend": false
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "light.theater"
@@ -660,53 +555,6 @@
                             "show_header_toggle": true,
                             "title": "Theater",
                             "type": "entities"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        "sensor.theater_occupancy"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.theater_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
-                                }
-                            ],
-                            "type": "horizontal-stack"
                         },
                         {
                             "entities": [
@@ -734,11 +582,6 @@
                             "artwork": "full-cover-fit",
                             "entity": "media_player.my_shield_console",
                             "icon": "mdi:television-classic",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.google_home_theater",
                             "type": "custom:mini-media-player"
                         },
                         {
@@ -787,51 +630,20 @@
                             "type": "picture-elements"
                         },
                         {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        "sensor.guest_bedroom_occupancy"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "animate": true,
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#515b99",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#549cce",
-                                            "value": 21
-                                        },
-                                        {
-                                            "color": "#eaac3c",
-                                            "value": 21.5
-                                        },
-                                        {
-                                            "color": "#dc7a39",
-                                            "value": 22.5
-                                        },
-                                        {
-                                            "color": "#c53e4a",
-                                            "value": 23
-                                        }
-                                    ],
-                                    "entities": [
-                                        "sensor.guest_bedroom_temperature"
-                                    ],
-                                    "font_size": 60,
-                                    "font_size_header": 12,
-                                    "group": true,
-                                    "hours_to_show": 24,
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "points_per_hour": 0.75,
-                                    "type": "custom:mini-graph-card"
-                                }
+                            "entities": [
+                                "sensor.theater_occupancy",
+                                "sensor.guest_bedroom_occupancy"
                             ],
-                            "type": "horizontal-stack"
+                            "show_icon": true,
+                            "show_name": true,
+                            "show_state": true,
+                            "title": "Occupancy",
+                            "type": "glance"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.google_home_theater",
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "entities": [
@@ -1041,6 +853,19 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "sensor.hass_release"
+                                },
+                                {
+                                    "entity": "sensor.current_version"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "System Status",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -1071,19 +896,6 @@
                                 }
                             ],
                             "type": "horizontal-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.hass_release"
-                                },
-                                {
-                                    "entity": "sensor.current_version"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "System Status",
-                            "type": "entities"
                         },
                         {
                             "entities": [
