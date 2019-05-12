@@ -12,6 +12,7 @@ homeassistant:
   time_zone: America/Edmonton
   #customize must nested within homeassistant entity
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
@@ -61,7 +62,6 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
-#packages: !include_dir_named packages
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml

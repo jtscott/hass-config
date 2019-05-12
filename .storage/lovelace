@@ -68,6 +68,9 @@
                                     },
                                     {
                                         "entity_id": "light.garage*"
+                                    },
+                                    {
+                                        "entity_id": "automation.*"
                                     }
                                 ],
                                 "include": [
@@ -210,13 +213,13 @@
                                     "entity": "cover.garage"
                                 },
                                 {
-                                    "entity": "lock.front_door_lock"
+                                    "entity": "lock.front_door_lock_lock"
                                 },
                                 {
-                                    "entity": "lock.back_door_lock"
+                                    "entity": "lock.lock_back_door_lock"
                                 },
                                 {
-                                    "entity": "lock.garage_door_lock"
+                                    "entity": "lock.lock_garage_door_lock"
                                 }
                             ],
                             "show_header_toggle": false,
