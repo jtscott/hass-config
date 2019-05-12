@@ -122,6 +122,9 @@
                                     },
                                     {
                                         "state": "unlocked"
+                                    },
+                                    {
+                                        "state": "open"
                                     }
                                 ]
                             },
