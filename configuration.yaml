@@ -147,6 +147,3 @@ remote:
 wemo:
   static:
     - !secret wemo_insight_ip
-
-wink:
-  local_control: true
