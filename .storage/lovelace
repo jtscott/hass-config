@@ -904,19 +904,6 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.wink_hub_firmware_state_template"
-                                },
-                                {
-                                    "entity": "sensor.wink_hub_firmware_version"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Wink Hub",
-                            "type": "entities"
-                        },
-                        {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Hub Status",
@@ -940,10 +927,6 @@
                             "type": "custom:monster-card"
                         },
                         {
-                            "title": "Card Versions",
-                            "type": "custom:tracker-card"
-                        },
-                        {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Broken Entities",
@@ -965,6 +948,10 @@
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "title": "Card Versions",
+                            "type": "custom:tracker-card"
                         }
                     ],
                     "icon": "mdi:server",
