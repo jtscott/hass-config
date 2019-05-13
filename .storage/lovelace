@@ -87,23 +87,6 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
                                 "title": "Open",
                                 "type": "entities"
                             },
@@ -151,6 +134,40 @@
                                 "include": [
                                     {
                                         "state": "Occupied"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Unlocked",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "lock.*",
+                                        "state": "unlocked"
                                     }
                                 ]
                             },
