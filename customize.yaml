@@ -257,3 +257,5 @@ binary_sensor.dining_room_window:
   device_class: window
 binary_sensor.office_window:
   device_class: window
+switch.kitchen_light:
+  icon: mdi:light-switch

@@ -263,14 +263,12 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "light.island",
-                                    "toggle": true,
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.dining_room",
-                                    "toggle": true,
-                                    "type": "custom:slider-entity-row"
+                                    "entities": [
+                                        "switch.kitchen_light",
+                                        "light.island",
+                                        "light.dining_room"
+                                    ],
+                                    "type": "entities"
                                 },
                                 {
                                     "entities": [

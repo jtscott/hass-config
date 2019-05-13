@@ -11,6 +11,10 @@ entity_config:
     expose: true
     room: 'Back Door'
     name: 'Back Door Light'
+  switch.kitchen_light:
+    expose: true
+    room: 'Kitchen'
+    name: 'Kitchen Light'
   light.island:
     expose: true
     room: 'Kitchen'

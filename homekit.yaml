@@ -8,6 +8,7 @@ filter:
   include_entities:
     - switch.front_door
     - switch.back_door
+    - switch.kitchen_light
     - switch.theater_outlet_1
     - switch.wemo_outlet_1
     - light.island
