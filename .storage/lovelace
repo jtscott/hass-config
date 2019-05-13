@@ -82,6 +82,7 @@
                                     }
                                 ]
                             },
+                            "show_empty": false,
                             "type": "custom:monster-card"
                         },
                         {
@@ -111,6 +112,7 @@
                                     }
                                 ]
                             },
+                            "show_empty": false,
                             "type": "custom:monster-card"
                         },
                         {
@@ -373,7 +375,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 8,
+                            "line_width": 5,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
@@ -439,7 +441,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 8,
+                            "line_width": 5,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
@@ -559,7 +561,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 8,
+                            "line_width": 5,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
