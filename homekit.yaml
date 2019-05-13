@@ -1,3 +1,4 @@
+auto_start: false
 filter:
   include_domains:
     - light
@@ -5,19 +6,25 @@ filter:
     - switch
     - cover
   include_entities:
-    - light.office
+    - switch.front_door
+    - switch.back_door
+    - switch.theater_outlet_1
+    - switch.wemo_outlet_1
     - light.island
     - light.dining_room
+    - light.office
     - light.theater
     - lock.front_door_lock
     - lock.back_door_lock
     - lock.garage_door_lock
-    - switch.theater_outlet_1
-    - switch.wemo_outlet_1
     - binary_sensor.master_bath_liquid_detected
     - binary_sensor.master_bedroom_window
     - binary_sensor.office_window
     - binary_sensor.dining_room_window
+    - sensor.kitchen_nest_protect_co_status
+    - sensor.kitchen_nest_protect_smoke_status
+    - sensor.dryer_template
+    - sensor.washer_template
     - cover.garage
   exclude_entities:
     - light.garage1

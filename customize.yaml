@@ -251,3 +251,9 @@ switch.front_door:
   icon: mdi:light-switch
 switch.back_door:
   icon: mdi:light-switch
+binary_sensor.master_bedroom_window:
+  device_class: window
+binary_sensor.dining_room_window:
+  device_class: window
+binary_sensor.office_window:
+  device_class: window
