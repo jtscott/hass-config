@@ -3,6 +3,7 @@ inside_lights:
   entities:
     - light.office
     - light.island
+    - switch.kitchen_light
     - light.dining_room
     - light.theater
 
