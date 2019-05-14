@@ -5,3 +5,10 @@ harmony:
    - Watch Plex
    - Watch DVD
    - Power Off
+theater_outlet_1:
+  name: Outlet Mode
+  options:
+   - Manual Mode
+   - Space Heater
+   - Air Freshener
+   - Christmas Tree

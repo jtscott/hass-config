@@ -88,6 +88,23 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
                                 "title": "Open",
                                 "type": "entities"
                             },
@@ -136,40 +153,6 @@
                                 "include": [
                                     {
                                         "state": "Occupied"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Unlocked",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "lock.*",
-                                        "state": "unlocked"
                                     }
                                 ]
                             },
@@ -263,12 +246,14 @@
                         {
                             "cards": [
                                 {
-                                    "entities": [
-                                        "switch.kitchen_light",
-                                        "light.island",
-                                        "light.dining_room"
-                                    ],
-                                    "type": "entities"
+                                    "entity": "light.island",
+                                    "toggle": true,
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.dining_room",
+                                    "toggle": true,
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
                                     "entities": [
@@ -373,7 +358,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 5,
+                            "line_width": 8,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
@@ -439,7 +424,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 5,
+                            "line_width": 8,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
@@ -559,7 +544,7 @@
                             "font_size_header": 12,
                             "hours_to_show": 24,
                             "line_color": "var(--accent-color)",
-                            "line_width": 5,
+                            "line_width": 8,
                             "points_per_hour": 0.75,
                             "show": {
                                 "legend": false
@@ -573,6 +558,9 @@
                                 },
                                 {
                                     "entity": "switch.theater_outlet_1"
+                                },
+                                {
+                                    "entity": "input_select.theater_outlet_1"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -653,6 +641,11 @@
                             "type": "picture-elements"
                         },
                         {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.google_home_theater",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
                             "entities": [
                                 "sensor.theater_occupancy",
                                 "sensor.guest_bedroom_occupancy"
@@ -662,11 +655,6 @@
                             "show_state": true,
                             "title": "Occupancy",
                             "type": "glance"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.google_home_theater",
-                            "type": "custom:mini-media-player"
                         },
                         {
                             "entities": [
