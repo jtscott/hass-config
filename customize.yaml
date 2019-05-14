@@ -259,3 +259,5 @@ binary_sensor.office_window:
   device_class: window
 switch.kitchen_light:
   icon: mdi:light-switch
+input_boolean.guestmode:
+  icon: mdi:account-supervisor

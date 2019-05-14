@@ -1,3 +1,6 @@
 homesitter:
   name: "Home Sitter"
   initial: off
+guestmode:
+  name: "Guest Mode"
+  initial: off

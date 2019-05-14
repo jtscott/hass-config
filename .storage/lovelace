@@ -71,6 +71,9 @@
                                     },
                                     {
                                         "entity_id": "automation.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.climate_*"
                                     }
                                 ],
                                 "include": [
@@ -173,6 +176,9 @@
                                 },
                                 {
                                     "entity": "input_boolean.homesitter"
+                                },
+                                {
+                                    "entity": "input_boolean.guestmode"
                                 }
                             ],
                             "show_header_toggle": false,
