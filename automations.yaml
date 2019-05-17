@@ -2,13 +2,13 @@
   alias: Start HomeKit
   trigger:
   - event_data: {}
-    event_type: zwave.network_ready
-    platform: event
-  - event_data: {}
     event_type: zwave.network_complete
     platform: event
   - event_data: {}
     event_type: zwave.network_complete_some_dead
+    platform: event
+  - event_data: {}
+    event_type: zwave.network_ready
     platform: event
   condition: []
   action:

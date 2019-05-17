@@ -54,6 +54,23 @@
                     "cards": [
                         {
                             "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
                                 "show_header_toggle": true,
                                 "title": "On",
                                 "type": "entities"
@@ -82,23 +99,6 @@
                                     },
                                     {
                                         "state": "Drying"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
                                     }
                                 ]
                             },
@@ -876,6 +876,9 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
+                                },
+                                {
+                                    "entity": "zwave.aeotec_zw090_gen5"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -955,6 +958,12 @@
                                     },
                                     {
                                         "state": "unavailable"
+                                    },
+                                    {
+                                        "state": "none"
+                                    },
+                                    {
+                                        "state": "None"
                                     }
                                 ]
                             },

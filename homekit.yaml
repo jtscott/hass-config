@@ -1,10 +1,5 @@
 auto_start: false
 filter:
-  include_domains:
-    - light
-    - lock
-    - switch
-    - cover
   include_entities:
     - switch.front_door
     - switch.back_door
@@ -18,19 +13,4 @@ filter:
     - lock.front_door_lock
     - lock.back_door_lock
     - lock.garage_door_lock
-    - binary_sensor.master_bath_liquid_detected
-    - binary_sensor.master_bedroom_window
-    - binary_sensor.office_window
-    - binary_sensor.dining_room_window
-    - sensor.kitchen_nest_protect_co_status
-    - sensor.kitchen_nest_protect_smoke_status
-    - sensor.dryer_template
-    - sensor.washer_template
     - cover.garage
-  exclude_entities:
-    - light.garage1
-    - light.garage2
-    - light.garage3
-    - light.garage4
-    - light.garage5
-    - light.garage6

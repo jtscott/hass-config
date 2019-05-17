@@ -4,7 +4,7 @@
 -  platform: template
    sensors:
      battery_dining_room_window:
-       value_template: '{{ state_attr("binary_sensor.dining_room_window","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.dining_room_window_sensor","battery_level")|round }}'
        friendly_name: "Dining Room Window Battery"
        unit_of_measurement: '%'
        device_class: battery
@@ -12,7 +12,7 @@
 -  platform: template
    sensors:
      battery_master_bedroom_window:
-       value_template: '{{ state_attr("binary_sensor.master_bedroom_window","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.master_bedroom_window_sensor","battery_level")|round }}'
        friendly_name: "Master Bedroom Window Battery"
        unit_of_measurement: '%'
        device_class: battery
@@ -20,7 +20,7 @@
 -  platform: template
    sensors:
      battery_office_window:
-       value_template: '{{ state_attr("binary_sensor.office_window","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.office_window_sensor","battery_level")|round }}'
        friendly_name: "Office Window Battery"
        unit_of_measurement: '%'
        device_class: battery
@@ -30,16 +30,8 @@
 ###########################################
 -  platform: template
    sensors:
-     battery_garage_door:
-       value_template: '{{ state_attr("cover.garage_door","battery_level")|round }}'
-       friendly_name: "Garage Door Battery"
-       unit_of_measurement: '%'
-       device_class: battery
-
--  platform: template
-   sensors:
      battery_front_door_lock:
-       value_template: '{{ state_attr("lock.front_door","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.lock_front_door_deadbolt","battery_level")|round }}'
        friendly_name: "Front Door Lock Battery"
        unit_of_measurement: '%'
        device_class: battery 
@@ -47,7 +39,7 @@
 -  platform: template
    sensors:
      battery_back_door_lock:
-       value_template: '{{ state_attr("lock.back_door","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.lock_back_door_deadbolt","battery_level")|round }}'
        friendly_name: "Back Door Lock Battery"
        unit_of_measurement: '%'
        device_class: battery 
@@ -55,7 +47,7 @@
 -  platform: template
    sensors:
      battery_garage_lock:
-       value_template: '{{ state_attr("lock.garage","battery_level")|round }}'
+       value_template: '{{ state_attr("zwave.lock_garage_door_deadbolt","battery_level")|round }}'
        friendly_name: "Garage Door Lock Battery"
        unit_of_measurement: '%'
        device_class: battery 

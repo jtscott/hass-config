@@ -1,18 +1,3 @@
-group.default_view:
-  order: 1
-group.security:
-  icon: mdi:shield-home
-  order: 2
-group.pets:
-  order: 3
-group.media_2:
-  order: 4
-group.weather:
-  order: 5
-group.calgary:
-  order: 6
-group.system:
-  order: 7
 alert.roomba_bin_full:
   order: 1
   icon: mdi:alert
@@ -135,28 +120,19 @@ sensor.tv_schedule:
   icon: mdi:movie
 sensor.uv_rating_template:
   icon: mdi:sunglasses
-sensor.wink_hub_status:
-  friendly_name: Wink Hub 2
-  icon: mdi:dns
-sensor.wink_hub_firmware_state_template:
-  friendly_name: Firmware
-  icon: mdi:update
-sensor.wink_hub_firmware_version:
-  friendly_name: Version
-  icon: mdi:floppy
 switch.livingroomtv:
   icon: mdi:television
 switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
-switch.wemo_outlet_1d:
+switch.wemo_outlet_1:
   friendly_name: Amp
   icon: mdi:boombox
 sensor.master_bedroom_temperature:
   friendly_name: Master Bedroom
 sensor.kitchen_nest_protect_co_status:
-  friendly_name: CO2
+  device_class: co
   icon: mdi:google-circles-extended
 sensor.kitchen_nest_protect_smoke_status:
   friendly_name: Smoke
@@ -225,16 +201,8 @@ light.office:
   icon: mdi:light-switch
 light.kitchen:
   icon: mdi:light-switch
-light.bedroom_lamp:
-  icon: mdi:lamp
 light.garage:
   icon: mdi:garage
-light.front_door_2:
-  icon: mdi:home
-light.back_door:
-  icon: mdi:home
-group.home_alone:
-  friendly_name: Home Alone
 sensor.home_to_downtown:
   icon: mdi:city
 input_select.harmony:

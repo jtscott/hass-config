@@ -39,3 +39,7 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Amplifiers'
+  cover.garage:
+    expose: true
+    room: 'Garage'
+    name: 'Garage Cover'
