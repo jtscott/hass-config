@@ -68,14 +68,8 @@ switch: !include switch.yaml
 zone: !include zone.yaml
 
 ###########################################
-# iFrame
+# Panels
 ###########################################
-panel_iframe:
-  nodered:
-    title: 'Node-RED'
-    url: !secret node_red_url
-    icon: mdi:resistor-nodes
-
 panel_custom:
   - name: zwavegraph2
     sidebar_title: Z-Wave Map
@@ -98,7 +92,7 @@ custom_updater:
 # https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name
 ###########################################
 zwave:
-  usb_path: /dev/zwave
+  usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
     
 ###########################################

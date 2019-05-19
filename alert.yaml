@@ -7,15 +7,6 @@ roomba_bin_full:
   notifiers:
     - pushover
 
-wink_hub_offline:
-  name: "Wink Hub is Offline"
-  entity_id: sensor.wink_hub_status
-  state: 'Offline'
-  repeat: 240
-  can_acknowledge: True
-  notifiers:
-    - pushover
-
 kitchen_nest_protect_offline:
   name: "Kitchen Nest Protect is Offline"
   entity_id: sensor.kitchen_nest_protect_status

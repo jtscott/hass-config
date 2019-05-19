@@ -14,3 +14,13 @@ filter:
     - lock.lock_back_door_lock
     - lock.lock_garage_door_lock
     - cover.garage
+entity_config:
+  lock.lock_front_door_lock:
+    linked_battery_sensor: sensor.battery_front_door_lock
+    low_battery_threshold: 31
+  lock.lock_back_door_lock:
+    linked_battery_sensor: sensor.battery_back_door_lock
+    low_battery_threshold: 31
+  lock.lock_garage_door_lock:
+    linked_battery_sensor: sensor.battery_garage_lock
+    low_battery_threshold: 31
