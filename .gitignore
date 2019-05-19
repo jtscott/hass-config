@@ -1,6 +1,7 @@
 deps/
 local/
 tts/
+node-red/
 www/state_image/
 www/github
 www/*.js
