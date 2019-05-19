@@ -77,6 +77,13 @@ panel_custom:
     sidebar_title: Z-Wave Map
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+
+panel_iframe:
+  cockpit:
+    title: 'Cockpit'
+    url: 'https://192.168.1.15:9090'
+    icon: mdi:monitor-dashboard
+    require_admin: true
     
 ###########################################
 # Custom Updater
