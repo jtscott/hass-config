@@ -19,6 +19,8 @@ frontend:
   javascript_version: latest
 http:
   base_url: !secret base_url
+  ssl_certificate: /ssl/eatsleepbreach.ca.crt
+  ssl_key: /ssl/eatsleepbreach.ca.key
   cors_allowed_origins:
     - !secret base_origin
   use_x_forwarded_for: true
