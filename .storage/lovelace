@@ -224,7 +224,7 @@
                                     "entity": "cover.garage"
                                 },
                                 {
-                                    "entity": "lock.front_door_lock_lock"
+                                    "entity": "lock.lock_front_door_lock"
                                 },
                                 {
                                     "entity": "lock.lock_back_door_lock"
