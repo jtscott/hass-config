@@ -125,9 +125,9 @@ ifttt:
   key: !secret ifttt_api
 
 mqtt:
-    broker: !secret mqtt_host
+    broker: core-mosquitto
     port: 1883
-    username: homeassistant
+    username: hass-client
     password: !secret mqtt_password
     discovery: true
 
