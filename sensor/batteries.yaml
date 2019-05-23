@@ -76,8 +76,24 @@
 ###########################################
 -  platform: template
    sensors:
-     battery_master_bath_liquid:
+     battery_master_bath_leak:
        value_template: '{{ state_attr("zha.waxman_leaksmart_water_sensor_v2","battery_level")|round }}'
        friendly_name: "Master Bath Liquid Sensor Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+-  platform: template
+   sensors:
+     battery_water_heater_leak:
+       value_template: '{{ state_attr("zha.water_heater_leak","battery_level")|round }}'
+       friendly_name: "Water Heater Leak Sensor Battery"
+       unit_of_measurement: '%'
+       device_class: battery
+
+-  platform: template
+   sensors:
+     battery_sump_pump_leak:
+       value_template: '{{ state_attr("zha.sump_pump_leak","battery_level")|round }}'
+       friendly_name: "Sump Pump Leak Sensor Battery"
        unit_of_measurement: '%'
        device_class: battery
