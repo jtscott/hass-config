@@ -98,7 +98,7 @@ zwave:
 zha:
   usb_path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1964304-if00
   radio_type: deconz
-  database_path: zigbee.db
+  database_path: /config/zigbee.db
     
 ###########################################
 # Third Party Platforms
