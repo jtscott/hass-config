@@ -91,6 +91,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.climate_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.range"
                                     }
                                 ],
                                 "include": [
@@ -210,9 +213,6 @@
                                 },
                                 {
                                     "entity": "switch.back_door"
-                                },
-                                {
-                                    "entity": "light.garage"
                                 }
                             ],
                             "title": "Outside Lights",
@@ -252,14 +252,21 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "light.island",
-                                    "toggle": true,
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.dining_room",
-                                    "toggle": true,
-                                    "type": "custom:slider-entity-row"
+                                    "entities": [
+                                        {
+                                            "entity": "switch.kitchen_light"
+                                        },
+                                        {
+                                            "entity": "light.island"
+                                        },
+                                        {
+                                            "entity": "light.dining_room"
+                                        },
+                                        {
+                                            "entity": "switch.range"
+                                        }
+                                    ],
+                                    "type": "entities"
                                 },
                                 {
                                     "entities": [

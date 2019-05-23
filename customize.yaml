@@ -229,3 +229,5 @@ switch.kitchen_light:
   icon: mdi:light-switch
 input_boolean.guestmode:
   icon: mdi:account-supervisor
+switch.range:
+  icon: mdi:stove

@@ -13,6 +13,7 @@ custom_components/
 .storage/person
 .storage/cloud
 .storage/custom_updater.cards
+.storage/zha.storage
 auth*
 core.*
 onboarding
@@ -30,6 +31,9 @@ onboarding
 *.js
 *.state
 *.cards
+*.crt
+*.key
+*.pem
 .HA_VERSION
 .uuid
 entity_registry.yaml

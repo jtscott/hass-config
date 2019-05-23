@@ -19,8 +19,6 @@ frontend:
   javascript_version: latest
 http:
   base_url: !secret base_url
-  ssl_certificate: /ssl/eatsleepbreach.ca.crt
-  ssl_key: /ssl/eatsleepbreach.ca.key
   cors_allowed_origins:
     - !secret base_origin
   use_x_forwarded_for: true
@@ -76,14 +74,7 @@ panel_custom:
   - name: zwavegraph2
     sidebar_title: Z-Wave Map
     sidebar_icon: mdi:access-point-network
-    url_path: zwave
-
-panel_iframe:
-  cockpit:
-    title: 'Cockpit'
-    url: 'https://192.168.1.15:9090'
-    icon: mdi:monitor-dashboard
-    require_admin: true
+    url_path: zwave   
     
 ###########################################
 # Custom Updater
@@ -101,8 +92,13 @@ custom_updater:
 # https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name
 ###########################################
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/serial/by-id/usb-0658_0200-if00
   network_key: !secret zwave_network_key
+
+zha:
+  usb_path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1964304-if00
+  radio_type: deconz
+  database_path: zigbee.db
     
 ###########################################
 # Third Party Platforms
@@ -132,9 +128,9 @@ ifttt:
   key: !secret ifttt_api
 
 mqtt:
-    broker: core-mosquitto
+    broker: !secret mqtt_host
     port: 1883
-    username: hass-client
+    username: homeassistant
     password: !secret mqtt_password
     discovery: true
 
