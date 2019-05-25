@@ -231,3 +231,5 @@ input_boolean.guestmode:
   icon: mdi:account-supervisor
 switch.range:
   icon: mdi:stove
+group.garage_lights:
+  icon: mdi:lightbulb

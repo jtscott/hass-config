@@ -84,7 +84,22 @@
                                         "entity_id": "binary_sensor.*"
                                     },
                                     {
-                                        "entity_id": "light.garage*"
+                                        "entity_id": "light.garage_1"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_2"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_3"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_4"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_5"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_6"
                                     },
                                     {
                                         "entity_id": "automation.*"
@@ -99,6 +114,9 @@
                                 "include": [
                                     {
                                         "state": "on"
+                                    },
+                                    {
+                                        "state": "On"
                                     },
                                     {
                                         "state": "Drying"
@@ -213,6 +231,9 @@
                                 },
                                 {
                                     "entity": "switch.back_door"
+                                },
+                                {
+                                    "entity": "light.garage_lights"
                                 }
                             ],
                             "title": "Outside Lights",
@@ -958,6 +979,12 @@
                                 "exclude": [
                                     {
                                         "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.vacuum_mainfloor_cycle*"
+                                    },
+                                    {
+                                        "entity_id": "media_player.*"
                                     }
                                 ],
                                 "include": [
@@ -975,6 +1002,7 @@
                                     }
                                 ]
                             },
+                            "show_empty": false,
                             "type": "custom:monster-card"
                         },
                         {

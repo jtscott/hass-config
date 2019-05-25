@@ -1,7 +1,0 @@
-googlehome:
-  entities:
-    - media_player.google_home_office
-    - media_player.google_home_master_bedroom
-    - media_player.google_home_kitchen
-    - media_player.google_home_living_room
-    - media_player.google_home_theater

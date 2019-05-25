@@ -10,6 +10,7 @@ filter:
     - light.dining_room
     - light.office
     - light.theater
+    - light.garage_lights
     - lock.lock_front_door_lock
     - lock.lock_back_door_lock
     - lock.lock_garage_door_lock

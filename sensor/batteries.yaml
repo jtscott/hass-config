@@ -77,7 +77,7 @@
 -  platform: template
    sensors:
      battery_master_bath_leak:
-       value_template: '{{ state_attr("zha.waxman_leaksmart_water_sensor_v2","battery_level")|round }}'
+       value_template: '{{ state_attr("zha.master_bath_leak","battery_level")|round }}'
        friendly_name: "Master Bath Liquid Sensor Battery"
        unit_of_measurement: '%'
        device_class: battery

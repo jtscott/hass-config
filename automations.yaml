@@ -13,3 +13,11 @@
   condition: []
   action:
   - service: homekit.start
+- id: '1558708469500'
+  alias: Z-Wave Heal
+  trigger:
+  - at: 00:00:00
+    platform: time
+  condition: []
+  action:
+  - service: zwave.heal_network

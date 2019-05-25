@@ -14,3 +14,11 @@ kitchen_nest_protect_offline:
   repeat: 240
   notifiers:
     - pushover
+    
+water_leak:
+  name: "Water Leak Detected"
+  entity_id: group.leak_sensors
+  state: 'on'
+  repeat: 240
+  notifiers:
+    - pushover
