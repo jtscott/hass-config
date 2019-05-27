@@ -1,7 +1,6 @@
 #!/bin/bash
-pushd `dirname $0` > /dev/null
-SCRIPTPATH=`pwd -P`
-popd > /dev/null
+#set zigbee channel to 25
+sed -i 's/channel=15/channel=25/g' /usr/local/lib/python3.7/site-packages/bellows/zigbee/application.py
 
 #Install JQ 1.5
 if [ ! -f /usr/bin/jq ]; then
@@ -10,9 +9,10 @@ if [ ! -f /usr/bin/jq ]; then
   mv jq-linux64 /usr/bin/jq
 fi
 
-#Fix Chromecast
+#Install Dependencies
+#Chromecast, Homekit, etc.
 apt-get update && apt-get --yes --force-yes upgrade
-apt-get install --yes --force-yes git avahi-daemon avahi-utils libavahi-compat-libdnssd-dev libgmp-dev libmpfr-dev libmpc-dev
+apt-get install --yes --force-yes avahi-daemon avahi-utils libavahi-compat-libdnssd-dev libgmp-dev libmpfr-dev libmpc-dev
 update-rc.d dbus enable
 update-rc.d avahi-daemon enable
 /etc/init.d/dbus start

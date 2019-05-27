@@ -1,0 +1,8 @@
+listen_port: 80
+advertise_ip: !secret advertise_ip
+expose_by_default: false
+entities:
+  switch.theater_outlet_1:
+    name: "Theater Outlet 1"
+  light.theater:
+    name: "Theater Light"

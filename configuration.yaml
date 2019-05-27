@@ -56,6 +56,7 @@ automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
+emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
 homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
@@ -96,10 +97,10 @@ zwave:
   usb_path: /dev/serial/by-id/usb-0658_0200-if00
   network_key: !secret zwave_network_key
 
-zha:
-  usb_path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1964304-if00
-  radio_type: deconz
-  database_path: /config/zigbee.db
+# zha:
+  # usb_path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1964304-if00
+  # radio_type: deconz
+  # database_path: /config/zigbee.db
     
 ###########################################
 # Third Party Platforms
