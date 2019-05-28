@@ -13,6 +13,3 @@ exclude:
     - weblink
     - updater
     - camera
-  entities:
-    - sensor.family_last_changed
-    - sensor.occupancy_last_changed
