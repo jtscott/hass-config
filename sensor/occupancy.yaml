@@ -80,13 +80,3 @@
           {%- else %}
               None
           {%- endif %}
-
-- platform: template
-  sensors:
-    family_last_changed:
-      value_template: "{{ relative_time(states.group.family_devices.last_changed).split(' ')[0] }}"
-
-- platform: template
-  sensors:
-    occupancy_last_changed:
-      value_template: "{{ relative_time(states.group.binary_occupancy.last_changed).split(' ')[0] }}"
