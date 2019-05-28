@@ -4,5 +4,7 @@ expose_by_default: false
 entities:
   switch.theater_outlet_1:
     name: "Theater Outlet 1"
+    hidden: false
   light.theater:
     name: "Theater Light"
+    hidden: false

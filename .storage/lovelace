@@ -50,7 +50,10 @@
             "title": "Home",
             "views": [
                 {
-                    "badges": [],
+                    "badges": [
+                        "device_tracker.jaredsrotary",
+                        "device_tracker.brittanysiphone"
+                    ],
                     "cards": [
                         {
                             "card": {
@@ -264,8 +267,6 @@
                 },
                 {
                     "badges": [
-                        "device_tracker.jaredsrotary",
-                        "device_tracker.brittanysiphone",
                         "sensor.main_floor_temperature",
                         "sensor.main_floor_humidity"
                     ],
@@ -985,6 +986,9 @@
                                     },
                                     {
                                         "entity_id": "media_player.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.dark_sky_*"
                                     }
                                 ],
                                 "include": [
