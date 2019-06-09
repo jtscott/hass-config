@@ -96,9 +96,16 @@ custom_updater:
 zwave:
   usb_path: /dev/serial/by-id/usb-0658_0200-if00
   network_key: !secret zwave_network_key
-    
+
 ###########################################
-# Third Party Platforms
+# Simple Components
+###########################################
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+
+###########################################
+# Third Party Components
 ###########################################
 cast:
   media_player:

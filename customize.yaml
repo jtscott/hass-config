@@ -235,3 +235,5 @@ group.garage_lights:
   icon: mdi:lightbulb
 switch.flux:
   icon: mdi:theme-light-dark
+weather.dark_sky:
+  friendly_name: Calgary

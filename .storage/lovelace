@@ -787,7 +787,7 @@
                                         "day": "var(--primary-color)",
                                         "night": "#40445a"
                                     },
-                                    "entity": "weather.main_floor",
+                                    "entity": "weather.dark_sky",
                                     "type": "custom:simple-weather-card"
                                 },
                                 {
