@@ -233,3 +233,5 @@ switch.range:
   icon: mdi:stove
 group.garage_lights:
   icon: mdi:lightbulb
+switch.flux:
+  icon: mdi:theme-light-dark

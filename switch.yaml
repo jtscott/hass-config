@@ -25,6 +25,10 @@
         service: media_player.turn_off
         entity_id: media_player.my_shield_console
 
+- platform: flux
+  lights:
+    -  light.office
+
 - platform: mqtt
   name: Roomba
   state_topic: 'vacuum/mainfloor/status/cycle'
