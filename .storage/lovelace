@@ -44,6 +44,10 @@
                 },
                 {
                     "type": "module",
+                    "url": "/local/banner-card.js?v=1"
+                },
+                {
+                    "type": "module",
                     "url": "/customcards/github/custom-cards/button-card.js?track=true"
                 }
             ],
@@ -112,6 +116,9 @@
                                     },
                                     {
                                         "entity_id": "switch.range"
+                                    },
+                                    {
+                                        "entity_id": "switch.flux"
                                     }
                                 ],
                                 "include": [
@@ -282,9 +289,6 @@
                                             "entity": "light.island"
                                         },
                                         {
-                                            "entity": "light.dining_room"
-                                        },
-                                        {
                                             "entity": "switch.range"
                                         }
                                     ],
@@ -293,14 +297,37 @@
                                 {
                                     "entities": [
                                         "sensor.kitchen_nest_protect_smoke_status",
-                                        "sensor.kitchen_nest_protect_co_status",
-                                        "sensor.dining_room_window_template"
+                                        "sensor.kitchen_nest_protect_co_status"
                                     ],
                                     "type": "glance"
                                 }
                             ],
                             "title": "Kitchen",
                             "type": "custom:vertical-stack-in-card"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.dining_room"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.dining_room_window_template"
+                                    ],
+                                    "type": "glance"
+                                }
+                            ],
+                            "title": "Dining Room",
+                            "type": "custom:vertical-stack-in-card"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
                         },
                         {
                             "elements": [
@@ -356,10 +383,6 @@
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/roomba980.png",
                             "type": "picture-elements"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "custom:simple-thermostat"
                         },
                         {
                             "animate": true,
@@ -473,6 +496,9 @@
                                     "entities": [
                                         {
                                             "entity": "light.office"
+                                        },
+                                        {
+                                            "entity": "switch.flux"
                                         }
                                     ],
                                     "type": "entities"
