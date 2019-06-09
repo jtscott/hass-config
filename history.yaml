@@ -5,6 +5,7 @@ include:
     - cover
     - light
     - binary_sensor
+    - weather
 exclude:
   domains:
     - weblink

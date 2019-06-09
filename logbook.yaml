@@ -4,6 +4,7 @@ include:
     - lock
     - cover
     - light
+    - weather
 exclude:
   domains:
     - weblink
