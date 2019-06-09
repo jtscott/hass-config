@@ -43,7 +43,6 @@ outside_lights:
   entities:
     - switch.front_door
     - switch.back_door
-    - light.garage_lights
 
 ###########################################
 # Locks
