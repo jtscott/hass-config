@@ -21,3 +21,11 @@
   condition: []
   action:
   - service: zwave.heal_network
+- id: '1559083319100'
+  alias: Z-Wave Test Network
+  trigger:
+  - at: '12:00'
+    platform: time
+  condition: []
+  action:
+  - service: zwave.test_network
