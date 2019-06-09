@@ -96,11 +96,6 @@ custom_updater:
 zwave:
   usb_path: /dev/serial/by-id/usb-0658_0200-if00
   network_key: !secret zwave_network_key
-
-# zha:
-  # usb_path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1964304-if00
-  # radio_type: deconz
-  # database_path: /config/zigbee.db
     
 ###########################################
 # Third Party Platforms
