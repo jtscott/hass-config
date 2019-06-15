@@ -1034,10 +1034,6 @@
                             },
                             "show_empty": false,
                             "type": "custom:monster-card"
-                        },
-                        {
-                            "title": "Card Versions",
-                            "type": "custom:tracker-card"
                         }
                     ],
                     "icon": "mdi:server",

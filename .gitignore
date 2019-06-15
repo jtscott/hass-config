@@ -14,6 +14,7 @@ custom_components/
 .storage/cloud
 .storage/custom_updater.cards
 .storage/zha.storage
+.storage/hacs
 auth*
 core.*
 onboarding
