@@ -3,6 +3,8 @@
 ###########################################
 - platform: version
 
+- platform: authenticated
+
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
   username: !secret email_account
