@@ -49,6 +49,10 @@
                 {
                     "type": "module",
                     "url": "/customcards/github/custom-cards/button-card.js?track=true"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.2"
                 }
             ],
             "title": "Home",
@@ -334,11 +338,11 @@
                                 {
                                     "service": "homeassistant.toggle",
                                     "service_data": {
-                                        "entity_id": "switch.roomba"
+                                        "entity_id": "input_boolean.vacuum_manual"
                                     },
                                     "style": {
                                         "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": 0,
+                                        "bottom": "1px",
                                         "font-weight": "bold",
                                         "left": 0,
                                         "padding": "16x 4px 16px 16px",
@@ -350,9 +354,9 @@
                                     "type": "service-button"
                                 },
                                 {
-                                    "entity": "switch.roomba",
+                                    "entity": "input_boolean.vacuum_manual",
                                     "style": {
-                                        "left": "95%",
+                                        "left": "88%",
                                         "top": "88%"
                                     },
                                     "tap_action": {
@@ -365,7 +369,7 @@
                                     "style": {
                                         "bottom": "0px",
                                         "font-weight": "bold",
-                                        "right": "16%",
+                                        "right": "75%",
                                         "transform": "initial"
                                     },
                                     "type": "state-label"
@@ -375,7 +379,17 @@
                                     "style": {
                                         "bottom": "0px",
                                         "font-weight": "bold",
-                                        "right": "7%",
+                                        "right": "14%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.vacuum_mainfloor_batpct",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "1%",
                                         "transform": "initial"
                                     },
                                     "type": "state-label"
@@ -731,6 +745,10 @@
                             "show_name": true,
                             "title": "Utilities",
                             "type": "glance"
+                        },
+                        {
+                            "entity": "sensor.sonarr_upcoming_media",
+                            "type": "custom:upcoming-media-card"
                         }
                     ],
                     "icon": "mdi:alpha-b-circle",
@@ -935,6 +953,9 @@
                                 },
                                 {
                                     "entity": "zwave.aeotec_zw090_gen5"
+                                },
+                                {
+                                    "entity": "sensor.last_successful_authentication"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1015,6 +1036,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.dark_sky_*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.hacs"
                                     }
                                 ],
                                 "include": [
