@@ -237,3 +237,9 @@ switch.flux:
   icon: mdi:theme-light-dark
 weather.dark_sky:
   friendly_name: Calgary
+sensor.last_successful_authentication:
+  friendly_name: Last Authenticated IP
+  icon: mdi:switch
+sensor.last_successful_authentication_hostname:
+  friendly_name: Last Authenticated Host
+  icon: mdi:server

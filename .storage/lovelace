@@ -956,6 +956,9 @@
                                 },
                                 {
                                     "entity": "sensor.last_successful_authentication"
+                                },
+                                {
+                                    "entity": "sensor.last_successful_authentication_hostname"
                                 }
                             ],
                             "show_header_toggle": false,
