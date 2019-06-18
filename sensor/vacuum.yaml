@@ -35,6 +35,8 @@
       value_template: >-
         {%- if is_state('sensor.vacuum_mainfloor_phase', 'charge') %}
             Docked
+        {%- elif is_state('sensor.vacuum_mainfloor_phase', 'hmUsrDock') %}
+            Docking
         {%- elif is_state('sensor.vacuum_mainfloor_cycle', 'clean') %}
             Cleaning
         {%- else %}
