@@ -356,7 +356,7 @@
                                 {
                                     "entity": "input_boolean.vacuum_manual",
                                     "style": {
-                                        "left": "88%",
+                                        "left": "86%",
                                         "top": "88%"
                                     },
                                     "tap_action": {
@@ -379,7 +379,7 @@
                                     "style": {
                                         "bottom": "0px",
                                         "font-weight": "bold",
-                                        "right": "14%",
+                                        "right": "16%",
                                         "transform": "initial"
                                     },
                                     "type": "state-label"
