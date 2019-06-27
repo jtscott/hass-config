@@ -27,8 +27,6 @@
       value_template: '{{ states.sun.sun.attributes.elevation }}'
       unit_of_measurement: 'degrees'
 
-- platform: moon
-
 - platform: season
   type: astronomical
 

@@ -110,6 +110,8 @@ zwave:
 weather:
   - platform: darksky
     api_key: !secret darksky_api
+  - platform: environment_canada
+    station: !secret ec_station_id
 
 ###########################################
 # Third Party Components

@@ -6,6 +6,7 @@ www/state_image/
 www/github
 www/*.js
 www/guestwifi.png
+www/community/
 custom_components/
 .cloud/
 .storage/tmp*

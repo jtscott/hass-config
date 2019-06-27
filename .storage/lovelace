@@ -871,12 +871,21 @@
                         },
                         {
                             "entities": [
-                                "sensor.day_night",
-                                "sensor.solar_angle",
-                                "sensor.sunrise",
-                                "sensor.sunset",
-                                "sensor.moon",
-                                "sensor.season_template"
+                                {
+                                    "entity": "sensor.day_night"
+                                },
+                                {
+                                    "entity": "sensor.solar_angle"
+                                },
+                                {
+                                    "entity": "sensor.sunrise"
+                                },
+                                {
+                                    "entity": "sensor.sunset"
+                                },
+                                {
+                                    "entity": "sensor.season_template"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Sun & Moon",
