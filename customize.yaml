@@ -209,8 +209,6 @@ input_select.harmony:
   friendly_name: Harmony Activity
 switch.theater_outlet_1:
   icon: mdi:power-socket-us
-input_boolean.vacuum_manual:
-  icon: mdi:robot-vacuum
 switch.guest_wifi:
   icon: mdi:wifi
 light.island:

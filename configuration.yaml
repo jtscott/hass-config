@@ -109,9 +109,12 @@ zwave:
 ###########################################
 mqtt:
     broker: !secret mqtt_host
-    port: 1883
+    port: 8883
     username: homeassistant
     password: !secret mqtt_password
+    certificate: !secret ssl_ca
+    tls_insecure: true
+    tls_version: auto
     discovery: true
 
 ###########################################
