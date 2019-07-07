@@ -149,7 +149,7 @@ sensor.master_bedroom_occupancy:
   icon: mdi:bed-empty
 script.1523136244144:
   icon: mdi:bone
-vacuum.roomba:
+input_boolean.vacuum_manual:
   icon: mdi:robot-vacuum
 switch.security_cameras:
   icon: mdi:cctv

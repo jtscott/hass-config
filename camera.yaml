@@ -24,3 +24,6 @@
 - platform: generic
   still_image_url: !secret front_door_camera_snapshot
   name: 'Front Door'
+- platform: generic
+  still_image_url: !secret back_door_camera_snapshot
+  name: 'Back Door'

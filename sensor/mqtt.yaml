@@ -2,3 +2,13 @@
   name: "Vacuum Mainfloor Cycle"
   state_topic: "vacuum/mainfloor/status/cycle"
   force_update: true
+
+- platform: mqtt
+  name: "Front Door Detection"
+  state_topic: "image_processing/front_door/detection"
+  force_update: true
+
+- platform: mqtt
+  name: "Back Door Detection"
+  state_topic: "image_processing/back_door/detection"
+  force_update: true

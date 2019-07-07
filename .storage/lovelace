@@ -1,6 +1,12 @@
 {
     "data": {
         "config": {
+            "cch": {
+                "clock_date": true,
+                "options": "clock",
+                "swipe": true,
+                "swipe_animate": "fade"
+            },
             "resources": [
                 {
                     "type": "js",
@@ -53,6 +59,10 @@
                 {
                     "type": "js",
                     "url": "/local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.2"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
                 }
             ],
             "title": "Home",
@@ -271,6 +281,62 @@
                             "show_header_toggle": false,
                             "title": "Doors",
                             "type": "entities"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.front_door",
+                                    "camera_view": "live",
+                                    "style": {
+                                        "heigth": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "sensor.front_door_detection",
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "0%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "/local/camerablank.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.back_door",
+                                    "camera_view": "live",
+                                    "style": {
+                                        "heigth": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "sensor.back_door_detection",
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "0%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "/local/camerablank.png",
+                            "type": "picture-elements"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -745,10 +811,6 @@
                             "show_name": true,
                             "title": "Utilities",
                             "type": "glance"
-                        },
-                        {
-                            "entity": "sensor.sonarr_upcoming_media",
-                            "type": "custom:upcoming-media-card"
                         }
                     ],
                     "icon": "mdi:alpha-b-circle",
@@ -1051,6 +1113,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.hacs"
+                                    },
+                                    {
+                                        "entity_id": "image_processing.*"
                                     }
                                 ],
                                 "include": [

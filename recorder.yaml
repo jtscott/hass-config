@@ -9,6 +9,7 @@ include:
     - sensor
     - binary_sensor
     - weather
+    - image_processing
 exclude:
   domains:
     - weblink

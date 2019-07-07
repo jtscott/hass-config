@@ -105,7 +105,30 @@ zwave:
   network_key: !secret zwave_network_key
 
 ###########################################
-# Simple Components
+# MQTT
+###########################################
+mqtt:
+    broker: !secret mqtt_host
+    port: 1883
+    username: homeassistant
+    password: !secret mqtt_password
+    discovery: true
+
+###########################################
+# Image Processing
+###########################################
+image_processing:
+  - platform: amazon_rekognition
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+    region_name: us-west-2
+    target: Person
+    source:
+      - entity_id: camera.front_door
+      - entity_id: camera.back_door
+
+###########################################
+# Weather
 ###########################################
 weather:
   - platform: darksky
@@ -139,13 +162,6 @@ google_assistant: !include google_assistant.yaml
 
 ifttt:
   key: !secret ifttt_api
-
-mqtt:
-    broker: !secret mqtt_host
-    port: 1883
-    username: homeassistant
-    password: !secret mqtt_password
-    discovery: true
 
 nest:
   client_id: !secret nest_client_id

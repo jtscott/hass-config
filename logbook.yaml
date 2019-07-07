@@ -5,6 +5,7 @@ include:
     - cover
     - light
     - weather
+    - image_processing
 exclude:
   domains:
     - weblink

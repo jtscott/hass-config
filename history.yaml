@@ -6,6 +6,7 @@ include:
     - light
     - binary_sensor
     - weather
+    - image_processing
 exclude:
   domains:
     - weblink
