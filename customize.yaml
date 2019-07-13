@@ -157,6 +157,7 @@ light.dining_room:
   icon: mdi:light-switch
 light.theater:
   icon: mdi:light-switch
+  friendly_name: Theater
 input_boolean.washer_power_state:
   icon: mdi:washing-machine
 input_boolean.dryer_power_state:
@@ -241,3 +242,5 @@ sensor.last_successful_authentication:
 sensor.last_successful_authentication_hostname:
   friendly_name: Last Authenticated Host
   icon: mdi:server
+input_select.camera_alerts:
+  icon: mdi:cctv

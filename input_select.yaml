@@ -5,6 +5,7 @@ harmony:
    - Watch Plex
    - Watch DVD
    - Power Off
+
 theater_outlet_1:
   name: Outlet Mode
   options:
@@ -12,3 +13,11 @@ theater_outlet_1:
    - Space Heater
    - Air Freshener
    - Christmas Tree
+   
+camera_alerts:
+  name: Camera Alerts
+  options:
+  - Enabled
+  - Front Door
+  - Back Door
+  - Disabled

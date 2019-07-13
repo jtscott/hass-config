@@ -6,6 +6,7 @@ include:
     - light
     - weather
     - image_processing
+    - input_select
 exclude:
   domains:
     - weblink
