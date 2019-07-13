@@ -2,14 +2,13 @@
   alias: Fido
   sequence:
   - data:
-      entity_id: script.1523136987222
-    service: script.toggle
+      volume_level: 1
+    service: media_player.volume_set
   - data:
-      entity_id: media_player.everywhere
       media_content_id: https://home.eatsleepbreach.ca/local/bullmastiff.mp3
       media_content_type: audio/mp4
     service: media_player.play_media
-  - delay: 00:00:30
+  - delay: '120'
   - data:
-      entity_id: script.1522520324671
-    service: script.toggle
+      volume_level: 0.35
+    service: media_player.volume_set
