@@ -1,0 +1,1077 @@
+[
+    {
+        "id": "56887d81.6c481c",
+        "type": "pushover api",
+        "z": "bf9843f0.26d178",
+        "keys": "",
+        "title": "",
+        "name": "Pushover",
+        "x": 1875,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1c73ac3e.502164",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Person",
+        "property": "data.attributes.Person",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1264,
+        "y": 161,
+        "wires": [
+            [
+                "a42674e4.3e421"
+            ]
+        ]
+    },
+    {
+        "id": "72b8d47.37b9bac",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Attribute",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "data.attributes",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1264,
+        "y": 130,
+        "wires": [
+            [
+                "d1a46de1.96c4b8"
+            ]
+        ]
+    },
+    {
+        "id": "d1a46de1.96c4b8",
+        "type": "function",
+        "z": "bf9843f0.26d178",
+        "name": "Determination",
+        "func": "var value = Object.keys(msg.payload)[0];\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1423,
+        "y": 130,
+        "wires": [
+            [
+                "9c53085b.a8ef4"
+            ]
+        ]
+    },
+    {
+        "id": "a7fe7cc5.54d808",
+        "type": "mqtt out",
+        "z": "bf9843f0.26d178",
+        "name": "",
+        "topic": "image_processing/front_door/detection",
+        "qos": "",
+        "retain": "true",
+        "broker": "4f82c7ab.f12748",
+        "x": 1829,
+        "y": 105,
+        "wires": []
+    },
+    {
+        "id": "e76cc71a.2fb9a",
+        "type": "mqtt out",
+        "z": "bf9843f0.26d178",
+        "name": "",
+        "topic": "image_processing/back_door/detection",
+        "qos": "",
+        "retain": "true",
+        "broker": "4f82c7ab.f12748",
+        "x": 1829,
+        "y": 146,
+        "wires": []
+    },
+    {
+        "id": "ad668a39.28996",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Human",
+        "property": "data.attributes.Human",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1264,
+        "y": 191,
+        "wires": [
+            [
+                "a42674e4.3e421"
+            ]
+        ]
+    },
+    {
+        "id": "301b3923.732886",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "minute",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 251,
+        "y": 180,
+        "wires": [
+            [
+                "e6fcc217.d1d6c"
+            ]
+        ]
+    },
+    {
+        "id": "e6fcc217.d1d6c",
+        "type": "api-call-service",
+        "z": "bf9843f0.26d178",
+        "name": "Scan - Front Door",
+        "server": "6b0bab18.6e88cc",
+        "service_domain": "image_processing",
+        "service": "scan",
+        "data": "{\"entity_id\":\"image_processing.rekognition_person_front_door\"}",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "1ebbea44.109ed6"
+            ]
+        ]
+    },
+    {
+        "id": "122f3b96.90efcc",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "minute",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 251,
+        "y": 135,
+        "wires": [
+            [
+                "b7d1708c.1d2378"
+            ]
+        ]
+    },
+    {
+        "id": "b7d1708c.1d2378",
+        "type": "api-call-service",
+        "z": "bf9843f0.26d178",
+        "name": "Scan - Back Door",
+        "server": "6b0bab18.6e88cc",
+        "service_domain": "image_processing",
+        "service": "scan",
+        "data": "{\"entity_id\":\"image_processing.rekognition_person_back_door\"}",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 420,
+        "y": 135,
+        "wires": [
+            [
+                "26907065.b6df2"
+            ]
+        ]
+    },
+    {
+        "id": "ad4d27e5.7abe48",
+        "type": "http in",
+        "z": "bf9843f0.26d178",
+        "name": "Front Door",
+        "url": "kios/motion/front_door",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 111,
+        "y": 180,
+        "wires": [
+            [
+                "301b3923.732886"
+            ]
+        ]
+    },
+    {
+        "id": "3949ef00.1f158a",
+        "type": "http in",
+        "z": "bf9843f0.26d178",
+        "name": "Back Door",
+        "url": "kios/motion/back_door",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 111,
+        "y": 135,
+        "wires": [
+            [
+                "122f3b96.90efcc"
+            ]
+        ]
+    },
+    {
+        "id": "184e4ecf.ee3769",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Set Topic, Image, Count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Back Door",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "image",
+                "pt": "msg",
+                "to": "http://192.168.2.80/snap.jpeg",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "count",
+                "pt": "msg",
+                "to": "data.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 837,
+        "y": 135,
+        "wires": [
+            [
+                "850fb346.13d17"
+            ]
+        ]
+    },
+    {
+        "id": "5d515a1b.63071c",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Set Topic, Image, Count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Front Door",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "image",
+                "pt": "msg",
+                "to": "http://192.168.2.81/snap.jpeg",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "count",
+                "pt": "msg",
+                "to": "data.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 838,
+        "y": 181,
+        "wires": [
+            [
+                "17b8f94c.544d57"
+            ]
+        ]
+    },
+    {
+        "id": "9c53085b.a8ef4",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Camera",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Front Door",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Back Door",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1578,
+        "y": 130,
+        "wires": [
+            [
+                "a7fe7cc5.54d808"
+            ],
+            [
+                "e76cc71a.2fb9a"
+            ]
+        ]
+    },
+    {
+        "id": "2e2cc7f3.a45",
+        "type": "comment",
+        "z": "bf9843f0.26d178",
+        "name": "People Detection",
+        "info": "",
+        "x": 121,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "7f0ac865.2c851",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Fireman",
+        "property": "data.attributes.Fireman",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1264,
+        "y": 221,
+        "wires": [
+            [
+                "9012a3e9.95bd38"
+            ]
+        ]
+    },
+    {
+        "id": "51a87f8f.c5e99",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Police",
+        "property": "data.attributes.Police",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1274,
+        "y": 251,
+        "wires": [
+            [
+                "9012a3e9.95bd38"
+            ]
+        ]
+    },
+    {
+        "id": "e64da3f4.e3ae28",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Officer",
+        "property": "data.attributes.Officer",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1274,
+        "y": 282,
+        "wires": [
+            [
+                "9012a3e9.95bd38"
+            ]
+        ]
+    },
+    {
+        "id": "daba1216.07d9b8",
+        "type": "function",
+        "z": "bf9843f0.26d178",
+        "name": "Payload",
+        "func": "msg.payload = msg.count+\" \"+msg.detection+\" Detected\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1734,
+        "y": 299,
+        "wires": [
+            [
+                "56887d81.6c481c"
+            ]
+        ]
+    },
+    {
+        "id": "ee905e8e.83931",
+        "type": "inject",
+        "z": "bf9843f0.26d178",
+        "name": "Debug",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 286,
+        "y": 90,
+        "wires": [
+            [
+                "b7d1708c.1d2378",
+                "e6fcc217.d1d6c"
+            ]
+        ]
+    },
+    {
+        "id": "26907065.b6df2",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "State: Back Door",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "image_processing.rekognition_person_back_door",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 619,
+        "y": 135,
+        "wires": [
+            [
+                "184e4ecf.ee3769"
+            ]
+        ]
+    },
+    {
+        "id": "1ebbea44.109ed6",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "State: Front Door",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "image_processing.rekognition_person_front_door",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 619,
+        "y": 180,
+        "wires": [
+            [
+                "5d515a1b.63071c"
+            ]
+        ]
+    },
+    {
+        "id": "c1f9d14e.1a664",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Detection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "detection",
+                "pt": "msg",
+                "to": "Person",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1541,
+        "y": 175,
+        "wires": [
+            [
+                "daba1216.07d9b8",
+                "88252923.208658"
+            ]
+        ]
+    },
+    {
+        "id": "2892fe1.4d5ec02",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Detection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "detection",
+                "pt": "msg",
+                "to": "Emergency Services",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1552,
+        "y": 250,
+        "wires": [
+            [
+                "daba1216.07d9b8"
+            ]
+        ]
+    },
+    {
+        "id": "a42674e4.3e421",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 1403,
+        "y": 175,
+        "wires": [
+            [
+                "c1f9d14e.1a664"
+            ]
+        ]
+    },
+    {
+        "id": "9012a3e9.95bd38",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 1414,
+        "y": 250,
+        "wires": [
+            [
+                "2892fe1.4d5ec02"
+            ]
+        ]
+    },
+    {
+        "id": "984266e2.90499",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Bird",
+        "property": "data.attributes.Bird",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 312,
+        "wires": [
+            [
+                "25184a05.0254a6"
+            ]
+        ]
+    },
+    {
+        "id": "34d438eb.7b45b8",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Cat",
+        "property": "data.attributes.Cat",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 343,
+        "wires": [
+            [
+                "25184a05.0254a6"
+            ]
+        ]
+    },
+    {
+        "id": "afef44b.7c30db8",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Dog",
+        "property": "data.attributes.Dog",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 374,
+        "wires": [
+            [
+                "25184a05.0254a6"
+            ]
+        ]
+    },
+    {
+        "id": "596d77b7.6a5f68",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Animal",
+        "property": "data.attributes.Animal",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 405,
+        "wires": [
+            [
+                "25184a05.0254a6"
+            ]
+        ]
+    },
+    {
+        "id": "25184a05.0254a6",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 1416,
+        "y": 356,
+        "wires": [
+            [
+                "a6e5fc05.0b7cc"
+            ]
+        ]
+    },
+    {
+        "id": "a6e5fc05.0b7cc",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Detection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "detection",
+                "pt": "msg",
+                "to": "Animal",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1554,
+        "y": 356,
+        "wires": [
+            [
+                "daba1216.07d9b8"
+            ]
+        ]
+    },
+    {
+        "id": "84f8eb22.453c",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Bug",
+        "property": "data.attributes.Bug",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 437,
+        "wires": [
+            [
+                "cf1471da.0b61b"
+            ]
+        ]
+    },
+    {
+        "id": "e47cfb02.469678",
+        "type": "switch",
+        "z": "bf9843f0.26d178",
+        "name": "Insect",
+        "property": "data.attributes.Insect",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1276,
+        "y": 469,
+        "wires": [
+            [
+                "cf1471da.0b61b"
+            ]
+        ]
+    },
+    {
+        "id": "cf1471da.0b61b",
+        "type": "delay",
+        "z": "bf9843f0.26d178",
+        "name": "Rate Limit",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "5",
+        "randomLast": "0",
+        "randomUnits": "minutes",
+        "drop": true,
+        "x": 1414,
+        "y": 451,
+        "wires": [
+            [
+                "6937a7e7.caade8"
+            ]
+        ]
+    },
+    {
+        "id": "6937a7e7.caade8",
+        "type": "change",
+        "z": "bf9843f0.26d178",
+        "name": "Detection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "detection",
+                "pt": "msg",
+                "to": "Insect",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1552,
+        "y": 451,
+        "wires": [
+            [
+                "daba1216.07d9b8"
+            ]
+        ]
+    },
+    {
+        "id": "850fb346.13d17",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "Enabled?",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "^(Back Door|Enabled)$",
+        "halt_if_type": "re",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.camera_alerts",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "",
+        "override_data": "none",
+        "blockInputOverrides": false,
+        "x": 1027,
+        "y": 136,
+        "wires": [
+            [
+                "72b8d47.37b9bac",
+                "afef44b.7c30db8",
+                "34d438eb.7b45b8",
+                "984266e2.90499",
+                "e64da3f4.e3ae28",
+                "51a87f8f.c5e99",
+                "7f0ac865.2c851",
+                "ad668a39.28996",
+                "1c73ac3e.502164",
+                "596d77b7.6a5f68",
+                "84f8eb22.453c",
+                "e47cfb02.469678"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "17b8f94c.544d57",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "Enabled?",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "^(Front Door|Enabled)$",
+        "halt_if_type": "re",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.camera_alerts",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "",
+        "override_data": "none",
+        "blockInputOverrides": false,
+        "x": 1027,
+        "y": 182,
+        "wires": [
+            [
+                "72b8d47.37b9bac",
+                "1c73ac3e.502164",
+                "ad668a39.28996",
+                "7f0ac865.2c851",
+                "51a87f8f.c5e99",
+                "e64da3f4.e3ae28",
+                "984266e2.90499",
+                "34d438eb.7b45b8",
+                "afef44b.7c30db8",
+                "596d77b7.6a5f68",
+                "84f8eb22.453c",
+                "e47cfb02.469678"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1c255e83.6a5641",
+        "type": "api-call-service",
+        "z": "bf9843f0.26d178",
+        "name": "Get em Fido",
+        "server": "6b0bab18.6e88cc",
+        "service_domain": "script",
+        "service": "1523136244144",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 2174,
+        "y": 259,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88252923.208658",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "Away?",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "not_home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "group.family_devices",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "",
+        "override_data": "none",
+        "blockInputOverrides": false,
+        "x": 1723,
+        "y": 259,
+        "wires": [
+            [
+                "765699c7.a1ebe"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "adf7e093.0cb398",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "Guest Mode",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.guestmode",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "",
+        "override_data": "none",
+        "blockInputOverrides": false,
+        "x": 2017,
+        "y": 259,
+        "wires": [
+            [
+                "1c255e83.6a5641"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "765699c7.a1ebe",
+        "type": "api-current-state",
+        "z": "bf9843f0.26d178",
+        "name": "Unoccupied?",
+        "server": "6b0bab18.6e88cc",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "group.binary_occupancy",
+        "state_type": "str",
+        "state_location": "",        
+        "override_payload": "none",
+        "entity_location": "",
+        "override_data": "none",
+        "blockInputOverrides": false,
+        "x": 1859,
+        "y": 259,
+        "wires": [
+            [
+                "adf7e093.0cb398"
+            ],
+            []
+        ]
+    }
+]
