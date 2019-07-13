@@ -4,6 +4,7 @@
 - platform: version
 
 - platform: authenticated
+  enable_notification: false
 
 - platform: template
   sensors:
