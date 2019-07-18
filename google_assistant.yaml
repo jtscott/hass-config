@@ -39,11 +39,15 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Amplifiers'
+  switch.basement_stairs:
+    expose: true
+    room: 'Basement'
+    name: 'Stairs'
   cover.garage:
     expose: true
     room: 'Garage'
     name: 'Garage Cover'
-  light.garage_lights:
+  switch.garage_exterior_lights:
     expose: true
     room: 'Garage'
     name: 'Garage Lights'

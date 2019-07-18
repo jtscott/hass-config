@@ -29,6 +29,14 @@
                     "url": "/local/vertical-stack-in-card.js?v=0.1.2"
                 },
                 {
+                    "type": "js",
+                    "url": "/local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.2"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
+                },
+                {
                     "type": "module",
                     "url": "/local/mini-media-player-bundle.js?v=1.0.4"
                 },
@@ -55,10 +63,6 @@
                 {
                     "type": "module",
                     "url": "/customcards/github/custom-cards/button-card.js?track=true"
-                },
-                {
-                    "type": "js",
-                    "url": "/local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.2"
                 },
                 {
                     "type": "module",
@@ -133,6 +137,12 @@
                                     },
                                     {
                                         "entity_id": "switch.flux"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.*"
+                                    },
+                                    {
+                                        "entity_id": "switch.garage_cover_outlet_*"
                                     }
                                 ],
                                 "include": [
@@ -224,6 +234,9 @@
                                 },
                                 {
                                     "entity": "light.garage_lights"
+                                },
+                                {
+                                    "entity": "switch.garage_exterior_lights"
                                 }
                             ],
                             "title": "Outside Lights",
@@ -251,16 +264,28 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "cover.garage"
+                                    "entities": [
+                                        "sensor.front_door_report"
+                                    ],
+                                    "head": "lock.front_door_lock",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "lock.lock_front_door_lock"
+                                    "entities": [
+                                        "sensor.back_door_report"
+                                    ],
+                                    "head": "lock.back_door_lock",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "lock.lock_back_door_lock"
-                                },
-                                {
-                                    "entity": "lock.lock_garage_door_lock"
+                                    "entities": [
+                                        "sensor.garage_door_report"
+                                    ],
+                                    "group_config": {
+                                        "secondary_info": "last-changed"
+                                    },
+                                    "head": "lock.garage_door_lock",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -340,6 +365,21 @@
                             ],
                             "image": "/local/camerablank.png",
                             "type": "picture-elements"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "cover.garage"
+                                },
+                                {
+                                    "entity": "switch.garage_cover_outlet_1"
+                                },
+                                {
+                                    "entity": "switch.garage_cover_outlet_2"
+                                }
+                            ],
+                            "title": "Garage",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -693,18 +733,17 @@
                         },
                         {
                             "entities": [
+                                "switch.basement_stairs",
+                                "light.theater",
                                 {
-                                    "entity": "light.theater"
-                                },
-                                {
-                                    "entity": "switch.theater_outlet_1"
-                                },
-                                {
-                                    "entity": "input_select.theater_outlet_1"
+                                    "entities": [
+                                        "input_select.theater_outlet_1"
+                                    ],
+                                    "head": "switch.theater_outlet_1",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
-                            "show_header_toggle": true,
-                            "title": "Theater",
+                            "title": "Basement",
                             "type": "entities"
                         },
                         {
@@ -1114,6 +1153,9 @@
                                     },
                                     {
                                         "entity_id": "image_processing.*"
+                                    },
+                                    {
+                                        "entity_id": "input_text.*"
                                     }
                                 ],
                                 "include": [
@@ -1138,6 +1180,586 @@
                     "icon": "mdi:server",
                     "path": "system",
                     "title": "System"
+                },
+                {
+                    "badges": [],
+                    "badges[]": null,
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 1\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_1"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_1"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_1"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_1"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_1"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_1"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_1"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_1"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_1"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_1"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_1",
+                                        "input_datetime.sunstart_date_1",
+                                        "input_datetime.sunend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_1",
+                                        "input_datetime.monstart_date_1",
+                                        "input_datetime.monend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_1",
+                                        "input_datetime.tuestart_date_1",
+                                        "input_datetime.tueend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_1",
+                                        "input_datetime.wedstart_date_1",
+                                        "input_datetime.wedend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_1",
+                                        "input_datetime.thustart_date_1",
+                                        "input_datetime.thuend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_1",
+                                        "input_datetime.fristart_date_1",
+                                        "input_datetime.friend_date_1",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_1",
+                                        "input_datetime.satstart_date_1",
+                                        "input_datetime.satend_date_1"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 2\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_2"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_2"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_2"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_2"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_2"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_2"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_2"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_2"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_2"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_2"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_2",
+                                        "input_datetime.sunstart_date_2",
+                                        "input_datetime.sunend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_2",
+                                        "input_datetime.monstart_date_2",
+                                        "input_datetime.monend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_2",
+                                        "input_datetime.tuestart_date_2",
+                                        "input_datetime.tueend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_2",
+                                        "input_datetime.wedstart_date_2",
+                                        "input_datetime.wedend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_2",
+                                        "input_datetime.thustart_date_2",
+                                        "input_datetime.thuend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_2",
+                                        "input_datetime.fristart_date_2",
+                                        "input_datetime.friend_date_2",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_2",
+                                        "input_datetime.satstart_date_2",
+                                        "input_datetime.satend_date_2"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 3\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_3"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_3"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_3"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_3"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_3"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_3"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_3"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_3"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_3"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_3"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_3",
+                                        "input_datetime.sunstart_date_3",
+                                        "input_datetime.sunend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_3",
+                                        "input_datetime.monstart_date_3",
+                                        "input_datetime.monend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_3",
+                                        "input_datetime.tuestart_date_3",
+                                        "input_datetime.tueend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_3",
+                                        "input_datetime.wedstart_date_3",
+                                        "input_datetime.wedend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_3",
+                                        "input_datetime.thustart_date_3",
+                                        "input_datetime.thuend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_3",
+                                        "input_datetime.fristart_date_3",
+                                        "input_datetime.friend_date_3",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_3",
+                                        "input_datetime.satstart_date_3",
+                                        "input_datetime.satend_date_3"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 4\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_4"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_4"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_4"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_4"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_4"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_4"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_4"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_4"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_4"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_4"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_4",
+                                        "input_datetime.sunstart_date_4",
+                                        "input_datetime.sunend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_4",
+                                        "input_datetime.monstart_date_4",
+                                        "input_datetime.monend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_4",
+                                        "input_datetime.tuestart_date_4",
+                                        "input_datetime.tueend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_4",
+                                        "input_datetime.wedstart_date_4",
+                                        "input_datetime.wedend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_4",
+                                        "input_datetime.thustart_date_4",
+                                        "input_datetime.thuend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_4",
+                                        "input_datetime.fristart_date_4",
+                                        "input_datetime.friend_date_4",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_4",
+                                        "input_datetime.satstart_date_4",
+                                        "input_datetime.satend_date_4"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 5\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_5"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_5"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_5"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_5"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_5"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_5"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_5"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_5"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_5"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_5"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_5",
+                                        "input_datetime.sunstart_date_5",
+                                        "input_datetime.sunend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_5",
+                                        "input_datetime.monstart_date_5",
+                                        "input_datetime.monend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_5",
+                                        "input_datetime.tuestart_date_5",
+                                        "input_datetime.tueend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_5",
+                                        "input_datetime.wedstart_date_5",
+                                        "input_datetime.wedend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_5",
+                                        "input_datetime.thustart_date_5",
+                                        "input_datetime.thuend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_5",
+                                        "input_datetime.fristart_date_5",
+                                        "input_datetime.friend_date_5",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_5",
+                                        "input_datetime.satstart_date_5",
+                                        "input_datetime.satend_date_5"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": "## Code 6\n",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_text.front_door_name_6"
+                                        },
+                                        {
+                                            "entity": "input_text.front_door_pin_6"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_enabled_6"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_notify_6"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.front_door_active_6"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_accesslimit_6"
+                                        },
+                                        {
+                                            "entity": "input_number.front_door_accesscount_6"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "input_boolean.front_door_daterange_6"
+                                        },
+                                        {
+                                            "entity": "input_datetime.start_date_6"
+                                        },
+                                        {
+                                            "entity": "input_datetime.end_date_6"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sun_6",
+                                        "input_datetime.sunstart_date_6",
+                                        "input_datetime.sunend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.mon_6",
+                                        "input_datetime.monstart_date_6",
+                                        "input_datetime.monend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.tue_6",
+                                        "input_datetime.tuestart_date_6",
+                                        "input_datetime.tueend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.wed_6",
+                                        "input_datetime.wedstart_date_6",
+                                        "input_datetime.wedend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.thu_6",
+                                        "input_datetime.thustart_date_6",
+                                        "input_datetime.thuend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.fri_6",
+                                        "input_datetime.fristart_date_6",
+                                        "input_datetime.friend_date_6",
+                                        {
+                                            "type": "divider"
+                                        },
+                                        "input_boolean.sat_6",
+                                        "input_datetime.satstart_date_6",
+                                        "input_datetime.satend_date_6"
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:lock-smart",
+                    "panel": false,
+                    "path": "keypad",
+                    "title": "Front Door"
                 }
             ]
         }

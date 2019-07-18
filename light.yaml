@@ -1,9 +1,0 @@
-- platform: group
-  name: "Garage Lights"
-  entities:
-    - light.garage_1
-    - light.garage_2
-    - light.garage_3
-    - light.garage_4
-    - light.garage_5
-    - light.garage_6

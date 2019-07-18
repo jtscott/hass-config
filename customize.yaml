@@ -244,3 +244,7 @@ switch.garage_exterior_lights:
   icon: mdi:light-switch
 switch.basement_stairs:
   icon: mdi:light-switch
+switch.garage_cover_outlet_1:
+  icon: mdi:power-socket-us
+switch.garage_cover_outlet_2:
+  icon: mdi:power-socket-us

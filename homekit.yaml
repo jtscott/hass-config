@@ -6,14 +6,16 @@ filter:
     - switch.kitchen_light
     - switch.theater_outlet_1
     - switch.wemo_outlet_1
+    - switch.basement_stairs
+    - switch.garage_exterior_lights
     - light.island
     - light.dining_room
     - light.office
     - light.theater
     - light.garage_lights
-    - lock.lock_front_door_lock
-    - lock.lock_back_door_lock
-    - lock.lock_garage_door_lock
+    - lock.front_door_lock
+    - lock.back_door_lock
+    - lock.garage_door_lock
     - cover.garage
 entity_config:
   lock.lock_front_door_lock:
