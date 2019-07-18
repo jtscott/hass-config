@@ -17,16 +17,6 @@ googlehome:
     - media_player.google_home_theater
 
 ###########################################
-# Leak
-###########################################
-leak_sensors:
-  name: "Leak Sensors"
-  entities:
-    - binary_sensor.master_bath_leak
-    - binary_sensor.sump_pump_leak
-    - binary_sensor.water_heater_leak
-
-###########################################
 # Lights
 ###########################################
 inside_lights:
@@ -35,6 +25,7 @@ inside_lights:
     - light.office
     - light.island
     - switch.kitchen_light
+    - switch.basement_stairs
     - light.dining_room
     - light.theater
 
@@ -43,6 +34,7 @@ outside_lights:
   entities:
     - switch.front_door
     - switch.back_door
+    - switch.garage_exterior_lights
 
 ###########################################
 # Locks
@@ -73,3 +65,13 @@ all_windows:
   - binary_sensor.office_window
   - binary_sensor.dining_room_window
   - binary_sensor.master_bedroom_window
+
+###########################################
+# Leak
+###########################################
+leak_sensors:
+  name: "Leak Sensors"
+  entities:
+    - binary_sensor.master_bath_leak
+    - binary_sensor.sump_pump_leak
+    - binary_sensor.water_heater_leak

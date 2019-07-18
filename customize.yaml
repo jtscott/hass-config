@@ -202,8 +202,6 @@ light.office:
   icon: mdi:light-switch
 light.kitchen:
   icon: mdi:light-switch
-light.garage:
-  icon: mdi:garage
 sensor.home_to_downtown:
   icon: mdi:city
 input_select.harmony:
@@ -230,8 +228,6 @@ input_boolean.guestmode:
   icon: mdi:account-supervisor
 switch.range:
   icon: mdi:stove
-group.garage_lights:
-  icon: mdi:lightbulb
 switch.flux:
   icon: mdi:theme-light-dark
 weather.dark_sky:
@@ -244,3 +240,7 @@ sensor.last_successful_authentication_hostname:
   icon: mdi:server
 input_select.camera_alerts:
   icon: mdi:cctv
+switch.garage_exterior_lights:
+  icon: mdi:light-switch
+switch.basement_stairs:
+  icon: mdi:light-switch
