@@ -225,15 +225,30 @@
                     "badges": [],
                     "cards": [
                         {
+                            "elements": [
+                                {
+                                    "entity": "switch.guest_wifi",
+                                    "style": {
+                                        "left": "61%",
+                                        "top": "35%",
+                                        "transform": "scale(3,3)"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                }
+                            ],
+                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png?v=2",
+                            "type": "picture-elements"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "switch.front_door"
                                 },
                                 {
                                     "entity": "switch.back_door"
-                                },
-                                {
-                                    "entity": "light.garage_lights"
                                 },
                                 {
                                     "entity": "switch.garage_exterior_lights"
@@ -291,24 +306,6 @@
                             "show_header_toggle": false,
                             "title": "Doors",
                             "type": "entities"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "entity": "switch.guest_wifi",
-                                    "style": {
-                                        "left": "61%",
-                                        "top": "35%",
-                                        "transform": "scale(3,3)"
-                                    },
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "state-icon"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/guestwifi.png?v=2",
-                            "type": "picture-elements"
                         },
                         {
                             "elements": [
@@ -378,7 +375,7 @@
                                     "entity": "switch.garage_cover_outlet_2"
                                 }
                             ],
-                            "title": "Garage",
+                            "title": "Garage Cover",
                             "type": "entities"
                         }
                     ],
