@@ -1,24 +1,23 @@
 ###########################################
 # Media
 ###########################################
-- platform: sonarr
+- platform: sonarr_upcoming_media
   api_key: !secret sonarr_api
   host: !secret nas_address
   port: 8989
-  monitored_conditions:
-  - upcoming
-  days: 1
+  days: 7
+  urlbase: /sonarr
+  ssl: false
+  max: 5
 
-- platform: template
-  sensors:
-    tv_schedule:
-      friendly_name: 'TV Today'
-      value_template: >-
-        {%- for attr in states.sensor.sonarr_upcoming.attributes -%}
-        {%- if not attr=="friendly_name" and not attr=="icon" and not attr=="unit_of_measurement" -%}
-        {{attr}}{% if not loop.last %}, {% endif %}
-        {%- endif -%}
-        {%- endfor -%}
+- platform: radarr_upcoming_media
+  api_key: !secret radarr_api
+  host: !secret nas_address
+  port: 7878
+  days: 60
+  ssl: false
+  theaters: true
+  max: 5
 
 - platform: template
   sensors:

@@ -10,27 +10,19 @@
             "resources": [
                 {
                     "type": "js",
-                    "url": "/customcards/github/thomasloven/card-tools.js?track=true"
+                    "url": "/community_plugin/monster-card/monster-card.js"
                 },
                 {
                     "type": "js",
-                    "url": "/customcards/github/thomasloven/card-modder.js?track=true"
+                    "url": "/community_plugin/lovelace-slider-entity-row/slider-entity-row.js"
                 },
                 {
                     "type": "js",
-                    "url": "/local/monster-card.js?v=1"
+                    "url": "/community_plugin/vertical-stack-in-card/vertical-stack-in-card.js"
                 },
                 {
                     "type": "js",
-                    "url": "/local/slider-entity-row.js?v=1"
-                },
-                {
-                    "type": "js",
-                    "url": "/local/vertical-stack-in-card.js?v=0.1.2"
-                },
-                {
-                    "type": "js",
-                    "url": "/local/community/upcoming-media-card/upcoming-media-card.js?v=0.1.2"
+                    "url": "/community_plugin/upcoming-media-card/upcoming-media-card.js"
                 },
                 {
                     "type": "module",
@@ -38,31 +30,27 @@
                 },
                 {
                     "type": "module",
-                    "url": "/local/mini-media-player-bundle.js?v=1.0.4"
+                    "url": "/community_plugin/mini-media-player/mini-media-player.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/mini-graph-card-bundle.js?v=0.3.3"
+                    "url": "/community_plugin/mini-graph-card/mini-graph-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/simple-weather-card.bundle.js?v=0.3.0"
+                    "url": "/community_plugin/simple-weather-card/simple-weather-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/tracker-card.js?track=true"
+                    "url": "/community_plugin/simple-thermostat/simple-thermostat.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/simple-thermostat.js?v=1"
+                    "url": "/community_plugin/banner-card/banner-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/banner-card.js?v=1"
-                },
-                {
-                    "type": "module",
-                    "url": "/customcards/github/custom-cards/button-card.js?track=true"
+                    "url": "/community_plugin/button-card/button-card.js"
                 },
                 {
                     "type": "module",
@@ -245,21 +233,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.front_door"
-                                },
-                                {
-                                    "entity": "switch.back_door"
-                                },
-                                {
-                                    "entity": "switch.garage_exterior_lights"
-                                }
-                            ],
-                            "title": "Outside Lights",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "input_select.camera_alerts"
                                 },
                                 {
@@ -279,8 +252,24 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "switch.front_door"
+                                },
+                                {
+                                    "entity": "switch.back_door"
+                                },
+                                {
+                                    "entity": "switch.garage_exterior_lights"
+                                }
+                            ],
+                            "title": "Outside Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entities": [
-                                        "sensor.front_door_report"
+                                        "sensor.front_door_report",
+                                        "sensor.front_door_code"
                                     ],
                                     "head": "lock.front_door_lock",
                                     "type": "custom:fold-entity-row"
@@ -301,10 +290,18 @@
                                     },
                                     "head": "lock.garage_door_lock",
                                     "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "switch.garage_cover_outlet_2",
+                                        "switch.garage_cover_outlet_1"
+                                    ],
+                                    "head": "cover.garage",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Doors",
+                            "title": "Entry",
                             "type": "entities"
                         },
                         {
@@ -362,21 +359,6 @@
                             ],
                             "image": "/local/camerablank.png",
                             "type": "picture-elements"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "cover.garage"
-                                },
-                                {
-                                    "entity": "switch.garage_cover_outlet_1"
-                                },
-                                {
-                                    "entity": "switch.garage_cover_outlet_2"
-                                }
-                            ],
-                            "title": "Garage Cover",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -542,23 +524,6 @@
                                 "legend": false
                             },
                             "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "media_player.kitchen_ceiling",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_kitchen",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_living_room",
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -656,23 +621,6 @@
                             "type": "entities"
                         },
                         {
-                            "cards": [
-                                {
-                                    "entity": "media_player.master_bedroom_ceiling",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_master_bedroom",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_office",
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
                             "artwork": "full-cover-fit",
                             "entity": "media_player.playstation_4",
                             "hide": {
@@ -744,6 +692,12 @@
                             "type": "entities"
                         },
                         {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.my_shield_console",
+                            "icon": "mdi:television-classic",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.current_activity"
@@ -756,21 +710,45 @@
                                 },
                                 {
                                     "entity": "switch.shieldtv"
-                                },
-                                {
-                                    "entity": "sensor.tv_schedule"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Media",
+                            "title": "TV",
                             "type": "entities"
                         },
                         {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.my_shield_console",
-                            "icon": "mdi:television-classic",
-                            "type": "custom:mini-media-player"
+                            "entities": [
+                                "sensor.theater_occupancy",
+                                "sensor.guest_bedroom_occupancy"
+                            ],
+                            "show_icon": true,
+                            "show_name": true,
+                            "show_state": true,
+                            "title": "Occupancy",
+                            "type": "glance"
                         },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.sump_pump_leak_template"
+                                },
+                                {
+                                    "entity": "sensor.water_heater_leak_template"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_name": true,
+                            "title": "Utilities",
+                            "type": "glance"
+                        }
+                    ],
+                    "icon": "mdi:alpha-b-circle",
+                    "path": "downstairs",
+                    "title": "Downstairs"
+                },
+                {
+                    "badges": [],
+                    "cards": [
                         {
                             "elements": [
                                 {
@@ -822,34 +800,61 @@
                             "type": "custom:mini-media-player"
                         },
                         {
-                            "entities": [
-                                "sensor.theater_occupancy",
-                                "sensor.guest_bedroom_occupancy"
-                            ],
-                            "show_icon": true,
-                            "show_name": true,
-                            "show_state": true,
-                            "title": "Occupancy",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.sump_pump_leak_template"
+                                    "entity": "media_player.master_bedroom_ceiling",
+                                    "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "sensor.water_heater_leak_template"
+                                    "entity": "media_player.google_home_master_bedroom",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.google_home_office",
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
-                            "show_icon": true,
-                            "show_name": true,
-                            "title": "Utilities",
-                            "type": "glance"
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "media_player.kitchen_ceiling",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.google_home_kitchen",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.google_home_living_room",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "all_shadows": false,
+                            "entity": "sensor.sonarr_upcoming_media",
+                            "hide_empty": true,
+                            "icon": "mdi:television-box",
+                            "image_style": "fanart",
+                            "max": 3,
+                            "title": "Upcoming TV",
+                            "type": "custom:upcoming-media-card"
+                        },
+                        {
+                            "all_shadows": false,
+                            "entity": "sensor.radarr_upcoming_media",
+                            "hide_empty": true,
+                            "image_style": "fanart",
+                            "max": 3,
+                            "title": "Upcoming Movies",
+                            "type": "custom:upcoming-media-card"
                         }
                     ],
-                    "icon": "mdi:alpha-b-circle",
-                    "path": "downstairs",
-                    "title": "Downstairs"
+                    "icon": "mdi:library-music",
+                    "title": "Music"
                 },
                 {
                     "badges": [],
@@ -1185,16 +1190,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 1\n",
+                                    "content": "## Front Door - Code 1\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_1"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_1"
+                                            "entities": [
+                                                "input_text.front_door_pin_1"
+                                            ],
+                                            "head": "input_text.front_door_name_1",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_1"
@@ -1203,74 +1209,62 @@
                                             "entity": "input_boolean.front_door_notify_1"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_1"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_1",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_1"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_1"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_1"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_1"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_1"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_1"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_1",
-                                        "input_datetime.sunstart_date_1",
-                                        "input_datetime.sunend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_1",
-                                        "input_datetime.monstart_date_1",
-                                        "input_datetime.monend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_1",
-                                        "input_datetime.tuestart_date_1",
-                                        "input_datetime.tueend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_1",
-                                        "input_datetime.wedstart_date_1",
-                                        "input_datetime.wedend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_1",
-                                        "input_datetime.thustart_date_1",
-                                        "input_datetime.thuend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_1",
-                                        "input_datetime.fristart_date_1",
-                                        "input_datetime.friend_date_1",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_1",
-                                        "input_datetime.satstart_date_1",
-                                        "input_datetime.satend_date_1"
+                                            "entities": [
+                                                "input_datetime.start_date_1",
+                                                "input_datetime.end_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_1",
+                                                "input_datetime.sunstart_date_1",
+                                                "input_datetime.sunend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_1",
+                                                "input_datetime.monstart_date_1",
+                                                "input_datetime.monend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_1",
+                                                "input_datetime.tuestart_date_1",
+                                                "input_datetime.tueend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_1",
+                                                "input_datetime.wedstart_date_1",
+                                                "input_datetime.wedend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_1",
+                                                "input_datetime.thustart_date_1",
+                                                "input_datetime.thuend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_1",
+                                                "input_datetime.fristart_date_1",
+                                                "input_datetime.friend_date_1",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_1",
+                                                "input_datetime.satstart_date_1",
+                                                "input_datetime.satend_date_1"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_1",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
@@ -1280,16 +1274,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 2\n",
+                                    "content": "## Front Door - Code 2\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_2"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_2"
+                                            "entities": [
+                                                "input_text.front_door_pin_2"
+                                            ],
+                                            "head": "input_text.front_door_name_2",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_2"
@@ -1298,74 +1293,62 @@
                                             "entity": "input_boolean.front_door_notify_2"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_2"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_2",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_2"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_2"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_2"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_2"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_2"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_2"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_2",
-                                        "input_datetime.sunstart_date_2",
-                                        "input_datetime.sunend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_2",
-                                        "input_datetime.monstart_date_2",
-                                        "input_datetime.monend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_2",
-                                        "input_datetime.tuestart_date_2",
-                                        "input_datetime.tueend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_2",
-                                        "input_datetime.wedstart_date_2",
-                                        "input_datetime.wedend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_2",
-                                        "input_datetime.thustart_date_2",
-                                        "input_datetime.thuend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_2",
-                                        "input_datetime.fristart_date_2",
-                                        "input_datetime.friend_date_2",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_2",
-                                        "input_datetime.satstart_date_2",
-                                        "input_datetime.satend_date_2"
+                                            "entities": [
+                                                "input_datetime.start_date_2",
+                                                "input_datetime.end_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_2",
+                                                "input_datetime.sunstart_date_2",
+                                                "input_datetime.sunend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_2",
+                                                "input_datetime.monstart_date_2",
+                                                "input_datetime.monend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_2",
+                                                "input_datetime.tuestart_date_2",
+                                                "input_datetime.tueend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_2",
+                                                "input_datetime.wedstart_date_2",
+                                                "input_datetime.wedend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_2",
+                                                "input_datetime.thustart_date_2",
+                                                "input_datetime.thuend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_2",
+                                                "input_datetime.fristart_date_2",
+                                                "input_datetime.friend_date_2",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_2",
+                                                "input_datetime.satstart_date_2",
+                                                "input_datetime.satend_date_2"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_2",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
@@ -1375,16 +1358,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 3\n",
+                                    "content": "## Front Door - Code 3\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_3"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_3"
+                                            "entities": [
+                                                "input_text.front_door_pin_3"
+                                            ],
+                                            "head": "input_text.front_door_name_3",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_3"
@@ -1393,74 +1377,62 @@
                                             "entity": "input_boolean.front_door_notify_3"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_3"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_3",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_3"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_3"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_3"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_3"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_3"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_3"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_3",
-                                        "input_datetime.sunstart_date_3",
-                                        "input_datetime.sunend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_3",
-                                        "input_datetime.monstart_date_3",
-                                        "input_datetime.monend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_3",
-                                        "input_datetime.tuestart_date_3",
-                                        "input_datetime.tueend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_3",
-                                        "input_datetime.wedstart_date_3",
-                                        "input_datetime.wedend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_3",
-                                        "input_datetime.thustart_date_3",
-                                        "input_datetime.thuend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_3",
-                                        "input_datetime.fristart_date_3",
-                                        "input_datetime.friend_date_3",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_3",
-                                        "input_datetime.satstart_date_3",
-                                        "input_datetime.satend_date_3"
+                                            "entities": [
+                                                "input_datetime.start_date_3",
+                                                "input_datetime.end_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_3",
+                                                "input_datetime.sunstart_date_3",
+                                                "input_datetime.sunend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_3",
+                                                "input_datetime.monstart_date_3",
+                                                "input_datetime.monend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_3",
+                                                "input_datetime.tuestart_date_3",
+                                                "input_datetime.tueend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_3",
+                                                "input_datetime.wedstart_date_3",
+                                                "input_datetime.wedend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_3",
+                                                "input_datetime.thustart_date_3",
+                                                "input_datetime.thuend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_3",
+                                                "input_datetime.fristart_date_3",
+                                                "input_datetime.friend_date_3",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_3",
+                                                "input_datetime.satstart_date_3",
+                                                "input_datetime.satend_date_3"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_3",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
@@ -1470,16 +1442,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 4\n",
+                                    "content": "## Front Door - Code 4\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_4"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_4"
+                                            "entities": [
+                                                "input_text.front_door_pin_4"
+                                            ],
+                                            "head": "input_text.front_door_name_4",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_4"
@@ -1488,74 +1461,62 @@
                                             "entity": "input_boolean.front_door_notify_4"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_4"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_4",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_4"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_4"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_4"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_4"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_4"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_4"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_4",
-                                        "input_datetime.sunstart_date_4",
-                                        "input_datetime.sunend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_4",
-                                        "input_datetime.monstart_date_4",
-                                        "input_datetime.monend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_4",
-                                        "input_datetime.tuestart_date_4",
-                                        "input_datetime.tueend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_4",
-                                        "input_datetime.wedstart_date_4",
-                                        "input_datetime.wedend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_4",
-                                        "input_datetime.thustart_date_4",
-                                        "input_datetime.thuend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_4",
-                                        "input_datetime.fristart_date_4",
-                                        "input_datetime.friend_date_4",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_4",
-                                        "input_datetime.satstart_date_4",
-                                        "input_datetime.satend_date_4"
+                                            "entities": [
+                                                "input_datetime.start_date_4",
+                                                "input_datetime.end_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_4",
+                                                "input_datetime.sunstart_date_4",
+                                                "input_datetime.sunend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_4",
+                                                "input_datetime.monstart_date_4",
+                                                "input_datetime.monend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_4",
+                                                "input_datetime.tuestart_date_4",
+                                                "input_datetime.tueend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_4",
+                                                "input_datetime.wedstart_date_4",
+                                                "input_datetime.wedend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_4",
+                                                "input_datetime.thustart_date_4",
+                                                "input_datetime.thuend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_4",
+                                                "input_datetime.fristart_date_4",
+                                                "input_datetime.friend_date_4",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_4",
+                                                "input_datetime.satstart_date_4",
+                                                "input_datetime.satend_date_4"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_4",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
@@ -1565,16 +1526,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 5\n",
+                                    "content": "## Front Door - Code 5\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_5"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_5"
+                                            "entities": [
+                                                "input_text.front_door_pin_5"
+                                            ],
+                                            "head": "input_text.front_door_name_5",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_5"
@@ -1583,74 +1545,62 @@
                                             "entity": "input_boolean.front_door_notify_5"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_5"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_5",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_5"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_5"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_5"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_5"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_5"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_5"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_5",
-                                        "input_datetime.sunstart_date_5",
-                                        "input_datetime.sunend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_5",
-                                        "input_datetime.monstart_date_5",
-                                        "input_datetime.monend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_5",
-                                        "input_datetime.tuestart_date_5",
-                                        "input_datetime.tueend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_5",
-                                        "input_datetime.wedstart_date_5",
-                                        "input_datetime.wedend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_5",
-                                        "input_datetime.thustart_date_5",
-                                        "input_datetime.thuend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_5",
-                                        "input_datetime.fristart_date_5",
-                                        "input_datetime.friend_date_5",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_5",
-                                        "input_datetime.satstart_date_5",
-                                        "input_datetime.satend_date_5"
+                                            "entities": [
+                                                "input_datetime.start_date_5",
+                                                "input_datetime.end_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_5",
+                                                "input_datetime.sunstart_date_5",
+                                                "input_datetime.sunend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_5",
+                                                "input_datetime.monstart_date_5",
+                                                "input_datetime.monend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_5",
+                                                "input_datetime.tuestart_date_5",
+                                                "input_datetime.tueend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_5",
+                                                "input_datetime.wedstart_date_5",
+                                                "input_datetime.wedend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_5",
+                                                "input_datetime.thustart_date_5",
+                                                "input_datetime.thuend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_5",
+                                                "input_datetime.fristart_date_5",
+                                                "input_datetime.friend_date_5",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_5",
+                                                "input_datetime.satstart_date_5",
+                                                "input_datetime.satend_date_5"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_5",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
@@ -1660,16 +1610,17 @@
                         {
                             "cards": [
                                 {
-                                    "content": "## Code 6\n",
+                                    "content": "## Front Door - Code 6\n",
                                     "type": "markdown"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_text.front_door_name_6"
-                                        },
-                                        {
-                                            "entity": "input_text.front_door_pin_6"
+                                            "entities": [
+                                                "input_text.front_door_pin_6"
+                                            ],
+                                            "head": "input_text.front_door_name_6",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
                                             "entity": "input_boolean.front_door_enabled_6"
@@ -1678,74 +1629,62 @@
                                             "entity": "input_boolean.front_door_notify_6"
                                         },
                                         {
-                                            "type": "divider"
+                                            "entities": [
+                                                "input_number.front_door_accesscount_6"
+                                            ],
+                                            "head": "input_boolean.front_door_accesslimit_6",
+                                            "type": "custom:fold-entity-row"
                                         },
                                         {
-                                            "entity": "binary_sensor.front_door_active_6"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_accesslimit_6"
-                                        },
-                                        {
-                                            "entity": "input_number.front_door_accesscount_6"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_daterange_6"
-                                        },
-                                        {
-                                            "entity": "input_datetime.start_date_6"
-                                        },
-                                        {
-                                            "entity": "input_datetime.end_date_6"
-                                        },
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sun_6",
-                                        "input_datetime.sunstart_date_6",
-                                        "input_datetime.sunend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.mon_6",
-                                        "input_datetime.monstart_date_6",
-                                        "input_datetime.monend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.tue_6",
-                                        "input_datetime.tuestart_date_6",
-                                        "input_datetime.tueend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.wed_6",
-                                        "input_datetime.wedstart_date_6",
-                                        "input_datetime.wedend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.thu_6",
-                                        "input_datetime.thustart_date_6",
-                                        "input_datetime.thuend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.fri_6",
-                                        "input_datetime.fristart_date_6",
-                                        "input_datetime.friend_date_6",
-                                        {
-                                            "type": "divider"
-                                        },
-                                        "input_boolean.sat_6",
-                                        "input_datetime.satstart_date_6",
-                                        "input_datetime.satend_date_6"
+                                            "entities": [
+                                                "input_datetime.start_date_6",
+                                                "input_datetime.end_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sun_6",
+                                                "input_datetime.sunstart_date_6",
+                                                "input_datetime.sunend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.mon_6",
+                                                "input_datetime.monstart_date_6",
+                                                "input_datetime.monend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.tue_6",
+                                                "input_datetime.tuestart_date_6",
+                                                "input_datetime.tueend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.wed_6",
+                                                "input_datetime.wedstart_date_6",
+                                                "input_datetime.wedend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.thu_6",
+                                                "input_datetime.thustart_date_6",
+                                                "input_datetime.thuend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.fri_6",
+                                                "input_datetime.fristart_date_6",
+                                                "input_datetime.friend_date_6",
+                                                {
+                                                    "type": "divider"
+                                                },
+                                                "input_boolean.sat_6",
+                                                "input_datetime.satstart_date_6",
+                                                "input_datetime.satend_date_6"
+                                            ],
+                                            "head": "input_boolean.front_door_daterange_6",
+                                            "type": "custom:fold-entity-row"
+                                        }
                                     ],
                                     "type": "entities"
                                 }
