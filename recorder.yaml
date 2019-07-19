@@ -11,6 +11,7 @@ include:
     - weather
     - image_processing
     - input_select
+    - media_player
 exclude:
   domains:
     - weblink

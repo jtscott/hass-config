@@ -63,12 +63,10 @@ group: !include group.yaml
 homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
-media_player: !include media_player.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
-zone: !include zone.yaml
 
 ###########################################
 # Panels
@@ -145,7 +143,7 @@ weather:
     station: !secret ec_station_id
 
 ###########################################
-# Third Party Components
+# Media Players
 ###########################################
 cast:
   media_player:
@@ -157,6 +155,14 @@ cast:
     - host: !secret chomecast_audio_kitchen_ip
     - host: !secret chomecast_audio_master_bedroom_ip
 
+media_player:
+  - platform: samsungtv
+    host: !secret samsung_tv_ip
+    name: UN65F8000
+
+###########################################
+# Third Party Components
+########################################### 
 cover:
   - platform: myq
     username: !secret email_account
