@@ -17,6 +17,7 @@ custom_components/
 .storage/zha.storage
 .storage/hacs
 .storage/hacs.*
+.storage/frontend.user_data_*
 auth*
 core.*
 onboarding
