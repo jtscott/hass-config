@@ -213,7 +213,7 @@ automation:
     action:
       - service: persistent_notification.create
         data_template:
-          title: "LOCK MANAGER"
+          title: "Front Door Lock"
           message: >-
             {% set object_id = trigger.to_state.object_id %}
             {% set codeslot = object_id[15:] %}

@@ -1700,41 +1700,51 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "input_select.lock_zwave_option_3_front"
+                                    "content": "## Front Door - Lock Options\n",
+                                    "type": "markdown"
                                 },
                                 {
-                                    "entity": "input_select.lock_zwave_option_4_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_5_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_7_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_8_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_9_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_10_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_11_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_15_front"
-                                },
-                                {
-                                    "entity": "input_select.lock_zwave_option_16_front"
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.lock_zwave_option_3_front"
+                                        },
+                                        {
+                                            "entity": "input_select.lock_zwave_option_5_front"
+                                        },
+                                        {
+                                            "entity": "input_select.lock_zwave_option_4_front"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "input_select.lock_zwave_option_8_front"
+                                                },
+                                                {
+                                                    "entity": "input_select.lock_zwave_option_9_front"
+                                                },
+                                                {
+                                                    "entity": "input_select.lock_zwave_option_10_front"
+                                                }
+                                            ],
+                                            "head": "input_select.lock_zwave_option_7_front",
+                                            "type": "custom:fold-entity-row"
+                                        },
+                                        {
+                                            "entity": "input_select.lock_zwave_option_11_front"
+                                        },
+                                        {
+                                            "entity": "input_select.lock_zwave_option_15_front"
+                                        },
+                                        {
+                                            "entity": "input_select.lock_zwave_option_16_front"
+                                        }
+                                    ],
+                                    "type": "entities"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Front Door Lock Options",
-                            "type": "entities"
+                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:lock-smart",

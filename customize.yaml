@@ -310,3 +310,23 @@ input_boolean.front_fri_1:
   icon: mdi:calendar-multiselect
 input_boolean.front_sat_1:
   icon: mdi:calendar-multiselect
+input_select.lock_zwave_option_3_front:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_5_front:
+  icon: mdi:exit-run
+input_select.lock_zwave_option_4_front:
+  icon: mdi:beach
+input_select.lock_zwave_option_7_front:
+  icon: mdi:alarm-bell
+input_select.lock_zwave_option_8_front:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_9_front:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_10_front:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_11_front:
+  icon: mdi:gesture-double-tap
+input_select.lock_zwave_option_15_front:
+  icon: mdi:shield-lock
+input_select.lock_zwave_option_16_front:
+  icon: mdi:numeric
