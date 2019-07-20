@@ -1,0 +1,202 @@
+
+############  input_number:  #####################  
+input_number:
+  back_door_accesscount_5:
+    name: Access Count
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "Openings Left"
+
+#################  input_datetime:  ##############  
+input_datetime:
+  back_end_date_5:
+    name: 'End'
+    has_time: false
+    has_date: true
+  back_start_date_5:
+    name: 'Start'
+    has_time: false
+    has_date: true
+
+
+  back_sun_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_sun_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_mon_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_mon_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_tue_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_tue_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_wed_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_wed_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_thu_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_thu_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_fri_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_fri_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+  back_sat_start_date_5:
+    name: 'Start'
+    has_time: true
+    has_date: false
+  back_sat_end_date_5:
+    name: 'End'
+    has_time: true
+    has_date: false
+
+
+####################  input_text:  ###############  
+input_text:
+  back_door_name_5:
+    name: 'Name'
+  back_door_pin_5:
+    name: 'PIN'
+
+#################  input_boolean: ################  
+input_boolean:
+  back_door_notify_5:
+    name: 'Notifications'
+  back_door_daterange_5:
+    name: 'Use Date Range'
+  back_door_smtwtfs_5:
+    name: 'Use SMTWTFS'
+  back_door_enabled_5:
+    name: 'Enabled'
+  back_door_accesslimit_5:
+    name: 'Limit Access Count'
+    initial: off
+
+  back_sun_5:
+    name: 'Sunday'
+    initial: on
+
+  back_mon_5:
+    name: 'Monday'
+    initial: on
+
+  back_tue_5:
+    name: 'Tuesday'
+    initial: on
+
+  back_wed_5:
+    name: 'Wednesday'
+    initial: on
+
+  back_thu_5:
+    name: 'Thursday'
+    initial: on
+
+  back_fri_5:
+    name: 'Friday'
+    initial: on
+
+  back_sat_5:
+    name: 'Saturday'
+    initial: on
+
+################  binary_sensor: #################  
+binary_sensor:
+
+- platform: template
+  sensors:
+
+    back_door_enabled_5:
+      value_template: "{{ is_state('input_boolean.back_door_enabled_5', 'on') }}"
+
+    back_door_daterange_5:
+      value_template: "{{ ((is_state('input_boolean.back_door_daterange_5', 'off') or (states.input_datetime.start_date_5.attributes.timestamp| int | timestamp_custom('%Y%m%d', False)|int)|string <= now().strftime('%Y%m%d')) and (states.input_datetime.end_date_5.attributes.timestamp| int | timestamp_custom('%Y%m%d', False)|int)|string >=  now().strftime('%Y%m%d'))}}"
+
+    back_sun_5:
+      value_template: "{{ ((is_state('input_boolean.back_sun_5', 'on'))) and (now().strftime('%A') == 'Sunday') and ((states.input_datetime.back_sun_start_date_5.state  == states.input_datetime.back_sun_end_date_5.state) or ((states.input_datetime.back_sun_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_sun_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_mon_5:
+      value_template: "{{ ((is_state('input_boolean.back_mon_5', 'on'))) and (now().strftime('%A') == 'Monday') and ((states.input_datetime.back_mon_start_date_5.state  == states.input_datetime.back_mon_end_date_5.state) or ((states.input_datetime.back_mon_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_mon_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_tue_5:
+      value_template: "{{ ((is_state('input_boolean.back_tue_5', 'on'))) and (now().strftime('%A') == 'Tuesday') and ((states.input_datetime.back_tue_start_date_5.state  == states.input_datetime.back_tue_end_date_5.state) or ((states.input_datetime.back_tue_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_tue_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_wed_5:
+      value_template: "{{ ((is_state('input_boolean.back_wed_5', 'on'))) and (now().strftime('%A') == 'Wednesday') and ((states.input_datetime.back_wed_start_date_5.state  == states.input_datetime.back_wed_end_date_5.state) or ((states.input_datetime.back_wed_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_wed_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_thu_5:
+      value_template: "{{ ((is_state('input_boolean.back_thu_5', 'on'))) and (now().strftime('%A') == 'Thursday') and ((states.input_datetime.back_thu_start_date_5.state  == states.input_datetime.back_thu_end_date_5.state) or ((states.input_datetime.back_thu_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_thu_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_fri_5:
+      value_template: "{{ ((is_state('input_boolean.back_fri_5', 'on'))) and (now().strftime('%A') == 'Friday') and ((states.input_datetime.back_fri_start_date_5.state  == states.input_datetime.back_fri_end_date_5.state) or ((states.input_datetime.back_fri_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_fri_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+    back_sat_5:
+      value_template: "{{ ((is_state('input_boolean.back_sat_5', 'on'))) and (now().strftime('%A') == 'Saturday') and ((states.input_datetime.back_sat_start_date_5.state  == states.input_datetime.back_sat_end_date_5.state) or ((states.input_datetime.back_sat_start_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string <= now().strftime('%H%M') and (states.input_datetime.back_sat_end_date_5.attributes.timestamp| int | timestamp_custom('%H%M', False)|int)|string >= now().strftime('%H%M'))) }}"
+
+
+    back_smtwtfs_5:
+      friendly_name: "Status"
+      value_template: >-
+         {{
+            is_state('binary_sensor.back_sun_5', 'on')  or  
+            is_state('binary_sensor.back_mon_5', 'on')  or  
+            is_state('binary_sensor.back_tue_5', 'on')  or  
+            is_state('binary_sensor.back_wed_5', 'on')  or  
+            is_state('binary_sensor.back_thu_5', 'on')  or  
+            is_state('binary_sensor.back_fri_5', 'on')  or  
+            is_state('binary_sensor.back_sat_5', 'on')   
+         }}
+
+    
+    back_access_count_5:
+      friendly_name: "Access Count"
+      value_template: >-
+         {{
+            (is_state('input_boolean.back_door_accesslimit_5', 'off'))  or  
+            (states.input_number.back_door_accesscount_5.state | int > 0)
+         }}
+
+
+    back_door_active_5:
+      friendly_name: "Status"
+      value_template: >-
+         {{
+            is_state('binary_sensor.back_door_enabled_5', 'on')  and  
+            is_state('binary_sensor.back_access_count_5', 'on')  and  
+            is_state('binary_sensor.back_door_daterange_5', 'on') and
+            is_state('binary_sensor.back_smtwtfs_5', 'on')  
+         }}
+      device_class: connectivity

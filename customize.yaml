@@ -330,3 +330,167 @@ input_select.lock_zwave_option_15_front:
   icon: mdi:shield-lock
 input_select.lock_zwave_option_16_front:
   icon: mdi:numeric
+input_boolean.back_door_enabled_1:
+  icon: mdi:home-lock
+input_boolean.back_door_enabled_2:
+  icon: mdi:home-lock
+input_boolean.back_door_enabled_3:
+  icon: mdi:home-lock
+input_boolean.back_door_enabled_4:
+  icon: mdi:home-lock
+input_boolean.back_door_enabled_5:
+  icon: mdi:home-lock
+input_boolean.back_door_enabled_6:
+  icon: mdi:home-lock
+input_boolean.back_door_notify_1:
+  icon: mdi:lock-alert
+input_boolean.back_door_notify_2:
+  icon: mdi:lock-alert
+input_boolean.back_door_notify_3:
+  icon: mdi:lock-alert
+input_boolean.back_door_notify_4:
+  icon: mdi:lock-alert
+input_boolean.back_door_notify_5:
+  icon: mdi:lock-alert
+input_boolean.back_door_notify_6:
+  icon: mdi:lock-alert
+input_boolean.back_door_accesslimit_1:
+  icon: mdi:lock-plus
+input_boolean.back_door_accesslimit_2:
+  icon: mdi:lock-plus
+input_boolean.back_door_accesslimit_3:
+  icon: mdi:lock-plus
+input_boolean.back_door_accesslimit_4:
+  icon: mdi:lock-plus
+input_boolean.back_door_accesslimit_5:
+  icon: mdi:lock-plus
+input_boolean.back_door_accesslimit_6:
+  icon: mdi:lock-plus
+input_boolean.back_door_daterange_1:
+  icon: mdi:lock-clock
+input_boolean.back_door_daterange_2:
+  icon: mdi:lock-clock
+input_boolean.back_door_daterange_3:
+  icon: mdi:lock-clock
+input_boolean.back_door_daterange_4:
+  icon: mdi:lock-clock
+input_boolean.back_door_daterange_5:
+  icon: mdi:lock-clock
+input_boolean.back_door_daterange_6:
+  icon: mdi:lock-clock
+input_boolean.back_sun_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_mon_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_tue_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_wed_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_thu_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_fri_1:
+  icon: mdi:calendar-multiselect
+input_boolean.back_sat_1:
+  icon: mdi:calendar-multiselect
+input_select.lock_zwave_option_3_back:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_5_back:
+  icon: mdi:exit-run
+input_select.lock_zwave_option_4_back:
+  icon: mdi:beach
+input_select.lock_zwave_option_7_back:
+  icon: mdi:alarm-bell
+input_select.lock_zwave_option_8_back:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_9_back:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_10_back:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_11_back:
+  icon: mdi:gesture-double-tap
+input_select.lock_zwave_option_15_back:
+  icon: mdi:shield-lock
+input_select.lock_zwave_option_16_back:
+  icon: mdi:numeric
+input_boolean.garage_door_enabled_1:
+  icon: mdi:home-lock
+input_boolean.garage_door_enabled_2:
+  icon: mdi:home-lock
+input_boolean.garage_door_enabled_3:
+  icon: mdi:home-lock
+input_boolean.garage_door_enabled_4:
+  icon: mdi:home-lock
+input_boolean.garage_door_enabled_5:
+  icon: mdi:home-lock
+input_boolean.garage_door_enabled_6:
+  icon: mdi:home-lock
+input_boolean.garage_door_notify_1:
+  icon: mdi:lock-alert
+input_boolean.garage_door_notify_2:
+  icon: mdi:lock-alert
+input_boolean.garage_door_notify_3:
+  icon: mdi:lock-alert
+input_boolean.garage_door_notify_4:
+  icon: mdi:lock-alert
+input_boolean.garage_door_notify_5:
+  icon: mdi:lock-alert
+input_boolean.garage_door_notify_6:
+  icon: mdi:lock-alert
+input_boolean.garage_door_accesslimit_1:
+  icon: mdi:lock-plus
+input_boolean.garage_door_accesslimit_2:
+  icon: mdi:lock-plus
+input_boolean.garage_door_accesslimit_3:
+  icon: mdi:lock-plus
+input_boolean.garage_door_accesslimit_4:
+  icon: mdi:lock-plus
+input_boolean.garage_door_accesslimit_5:
+  icon: mdi:lock-plus
+input_boolean.garage_door_accesslimit_6:
+  icon: mdi:lock-plus
+input_boolean.garage_door_daterange_1:
+  icon: mdi:lock-clock
+input_boolean.garage_door_daterange_2:
+  icon: mdi:lock-clock
+input_boolean.garage_door_daterange_3:
+  icon: mdi:lock-clock
+input_boolean.garage_door_daterange_4:
+  icon: mdi:lock-clock
+input_boolean.garage_door_daterange_5:
+  icon: mdi:lock-clock
+input_boolean.garage_door_daterange_6:
+  icon: mdi:lock-clock
+input_boolean.garage_sun_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_mon_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_tue_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_wed_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_thu_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_fri_1:
+  icon: mdi:calendar-multiselect
+input_boolean.garage_sat_1:
+  icon: mdi:calendar-multiselect
+input_select.lock_zwave_option_3_garage:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_5_garage:
+  icon: mdi:exit-run
+input_select.lock_zwave_option_4_garage:
+  icon: mdi:beach
+input_select.lock_zwave_option_7_garage:
+  icon: mdi:alarm-bell
+input_select.lock_zwave_option_8_garage:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_9_garage:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_10_garage:
+  icon: mdi:volume-high
+input_select.lock_zwave_option_11_garage:
+  icon: mdi:gesture-double-tap
+input_select.lock_zwave_option_15_garage:
+  icon: mdi:shield-lock
+input_select.lock_zwave_option_16_garage:
+  icon: mdi:numeric
