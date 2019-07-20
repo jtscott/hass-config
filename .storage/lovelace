@@ -276,14 +276,16 @@
                                 },
                                 {
                                     "entities": [
-                                        "sensor.back_door_report"
+                                        "sensor.back_door_report",
+                                        "sensor.back_door_code"
                                     ],
                                     "head": "lock.back_door_lock",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entities": [
-                                        "sensor.garage_door_report"
+                                        "sensor.garage_door_report",
+                                        "sensor.garage_door_code"
                                     ],
                                     "group_config": {
                                         "secondary_info": "last-changed"
@@ -1117,6 +1119,12 @@
                                 "exclude": [
                                     {
                                         "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.radarr*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.sonarr*"
                                     }
                                 ],
                                 "include": [
@@ -1217,50 +1225,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_1",
-                                                "input_datetime.end_date_1",
+                                                "input_datetime.front_start_date_1",
+                                                "input_datetime.front_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_1",
-                                                "input_datetime.sunstart_date_1",
-                                                "input_datetime.sunend_date_1",
+                                                "input_boolean.front_sun_1",
+                                                "input_datetime.front_sun_start_date_1",
+                                                "input_datetime.front_sun_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_1",
-                                                "input_datetime.monstart_date_1",
-                                                "input_datetime.monend_date_1",
+                                                "input_boolean.front_mon_1",
+                                                "input_datetime.front_mon_start_date_1",
+                                                "input_datetime.front_mon_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_1",
-                                                "input_datetime.tuestart_date_1",
-                                                "input_datetime.tueend_date_1",
+                                                "input_boolean.front_tue_1",
+                                                "input_datetime.front_tue_start_date_1",
+                                                "input_datetime.front_tue_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_1",
-                                                "input_datetime.wedstart_date_1",
-                                                "input_datetime.wedend_date_1",
+                                                "input_boolean.front_wed_1",
+                                                "input_datetime.front_wed_start_date_1",
+                                                "input_datetime.front_wed_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_1",
-                                                "input_datetime.thustart_date_1",
-                                                "input_datetime.thuend_date_1",
+                                                "input_boolean.front_thu_1",
+                                                "input_datetime.front_thu_start_date_1",
+                                                "input_datetime.front_thu_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_1",
-                                                "input_datetime.fristart_date_1",
-                                                "input_datetime.friend_date_1",
+                                                "input_boolean.front_fri_1",
+                                                "input_datetime.front_fri_start_date_1",
+                                                "input_datetime.front_fri_end_date_1",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_1",
-                                                "input_datetime.satstart_date_1",
-                                                "input_datetime.satend_date_1"
+                                                "input_boolean.front_sat_1",
+                                                "input_datetime.front_sat_start_date_1",
+                                                "input_datetime.front_sat_end_date_1"
                                             ],
                                             "head": "input_boolean.front_door_daterange_1",
                                             "type": "custom:fold-entity-row"
@@ -1301,50 +1309,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_2",
-                                                "input_datetime.end_date_2",
+                                                "input_datetime.front_start_date_2",
+                                                "input_datetime.front_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_2",
-                                                "input_datetime.sunstart_date_2",
-                                                "input_datetime.sunend_date_2",
+                                                "input_boolean.front_sun_2",
+                                                "input_datetime.front_sun_start_date_2",
+                                                "input_datetime.front_sun_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_2",
-                                                "input_datetime.monstart_date_2",
-                                                "input_datetime.monend_date_2",
+                                                "input_boolean.front_mon_2",
+                                                "input_datetime.front_mon_start_date_2",
+                                                "input_datetime.front_mon_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_2",
-                                                "input_datetime.tuestart_date_2",
-                                                "input_datetime.tueend_date_2",
+                                                "input_boolean.front_tue_2",
+                                                "input_datetime.front_tue_start_date_2",
+                                                "input_datetime.front_tue_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_2",
-                                                "input_datetime.wedstart_date_2",
-                                                "input_datetime.wedend_date_2",
+                                                "input_boolean.front_wed_2",
+                                                "input_datetime.front_wed_start_date_2",
+                                                "input_datetime.front_wed_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_2",
-                                                "input_datetime.thustart_date_2",
-                                                "input_datetime.thuend_date_2",
+                                                "input_boolean.front_thu_2",
+                                                "input_datetime.front_thu_start_date_2",
+                                                "input_datetime.front_thu_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_2",
-                                                "input_datetime.fristart_date_2",
-                                                "input_datetime.friend_date_2",
+                                                "input_boolean.front_fri_2",
+                                                "input_datetime.front_fri_start_date_2",
+                                                "input_datetime.front_fri_end_date_2",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_2",
-                                                "input_datetime.satstart_date_2",
-                                                "input_datetime.satend_date_2"
+                                                "input_boolean.front_sat_2",
+                                                "input_datetime.front_sat_start_date_2",
+                                                "input_datetime.front_sat_end_date_2"
                                             ],
                                             "head": "input_boolean.front_door_daterange_2",
                                             "type": "custom:fold-entity-row"
@@ -1385,50 +1393,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_3",
-                                                "input_datetime.end_date_3",
+                                                "input_datetime.front_start_date_3",
+                                                "input_datetime.front_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_3",
-                                                "input_datetime.sunstart_date_3",
-                                                "input_datetime.sunend_date_3",
+                                                "input_boolean.front_sun_3",
+                                                "input_datetime.front_sun_start_date_3",
+                                                "input_datetime.front_sun_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_3",
-                                                "input_datetime.monstart_date_3",
-                                                "input_datetime.monend_date_3",
+                                                "input_boolean.front_mon_3",
+                                                "input_datetime.front_mon_start_date_3",
+                                                "input_datetime.front_mon_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_3",
-                                                "input_datetime.tuestart_date_3",
-                                                "input_datetime.tueend_date_3",
+                                                "input_boolean.front_tue_3",
+                                                "input_datetime.front_tue_start_date_3",
+                                                "input_datetime.front_tue_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_3",
-                                                "input_datetime.wedstart_date_3",
-                                                "input_datetime.wedend_date_3",
+                                                "input_boolean.front_wed_3",
+                                                "input_datetime.front_wed_start_date_3",
+                                                "input_datetime.front_wed_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_3",
-                                                "input_datetime.thustart_date_3",
-                                                "input_datetime.thuend_date_3",
+                                                "input_boolean.front_thu_3",
+                                                "input_datetime.front_thu_start_date_3",
+                                                "input_datetime.front_thu_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_3",
-                                                "input_datetime.fristart_date_3",
-                                                "input_datetime.friend_date_3",
+                                                "input_boolean.front_fri_3",
+                                                "input_datetime.front_fri_start_date_3",
+                                                "input_datetime.front_fri_end_date_3",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_3",
-                                                "input_datetime.satstart_date_3",
-                                                "input_datetime.satend_date_3"
+                                                "input_boolean.front_sat_3",
+                                                "input_datetime.front_sat_start_date_3",
+                                                "input_datetime.front_sat_end_date_3"
                                             ],
                                             "head": "input_boolean.front_door_daterange_3",
                                             "type": "custom:fold-entity-row"
@@ -1469,50 +1477,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_4",
-                                                "input_datetime.end_date_4",
+                                                "input_datetime.front_start_date_4",
+                                                "input_datetime.front_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_4",
-                                                "input_datetime.sunstart_date_4",
-                                                "input_datetime.sunend_date_4",
+                                                "input_boolean.front_sun_4",
+                                                "input_datetime.front_sun_start_date_4",
+                                                "input_datetime.front_sun_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_4",
-                                                "input_datetime.monstart_date_4",
-                                                "input_datetime.monend_date_4",
+                                                "input_boolean.front_mon_4",
+                                                "input_datetime.front_mon_start_date_4",
+                                                "input_datetime.front_mon_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_4",
-                                                "input_datetime.tuestart_date_4",
-                                                "input_datetime.tueend_date_4",
+                                                "input_boolean.front_tue_4",
+                                                "input_datetime.front_tue_start_date_4",
+                                                "input_datetime.front_tue_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_4",
-                                                "input_datetime.wedstart_date_4",
-                                                "input_datetime.wedend_date_4",
+                                                "input_boolean.front_wed_4",
+                                                "input_datetime.front_wed_start_date_4",
+                                                "input_datetime.front_wed_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_4",
-                                                "input_datetime.thustart_date_4",
-                                                "input_datetime.thuend_date_4",
+                                                "input_boolean.front_thu_4",
+                                                "input_datetime.front_thu_start_date_4",
+                                                "input_datetime.front_thu_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_4",
-                                                "input_datetime.fristart_date_4",
-                                                "input_datetime.friend_date_4",
+                                                "input_boolean.front_fri_4",
+                                                "input_datetime.front_fri_start_date_4",
+                                                "input_datetime.front_fri_end_date_4",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_4",
-                                                "input_datetime.satstart_date_4",
-                                                "input_datetime.satend_date_4"
+                                                "input_boolean.front_sat_4",
+                                                "input_datetime.front_sat_start_date_4",
+                                                "input_datetime.front_sat_end_date_4"
                                             ],
                                             "head": "input_boolean.front_door_daterange_4",
                                             "type": "custom:fold-entity-row"
@@ -1553,50 +1561,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_5",
-                                                "input_datetime.end_date_5",
+                                                "input_datetime.front_start_date_5",
+                                                "input_datetime.front_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_5",
-                                                "input_datetime.sunstart_date_5",
-                                                "input_datetime.sunend_date_5",
+                                                "input_boolean.front_sun_5",
+                                                "input_datetime.front_sun_start_date_5",
+                                                "input_datetime.front_sun_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_5",
-                                                "input_datetime.monstart_date_5",
-                                                "input_datetime.monend_date_5",
+                                                "input_boolean.front_mon_5",
+                                                "input_datetime.front_mon_start_date_5",
+                                                "input_datetime.front_mon_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_5",
-                                                "input_datetime.tuestart_date_5",
-                                                "input_datetime.tueend_date_5",
+                                                "input_boolean.front_tue_5",
+                                                "input_datetime.front_tue_start_date_5",
+                                                "input_datetime.front_tue_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_5",
-                                                "input_datetime.wedstart_date_5",
-                                                "input_datetime.wedend_date_5",
+                                                "input_boolean.front_wed_5",
+                                                "input_datetime.front_wed_start_date_5",
+                                                "input_datetime.front_wed_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_5",
-                                                "input_datetime.thustart_date_5",
-                                                "input_datetime.thuend_date_5",
+                                                "input_boolean.front_thu_5",
+                                                "input_datetime.front_thu_start_date_5",
+                                                "input_datetime.front_thu_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_5",
-                                                "input_datetime.fristart_date_5",
-                                                "input_datetime.friend_date_5",
+                                                "input_boolean.front_fri_5",
+                                                "input_datetime.front_fri_start_date_5",
+                                                "input_datetime.front_fri_end_date_5",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_5",
-                                                "input_datetime.satstart_date_5",
-                                                "input_datetime.satend_date_5"
+                                                "input_boolean.front_sat_5",
+                                                "input_datetime.front_sat_start_date_5",
+                                                "input_datetime.front_sat_end_date_5"
                                             ],
                                             "head": "input_boolean.front_door_daterange_5",
                                             "type": "custom:fold-entity-row"
@@ -1637,50 +1645,50 @@
                                         },
                                         {
                                             "entities": [
-                                                "input_datetime.start_date_6",
-                                                "input_datetime.end_date_6",
+                                                "input_datetime.front_start_date_6",
+                                                "input_datetime.front_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sun_6",
-                                                "input_datetime.sunstart_date_6",
-                                                "input_datetime.sunend_date_6",
+                                                "input_boolean.front_sun_6",
+                                                "input_datetime.front_sun_start_date_6",
+                                                "input_datetime.front_sun_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.mon_6",
-                                                "input_datetime.monstart_date_6",
-                                                "input_datetime.monend_date_6",
+                                                "input_boolean.front_mon_6",
+                                                "input_datetime.front_mon_start_date_6",
+                                                "input_datetime.front_mon_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.tue_6",
-                                                "input_datetime.tuestart_date_6",
-                                                "input_datetime.tueend_date_6",
+                                                "input_boolean.front_tue_6",
+                                                "input_datetime.front_tue_start_date_6",
+                                                "input_datetime.front_tue_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.wed_6",
-                                                "input_datetime.wedstart_date_6",
-                                                "input_datetime.wedend_date_6",
+                                                "input_boolean.front_wed_6",
+                                                "input_datetime.front_wed_start_date_6",
+                                                "input_datetime.front_wed_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.thu_6",
-                                                "input_datetime.thustart_date_6",
-                                                "input_datetime.thuend_date_6",
+                                                "input_boolean.front_thu_6",
+                                                "input_datetime.front_thu_start_date_6",
+                                                "input_datetime.front_thu_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.fri_6",
-                                                "input_datetime.fristart_date_6",
-                                                "input_datetime.friend_date_6",
+                                                "input_boolean.front_fri_6",
+                                                "input_datetime.front_fri_start_date_6",
+                                                "input_datetime.front_fri_end_date_6",
                                                 {
                                                     "type": "divider"
                                                 },
-                                                "input_boolean.sat_6",
-                                                "input_datetime.satstart_date_6",
-                                                "input_datetime.satend_date_6"
+                                                "input_boolean.front_sat_6",
+                                                "input_datetime.front_sat_start_date_6",
+                                                "input_datetime.front_sat_end_date_6"
                                             ],
                                             "head": "input_boolean.front_door_daterange_6",
                                             "type": "custom:fold-entity-row"
@@ -1690,11 +1698,48 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_select.lock_zwave_option_3_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_4_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_5_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_7_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_8_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_9_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_10_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_11_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_15_front"
+                                },
+                                {
+                                    "entity": "input_select.lock_zwave_option_16_front"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Front Door Lock Options",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:lock-smart",
                     "panel": false,
-                    "path": "keypad",
+                    "path": "front_door_lock",
                     "title": "Front Door"
                 }
             ]

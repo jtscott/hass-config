@@ -248,3 +248,65 @@ switch.garage_cover_outlet_1:
   icon: mdi:power-socket-us
 switch.garage_cover_outlet_2:
   icon: mdi:power-socket-us
+input_boolean.front_door_enabled_1:
+  icon: mdi:home-lock
+input_boolean.front_door_enabled_2:
+  icon: mdi:home-lock
+input_boolean.front_door_enabled_3:
+  icon: mdi:home-lock
+input_boolean.front_door_enabled_4:
+  icon: mdi:home-lock
+input_boolean.front_door_enabled_5:
+  icon: mdi:home-lock
+input_boolean.front_door_enabled_6:
+  icon: mdi:home-lock
+input_boolean.front_door_notify_1:
+  icon: mdi:lock-alert
+input_boolean.front_door_notify_2:
+  icon: mdi:lock-alert
+input_boolean.front_door_notify_3:
+  icon: mdi:lock-alert
+input_boolean.front_door_notify_4:
+  icon: mdi:lock-alert
+input_boolean.front_door_notify_5:
+  icon: mdi:lock-alert
+input_boolean.front_door_notify_6:
+  icon: mdi:lock-alert
+input_boolean.front_door_accesslimit_1:
+  icon: mdi:lock-plus
+input_boolean.front_door_accesslimit_2:
+  icon: mdi:lock-plus
+input_boolean.front_door_accesslimit_3:
+  icon: mdi:lock-plus
+input_boolean.front_door_accesslimit_4:
+  icon: mdi:lock-plus
+input_boolean.front_door_accesslimit_5:
+  icon: mdi:lock-plus
+input_boolean.front_door_accesslimit_6:
+  icon: mdi:lock-plus
+input_boolean.front_door_daterange_1:
+  icon: mdi:lock-clock
+input_boolean.front_door_daterange_2:
+  icon: mdi:lock-clock
+input_boolean.front_door_daterange_3:
+  icon: mdi:lock-clock
+input_boolean.front_door_daterange_4:
+  icon: mdi:lock-clock
+input_boolean.front_door_daterange_5:
+  icon: mdi:lock-clock
+input_boolean.front_door_daterange_6:
+  icon: mdi:lock-clock
+input_boolean.front_sun_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_mon_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_tue_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_wed_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_thu_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_fri_1:
+  icon: mdi:calendar-multiselect
+input_boolean.front_sat_1:
+  icon: mdi:calendar-multiselect
