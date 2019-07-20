@@ -97,7 +97,7 @@ input_boolean:
     name: 'Notifications'
   front_door_daterange_6:
     name: 'Use Date Range'
-  front_door_front_smtwtfs_6:
+  front_door_smtwtfs_6:
     name: 'Use SMTWTFS'
   front_door_enabled_6:
     name: 'Enabled'
