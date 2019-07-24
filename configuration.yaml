@@ -159,6 +159,12 @@ media_player:
   - platform: samsungtv
     host: !secret samsung_tv_ip
     name: UN65F8000
+  - platform: mpd
+    host: !secret advertise_ip
+  - platform: androidtv
+    host: !secret nvidia_shield_ip
+    name: Nvidia Shield
+    adbkey: "/config/.storage/adbkey"
 
 ###########################################
 # Third Party Components

@@ -18,6 +18,8 @@ custom_components/
 .storage/hacs
 .storage/hacs.*
 .storage/frontend.user_data_*
+.storage/adbkey
+.storage/adbkey.pub
 auth*
 core.*
 onboarding

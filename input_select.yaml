@@ -21,3 +21,14 @@ camera_alerts:
   - Front Door
   - Back Door
   - Disabled
+
+multi_room_audio:
+  name: Multi-Room Audio
+  options:
+  - Everywhere
+  - Main Floor
+  - Kitchen
+  - Second Floor
+  - Master Bedroom
+  - Theater
+  - Office

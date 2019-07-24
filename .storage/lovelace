@@ -127,10 +127,16 @@
                                         "entity_id": "switch.flux"
                                     },
                                     {
-                                        "entity_id": "input_boolean.*"
+                                        "entity_id": "switch.garage_cover_outlet_*"
                                     },
                                     {
-                                        "entity_id": "switch.garage_cover_outlet_*"
+                                        "entity_id": "input_boolean.front_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.back_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.garage_*"
                                     }
                                 ],
                                 "include": [
@@ -694,24 +700,26 @@
                             "type": "entities"
                         },
                         {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.my_shield_console",
-                            "icon": "mdi:television-classic",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
                             "entities": [
                                 {
-                                    "entity": "sensor.current_activity"
+                                    "entities": [
+                                        "input_select.harmony"
+                                    ],
+                                    "head": "sensor.current_activity",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "input_select.harmony"
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.un65f8000",
+                                    "group": true,
+                                    "name": "Samsung TV",
+                                    "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "switch.livingroomtv"
-                                },
-                                {
-                                    "entity": "switch.shieldtv"
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.nvidia_shield",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -751,6 +759,99 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "entities": [
+                                "input_select.multi_room_audio",
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.mpd",
+                                    "group": true,
+                                    "name": "Google Music",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Multi-Room Audio",
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.google_home_kitchen",
+                                    "name": "Kitchen Assistant",
+                                    "tts": {
+                                        "platform": "google_translate"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.kitchen_ceiling",
+                                    "name": "Kitchen Speakers",
+                                    "tts": {
+                                        "platform": "google_translate"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.google_home_living_room",
+                                    "name": "Living Room",
+                                    "tts": {
+                                        "platform": "google_translate"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.master_bedroom_ceiling",
+                                    "name": "Master Bedroom Speakers",
+                                    "tts": {
+                                        "platform": "google_translate"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "full-cover-fit",
+                                    "entity": "media_player.google_home_master_bedroom",
+                                    "name": "Master Bedroom Assistant",
+                                    "tts": {
+                                        "platform": "google_translate"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.google_home_office",
+                            "name": "Office Mini",
+                            "tts": {
+                                "platform": "google_translate"
+                            },
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.google_home_theater",
+                            "name": "Theater Mini",
+                            "tts": {
+                                "platform": "google_translate"
+                            },
+                            "type": "custom:mini-media-player"
+                        },
                         {
                             "elements": [
                                 {
@@ -795,45 +896,6 @@
                             ],
                             "image": "https://home.eatsleepbreach.ca/local/amplifier.png",
                             "type": "picture-elements"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.google_home_theater",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "media_player.master_bedroom_ceiling",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_master_bedroom",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_office",
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "media_player.kitchen_ceiling",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_kitchen",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.google_home_living_room",
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
                         },
                         {
                             "all_shadows": false,
