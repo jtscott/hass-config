@@ -67,23 +67,6 @@
                     "cards": [
                         {
                             "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
                                 "show_header_toggle": true,
                                 "title": "On",
                                 "type": "entities"
@@ -210,6 +193,79 @@
                             },
                             "show_empty": false,
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.front_door",
+                                    "camera_view": "live",
+                                    "style": {
+                                        "heigth": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "sensor.front_door_detection",
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "0%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "/local/camerablank.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.back_door",
+                                    "camera_view": "live",
+                                    "style": {
+                                        "heigth": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "sensor.back_door_detection",
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "0%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "/local/camerablank.png",
+                            "type": "picture-elements"
                         }
                     ],
                     "icon": "mdi:feature-search-outline",
@@ -311,62 +367,6 @@
                             "show_header_toggle": false,
                             "title": "Entry",
                             "type": "entities"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.front_door",
-                                    "camera_view": "live",
-                                    "style": {
-                                        "heigth": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.front_door_detection",
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "0%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                }
-                            ],
-                            "image": "/local/camerablank.png",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.back_door",
-                                    "camera_view": "live",
-                                    "style": {
-                                        "heigth": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.back_door_detection",
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "0%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                }
-                            ],
-                            "image": "/local/camerablank.png",
-                            "type": "picture-elements"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -582,40 +582,39 @@
                             "type": "custom:mini-graph-card"
                         },
                         {
-                            "cards": [
+                            "background": "#bad7f2",
+                            "entities": [
+                                "light.office",
                                 {
-                                    "entities": [
-                                        {
-                                            "entity": "light.office"
-                                        }
-                                    ],
-                                    "type": "entities"
+                                    "entity": "sensor.office_occupancy",
+                                    "name": null
                                 },
                                 {
-                                    "entities": [
-                                        "sensor.office_occupancy",
-                                        "sensor.office_window_template"
-                                    ],
-                                    "type": "glance"
+                                    "entity": "sensor.office_window_template",
+                                    "name": "Window"
                                 }
                             ],
-                            "title": "Office",
-                            "type": "custom:vertical-stack-in-card"
+                            "heading": "\ud83d\udcbe Office",
+                            "type": "custom:banner-card"
                         },
                         {
-                            "cards": [
+                            "background": "#f2bac9",
+                            "entities": [
                                 {
-                                    "entities": [
-                                        "sensor.master_bedroom_occupancy",
-                                        "sensor.master_bedroom_window_template",
-                                        "sensor.master_bath_leak_template"
-                                    ],
-                                    "type": "glance"
-                                }
+                                    "entity": "sensor.master_bedroom_occupancy",
+                                    "name": null
+                                },
+                                {
+                                    "entity": "sensor.master_bedroom_window_template",
+                                    "name": "Window"
+                                },
+                                "sensor.master_bath_leak_template"
                             ],
-                            "type": "horizontal-stack"
+                            "heading": "\ud83d\udecf\ufe0f Master Bedroom",
+                            "type": "custom:banner-card"
                         },
                         {
+                            "background": "#f2e2ba",
                             "entities": [
                                 {
                                     "entity": "sensor.washer_template"
@@ -624,9 +623,8 @@
                                     "entity": "sensor.dryer_template"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Laundry",
-                            "type": "entities"
+                            "heading": "\ud83e\uddfa Laundry",
+                            "type": "custom:banner-card"
                         },
                         {
                             "artwork": "full-cover-fit",
