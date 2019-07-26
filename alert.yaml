@@ -15,10 +15,18 @@ kitchen_nest_protect_offline:
   notifiers:
     - pushover
     
-water_leak:
-  name: "Water Leak Detected"
-  entity_id: group.leak_sensors
-  state: 'on'
+sump_pump_water_leak:
+  name: "Sump Pump Leak Detected"
+  entity_id: sensor.sump_pump_leak_template
+  state: 'Wet'
   repeat: 240
   notifiers:
-    - pushover
+    - notify.notify
+
+water_heater_water_leak:
+  name: "Water Heater Leak Detected"
+  entity_id: sensor.water_heater_leak_template
+  state: 'Wet'
+  repeat: 240
+  notifiers:
+    - notify.notify

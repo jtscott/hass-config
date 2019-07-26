@@ -3,17 +3,17 @@
    water_heater_leak_template:
       friendly_name: 'Water Heater'
       value_template: >-
-        {%- if is_state('binary_sensor.water_heater_leak', 'off') %}
+        {%- if is_state('binary_sensor.water_hot_water_heater', 'off') %}
             Dry
-        {%- elif is_state('binary_sensor.water_heater_leak', 'on') %}
+        {%- elif is_state('binary_sensor.water_hot_water_heater', 'on') %}
             Wet
         {%- else %}
             Unknown
         {%- endif %}
       icon_template: >-
-        {%- if is_state('binary_sensor.water_heater_leak', 'off') %}
+        {%- if is_state('binary_sensor.water_hot_water_heater', 'off') %}
           mdi:water-off
-        {%- elif is_state('binary_sensor.water_heater_leak', 'on') %}
+        {%- elif is_state('binary_sensor.water_hot_water_heater', 'on') %}
           mdi:water-on
         {% else %}
           mdi:water-outline
@@ -24,17 +24,17 @@
    sump_pump_leak_template:
       friendly_name: 'Sump Pump'
       value_template: >-
-        {%- if is_state('binary_sensor.sump_pump_leak', 'off') %}
+        {%- if is_state('sensor.water_sump_pump', 'False') %}
             Dry
-        {%- elif is_state('binary_sensor.sump_pump_leak', 'on') %}
+        {%- elif is_state('sensor.water_sump_pump', 'True') %}
             Wet
         {%- else %}
             Unknown
         {%- endif %}
       icon_template: >-
-        {%- if is_state('binary_sensor.sump_pump_leak', 'off') %}
+        {%- if is_state('sensor.water_sump_pump', 'False') %}
           mdi:water-off
-        {%- elif is_state('binary_sensor.sump_pump_leak', 'on') %}
+        {%- elif is_state('sensor.water_sump_pump', 'True') %}
           mdi:water-on
         {% else %}
           mdi:water-outline
