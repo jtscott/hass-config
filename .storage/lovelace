@@ -3,9 +3,11 @@
         "config": {
             "cch": {
                 "clock_date": true,
+                "hide_help": true,
                 "options": "clock",
                 "swipe": true,
-                "swipe_animate": "fade"
+                "swipe_animate": "fade",
+                "voice": "hide"
             },
             "resources": [
                 {
@@ -65,6 +67,50 @@
                         "device_tracker.brittanysiphone"
                     ],
                     "cards": [
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Occupied",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "*bathroom*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Occupied"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
                         {
                             "card": {
                                 "show_header_toggle": true,
@@ -161,50 +207,6 @@
                                     },
                                     {
                                         "state": "open"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Occupied",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
-                                    },
-                                    {
-                                        "entity_id": "*bathroom*"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "Occupied"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
                                     }
                                 ]
                             },
