@@ -1,6 +1,6 @@
-roomba_bin_full:
+vacuum_mainfloor_bin_full:
   name: "Roomba's Bin is Full"
-  entity_id: sensor.roomba_bin_state_template
+  entity_id: sensor.vacuum_mainfloor_bin_state_template
   state: 'Full'
   repeat: 240
   can_acknowledge: True

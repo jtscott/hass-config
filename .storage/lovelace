@@ -166,6 +166,9 @@
                                     },
                                     {
                                         "entity_id": "input_boolean.garage_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.vacuum_mainfloor_manual"
                                     }
                                 ],
                                 "include": [
@@ -408,93 +411,8 @@
                             "type": "custom:vertical-stack-in-card"
                         },
                         {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "light.dining_room"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.dining_room_window_template"
-                                    ],
-                                    "type": "glance"
-                                }
-                            ],
-                            "title": "Dining Room",
-                            "type": "custom:vertical-stack-in-card"
-                        },
-                        {
                             "entity": "climate.main_floor",
                             "type": "custom:simple-thermostat"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "service": "homeassistant.toggle",
-                                    "service_data": {
-                                        "entity_id": "input_boolean.vacuum_manual"
-                                    },
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": "1px",
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16x 4px 16px 16px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "title": "On/Off",
-                                    "type": "service-button"
-                                },
-                                {
-                                    "entity": "input_boolean.vacuum_manual",
-                                    "style": {
-                                        "left": "86%",
-                                        "top": "88%"
-                                    },
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.roomba_cycle_template",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "75%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.roomba_runtime",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "16%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                },
-                                {
-                                    "entity": "sensor.vacuum_mainfloor_batpct",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "1%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/roomba980.png",
-                            "type": "picture-elements"
                         },
                         {
                             "animate": true,
@@ -534,6 +452,42 @@
                                 "legend": false
                             },
                             "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "input_select.roomba_mainfloor_carpetboost",
+                                        "input_select.roomba_mainfloor_cleaningpasses",
+                                        "sensor.vacuum_mainfloor_bin_state_template"
+                                    ],
+                                    "head": "input_boolean.vacuum_mainfloor_manual",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.vacuum_mainfloor_runtime",
+                                        "sensor.vacuum_mainfloor_batpct"
+                                    ],
+                                    "head": "sensor.vacuum_mainfloor_cycle_template",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Vacuum",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "title": "Dining Room",
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",

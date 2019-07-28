@@ -1,21 +1,26 @@
 - platform: mqtt
-  name: Roomba
-  state_topic: 'vacuum/mainfloor/status/cycle'
-  command_topic: 'vacuum/mainfloor/switch/set'
+  name: Vacuum MainFloor
+  command_topic: 'vacuum/mainfloor/commands'
   payload_on: "start"
-  payload_off: "dock"
+  payload_off: "stop"
+  state_topic: 'vacuum/mainfloor/status/cycle'
   state_on: "clean"
   state_off: "none"
-  qos: 0
-  retain: true
+
+- platform: mqtt
+  name: Vacuum Basement
+  command_topic: 'vacuum/basement/commands'
+  payload_on: "start"
+  payload_off: "stop"
+  state_topic: 'vacuum/basement/mission'
+  state_on: "start"
+  state_off: "stop"
 
 - platform: mqtt
   name: Guest WiFi
-  state_topic: 'wifi/network/guest/status'
   command_topic: 'wifi/network/guest/switch/set'
   payload_on: "on"
   payload_off: "off"
+  state_topic: 'wifi/network/guest/status'
   state_on: "enabled"
   state_off: "disabled"
-  qos: 0
-  retain: true

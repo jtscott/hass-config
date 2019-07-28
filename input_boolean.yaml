@@ -6,6 +6,10 @@ guestmode:
   name: "Guest Mode"
   initial: off
 
-vacuum_manual:
+vacuum_mainfloor_manual:
+  name: "Roomba"
+  initial: off
+
+vacuum_basement_manual:
   name: "Roomba"
   initial: off

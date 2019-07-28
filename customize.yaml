@@ -1,4 +1,4 @@
-alert.roomba_bin_full:
+alert.vacuum_mainfloor_bin_full:
   order: 1
   icon: mdi:alert
 climate.main_floor:
@@ -94,18 +94,22 @@ sensor.moon:
 sensor.memory_use_percent:
   friendly_name: Memory
   icon: mdi:memory
-sensor.roomba_bin_state_template:
+input_boolean.vacuum_mainfloor_manual:
+  icon: mdi:robot-vacuum
+switch.vacuum_mainfloor:
+  icon: mdi:robot-vacuum
+sensor.vacuum_mainfloor_bin_state_template:
   icon: mdi:delete-sweep
-sensor.roomba_bin_presence_template:
+sensor.vacuum_mainfloor_bin_presence_template:
   icon: mdi:delete-sweep
-sensor.roomba_cycle_template:
+sensor.vacuum_mainfloor_cycle_template:
   friendly_name: Cycle
   icon: mdi:autorenew
-sensor.roomba_firmware_template:
-  icon: mdi:floppy
-sensor.roomba_runtime:
+sensor.vacuum_mainfloor_runtime:
   icon: mdi:timelapse
   friendly_name: Runtime
+sensor.vacuum_mainfloor_batpct:
+  friendly_name: Battery
 sensor.rro_rate:
   icon: mdi:power-plug
 sensor.solar_angle:
@@ -149,8 +153,6 @@ sensor.master_bedroom_occupancy:
   icon: mdi:bed-empty
 script.1523136244144:
   icon: mdi:bone
-input_boolean.vacuum_manual:
-  icon: mdi:robot-vacuum
 switch.security_cameras:
   icon: mdi:cctv
 light.dining_room:
