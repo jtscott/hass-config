@@ -1006,28 +1006,21 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d"
-                                },
-                                {
                                     "entity": "sensor.dark_sky_daytime_high_temperature_1d"
                                 },
                                 {
-                                    "entity": "sensor.air_pressure_tomorrow_template"
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d"
                                 },
                                 {
-                                    "entity": "sensor.dark_sky_cloud_coverage_1d"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_precip_type_tomorrow_template"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_precip_probability_tomorrow_template"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_precip_intensity_1d"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_wind_speed_1d"
+                                    "entities": [
+                                        "sensor.dark_sky_precip_type_tomorrow_template",
+                                        "sensor.air_pressure_tomorrow_template",
+                                        "sensor.dark_sky_cloud_coverage_1d",
+                                        "sensor.dark_sky_precip_intensity_1d",
+                                        "sensor.dark_sky_wind_speed_1d"
+                                    ],
+                                    "head": "sensor.dark_sky_precip_probability_tomorrow_template",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1037,10 +1030,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.day_night"
-                                },
-                                {
-                                    "entity": "sensor.solar_angle"
+                                    "entity": "sensor.season_template"
                                 },
                                 {
                                     "entity": "sensor.sunrise"
@@ -1049,7 +1039,7 @@
                                     "entity": "sensor.sunset"
                                 },
                                 {
-                                    "entity": "sensor.season_template"
+                                    "entity": "sensor.solar_angle"
                                 }
                             ],
                             "show_header_toggle": false,
