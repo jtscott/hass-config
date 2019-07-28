@@ -69,7 +69,7 @@ sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
 
 ###########################################
-# Panels
+# Panels & Weblinks
 ###########################################
 panel_custom:
   - name: zwavegraph2
@@ -78,6 +78,10 @@ panel_custom:
     url_path: zwave
 
 panel_iframe:
+  mopidy:
+    title: 'Music'
+    url: !secret mopidy_url
+    icon: mdi:music-box
   nodered:
     title: 'Node-Red'
     url: !secret node_red_url
