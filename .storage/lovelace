@@ -411,6 +411,18 @@
                             "type": "custom:vertical-stack-in-card"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "title": "Dining Room",
+                            "type": "glance"
+                        },
+                        {
                             "entity": "climate.main_floor",
                             "type": "custom:simple-thermostat"
                         },
@@ -457,9 +469,9 @@
                             "entities": [
                                 {
                                     "entities": [
+                                        "sensor.vacuum_mainfloor_bin_state_template",
                                         "input_select.roomba_mainfloor_carpetboost",
-                                        "input_select.roomba_mainfloor_cleaningpasses",
-                                        "sensor.vacuum_mainfloor_bin_state_template"
+                                        "input_select.roomba_mainfloor_cleaningpasses"
                                     ],
                                     "head": "input_boolean.vacuum_mainfloor_manual",
                                     "type": "custom:fold-entity-row"
@@ -476,18 +488,6 @@
                             "show_header_toggle": false,
                             "title": "Vacuum",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                }
-                            ],
-                            "title": "Dining Room",
-                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
