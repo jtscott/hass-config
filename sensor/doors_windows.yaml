@@ -1,3 +1,30 @@
+###########################################
+# Doors
+###########################################
+- platform: template
+  sensors:
+    basement_door_template:
+      friendly_name: 'Basement Door'
+      value_template: >-
+        {%- if is_state('binary_sensor.basement_door_sensor', 'off') %}
+            Closed
+        {%- elif is_state('binary_sensor.basement_door_sensor', 'on') %}
+            Open
+        {%- else %}
+            Offline
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state('binary_sensor.basement_door_sensor', 'off') %}
+          mdi:door-closed
+        {%- elif is_state('binary_sensor.basement_door_sensor', 'on') %}
+          mdi:door-open
+        {% else %}
+          mdi:door
+        {% endif %}
+
+##########################################
+# Windows
+###########################################
 - platform: template
   sensors:
     dining_room_window_template:

@@ -682,8 +682,15 @@
                         },
                         {
                             "entities": [
-                                "sensor.theater_occupancy",
-                                "sensor.guest_bedroom_occupancy"
+                                {
+                                    "entity": "sensor.basement_door_template"
+                                },
+                                {
+                                    "entity": "sensor.theater_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.guest_bedroom_occupancy"
+                                }
                             ],
                             "show_icon": true,
                             "show_name": true,
