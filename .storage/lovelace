@@ -483,7 +483,8 @@
                                     ],
                                     "head": "sensor.vacuum_mainfloor_cycle_template",
                                     "type": "custom:fold-entity-row"
-                                }
+                                },
+                                "input_boolean.vacuum_basement_manual"
                             ],
                             "show_header_toggle": false,
                             "title": "Vacuum",

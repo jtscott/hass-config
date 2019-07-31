@@ -96,7 +96,11 @@ sensor.memory_use_percent:
   icon: mdi:memory
 input_boolean.vacuum_mainfloor_manual:
   icon: mdi:robot-vacuum
+input_boolean.vacuum_basement_manual:
+  icon: mdi:robot-vacuum
 switch.vacuum_mainfloor:
+  icon: mdi:robot-vacuum
+switch.vacuum_basement:
   icon: mdi:robot-vacuum
 sensor.vacuum_mainfloor_bin_state_template:
   icon: mdi:delete-sweep

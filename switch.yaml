@@ -12,9 +12,9 @@
   command_topic: 'vacuum/basement/commands'
   payload_on: "start"
   payload_off: "stop"
-  state_topic: 'vacuum/basement/mission'
-  state_on: "start"
-  state_off: "stop"
+  state_topic: 'vacuum/basement/status'
+  state_on: "clean"
+  state_off: "dock"
 
 - platform: mqtt
   name: Guest WiFi
