@@ -1,0 +1,26 @@
+###########################################
+# Roomba Basement
+###########################################
+- platform: mqtt
+  name: "Vacuum Basement Status"
+  state_topic: "vacuum/basement/status"
+  force_update: true
+
+- platform: mqtt
+  name: "Vacuum Basement Charge State"
+  state_topic: "vacuum/basement/charge"
+  force_update: true
+
+- platform: mqtt
+  name: "Vacuum Basement BatPct"
+  state_topic: "vacuum/basement/battery"
+  force_update: true
+  unit_of_measurement: '%'
+  device_class: battery
+
+- platform: history_stats
+  name: Vacuum Basement Runtime
+  entity_id: sensor.vacuum_basement_status
+  state: 'on'
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
