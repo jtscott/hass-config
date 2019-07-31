@@ -10,6 +10,8 @@
   sensors:
     last_successful_authentication_hostname:
       value_template: '{{ states.sensor.last_successful_authentication.attributes.hostname }}'
+    last_successful_authentication_username:
+      value_template: '{{ states.sensor.last_successful_authentication.attributes.username }}'
 
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest

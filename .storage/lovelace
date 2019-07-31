@@ -1081,6 +1081,9 @@
                                     "entity": "zwave.aeotec_zw090_gen5"
                                 },
                                 {
+                                    "entity": "sensor.last_successful_authentication_username"
+                                },
+                                {
                                     "entity": "sensor.last_successful_authentication"
                                 },
                                 {
