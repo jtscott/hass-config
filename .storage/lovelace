@@ -372,6 +372,29 @@
                             "show_header_toggle": false,
                             "title": "Entry",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "sensor.george_last_seen_template",
+                                        "sensor.george_ear_tattoo_template",
+                                        "sensor.george_petlynx_template"
+                                    ],
+                                    "head": "device_tracker.george",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.alfred_last_seen_template"
+                                    ],
+                                    "head": "device_tracker.alfie",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Pets",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -886,84 +909,38 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.alfie"
-                                },
-                                {
-                                    "entity": "sensor.alfred_last_seen_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Alfred",
-                            "type": "entities"
+                            "backdrop": {
+                                "day": "var(--primary-color)",
+                                "night": "#40445a"
+                            },
+                            "entity": "weather.dark_sky",
+                            "type": "custom:simple-weather-card"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "device_tracker.george"
+                                    "entity": "sensor.uv_rating_template"
                                 },
                                 {
-                                    "entity": "sensor.george_last_seen_template"
+                                    "entity": "sensor.dark_sky_cloud_coverage"
                                 },
                                 {
-                                    "entity": "sensor.george_ear_tattoo_template"
+                                    "entity": "sensor.air_pressure_template"
                                 },
                                 {
-                                    "entity": "sensor.george_petlynx_template"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "George",
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:cat",
-                    "path": "pets",
-                    "title": "Pets"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "backdrop": {
-                                        "day": "var(--primary-color)",
-                                        "night": "#40445a"
-                                    },
-                                    "entity": "weather.dark_sky",
-                                    "type": "custom:simple-weather-card"
+                                    "entity": "sensor.dark_sky_wind_speed"
                                 },
                                 {
                                     "entities": [
-                                        {
-                                            "entity": "sensor.uv_rating_template"
-                                        },
-                                        {
-                                            "entity": "sensor.dark_sky_cloud_coverage"
-                                        },
-                                        {
-                                            "entity": "sensor.air_pressure_template"
-                                        },
-                                        {
-                                            "entity": "sensor.dark_sky_precip_type_template"
-                                        },
-                                        {
-                                            "entity": "sensor.dark_sky_precip_probability_template"
-                                        },
-                                        {
-                                            "entity": "sensor.dark_sky_precip_intensity"
-                                        },
-                                        {
-                                            "entity": "sensor.dark_sky_wind_speed"
-                                        }
+                                        "sensor.dark_sky_precip_probability_template",
+                                        "sensor.dark_sky_precip_intensity"
                                     ],
-                                    "type": "entities"
+                                    "head": "sensor.dark_sky_precip_type_template",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
-                            "title": "Today's Forecast",
-                            "type": "vertical-stack"
+                            "show_header_toggle": false,
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -974,12 +951,16 @@
                                     "entity": "sensor.dark_sky_overnight_low_temperature_1d"
                                 },
                                 {
+                                    "entity": "sensor.air_pressure_tomorrow_template"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_wind_speed_1d"
+                                },
+                                {
                                     "entities": [
                                         "sensor.dark_sky_precip_type_tomorrow_template",
-                                        "sensor.air_pressure_tomorrow_template",
                                         "sensor.dark_sky_cloud_coverage_1d",
-                                        "sensor.dark_sky_precip_intensity_1d",
-                                        "sensor.dark_sky_wind_speed_1d"
+                                        "sensor.dark_sky_precip_intensity_1d"
                                     ],
                                     "head": "sensor.dark_sky_precip_probability_tomorrow_template",
                                     "type": "custom:fold-entity-row"
@@ -1010,6 +991,8 @@
                         },
                         {
                             "entity": "camera.yyc_doppler",
+                            "show_name": false,
+                            "show_state": false,
                             "type": "picture-entity"
                         }
                     ],
@@ -1022,19 +1005,19 @@
                     "cards": [
                         {
                             "entities": [
+                                "sensor.rro_rate"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Electricity",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
                                 "sensor.date",
                                 "sensor.time"
                             ],
                             "show_header_toggle": false,
                             "title": "Date & Time",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.rro_rate"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Electricity",
                             "type": "entities"
                         },
                         {
@@ -1081,13 +1064,12 @@
                                     "entity": "zwave.aeotec_zw090_gen5"
                                 },
                                 {
-                                    "entity": "sensor.last_successful_authentication_username"
-                                },
-                                {
-                                    "entity": "sensor.last_successful_authentication"
-                                },
-                                {
-                                    "entity": "sensor.last_successful_authentication_hostname"
+                                    "entities": [
+                                        "sensor.last_successful_authentication",
+                                        "sensor.last_successful_authentication_hostname"
+                                    ],
+                                    "head": "sensor.last_successful_authentication_username",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
