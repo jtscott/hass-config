@@ -135,7 +135,7 @@ switch.shieldtv:
   icon: mdi:cast
 zone.home:
   track_ios: true
-switch.wemo_outlet_1:
+switch.amp:
   friendly_name: Amp
   icon: mdi:boombox
 sensor.master_bedroom_temperature:
@@ -251,6 +251,8 @@ switch.garage_exterior_lights:
   icon: mdi:light-switch
 switch.basement_stairs:
   icon: mdi:light-switch
+switch.garage_cover_outlet:
+  icon: mdi:power-socket-us
 switch.garage_cover_outlet_1:
   icon: mdi:power-socket-us
 switch.garage_cover_outlet_2:

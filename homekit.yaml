@@ -1,11 +1,10 @@
-auto_start: false
 filter:
   include_entities:
     - switch.front_door
     - switch.back_door
     - switch.kitchen_light
     - switch.theater_outlet_1
-    - switch.wemo_outlet_1
+    - switch.amp
     - switch.basement_stairs
     - switch.garage_exterior_lights
     - light.island

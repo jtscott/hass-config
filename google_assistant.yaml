@@ -35,7 +35,7 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Theater Outlet 1'
-  switch.wemo_outlet_1:
+  switch.amp:
     expose: true
     room: 'Theater'
     name: 'Amplifiers'

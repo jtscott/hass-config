@@ -24,8 +24,8 @@
     amp_wattage:
       friendly_name: 'Watts'
       value_template: >- 
-        {%- if states.switch.wemo_outlet_1.attributes.current_power_w %}
-          {{ states.switch.wemo_outlet_1.attributes.current_power_w|round }}
+        {%- if states.switch.amp.attributes.current_power_w %}
+          {{ states.switch.amp.attributes.current_power_w|round }}
         {% else %}
           0
         {%- endif %}

@@ -156,7 +156,7 @@
                                         "entity_id": "switch.flux"
                                     },
                                     {
-                                        "entity_id": "switch.garage_cover_outlet_*"
+                                        "entity_id": "switch.garage_cover_outlet*"
                                     },
                                     {
                                         "entity_id": "input_boolean.front_*"
@@ -362,8 +362,8 @@
                                 },
                                 {
                                     "entities": [
-                                        "switch.garage_cover_outlet_2",
-                                        "switch.garage_cover_outlet_1"
+                                        "switch.garage_cover_outlet_1",
+                                        "switch.garage_cover_outlet_2"
                                     ],
                                     "head": "cover.garage",
                                     "type": "custom:fold-entity-row"
@@ -522,6 +522,34 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "light.office"
+                                },
+                                {
+                                    "entity": "sensor.office_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.office_window_template"
+                                }
+                            ],
+                            "show_name": true,
+                            "title": "Office",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.master_bedroom_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.master_bedroom_window_template"
+                                }
+                            ],
+                            "title": "Master Bedroom",
+                            "type": "glance"
+                        },
+                        {
                             "animate": true,
                             "color_thresholds": [
                                 {
@@ -561,39 +589,6 @@
                             "type": "custom:mini-graph-card"
                         },
                         {
-                            "background": "#bad7f2",
-                            "entities": [
-                                "light.office",
-                                {
-                                    "entity": "sensor.office_occupancy",
-                                    "name": null
-                                },
-                                {
-                                    "entity": "sensor.office_window_template",
-                                    "name": "Window"
-                                }
-                            ],
-                            "heading": "\ud83d\udcbe Office",
-                            "type": "custom:banner-card"
-                        },
-                        {
-                            "background": "#f2bac9",
-                            "entities": [
-                                {
-                                    "entity": "sensor.master_bedroom_occupancy",
-                                    "name": null
-                                },
-                                {
-                                    "entity": "sensor.master_bedroom_window_template",
-                                    "name": "Window"
-                                },
-                                "sensor.master_bath_leak_template"
-                            ],
-                            "heading": "\ud83d\udecf\ufe0f Master Bedroom",
-                            "type": "custom:banner-card"
-                        },
-                        {
-                            "background": "#f2e2ba",
                             "entities": [
                                 {
                                     "entity": "sensor.washer_template"
@@ -602,8 +597,8 @@
                                     "entity": "sensor.dryer_template"
                                 }
                             ],
-                            "heading": "\ud83e\uddfa Laundry",
-                            "type": "custom:banner-card"
+                            "title": "Laundry",
+                            "type": "glance"
                         },
                         {
                             "artwork": "full-cover-fit",
@@ -858,7 +853,7 @@
                                     "type": "service-button"
                                 },
                                 {
-                                    "entity": "switch.wemo_outlet_1",
+                                    "entity": "switch.amp",
                                     "style": {
                                         "left": "95%",
                                         "top": "86%"
@@ -1061,9 +1056,6 @@
                                     "entity": "sensor.current_version"
                                 },
                                 {
-                                    "entity": "zwave.aeotec_zw090_gen5"
-                                },
-                                {
                                     "entities": [
                                         "sensor.last_successful_authentication",
                                         "sensor.last_successful_authentication_hostname"
@@ -1189,567 +1181,6 @@
                     "icon": "mdi:server",
                     "path": "system",
                     "title": "System"
-                },
-                {
-                    "badges": [],
-                    "badges[]": null,
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 1\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_1"
-                                            ],
-                                            "head": "input_text.front_door_name_1",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_1"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_1"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_1"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_1",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_1",
-                                                "input_datetime.front_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_1",
-                                                "input_datetime.front_sun_start_date_1",
-                                                "input_datetime.front_sun_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_1",
-                                                "input_datetime.front_mon_start_date_1",
-                                                "input_datetime.front_mon_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_1",
-                                                "input_datetime.front_tue_start_date_1",
-                                                "input_datetime.front_tue_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_1",
-                                                "input_datetime.front_wed_start_date_1",
-                                                "input_datetime.front_wed_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_1",
-                                                "input_datetime.front_thu_start_date_1",
-                                                "input_datetime.front_thu_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_1",
-                                                "input_datetime.front_fri_start_date_1",
-                                                "input_datetime.front_fri_end_date_1",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_1",
-                                                "input_datetime.front_sat_start_date_1",
-                                                "input_datetime.front_sat_end_date_1"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_1",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 2\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_2"
-                                            ],
-                                            "head": "input_text.front_door_name_2",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_2"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_2"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_2"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_2",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_2",
-                                                "input_datetime.front_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_2",
-                                                "input_datetime.front_sun_start_date_2",
-                                                "input_datetime.front_sun_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_2",
-                                                "input_datetime.front_mon_start_date_2",
-                                                "input_datetime.front_mon_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_2",
-                                                "input_datetime.front_tue_start_date_2",
-                                                "input_datetime.front_tue_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_2",
-                                                "input_datetime.front_wed_start_date_2",
-                                                "input_datetime.front_wed_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_2",
-                                                "input_datetime.front_thu_start_date_2",
-                                                "input_datetime.front_thu_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_2",
-                                                "input_datetime.front_fri_start_date_2",
-                                                "input_datetime.front_fri_end_date_2",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_2",
-                                                "input_datetime.front_sat_start_date_2",
-                                                "input_datetime.front_sat_end_date_2"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_2",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 3\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_3"
-                                            ],
-                                            "head": "input_text.front_door_name_3",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_3"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_3"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_3"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_3",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_3",
-                                                "input_datetime.front_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_3",
-                                                "input_datetime.front_sun_start_date_3",
-                                                "input_datetime.front_sun_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_3",
-                                                "input_datetime.front_mon_start_date_3",
-                                                "input_datetime.front_mon_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_3",
-                                                "input_datetime.front_tue_start_date_3",
-                                                "input_datetime.front_tue_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_3",
-                                                "input_datetime.front_wed_start_date_3",
-                                                "input_datetime.front_wed_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_3",
-                                                "input_datetime.front_thu_start_date_3",
-                                                "input_datetime.front_thu_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_3",
-                                                "input_datetime.front_fri_start_date_3",
-                                                "input_datetime.front_fri_end_date_3",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_3",
-                                                "input_datetime.front_sat_start_date_3",
-                                                "input_datetime.front_sat_end_date_3"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_3",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 4\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_4"
-                                            ],
-                                            "head": "input_text.front_door_name_4",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_4"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_4"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_4"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_4",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_4",
-                                                "input_datetime.front_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_4",
-                                                "input_datetime.front_sun_start_date_4",
-                                                "input_datetime.front_sun_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_4",
-                                                "input_datetime.front_mon_start_date_4",
-                                                "input_datetime.front_mon_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_4",
-                                                "input_datetime.front_tue_start_date_4",
-                                                "input_datetime.front_tue_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_4",
-                                                "input_datetime.front_wed_start_date_4",
-                                                "input_datetime.front_wed_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_4",
-                                                "input_datetime.front_thu_start_date_4",
-                                                "input_datetime.front_thu_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_4",
-                                                "input_datetime.front_fri_start_date_4",
-                                                "input_datetime.front_fri_end_date_4",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_4",
-                                                "input_datetime.front_sat_start_date_4",
-                                                "input_datetime.front_sat_end_date_4"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_4",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 5\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_5"
-                                            ],
-                                            "head": "input_text.front_door_name_5",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_5"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_5"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_5"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_5",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_5",
-                                                "input_datetime.front_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_5",
-                                                "input_datetime.front_sun_start_date_5",
-                                                "input_datetime.front_sun_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_5",
-                                                "input_datetime.front_mon_start_date_5",
-                                                "input_datetime.front_mon_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_5",
-                                                "input_datetime.front_tue_start_date_5",
-                                                "input_datetime.front_tue_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_5",
-                                                "input_datetime.front_wed_start_date_5",
-                                                "input_datetime.front_wed_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_5",
-                                                "input_datetime.front_thu_start_date_5",
-                                                "input_datetime.front_thu_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_5",
-                                                "input_datetime.front_fri_start_date_5",
-                                                "input_datetime.front_fri_end_date_5",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_5",
-                                                "input_datetime.front_sat_start_date_5",
-                                                "input_datetime.front_sat_end_date_5"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_5",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Code 6\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                "input_text.front_door_pin_6"
-                                            ],
-                                            "head": "input_text.front_door_name_6",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_enabled_6"
-                                        },
-                                        {
-                                            "entity": "input_boolean.front_door_notify_6"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_number.front_door_accesscount_6"
-                                            ],
-                                            "head": "input_boolean.front_door_accesslimit_6",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                "input_datetime.front_start_date_6",
-                                                "input_datetime.front_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sun_6",
-                                                "input_datetime.front_sun_start_date_6",
-                                                "input_datetime.front_sun_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_mon_6",
-                                                "input_datetime.front_mon_start_date_6",
-                                                "input_datetime.front_mon_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_tue_6",
-                                                "input_datetime.front_tue_start_date_6",
-                                                "input_datetime.front_tue_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_wed_6",
-                                                "input_datetime.front_wed_start_date_6",
-                                                "input_datetime.front_wed_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_thu_6",
-                                                "input_datetime.front_thu_start_date_6",
-                                                "input_datetime.front_thu_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_fri_6",
-                                                "input_datetime.front_fri_start_date_6",
-                                                "input_datetime.front_fri_end_date_6",
-                                                {
-                                                    "type": "divider"
-                                                },
-                                                "input_boolean.front_sat_6",
-                                                "input_datetime.front_sat_start_date_6",
-                                                "input_datetime.front_sat_end_date_6"
-                                            ],
-                                            "head": "input_boolean.front_door_daterange_6",
-                                            "type": "custom:fold-entity-row"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "## Front Door - Lock Options\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_select.lock_zwave_option_3_front"
-                                        },
-                                        {
-                                            "entity": "input_select.lock_zwave_option_5_front"
-                                        },
-                                        {
-                                            "entity": "input_select.lock_zwave_option_4_front"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "input_select.lock_zwave_option_8_front"
-                                                },
-                                                {
-                                                    "entity": "input_select.lock_zwave_option_9_front"
-                                                },
-                                                {
-                                                    "entity": "input_select.lock_zwave_option_10_front"
-                                                }
-                                            ],
-                                            "head": "input_select.lock_zwave_option_7_front",
-                                            "type": "custom:fold-entity-row"
-                                        },
-                                        {
-                                            "entity": "input_select.lock_zwave_option_11_front"
-                                        },
-                                        {
-                                            "entity": "input_select.lock_zwave_option_15_front"
-                                        },
-                                        {
-                                            "entity": "input_select.lock_zwave_option_16_front"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ],
-                    "icon": "mdi:lock-smart",
-                    "panel": false,
-                    "path": "front_door_lock",
-                    "title": "Front Door"
                 }
             ]
         }

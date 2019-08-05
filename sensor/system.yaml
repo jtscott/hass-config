@@ -5,6 +5,14 @@
 
 - platform: authenticated
   enable_notification: false
+  exclude:
+    - 172.30.32.2
+    - 172.30.33.0
+    - 172.30.33.1
+    - 172.30.33.2
+    - 172.30.33.3
+    - 172.30.33.4
+    - 172.30.33.5
 
 - platform: template
   sensors:
