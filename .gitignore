@@ -13,6 +13,7 @@ custom_components/
 .storage/hassio
 .storage/person
 .storage/cloud
+.storage/camera
 .storage/custom_updater.cards
 .storage/zha.storage
 .storage/hacs

@@ -21,6 +21,10 @@
   name: 'Bow & Sarcee' 
 - platform: environment_canada
   name: 'YYC Doppler'
+
+###########################################
+# Home Cams
+###########################################
 - platform: generic
   still_image_url: !secret front_door_camera_snapshot
   name: 'Front Door'
