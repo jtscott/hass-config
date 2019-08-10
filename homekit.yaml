@@ -1,3 +1,4 @@
+auto_start: false
 filter:
   include_entities:
     - switch.front_door
