@@ -519,6 +519,8 @@ light.kitchen_led_right:
   friendly_name: Right Side
   icon: mdi:led-on
 person.jared:
-  entity_picture: !secret person_jared_picture
+  entity_picture: https://dl.dropboxusercontent.com/s/e2bpwi0uiboo0wk/jared.jpg
 person.brittany:
-  entity_picture: !secret person_brittany_picture
+  entity_picture: https://dl.dropboxusercontent.com/s/zf2ozyug0w8pa2p/brittany.jpg
+script.1565103348600:
+  icon: mdi:bell-ring

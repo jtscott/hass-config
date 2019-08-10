@@ -334,13 +334,16 @@
                                     "entity": "input_select.camera_alerts"
                                 },
                                 {
-                                    "entity": "script.1523136244144"
+                                    "entity": "input_boolean.guestmode"
                                 },
                                 {
                                     "entity": "input_boolean.homesitter"
                                 },
                                 {
-                                    "entity": "input_boolean.guestmode"
+                                    "entity": "script.1565103348600"
+                                },
+                                {
+                                    "entity": "script.1523136244144"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -806,14 +809,14 @@
                         {
                             "entities": [
                                 "input_select.multi_room_audio",
-                                "input_select.favourite_radio_stations",
                                 {
                                     "artwork": "full-cover-fit",
                                     "entity": "media_player.mpd",
                                     "group": true,
                                     "name": "Google Music",
                                     "type": "custom:mini-media-player"
-                                }
+                                },
+                                "input_select.favourite_radio_stations"
                             ],
                             "show_header_toggle": false,
                             "title": "Multi-Room Audio",
