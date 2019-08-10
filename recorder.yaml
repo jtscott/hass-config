@@ -12,6 +12,7 @@ include:
     - image_processing
     - input_select
     - media_player
+    - person
 exclude:
   domains:
     - weblink

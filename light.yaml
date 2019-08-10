@@ -1,0 +1,12 @@
+- platform: flux_led
+  devices:
+    192.168.2.20:
+      name: kitchen_led_left
+    192.168.2.21:
+      name: kitchen_led_right
+
+- platform: group
+  name: Kitchen LED
+  entities:
+    - light.kitchen_led_left
+    - light.kitchen_led_right

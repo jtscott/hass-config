@@ -2,8 +2,8 @@
 # Device Tracker
 ###########################################
 family_devices:
-  - device_tracker.brittanysiphone
-  - device_tracker.jaredsrotary
+  - person.jared
+  - person.brittany
 
 ###########################################
 # Google Home

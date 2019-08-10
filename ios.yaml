@@ -1,0 +1,20 @@
+push:
+  categories:
+    - name: Camera
+      identifier: 'camera'
+      actions:
+        - identifier: 'SOUND_ALARM'
+          title: 'Sound Alarm'
+          activationMode: 'background'
+          authenticationRequired: true
+          destructive: true
+        - identifier: 'SOUND_FIDO'
+          title: 'Fake Dog'
+          activationMode: 'background'
+          authenticationRequired: true
+          destructive: true       
+        - identifier: 'SILENCE_ALARM'
+          title: 'Silence Alarm'
+          activationMode: 'background'
+          authenticationRequired: true
+          destructive: false

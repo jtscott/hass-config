@@ -3,6 +3,7 @@ default_config:
 
 homeassistant:
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
@@ -52,8 +53,10 @@ device_tracker: !include device_tracker.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
 homekit: !include homekit.yaml
+light: !include light.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
+ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
@@ -172,6 +175,14 @@ remote:
   - platform: harmony
     name: 'Living Room'
     host: !secret harmony_ip
+
+unifi:
+  controllers:
+    - host: !secret unifi_ip
+      site: !secret unifi_site
+      ssid_filter:
+        - 'znqp'
+        - 'znqp_iot'
 
 wemo:
   static:

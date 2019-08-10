@@ -213,6 +213,10 @@ sensor.home_to_downtown:
   icon: mdi:city
 input_select.harmony:
   friendly_name: Harmony Activity
+input_select.multi_room_audio:
+  icon: mdi:floor-plan
+input_select.favourite_radio_stations:
+  icon: mdi:playlist-music
 switch.theater_outlet_1:
   icon: mdi:power-socket-us
 switch.guest_wifi:
@@ -506,3 +510,15 @@ input_select.lock_zwave_option_16_garage:
 sensor.last_successful_authentication_username:
   friendly_name: Last User Logon
   icon: icon:mdi:account-key
+light.kitchen_led:
+  icon: mdi:led-strip
+light.kitchen_led_left:
+  friendly_name: Left Side
+  icon: mdi:led-on
+light.kitchen_led_right:
+  friendly_name: Right Side
+  icon: mdi:led-on
+person.jared:
+  entity_picture: !secret person_jared_picture
+person.brittany:
+  entity_picture: !secret person_brittany_picture
