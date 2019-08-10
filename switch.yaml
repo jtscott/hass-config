@@ -1,22 +1,4 @@
 - platform: mqtt
-  name: Vacuum MainFloor
-  command_topic: 'vacuum/mainfloor/commands'
-  payload_on: "start"
-  payload_off: "stop"
-  state_topic: 'vacuum/mainfloor/status/cycle'
-  state_on: "clean"
-  state_off: "none"
-
-- platform: mqtt
-  name: Vacuum Basement
-  command_topic: 'vacuum/basement/commands'
-  payload_on: "start"
-  payload_off: "stop"
-  state_topic: 'vacuum/basement/status'
-  state_on: "clean"
-  state_off: "dock"
-
-- platform: mqtt
   name: Guest WiFi
   command_topic: 'wifi/network/guest/switch/set'
   payload_on: "on"

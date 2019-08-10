@@ -1,15 +1,5 @@
 homesitter:
   name: "Home Sitter"
-  initial: off
 
 guestmode:
   name: "Guest Mode"
-  initial: off
-
-vacuum_mainfloor_manual:
-  name: "Roomba"
-  initial: off
-
-vacuum_basement_manual:
-  name: "Roomba"
-  initial: off

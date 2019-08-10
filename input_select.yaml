@@ -1,48 +1,42 @@
 harmony:
   name: harmony
   options:
-   - Select Activity
-   - Watch Plex
-   - Watch DVD
-   - Power Off
+   - "Select Activity"
+   - "Watch Plex"
+   - "Watch DVD"
+   - "Power Off"
 
 theater_outlet_1:
   name: Outlet Mode
   options:
-   - Manual Mode
-   - Space Heater
-   - Air Freshener
-   - Christmas Tree
+   - "Manual Mode"
+   - "Space Heater"
+   - "Air Freshener"
+   - "Christmas Tree"
    
 camera_alerts:
   name: Camera Alerts
   options:
-  - Enabled
-  - Front Door
-  - Back Door
-  - Disabled
+  - "Enabled"
+  - "Front Door"
+  - "Back Door"
+  - "Disabled"
 
 multi_room_audio:
   name: Multi-Room Audio
   options:
-  - Everywhere
-  - Main Floor
-  - Kitchen
-  - Second Floor
-  - Master Bedroom
-  - Theater
-  - Office
+  - "Everywhere"
+  - "Main Floor"
+  - "Kitchen"
+  - "Second Floor"
+  - "Master Bedroom"
+  - "Theater"
+  - "Office"
 
-roomba_mainfloor_carpetboost:
-  name: Vacuum MainFloor Carpet Boost
+favourite_radio_stations:
+  name: Radio Fav's
   options:
-  - Automatic
-  - Eco-Mode
-  - High Performance
-
-roomba_mainfloor_cleaningpasses:
-  name: Vacuum MainFloor Cleaning Passes
-  options:
-  - Automatic
-  - One Pass
-  - Two Passes
+  - "Chillwave"
+  - "Relaxing Evening"
+  - "Summer Fling"
+  - "Christmas"

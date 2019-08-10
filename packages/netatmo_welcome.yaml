@@ -1,0 +1,6 @@
+netatmo:
+  api_key: !secret netatmo_apik
+  secret_key: !secret netatmo_sk
+  username: !secret email_account
+  password: !secret netatmo_password
+  webhooks: true
