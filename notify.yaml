@@ -2,3 +2,9 @@
   name: Pushover
   api_key: !secret pushover_api
   user_key: !secret pushover_userkey
+
+- platform: html5
+  name: HTML5
+  vapid_pub_key: !secret vapid_pub_key
+  vapid_prv_key: !secret vapid_prv_key
+  vapid_email: !secret email_account
