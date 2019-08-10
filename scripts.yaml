@@ -2,6 +2,9 @@
   alias: Fido
   sequence:
   - data:
+      entity_id: switch.amp
+    service: switch.turn_on
+  - data:
       volume_level: 1
     service: media_player.volume_set
   - data:
@@ -9,6 +12,23 @@
       media_content_type: audio/mp4
     service: media_player.play_media
   - delay: '120'
+  - data:
+      volume_level: 0.35
+    service: media_player.volume_set
+'1565103348600':
+  alias: Siren
+  sequence:
+  - data:
+      entity_id: switch.amp
+    service: switch.turn_on
+  - data:
+      volume_level: 1
+    service: media_player.volume_set
+  - data:
+      media_content_id: https://home.eatsleepbreach.ca/local/siren_burglar.mp3
+      media_content_type: audio/mp4
+    service: media_player.play_media
+  - delay: '87'
   - data:
       volume_level: 0.35
     service: media_player.volume_set
