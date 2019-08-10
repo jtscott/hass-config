@@ -63,54 +63,10 @@
             "views": [
                 {
                     "badges": [
-                        "device_tracker.jaredsrotary",
-                        "device_tracker.brittanysiphone"
+                        "person.jared",
+                        "person.brittany"
                     ],
                     "cards": [
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Occupied",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
-                                    },
-                                    {
-                                        "entity_id": "*bathroom*"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "Occupied"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
-                        },
                         {
                             "card": {
                                 "show_header_toggle": true,
@@ -169,6 +125,9 @@
                                     },
                                     {
                                         "entity_id": "input_boolean.vacuum_mainfloor_manual"
+                                    },
+                                    {
+                                        "entity_id": "switch.uvc_*"
                                     }
                                 ],
                                 "include": [
@@ -210,6 +169,50 @@
                                     },
                                     {
                                         "state": "open"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Occupied",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "*bathroom*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Occupied"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_*",
+                                        "state": "< 35"
                                     }
                                 ]
                             },
@@ -259,6 +262,34 @@
                                 },
                                 {
                                     "entity": "sensor.back_door_detection",
+                                    "style": {
+                                        "background-color": "rgba(255, 255, 255, 1)",
+                                        "bottom": "0px",
+                                        "font-weight": "bold",
+                                        "right": "0%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "/local/camerablank.png",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "camera_image": "camera.entryway",
+                                    "camera_view": "live",
+                                    "style": {
+                                        "heigth": "100%",
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "sensor.entryway_detection",
                                     "style": {
                                         "background-color": "rgba(255, 255, 255, 1)",
                                         "bottom": "0px",
@@ -407,31 +438,49 @@
                     ],
                     "cards": [
                         {
-                            "cards": [
+                            "entities": [
+                                "switch.kitchen_light",
+                                "light.island",
                                 {
                                     "entities": [
-                                        {
-                                            "entity": "switch.kitchen_light"
-                                        },
-                                        {
-                                            "entity": "light.island"
-                                        },
-                                        {
-                                            "entity": "switch.range"
-                                        }
+                                        "light.kitchen_led_left",
+                                        "light.kitchen_led_right"
                                     ],
-                                    "type": "entities"
+                                    "head": "light.kitchen_led",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                "switch.range"
+                            ],
+                            "title": "Kitchen",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "sensor.vacuum_mainfloor_bin_state_template",
+                                        "input_select.roomba_mainfloor_carpetboost",
+                                        "input_select.roomba_mainfloor_cleaningpasses"
+                                    ],
+                                    "head": "input_boolean.vacuum_mainfloor_manual",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entities": [
-                                        "sensor.kitchen_nest_protect_smoke_status",
-                                        "sensor.kitchen_nest_protect_co_status"
+                                        "sensor.vacuum_mainfloor_runtime",
+                                        "sensor.vacuum_mainfloor_batpct"
                                     ],
-                                    "type": "glance"
+                                    "head": "sensor.vacuum_mainfloor_cycle_template",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
-                            "title": "Kitchen",
-                            "type": "custom:vertical-stack-in-card"
+                            "show_header_toggle": false,
+                            "title": "Vacuum",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -446,8 +495,17 @@
                             "type": "glance"
                         },
                         {
-                            "entity": "climate.main_floor",
-                            "type": "custom:simple-thermostat"
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.kitchen_nest_protect_smoke_status",
+                                        "sensor.kitchen_nest_protect_co_status"
+                                    ],
+                                    "type": "glance"
+                                }
+                            ],
+                            "title": "Safety",
+                            "type": "custom:vertical-stack-in-card"
                         },
                         {
                             "animate": true,
@@ -487,30 +545,6 @@
                                 "legend": false
                             },
                             "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.vacuum_mainfloor_bin_state_template",
-                                        "input_select.roomba_mainfloor_carpetboost",
-                                        "input_select.roomba_mainfloor_cleaningpasses"
-                                    ],
-                                    "head": "input_boolean.vacuum_mainfloor_manual",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.vacuum_mainfloor_runtime",
-                                        "sensor.vacuum_mainfloor_batpct"
-                                    ],
-                                    "head": "sensor.vacuum_mainfloor_cycle_template",
-                                    "type": "custom:fold-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Vacuum",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -522,20 +556,50 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "light.office"
+                                    "elements": [
+                                        {
+                                            "entity": "sensor.office_occupancy",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "front-weight": "bold",
+                                                "right": "24%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.office_window_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "font-weight": "bold",
+                                                "right": "17%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.office_temperature",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "font-weight": "bold",
+                                                "right": "5%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        }
+                                    ],
+                                    "image": "/local/office-banner-slim.png",
+                                    "type": "picture-elements"
                                 },
                                 {
-                                    "entity": "sensor.office_occupancy"
-                                },
-                                {
-                                    "entity": "sensor.office_window_template"
+                                    "entity": "light.office",
+                                    "toggle": true,
+                                    "type": "custom:slider-entity-row"
                                 }
                             ],
-                            "show_name": true,
-                            "title": "Office",
-                            "type": "glance"
+                            "type": "vertical-stack"
                         },
                         {
                             "entities": [
@@ -742,6 +806,7 @@
                         {
                             "entities": [
                                 "input_select.multi_room_audio",
+                                "input_select.favourite_radio_stations",
                                 {
                                     "artwork": "full-cover-fit",
                                     "entity": "media_player.mpd",
