@@ -563,11 +563,66 @@
                                 {
                                     "elements": [
                                         {
-                                            "entity": "sensor.office_occupancy",
+                                            "entity": "binary_sensor.master_bedroom_occupancy",
                                             "style": {
                                                 "bottom": "20%",
-                                                "front-weight": "bold",
-                                                "right": "24%",
+                                                "right": "42%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bedroom_window_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "33%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bedroom_window_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "22%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bedroom_temperature",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "15%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bedroom_temperature",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "5%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        }
+                                    ],
+                                    "image": "/local/master-banner-slim.png",
+                                    "type": "picture-elements"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "elements": [
+                                        {
+                                            "entity": "binary_sensor.office_occupancy",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "42%",
                                                 "transform": "initial"
                                             },
                                             "type": "state-icon"
@@ -577,7 +632,25 @@
                                             "style": {
                                                 "bottom": "20%",
                                                 "font-weight": "bold",
-                                                "right": "17%",
+                                                "right": "33%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.office_window_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "22%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        },
+                                        {
+                                            "entity": "sensor.office_temperature",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "15%",
                                                 "transform": "initial"
                                             },
                                             "type": "state-icon"
@@ -586,7 +659,6 @@
                                             "entity": "sensor.office_temperature",
                                             "style": {
                                                 "bottom": "20%",
-                                                "font-weight": "bold",
                                                 "right": "5%",
                                                 "transform": "initial"
                                             },
@@ -605,67 +677,51 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "binary_sensor.master_bedroom_occupancy"
-                                },
-                                {
-                                    "entity": "sensor.master_bedroom_window_template"
+                                    "elements": [
+                                        {
+                                            "entity": "sensor.washer_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "26%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.washer_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "20%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        },
+                                        {
+                                            "entity": "sensor.dryer_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "12%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "sensor.dryer_template",
+                                            "style": {
+                                                "bottom": "20%",
+                                                "right": "5%",
+                                                "transform": "initial"
+                                            },
+                                            "type": "state-label"
+                                        }
+                                    ],
+                                    "image": "/local/laundry-banner-slim.png",
+                                    "type": "picture-elements"
                                 }
                             ],
-                            "title": "Master Bedroom",
-                            "type": "glance"
-                        },
-                        {
-                            "animate": true,
-                            "color_thresholds": [
-                                {
-                                    "color": "#515b99",
-                                    "value": 15
-                                },
-                                {
-                                    "color": "#549cce",
-                                    "value": 21
-                                },
-                                {
-                                    "color": "#eaac3c",
-                                    "value": 21.5
-                                },
-                                {
-                                    "color": "#dc7a39",
-                                    "value": 22.5
-                                },
-                                {
-                                    "color": "#c53e4a",
-                                    "value": 23
-                                }
-                            ],
-                            "entities": [
-                                "sensor.office_temperature",
-                                "sensor.master_bedroom_temperature"
-                            ],
-                            "font_size": 60,
-                            "font_size_header": 12,
-                            "hours_to_show": 24,
-                            "line_color": "var(--accent-color)",
-                            "line_width": 8,
-                            "points_per_hour": 0.75,
-                            "show": {
-                                "legend": false
-                            },
-                            "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.washer_template"
-                                },
-                                {
-                                    "entity": "sensor.dryer_template"
-                                }
-                            ],
-                            "title": "Laundry",
-                            "type": "glance"
+                            "type": "vertical-stack"
                         },
                         {
                             "artwork": "full-cover-fit",
@@ -733,8 +789,7 @@
                                     ],
                                     "head": "switch.theater_outlet_1",
                                     "type": "custom:fold-entity-row"
-                                },
-                                "switch.vacuum_basement"
+                                }
                             ],
                             "title": "Basement",
                             "type": "entities"
@@ -1085,26 +1140,32 @@
                         },
                         {
                             "entity": "camera.bow_sarcee",
+                            "show_state": false,
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.bow_6_ave",
+                            "show_state": false,
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.5_ave_7_st",
+                            "show_state": false,
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.glenmore_crowchild",
+                            "show_state": false,
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.4_ave_9_st",
+                            "show_state": false,
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.glenmore_macleod",
+                            "show_state": false,
                             "type": "picture-entity"
                         }
                     ],

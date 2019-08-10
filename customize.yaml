@@ -165,10 +165,6 @@ light.dining_room:
 light.theater:
   icon: mdi:light-switch
   friendly_name: Theater
-input_boolean.washer_power_state:
-  icon: mdi:washing-machine
-input_boolean.dryer_power_state:
-  icon: mdi:tumble-dryer
 sensor.kitchen_nest_protect_status:
   icon: mdi:smoke-detector
 sensor.living_room_temperature:
@@ -203,8 +199,10 @@ switch.theater_outlet_1d:
   icon: mdi:power-socket-us
 sensor.washer_template:
   icon: mdi:washing-machine
+  device_class: presence
 sensor.dryer_template:
   icon: mdi:tumble-dryer
+  device_class: presence
 light.office:
   icon: mdi:light-switch
 light.kitchen:
@@ -524,3 +522,13 @@ person.brittany:
   entity_picture: https://dl.dropboxusercontent.com/s/zf2ozyug0w8pa2p/brittany.jpg
 script.1565103348600:
   icon: mdi:bell-ring
+binary_sensor.office_occupancy:
+  icon: mdi:desktop-classic
+sensor.office_window_template:
+  device_class: window
+sensor.master_bedroom_window_template:
+  device_class: window
+sensor.dining_room_window_template:
+  device_class: window
+sensor.basement_door_template:
+  device_class: door
