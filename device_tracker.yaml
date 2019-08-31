@@ -1,3 +1,0 @@
-- platform: trackr
-  username: !secret email_account
-  password: !secret trackr_password

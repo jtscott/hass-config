@@ -31,12 +31,14 @@ discovery:
     - google_cast
     - belkin_wemo
 system_health:
+mobile_app:
 history: !include history.yaml
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 logger:
   default: warning
 updater:
+  reporting: false
   include_used_components: true
 tts:
   - platform: google_translate
@@ -49,7 +51,6 @@ automation old: !include_dir_merge_list automation
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
-device_tracker: !include device_tracker.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
 homekit: !include homekit.yaml
@@ -151,6 +152,22 @@ media_player:
     adb_server_ip: !secret advertise_ip
 
 ###########################################
+# Device Tracker
+###########################################
+unifi:
+  controllers:
+    - host: !secret unifi_ip
+      site: !secret unifi_site
+      ssid_filter:
+        - 'znqp'
+        - 'znqp_iot'
+
+device_tracker:
+  - platform: trackr
+    username: !secret email_account
+    password: !secret trackr_password
+
+###########################################
 # Third Party Components
 ########################################### 
 cover:
@@ -175,14 +192,6 @@ remote:
   - platform: harmony
     name: 'Living Room'
     host: !secret harmony_ip
-
-unifi:
-  controllers:
-    - host: !secret unifi_ip
-      site: !secret unifi_site
-      ssid_filter:
-        - 'znqp'
-        - 'znqp_iot'
 
 wemo:
   static:
