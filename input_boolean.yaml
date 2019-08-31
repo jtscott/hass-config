@@ -3,3 +3,7 @@ homesitter:
 
 guestmode:
   name: "Guest Mode"
+
+camera_alerts:
+  name: "Camera Alerts"
+  initial: on

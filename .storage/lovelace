@@ -36,7 +36,7 @@
                 },
                 {
                     "type": "module",
-                    "url": "/community_plugin/mini-graph-card/mini-graph-card.js"
+                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
                 },
                 {
                     "type": "module",
@@ -82,24 +82,6 @@
                                         "entity_id": "binary_sensor.*"
                                     },
                                     {
-                                        "entity_id": "light.garage_1"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_2"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_3"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_4"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_5"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_6"
-                                    },
-                                    {
                                         "entity_id": "automation.*"
                                     },
                                     {
@@ -109,10 +91,10 @@
                                         "entity_id": "switch.range"
                                     },
                                     {
-                                        "entity_id": "switch.flux"
+                                        "entity_id": "switch.garage_cover_outlet*"
                                     },
                                     {
-                                        "entity_id": "switch.garage_cover_outlet*"
+                                        "entity_id": "switch.unifi_*"
                                     },
                                     {
                                         "entity_id": "input_boolean.front_*"
@@ -127,7 +109,7 @@
                                         "entity_id": "input_boolean.vacuum_mainfloor_manual"
                                     },
                                     {
-                                        "entity_id": "switch.uvc_*"
+                                        "entity_id": "input_boolean.camera_alerts"
                                     }
                                 ],
                                 "include": [
@@ -135,10 +117,10 @@
                                         "state": "on"
                                     },
                                     {
-                                        "state": "On"
+                                        "state": "Drying"
                                     },
                                     {
-                                        "state": "Drying"
+                                        "state": "Washing"
                                     }
                                 ]
                             },
@@ -331,7 +313,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "input_select.camera_alerts"
+                                    "entities": [
+                                        "input_boolean.camera_alerts"
+                                    ],
+                                    "head": "input_select.camera_alerts",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entity": "input_boolean.guestmode"
@@ -871,7 +857,14 @@
                                     "name": "Google Music",
                                     "type": "custom:mini-media-player"
                                 },
-                                "input_select.favourite_radio_stations"
+                                "input_select.favourite_radio_stations",
+                                {
+                                    "entities": [
+                                        "sensor.amp_wattage"
+                                    ],
+                                    "head": "switch.amp",
+                                    "type": "custom:fold-entity-row"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Multi-Room Audio",
@@ -954,51 +947,6 @@
                                 "platform": "google_translate"
                             },
                             "type": "custom:mini-media-player"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "service": "homeassistant.toggle",
-                                    "service_data": {
-                                        "entity_id": "switch.wemo_outlet_1"
-                                    },
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": 0,
-                                        "font-weight": "bold",
-                                        "left": 0,
-                                        "padding": "16x 4px 16px 16px",
-                                        "text-transform": "uppercase",
-                                        "transform": "initial",
-                                        "width": "100%"
-                                    },
-                                    "title": "Amplifiers",
-                                    "type": "service-button"
-                                },
-                                {
-                                    "entity": "switch.amp",
-                                    "style": {
-                                        "left": "95%",
-                                        "top": "86%"
-                                    },
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "state-icon"
-                                },
-                                {
-                                    "entity": "sensor.amp_wattage",
-                                    "style": {
-                                        "bottom": "1px",
-                                        "font-weight": "bold",
-                                        "right": "40px",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
-                                }
-                            ],
-                            "image": "https://home.eatsleepbreach.ca/local/amplifier.png",
-                            "type": "picture-elements"
                         },
                         {
                             "all_shadows": false,
@@ -1114,7 +1062,7 @@
                             "type": "picture-entity"
                         }
                     ],
-                    "icon": "mdi:weather-partlycloudy",
+                    "icon": "mdi:weather-partly-cloudy",
                     "path": "weather",
                     "title": "Weather"
                 },
@@ -1286,6 +1234,12 @@
                                     },
                                     {
                                         "entity_id": "input_text.*"
+                                    },
+                                    {
+                                        "entity_id": "switch.psvita"
+                                    },
+                                    {
+                                        "entity_id": "light.kitchen_led*"
                                     }
                                 ],
                                 "include": [

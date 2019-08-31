@@ -532,3 +532,7 @@ sensor.dining_room_window_template:
   device_class: window
 sensor.basement_door_template:
   device_class: door
+sensor.amp_wattage:
+  icon: mdi:flash
+input_boolean.camera_alerts:
+  icon: mdi:cctv
