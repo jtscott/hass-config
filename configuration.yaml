@@ -196,3 +196,9 @@ remote:
 wemo:
   static:
     - !secret wemo_insight_ip
+
+withings:
+  client_id: !secret withings_client_id
+  client_secret: !secret withings_client_secret
+  profiles:
+    - !secret withings_profile_1

@@ -8,3 +8,6 @@ entities:
   light.theater:
     name: "Theater Light"
     hidden: false
+  switch.basement_stairs:
+    name: "Basement Stairs"
+    hidden: false
