@@ -141,9 +141,10 @@ cast:
     - host: !secret chomecast_audio_master_bedroom_ip
 
 media_player:
-  - platform: samsungtv
+  - platform: samsungtv_custom
     host: !secret samsung_tv_ip
     name: UN65F8000
+    sourcelist: '{"AV1": "KEY_AV1", "DVD": "KEY_HDMI2", "ShieldTV": "KEY_HDMI3"}'
   - platform: mpd
     host: !secret advertise_ip
   - platform: androidtv
