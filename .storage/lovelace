@@ -202,6 +202,23 @@
                             "type": "custom:monster-card"
                         },
                         {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Wet",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*",
+                                        "state": "Wet"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
+                        },
+                        {
                             "elements": [
                                 {
                                     "camera_image": "camera.front_door",
@@ -342,6 +359,9 @@
                                     "entity": "switch.front_door"
                                 },
                                 {
+                                    "entity": "light.front_porch_led"
+                                },
+                                {
                                     "entity": "switch.back_door"
                                 },
                                 {
@@ -415,6 +435,23 @@
                             "show_header_toggle": false,
                             "title": "Pets",
                             "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.black_bin",
+                                    "type": "sensor"
+                                },
+                                {
+                                    "entity": "sensor.blue_bin",
+                                    "type": "sensor"
+                                },
+                                {
+                                    "entity": "sensor.green_bin",
+                                    "type": "sensor"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -437,11 +474,27 @@
                                     ],
                                     "head": "light.kitchen_led",
                                     "type": "custom:fold-entity-row"
-                                },
-                                "switch.range"
+                                }
                             ],
                             "title": "Kitchen",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.office_temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_occupancy"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Office",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -466,10 +519,6 @@
                             "show_header_toggle": false,
                             "title": "Vacuum",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -545,178 +594,46 @@
                     "badges": [],
                     "cards": [
                         {
-                            "cards": [
+                            "entities": [
                                 {
-                                    "elements": [
-                                        {
-                                            "entity": "binary_sensor.master_bedroom_occupancy",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "42%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.master_bedroom_window_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "33%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.master_bedroom_window_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "22%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        },
-                                        {
-                                            "entity": "sensor.master_bedroom_temperature",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "15%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.master_bedroom_temperature",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "5%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        }
-                                    ],
-                                    "image": "/local/master-banner-slim.png",
-                                    "type": "picture-elements"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "elements": [
-                                        {
-                                            "entity": "binary_sensor.office_occupancy",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "42%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.office_window_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "font-weight": "bold",
-                                                "right": "33%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.office_window_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "22%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        },
-                                        {
-                                            "entity": "sensor.office_temperature",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "15%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.office_temperature",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "5%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        }
-                                    ],
-                                    "image": "/local/office-banner-slim.png",
-                                    "type": "picture-elements"
+                                    "entity": "sensor.master_bedroom_occupancy"
                                 },
                                 {
-                                    "entity": "light.office",
-                                    "toggle": true,
-                                    "type": "custom:slider-entity-row"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
+                                    "entity": "sensor.master_bedroom_window_template"
+                                },
                                 {
-                                    "elements": [
-                                        {
-                                            "entity": "sensor.washer_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "26%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.washer_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "20%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        },
-                                        {
-                                            "entity": "sensor.dryer_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "12%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "sensor.dryer_template",
-                                            "style": {
-                                                "bottom": "20%",
-                                                "right": "5%",
-                                                "transform": "initial"
-                                            },
-                                            "type": "state-label"
-                                        }
-                                    ],
-                                    "image": "/local/laundry-banner-slim.png",
-                                    "type": "picture-elements"
+                                    "entity": "sensor.master_bedroom_temperature"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "show_header_toggle": false,
+                            "title": "Master Bedroom",
+                            "type": "entities"
                         },
                         {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
+                            "entities": [
+                                {
+                                    "entity": "light.library"
+                                },
+                                {
+                                    "entity": "sensor.library_window_template"
+                                }
+                            ],
+                            "title": "Library",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.washer_template"
+                                },
+                                {
+                                    "entity": "sensor.dryer_template"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_state": true,
+                            "title": "Laundry",
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -769,6 +686,7 @@
                             "entities": [
                                 "switch.basement_stairs",
                                 "light.theater",
+                                "switch.dome_outlet_1",
                                 {
                                     "entities": [
                                         "input_select.theater_outlet_1"
@@ -941,6 +859,15 @@
                         },
                         {
                             "artwork": "full-cover-fit",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
                             "entity": "media_player.google_home_theater",
                             "name": "Theater Mini",
                             "tts": {
@@ -969,7 +896,7 @@
                         }
                     ],
                     "icon": "mdi:library-music",
-                    "title": "Music"
+                    "title": "Media"
                 },
                 {
                     "badges": [],
