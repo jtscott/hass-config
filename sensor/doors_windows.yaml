@@ -69,20 +69,20 @@
 
 - platform: template
   sensors:
-    office_window_template:
-      friendly_name: 'Office Window'
+    library_window_template:
+      friendly_name: 'Library Window'
       value_template: >-
-        {%- if is_state('binary_sensor.office_window', 'off') %}
+        {%- if is_state('binary_sensor.library_window', 'off') %}
             Closed
-        {%- elif is_state('binary_sensor.office_window', 'on') %}
+        {%- elif is_state('binary_sensor.library_window', 'on') %}
             Open
         {%- else %}
             Offline
         {%- endif %}
       icon_template: >-
-        {%- if is_state('binary_sensor.office_window', 'off') %}
+        {%- if is_state('binary_sensor.library_window', 'off') %}
           mdi:window-closed
-        {%- elif is_state('binary_sensor.office_window', 'on') %}
+        {%- elif is_state('binary_sensor.library_window', 'on') %}
           mdi:window-open
         {% else %}
           mdi:window-closed

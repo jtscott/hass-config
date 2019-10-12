@@ -203,7 +203,7 @@ sensor.washer_template:
 sensor.dryer_template:
   icon: mdi:tumble-dryer
   device_class: presence
-light.office:
+light.library:
   icon: mdi:light-switch
 light.kitchen:
   icon: mdi:light-switch
@@ -229,14 +229,14 @@ binary_sensor.master_bedroom_window:
   device_class: window
 binary_sensor.dining_room_window:
   device_class: window
-binary_sensor.office_window:
+binary_sensor.library_window:
   device_class: window
 switch.kitchen_light:
   icon: mdi:light-switch
 input_boolean.guestmode:
   icon: mdi:account-supervisor
-switch.range:
-  icon: mdi:stove
+switch.dome_outlet_1:
+  icon: mdi:fridge
 switch.flux:
   icon: mdi:theme-light-dark
 weather.dark_sky:
@@ -536,3 +536,6 @@ sensor.amp_wattage:
   icon: mdi:flash
 input_boolean.camera_alerts:
   icon: mdi:cctv
+light.front_porch_led:
+  friendly_name: Front Porch
+  icon: mdi:led-strip

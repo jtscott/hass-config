@@ -4,6 +4,8 @@
       name: kitchen_led_left
     192.168.2.21:
       name: kitchen_led_right
+    192.168.2.22:
+      name: front_porch_led
 
 - platform: group
   name: Kitchen LED
