@@ -1,0 +1,15 @@
+- platform: garbage_collection
+  name: "Black Bin"
+  frequency: "odd-weeks"
+  collection_days: "tue"
+  verbose_state: true
+- platform: garbage_collection
+  name: "Blue Bin"
+  frequency: "odd-weeks"
+  collection_days: "wed"
+  verbose_state: true
+- platform: garbage_collection
+  name: "Green Bin"
+  frequency: "odd-weeks"
+  collection_days: "wed"
+  verbose_state: true
