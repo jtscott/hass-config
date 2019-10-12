@@ -21,6 +21,7 @@ custom_components/
 .storage/frontend.user_data_*
 .storage/adbkey
 .storage/adbkey.pub
+.storage/unifi_data
 auth*
 core.*
 onboarding
