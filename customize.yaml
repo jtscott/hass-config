@@ -539,3 +539,5 @@ input_boolean.camera_alerts:
 light.front_porch_led:
   friendly_name: Front Porch
   icon: mdi:led-strip
+light.office_led:
+  friendly_name: Office Lamp

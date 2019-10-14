@@ -482,6 +482,9 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "light.office_led"
+                                },
+                                {
                                     "entity": "sensor.office_temperature"
                                 },
                                 {
