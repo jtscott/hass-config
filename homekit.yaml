@@ -18,6 +18,7 @@ filter:
     - lock.garage_door_lock
     - cover.garage
     - input_boolean.camera_alerts
+    - input_boolean.guestmode
 entity_config:
   lock.lock_front_door_lock:
     linked_battery_sensor: sensor.battery_front_door_lock
