@@ -10,7 +10,9 @@ filter:
     - switch.garage_exterior_lights
     - light.island
     - light.dining_room
-    - light.office
+    - light.library
+    - light.office_led
+    - light.front_porch_led
     - light.theater
     - light.garage_lights
     - lock.front_door_lock

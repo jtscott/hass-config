@@ -23,10 +23,14 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
-  light.office:
+  light.library:
+    expose: true
+    room: 'Library'
+    name: 'Library Light'
+  light.office_led:
     expose: true
     room: 'Office'
-    name: 'Office Light'
+    name: 'Office Lamp'
   light.theater:
     expose: true
     room: 'Theater'
