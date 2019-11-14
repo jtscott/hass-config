@@ -217,7 +217,7 @@ input_select.favourite_radio_stations:
   icon: mdi:playlist-music
 switch.theater_outlet_1:
   icon: mdi:power-socket-us
-switch.guest_wifi:
+input_boolean.guest_wifi:
   icon: mdi:wifi
 light.island:
   icon: mdi:ceiling-light
@@ -541,3 +541,5 @@ light.front_porch_led:
   icon: mdi:led-strip
 light.office_led:
   friendly_name: Office Lamp
+sensor.library_occupancy:
+  friendly_name: Occupancy

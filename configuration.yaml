@@ -61,22 +61,28 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
-switch: !include switch.yaml
 
 ###########################################
-# Panels & Weblinks
+# Panels & iFrames
 ###########################################
 panel_custom:
   - name: zwavegraph2
     sidebar_title: Z-Wave Map
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+    require_admin: true
 
 panel_iframe:
   homebridge:
     title: 'Homebridge'
     url: !secret homebridge_url
     icon: mdi:home-automation
+    require_admin: true
+  cockpit:
+    title: 'Cockpit'
+    url: !secret cockpit_url
+    icon: mdi:debian
+    require_admin: true
     
 ###########################################
 # Home Assistant Community Store (HACS)
@@ -117,6 +123,15 @@ image_processing:
     source:
       - entity_id: camera.front_door
       - entity_id: camera.back_door
+  - platform: doods
+    url: "http://192.168.1.15:8181"
+    detector: default
+    source:
+      - entity_id: camera.front_door
+      - entity_id: camera.back_door
+    file_out:
+      - "/config/www/snapshot/{{ camera_entity.split('.')[1] }}_latest.jpg"
+    confidence: 50
 
 ###########################################
 # Weather
@@ -145,12 +160,25 @@ media_player:
     host: !secret samsung_tv_ip
     name: UN65F8000
     sourcelist: '{"AV1": "KEY_AV1", "DVD": "KEY_HDMI2", "ShieldTV": "KEY_HDMI3"}'
-  - platform: mpd
-    host: !secret advertise_ip
   - platform: androidtv
     host: !secret nvidia_shield_ip
     name: Nvidia Shield
     adb_server_ip: !secret advertise_ip
+  - platform: gmusic_player
+    username: !secret email_account
+    password: !secret gmusic_password
+    device_id: !secret gmusic_deviceid
+    gmusicproxy: !secret gmusic_proxy
+  - platform: universal
+    name: multi_room_audio
+    children:
+      - media_player.kitchen_ceiling
+      - media_player.master_bedroom_ceiling
+      - media_player.google_home_kitchen
+      - media_player.google_home_living_room
+      - media_player.google_home_office
+      - media_player.google_home_master_bedroom
+      - media_player.google_home_theater
 
 ###########################################
 # Device Tracker
@@ -197,9 +225,3 @@ remote:
 wemo:
   static:
     - !secret wemo_insight_ip
-
-withings:
-  client_id: !secret withings_client_id
-  client_secret: !secret withings_client_secret
-  profiles:
-    - !secret withings_profile_1
