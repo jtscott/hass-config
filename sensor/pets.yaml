@@ -3,49 +3,9 @@
 ###########################################
 - platform: template
   sensors:
-    george_last_seen_template:
-      friendly_name: 'Last Seen'
-      value_template: "{{ states.device_tracker.george.attributes.last_seen }}"
-
-- platform: template
-  sensors:
-    george_ear_tattoo_template:
-      friendly_name: 'Tattoo'
-      value_template: !secret george_tattoo
-
-- platform: template
-  sensors:
-    george_petlynx_template:
-      friendly_name: 'Petlynx'
-      value_template: !secret george_petlynx
-
-- platform: template
-  sensors:
     alfred_last_seen_template:
       friendly_name: 'Last Seen'
       value_template: "{{ states.device_tracker.alfie.attributes.last_seen }}"
-
-- platform: template
-  sensors:
-    george_trackr_battery_template:
-      friendly_name: "Battery"
-      unit_of_measurement: "%"
-      value_template: >-
-        {%- if states.device_tracker.george.attributes.battery_level %}
-          {{ states.device_tracker.george.attributes.battery_level|round }}
-        {% else %}
-          {{ states.device_tracker.george.attributes.battery_level }}
-        {%- endif %}
-      icon_template: >-
-        {%- if is_state("sensor.george_trackr_battery_template", "unknown") %}
-          mdi:battery-unknown
-        {% elif states('sensor.george_trackr_battery_template') | float <= 5 %}
-          mdi:battery-outline
-        {% elif states('sensor.george_trackr_battery_template') | float >= 95 %}
-          mdi:battery
-        {% else %}
-          mdi:battery-{{(states.device_tracker.george.attributes.battery_level|float / 10)|round*10}}
-        {% endif %}
 
 - platform: template
   sensors:

@@ -57,6 +57,10 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
+                },
+                {
+                    "type": "js",
+                    "url": "https://cdn.jsdelivr.net/npm/rgb-light-card"
                 }
             ],
             "title": "Home",
@@ -312,7 +316,7 @@
                         {
                             "elements": [
                                 {
-                                    "entity": "switch.guest_wifi",
+                                    "entity": "input_boolean.guest_wifi",
                                     "style": {
                                         "left": "61%",
                                         "top": "35%",
@@ -405,7 +409,7 @@
                                         "switch.garage_cover_outlet_1",
                                         "switch.garage_cover_outlet_2"
                                     ],
-                                    "head": "cover.garage",
+                                    "head": "cover.garage_door",
                                     "type": "custom:fold-entity-row"
                                 }
                             ],
@@ -415,15 +419,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.george_last_seen_template",
-                                        "sensor.george_ear_tattoo_template",
-                                        "sensor.george_petlynx_template"
-                                    ],
-                                    "head": "device_tracker.george",
-                                    "type": "custom:fold-entity-row"
-                                },
                                 {
                                     "entities": [
                                         "sensor.alfred_last_seen_template"
@@ -574,7 +569,8 @@
                             ],
                             "entities": [
                                 "sensor.main_floor_temperature",
-                                "sensor.living_room_temperature"
+                                "sensor.living_room_temperature",
+                                "sensor.office_temperature"
                             ],
                             "font_size": 60,
                             "font_size_header": 12,
@@ -619,6 +615,12 @@
                                 },
                                 {
                                     "entity": "sensor.library_window_template"
+                                },
+                                {
+                                    "entity": "sensor.library_temperature"
+                                },
+                                {
+                                    "entity": "sensor.library_occupancy"
                                 }
                             ],
                             "title": "Library",
@@ -770,15 +772,28 @@
                     "cards": [
                         {
                             "entities": [
-                                "input_select.multi_room_audio",
+                                {
+                                    "entities": [
+                                        "input_select.gmusic_player_station",
+                                        "input_select.gmusic_player_playlist"
+                                    ],
+                                    "head": "input_select.gmusic_player_source",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "input_select.gmusic_player_speakers"
+                                    ],
+                                    "head": "input_select.multi_room_audio",
+                                    "type": "custom:fold-entity-row"
+                                },
                                 {
                                     "artwork": "full-cover-fit",
-                                    "entity": "media_player.mpd",
+                                    "entity": "media_player.gmusic_player",
                                     "group": true,
                                     "name": "Google Music",
                                     "type": "custom:mini-media-player"
                                 },
-                                "input_select.favourite_radio_stations",
                                 {
                                     "entities": [
                                         "sensor.amp_wattage"
