@@ -13,6 +13,7 @@ include:
     - input_select
     - media_player
     - person
+    - climate
 exclude:
   domains:
     - weblink

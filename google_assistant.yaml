@@ -47,7 +47,7 @@ entity_config:
     expose: true
     room: 'Basement'
     name: 'Stairs'
-  cover.garage:
+  cover.garage_door:
     expose: true
     room: 'Garage'
     name: 'Garage Cover'
