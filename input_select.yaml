@@ -25,6 +25,7 @@ camera_alerts:
 multi_room_audio:
   name: Multi-Room Audio
   options:
+  - "Off"
   - "Everywhere"
   - "Main Floor"
   - "Kitchen"
@@ -32,15 +33,3 @@ multi_room_audio:
   - "Master Bedroom"
   - "Theater"
   - "Office"
-
-favourite_radio_stations:
-  name: Radio Fav's
-  options:
-  - "Chillwave"
-  - "Feelin' Good in the '90s"
-  - "Summer Fling"
-  - "Hip Hop"
-  - "Oldies"
-  - "The Reflex"
-  - "Trance"
-  - "Classic Christmas Hits"
