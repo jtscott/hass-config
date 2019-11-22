@@ -1,12 +1,12 @@
 #!/bin/bash
-USERNAME=$(grep email_account secrets.yaml | cut -d " " -f2)
+USERNAME=$(grep email_account secrets.yaml | cut -d " " -f2) #Your email address
 PASSWORD=$(grep netatmo_password secrets.yaml | cut -d " " -f2)
 
 if [ -z "$1" ]; then #Start main loop
 	echo "Specify a command: on, off, status. e.g. ./netatmo_camera.sh status"
 else
    
-   #Grab Cookies & Form
+	#Grab Cookies & Form
 	if [ ! -f .storage/netatmo_cookies ]; then
 		curl -s -c .storage/netatmo_cookies 'https://auth.netatmo.com/en-us/access/login' -H 'Connection: keep-alive' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'DNT: 1' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' -H 'Sec-Fetch-User: ?1' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3' -H 'Sec-Fetch-Site: none' -H 'Sec-Fetch-Mode: navigate' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9' --compressed > .storage/netatmo_form	
 	fi
@@ -25,10 +25,7 @@ else
 	
 	# Authenticate & Setup
 	if [ -z "$BEARER" ]; then
-		echo authenticating
 		curl -s -c .storage/netatmo_cookies -b .storage/netatmo_cookies 'https://auth.netatmo.com/access/postlogin' -H 'Connection: keep-alive' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'Origin: https://auth.netatmo.com' -H 'Upgrade-Insecure-Requests: 1' -H 'DNT: 1' -H 'Content-Type: application/x-www-form-urlencoded' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' -H 'Sec-Fetch-User: ?1' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-Mode: navigate' -H 'Referer: https://auth.netatmo.com/en-us/access/login' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9' -H 'Cookie: netatmocomci_csrf_cookie_na='"$CSRF"'; netatmocomlast_app_used=app_camera; XSRF-TOKEN='"$XSRF"'; authnetatmocomlaravel_session='"$AUTHNETATMOCOMLARAVEL_SESSION"'' --data 'email='"$USERNAME"'&password='"$PASSWORD"'&stay_logged=on&_token='"$TOKEN"'' --compressed > /dev/null
-		
-		#Process Cookies
 		BEARER=$(grep netatmocomaccess_token .storage/netatmo_cookies | cut -d$'\t'  -f7 | sed 's/%7C/|/g') #Replace %7C with | for Bearer usage
 	fi
 	
