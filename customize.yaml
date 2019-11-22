@@ -160,6 +160,8 @@ script.1523136244144:
   icon: mdi:bone
 switch.security_cameras:
   icon: mdi:cctv
+switch.netatmo_camera:
+  icon: mdi:webcam
 light.dining_room:
   icon: mdi:light-switch
 light.theater:

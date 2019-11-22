@@ -23,6 +23,7 @@ custom_components/
 .storage/adbkey
 .storage/adbkey.pub
 .storage/unifi_data
+.storage/netatmo_*
 auth*
 core.*
 onboarding

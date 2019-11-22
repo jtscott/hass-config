@@ -61,6 +61,7 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
+switch: !include switch.yaml
 
 ###########################################
 # Panels & iFrames

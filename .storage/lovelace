@@ -335,7 +335,8 @@
                             "entities": [
                                 {
                                     "entities": [
-                                        "input_boolean.camera_alerts"
+                                        "input_boolean.camera_alerts",
+                                        "switch.netatmo_camera"
                                     ],
                                     "head": "input_select.camera_alerts",
                                     "type": "custom:fold-entity-row"
