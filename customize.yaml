@@ -545,4 +545,7 @@ light.front_porch_led:
 light.office_led:
   friendly_name: Office Lamp
 sensor.library_occupancy:
-  friendly_name: Occupancy
+  friendly_name: Library
+  icon: mdi:book-multiple
+light.office:
+  icon: mdi:ceiling-light

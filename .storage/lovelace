@@ -57,10 +57,6 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
-                },
-                {
-                    "type": "js",
-                    "url": "https://cdn.jsdelivr.net/npm/rgb-light-card"
                 }
             ],
             "title": "Home",
@@ -99,6 +95,9 @@
                                     },
                                     {
                                         "entity_id": "switch.unifi_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.modem"
                                     },
                                     {
                                         "entity_id": "input_boolean.front_*"
@@ -478,6 +477,9 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "light.office"
+                                },
+                                {
                                     "entity": "light.office_led"
                                 },
                                 {
@@ -695,7 +697,8 @@
                                 "switch.dome_outlet_1",
                                 {
                                     "entities": [
-                                        "input_select.theater_outlet_1"
+                                        "input_select.theater_outlet_1",
+                                        "input_number.basement_target_temperature"
                                     ],
                                     "head": "switch.theater_outlet_1",
                                     "type": "custom:fold-entity-row"

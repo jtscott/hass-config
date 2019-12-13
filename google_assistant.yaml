@@ -30,7 +30,11 @@ entity_config:
   light.office_led:
     expose: true
     room: 'Office'
-    name: 'Office Lamp'
+    name: 'Lamp'
+  light.office:
+    expose: true
+    room: 'Office'
+    name: 'Light'
   light.theater:
     expose: true
     room: 'Theater'
