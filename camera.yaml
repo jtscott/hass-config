@@ -26,8 +26,8 @@
 # Home Cams
 ###########################################
 - platform: generic
-  still_image_url: !secret front_door_camera_snapshot
   name: 'Front Door'
+  still_image_url: !secret front_door_camera_snapshot
 - platform: generic
-  still_image_url: !secret back_door_camera_snapshot
   name: 'Back Door'
+  still_image_url: !secret back_door_camera_snapshot
