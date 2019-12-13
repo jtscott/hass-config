@@ -1,3 +1,6 @@
+automations:
+  name: "Automations"
+
 homesitter:
   name: "Home Sitter"
 
