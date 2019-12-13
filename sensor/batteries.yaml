@@ -35,11 +35,3 @@
        friendly_name: "Alfie Tracker Battery"
        unit_of_measurement: '%'
        device_class: battery
-     
--  platform: template
-   sensors:
-     battery_george_tracker:
-       value_template: '{{ state_attr("device_tracker.george","battery_level")|round }}'
-       friendly_name: "George Tracker Battery"
-       unit_of_measurement: '%'
-       device_class: battery
