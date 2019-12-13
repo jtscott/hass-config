@@ -56,6 +56,7 @@ group: !include group.yaml
 homekit: !include homekit.yaml
 light: !include light.yaml
 input_boolean: !include input_boolean.yaml
+input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 ios: !include ios.yaml
 notify: !include notify.yaml

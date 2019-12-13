@@ -1,0 +1,8 @@
+basement_target_temperature:
+  name: Basement Target Temperature
+  initial: 22.5
+  min: 18
+  max: 25
+  step: .5
+  mode: box
+  unit_of_measurement: "°C"
