@@ -549,3 +549,5 @@ sensor.library_occupancy:
   icon: mdi:book-multiple
 light.office:
   icon: mdi:ceiling-light
+input_boolean.automations:
+  icon: mdi:robot

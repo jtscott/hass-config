@@ -1,5 +1,6 @@
 automations:
   name: "Automations"
+  initial: on
 
 homesitter:
   name: "Home Sitter"

@@ -17,8 +17,8 @@ filter:
     - light.front_porch_led
     - light.theater
     - light.garage_lights
-    - lock.back_door_lock
-    - lock.front_door_lock
-    - lock.garage_door_lock
+    - lock.back_door
+    - lock.front_door
+    - lock.garage_door
     - input_boolean.camera_alerts
     - input_boolean.guestmode
