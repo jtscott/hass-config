@@ -9,6 +9,12 @@
 
 - platform: template
   sensors:
+    climate_preset_mode:
+      value_template: "{{ states.climate.main_floor.attributes.preset_mode if states.climate.main_floor is not none else 'Unknown' }}"
+      entity_id: climate.main_floor
+
+- platform: template
+  sensors:
     climate_main_floor_temperature:
       friendly_name: 'Main Floor Temperature'
       unit_of_measurement: '°C'
