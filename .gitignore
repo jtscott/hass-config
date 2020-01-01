@@ -25,6 +25,8 @@ custom_components/
 .storage/unifi_data
 .storage/netatmo_*
 .storage/mobile_app
+.storage/*.json
+.storage/google_assistant
 auth*
 core.*
 onboarding

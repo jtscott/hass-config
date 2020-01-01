@@ -1,7 +1,9 @@
 project_id: !secret google_assistant_project_id
 api_key: !secret google_assistant_api_key
+service_account: !include .storage/google-assistant.json
 secure_devices_pin: !secret google_assistant_secure_pin
 expose_by_default: false
+report_state: true
 entity_config:
   switch.front_door:
     expose: true
