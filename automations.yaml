@@ -13,19 +13,29 @@
   condition: []
   action:
   - service: homekit.start
-- id: '1558708469500'
-  alias: Z-Wave Heal
-  trigger:
-  - at: 00:00:00
-    platform: time
-  condition: []
-  action:
-  - service: zwave.heal_network
 - id: '1559083319100'
   alias: Z-Wave Test Network
   trigger:
-  - at: '12:00'
+  - at: 03:00
     platform: time
   condition: []
   action:
   - service: zwave.test_network
+- id: '1577904430400'
+  alias: Dropbox Backup Sync
+  description: Synchronize hass.io backup snapshots to Dropbox
+  trigger:
+  - at: '12:00:00'
+    platform: time
+  condition:
+  - after: '12:00:00'
+    before: 02:00:00
+    condition: time
+    weekday:
+    - sun
+  action:
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
