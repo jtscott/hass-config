@@ -127,6 +127,9 @@
                                     },
                                     {
                                         "entity_id": "input_boolean.automations"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_*"
                                     }
                                 ],
                                 "include": [
@@ -514,6 +517,28 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "cover.window_upstairs"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Upstairs",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                }
+                            ],
+                            "title": "Dining Room",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entities": [
                                         "sensor.vacuum_mainfloor_bin_state_template",
                                         "input_select.roomba_mainfloor_carpetboost",
@@ -534,18 +559,6 @@
                             "show_header_toggle": false,
                             "title": "Vacuum",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                }
-                            ],
-                            "title": "Dining Room",
-                            "type": "glance"
                         },
                         {
                             "cards": [

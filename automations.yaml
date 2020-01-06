@@ -39,3 +39,29 @@
       input:
         command: upload
     service: hassio.addon_stdin
+- id: '1578282105600'
+  alias: Window - Stairs Open
+  description: ''
+  trigger:
+  - device_id: 5cd192b226674f6a915e599a744493f7
+    domain: deconz
+    platform: device
+    subtype: open
+    type: remote_button_short_press
+  condition: []
+  action:
+  - entity_id: cover.window_stairs
+    service: cover.open_cover
+- id: '1578282135300'
+  alias: Window - Stairs Closed
+  description: ''
+  trigger:
+  - device_id: 5cd192b226674f6a915e599a744493f7
+    domain: deconz
+    platform: device
+    subtype: close
+    type: remote_button_short_press
+  condition: []
+  action:
+  - entity_id: cover.window_stairs
+    service: cover.close_cover
