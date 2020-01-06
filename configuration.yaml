@@ -65,7 +65,7 @@ sensor: !include_dir_merge_list sensor
 switch: !include switch.yaml
 
 ###########################################
-# Panels & iFrames
+# Panels & iFrames & Weblinks
 ###########################################
 panel_custom:
   - name: zwavegraph2
@@ -85,6 +85,11 @@ panel_iframe:
     url: !secret cockpit_url
     icon: mdi:debian
     require_admin: true
+
+weblink:
+  entities:
+    - name: Deconz
+      url: http://192.168.2.10/pwa/index.html
     
 ###########################################
 # Home Assistant Community Store (HACS)
