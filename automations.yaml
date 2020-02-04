@@ -65,3 +65,29 @@
   action:
   - entity_id: cover.window_stairs
     service: cover.close_cover
+- id: '1578367731900'
+  alias: Window - Dining Room Open
+  description: ''
+  trigger:
+  - device_id: b3791527cb764ca694fc1342ad107d07
+    domain: deconz
+    platform: device
+    subtype: open
+    type: remote_button_short_press
+  condition: []
+  action:
+  - entity_id: cover.blinds_dining_room
+    service: cover.open_cover
+- id: '1578367768100'
+  alias: Window - Dining Room Closed
+  description: ''
+  trigger:
+  - device_id: b3791527cb764ca694fc1342ad107d07
+    domain: deconz
+    platform: device
+    subtype: close
+    type: remote_button_short_press
+  condition: []
+  action:
+  - entity_id: cover.blinds_dining_room
+    service: cover.close_cover
