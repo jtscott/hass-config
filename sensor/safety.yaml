@@ -3,6 +3,20 @@
 ###########################################
 - platform: template
   sensors:
+    upstairs_nest_protect_status:
+        friendly_name: 'Upstairs Nest Protect'
+        value_template: >-
+          {%- if is_state("binary_sensor.upstairs_nest_protect_online", "on") %}
+              Online
+          {%- elif is_state("binary_sensor.upstairs_nest_protect_online", "off") %}
+              Offline
+          {%- else %}
+              Unknown
+          {%- endif %}
+        icon_template: mdi:nest-protect
+
+- platform: template
+  sensors:
     kitchen_nest_protect_status:
         friendly_name: 'Kitchen Nest Protect'
         value_template: >-
@@ -15,3 +29,16 @@
           {%- endif %}
         icon_template: mdi:nest-protect
 
+- platform: template
+  sensors:
+    downstairs_nest_protect_status:
+        friendly_name: 'Downstairs Nest Protect'
+        value_template: >-
+          {%- if is_state("binary_sensor.downstairs_nest_protect_online", "on") %}
+              Online
+          {%- elif is_state("binary_sensor.downstairs_nest_protect_online", "off") %}
+              Offline
+          {%- else %}
+              Unknown
+          {%- endif %}
+        icon_template: mdi:nest-protect
