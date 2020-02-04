@@ -35,6 +35,7 @@ mobile_app:
 history: !include history.yaml
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
+stream:
 logger:
   default: warning
 updater:
@@ -90,6 +91,8 @@ weblink:
   entities:
     - name: Deconz
       url: http://192.168.2.10/pwa/index.html
+    - name: Google Assistant Relay
+      url: http://192.168.1.15:3000/sandbox
     
 ###########################################
 # Home Assistant Community Store (HACS)
@@ -126,6 +129,7 @@ image_processing:
     aws_access_key_id: !secret aws_access_key_id
     aws_secret_access_key: !secret aws_secret_access_key
     region_name: us-west-2
+    save_file_folder: !secret snapshot_folder
     target: Person
     source:
       - entity_id: camera.front_door
@@ -169,7 +173,6 @@ media_player:
     username: !secret email_account
     password: !secret gmusic_password
     device_id: !secret gmusic_deviceid
-    gmusicproxy: !secret gmusic_proxy
 
 ###########################################
 # Device Tracker

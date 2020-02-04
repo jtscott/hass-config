@@ -22,12 +22,12 @@
 - platform: environment_canada
   name: 'YYC Doppler'
 
-###########################################
-# Home Cams
-###########################################
+##########################################
+Home Cams
+##########################################
 - platform: generic
-  name: 'Front Door'
+  name: 'Front Door Still'
   still_image_url: !secret front_door_camera_snapshot
 - platform: generic
-  name: 'Back Door'
+  name: 'Back Door Still'
   still_image_url: !secret back_door_camera_snapshot

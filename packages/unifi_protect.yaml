@@ -1,0 +1,16 @@
+unifiprotect:
+  host: !secret unifi_ip
+  username: !secret unifi_user
+  password: !secret unifi_password
+
+camera:
+  - platform: unifiprotect
+
+binary_sensor:
+  - platform: unifiprotect
+
+sensor:
+  - platform: unifiprotect
+
+switch:
+  - platform: unifiprotect
