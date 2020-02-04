@@ -96,12 +96,12 @@ sensor.memory_use_percent:
   icon: mdi:memory
 input_boolean.vacuum_mainfloor_manual:
   icon: mdi:robot-vacuum
-input_boolean.vacuum_basement_manual:
+input_boolean.vacuum_upstairs_manual:
   icon: mdi:robot-vacuum
   friendly_name: Roomba
 switch.vacuum_mainfloor:
   icon: mdi:robot-vacuum
-switch.vacuum_basement:
+switch.vacuum_upstairs:
   icon: mdi:robot-vacuum
 sensor.vacuum_mainfloor_bin_state_template:
   icon: mdi:delete-sweep
@@ -114,6 +114,18 @@ sensor.vacuum_mainfloor_runtime:
   icon: mdi:timelapse
   friendly_name: Runtime
 sensor.vacuum_mainfloor_batpct:
+  friendly_name: Battery
+sensor.vacuum_upstairs_bin_state_template:
+  icon: mdi:delete-sweep
+sensor.vacuum_upstairs_bin_presence_template:
+  icon: mdi:delete-sweep
+sensor.vacuum_upstairs_cycle_template:
+  friendly_name: Cycle
+  icon: mdi:autorenew
+sensor.vacuum_upstairs_runtime:
+  icon: mdi:timelapse
+  friendly_name: Runtime
+sensor.vacuum_upstairs_batpct:
   friendly_name: Battery
 sensor.rro_rate:
   icon: mdi:power-plug

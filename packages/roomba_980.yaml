@@ -1,36 +1,26 @@
-switch:
-  - platform: mqtt
-    name: Vacuum MainFloor
-    command_topic: 'vacuum/mainfloor/commands'
-    payload_on: "start"
-    payload_off: "stop"
-    state_topic: 'vacuum/mainfloor/status/cycle'
-    state_on: "clean"
-    state_off: "none"
-
 input_boolean:
-  vacuum_mainfloor_manual:
+  vacuum_upstairs_manual:
     name: "Roomba"
 
 input_select:
-  roomba_mainfloor_carpetboost:
-    name: Vacuum MainFloor Carpet Boost
+  roomba_upstairs_carpetboost:
+    name: Vacuum Upstairs Carpet Boost
     options:
     - "Automatic"
     - "Eco-Mode"
     - "High Performance"
 
-  roomba_mainfloor_cleaningpasses:
-    name: Vacuum MainFloor Cleaning Passes
+  roomba_upstairs_cleaningpasses:
+    name: Vacuum Upstairs Cleaning Passes
     options:
     - "Automatic"
     - "One Pass"
     - "Two Passes"
 
 alert:
-  vacuum_mainfloor_bin_full:
-    name: "Roomba's Bin is Full"
-    entity_id: sensor.vacuum_mainfloor_bin_state_template
+  vacuum_upstairs_bin_full:
+    name: "Upstairs Roomba Bin is Full"
+    entity_id: sensor.vacuum_upstairs_bin_state_template
     state: 'Full'
     repeat: 240
     can_acknowledge: True
@@ -39,47 +29,47 @@ alert:
 
 sensor:
   - platform: mqtt
-    name: "Vacuum Mainfloor Cycle"
-    state_topic: "vacuum/mainfloor/status/cycle"
+    name: "Vacuum Upstairs Cycle"
+    state_topic: "vacuum/upstairs/status/cycle"
     force_update: true
 
   - platform: mqtt
-    name: "Vacuum Mainfloor Phase"
-    state_topic: "vacuum/mainfloor/status/phase"
+    name: "Vacuum Upstairs Phase"
+    state_topic: "vacuum/upstairs/status/phase"
     force_update: true
 
   - platform: mqtt
-    name: "Vacuum Mainfloor Initiator"
-    state_topic: "vacuum/mainfloor/status/initiator"
+    name: "Vacuum Upstairs Initiator"
+    state_topic: "vacuum/upstairs/status/initiator"
     force_update: true
 
   - platform: mqtt
-    name: "Vacuum Mainfloor BinPresent"
-    state_topic: "vacuum/mainfloor/status/binpresent"
+    name: "Vacuum Upstairs BinPresent"
+    state_topic: "vacuum/upstairs/status/binpresent"
     force_update: true
 
   - platform: mqtt
-    name: "Vacuum Mainfloor BinFull"
-    state_topic: "vacuum/mainfloor/status/binfull"
+    name: "Vacuum Upstairs BinFull"
+    state_topic: "vacuum/upstairs/status/binfull"
     force_update: true
 
   - platform: mqtt
-    name: "Vacuum Mainfloor BatPct"
-    state_topic: "vacuum/mainfloor/status/batpct"
+    name: "Vacuum Upstairs BatPct"
+    state_topic: "vacuum/upstairs/status/batpct"
     force_update: true
     unit_of_measurement: '%'
     device_class: battery
 
   - platform: template
     sensors:
-      vacuum_mainfloor_cycle_template:
+      vacuum_upstairs_cycle_template:
         friendly_name: 'Cycle'
         value_template: >-
-          {%- if is_state('sensor.vacuum_mainfloor_phase', 'charge') %}
+          {%- if is_state('sensor.vacuum_upstairs_phase', 'charge') %}
               Docked
-          {%- elif is_state('sensor.vacuum_mainfloor_phase', 'hmUsrDock') %}
+          {%- elif is_state('sensor.vacuum_upstairs_phase', 'hmUsrDock') %}
               Docking
-          {%- elif is_state('sensor.vacuum_mainfloor_cycle', 'clean') %}
+          {%- elif is_state('sensor.vacuum_upstairs_cycle', 'clean') %}
               Cleaning
           {%- else %}
               Offline
@@ -87,12 +77,12 @@ sensor:
     
   - platform: template
     sensors:
-      vacuum_mainfloor_bin_state_template:
+      vacuum_upstairs_bin_state_template:
         friendly_name: 'Bin State'
         value_template: >-
-          {%- if is_state('sensor.vacuum_mainfloor_binfull', 'true') %}
+          {%- if is_state('sensor.vacuum_upstairs_binfull', 'true') %}
               Full
-          {%- elif is_state('sensor.vacuum_mainfloor_binfull', 'false') %}
+          {%- elif is_state('sensor.vacuum_upstairs_binfull', 'false') %}
               Empty
           {%- else %}
               Offline
@@ -100,20 +90,20 @@ sensor:
 
   - platform: template
     sensors:
-      vacuum_mainfloor_bin_presence_template:
+      vacuum_upstairs_bin_presence_template:
         friendly_name: 'Bin Status'
         value_template: >-
-          {%- if "sensor.vacuum_mainfloor_binpresent", "true" %}
+          {%- if "sensor.vacuum_upstairs_binpresent", "true" %}
               Attached
-          {%- elif "sensor.vacuum_mainfloor_binpresent", "false" %}
+          {%- elif "sensor.vacuum_upstairs_binpresent", "false" %}
               Ejected
           {%- else %}
               Offline
           {%- endif %}
 
   - platform: history_stats
-    name: Vacuum MainFloor Runtime
-    entity_id: sensor.vacuum_mainfloor_cycle
+    name: Vacuum Upstairs Runtime
+    entity_id: sensor.vacuum_upstairs_cycle
     state: 'clean'
     start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
     end: '{{ now() }}'
