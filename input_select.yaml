@@ -14,8 +14,16 @@ theater_outlet_1:
    - "Air Freshener"
    - "Christmas Tree"
    
-camera_alerts:
-  name: Camera Alerts
+camera_person_alerts:
+  name: Camera Person Alerts
+  options:
+  - "Enabled"
+  - "Front Door"
+  - "Back Door"
+  - "Disabled"
+
+camera_motion_alerts:
+  name: Camera Motion Alerts
   options:
   - "Enabled"
   - "Front Door"
