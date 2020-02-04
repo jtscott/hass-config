@@ -130,6 +130,12 @@
                                     },
                                     {
                                         "entity_id": "light.garage_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.unifiprotect_*"
+                                    },
+                                    {
+                                        "entity_id": "light.blinds"
                                     }
                                 ],
                                 "include": [
@@ -354,7 +360,7 @@
                                         "input_boolean.camera_alerts",
                                         "switch.netatmo_camera"
                                     ],
-                                    "head": "input_select.camera_alerts",
+                                    "head": "input_select.camera_person_alerts",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -477,6 +483,22 @@
                     "cards": [
                         {
                             "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                },
+                                {
+                                    "entity": "cover.blinds_dining_room"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dining Room",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
                                 "switch.kitchen_light",
                                 "light.island",
                                 {
@@ -486,10 +508,16 @@
                                     ],
                                     "head": "light.kitchen_led",
                                     "type": "custom:fold-entity-row"
-                                }
+                                },
+                                "sensor.kitchen_nest_protect_smoke_status",
+                                "sensor.kitchen_nest_protect_co_status"
                             ],
                             "title": "Kitchen",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -509,69 +537,6 @@
                             "show_header_toggle": false,
                             "title": "Office",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "custom:simple-thermostat"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "cover.window_upstairs"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Upstairs",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                }
-                            ],
-                            "title": "Dining Room",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.vacuum_mainfloor_bin_state_template",
-                                        "input_select.roomba_mainfloor_carpetboost",
-                                        "input_select.roomba_mainfloor_cleaningpasses"
-                                    ],
-                                    "head": "input_boolean.vacuum_mainfloor_manual",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.vacuum_mainfloor_runtime",
-                                        "sensor.vacuum_mainfloor_batpct"
-                                    ],
-                                    "head": "sensor.vacuum_mainfloor_cycle_template",
-                                    "type": "custom:fold-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Vacuum",
-                            "type": "entities"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        "sensor.kitchen_nest_protect_smoke_status",
-                                        "sensor.kitchen_nest_protect_co_status"
-                                    ],
-                                    "type": "glance"
-                                }
-                            ],
-                            "title": "Safety",
-                            "type": "custom:vertical-stack-in-card"
                         },
                         {
                             "animate": true,
@@ -669,6 +634,40 @@
                             "show_state": true,
                             "title": "Laundry",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "cover.window_upstairs"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Stairway",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "sensor.vacuum_upstairs_bin_state_template",
+                                        "input_select.roomba_upstairs_carpetboost",
+                                        "input_select.roomba_upstairs_cleaningpasses"
+                                    ],
+                                    "head": "input_boolean.vacuum_upstairs_manual",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.vacuum_upstairs_runtime",
+                                        "sensor.vacuum_upstairs_batpct"
+                                    ],
+                                    "head": "sensor.vacuum_upstairs_cycle_template",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Vacuum",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-2-circle",
@@ -1118,6 +1117,12 @@
                                 },
                                 {
                                     "entity": "input_boolean.automations"
+                                },
+                                {
+                                    "entity": "weblink.deconz"
+                                },
+                                {
+                                    "entity": "weblink.google_assistant_relay"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1219,6 +1224,12 @@
                                     },
                                     {
                                         "entity_id": "light.kitchen_led*"
+                                    },
+                                    {
+                                        "entity_id": "light.garage*"
+                                    },
+                                    {
+                                        "entity_id": "switch.unifi_*"
                                     }
                                 ],
                                 "include": [
