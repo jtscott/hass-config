@@ -14,19 +14,3 @@ guest_wifi:
 camera_alerts:
   name: "Camera Alerts"
   initial: on
-
-front_camera_motion_alerts:
-  name: "Front Door Motion"
-  initial: on
-
-front_camera_people_alerts:
-  name: "Front Door People"
-  initial: on
-
-front_camera_motion_alerts:
-  name: "Back Door Motion"
-  initial: on
-
-front_camera_people_alerts:
-  name: "Back Door People"
-  initial: on
