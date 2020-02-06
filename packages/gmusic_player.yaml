@@ -44,7 +44,6 @@ sensor:
 
 automation old:
   - alias: "gmusic_player_auto_advance"
-    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state
@@ -63,7 +62,6 @@ automation old:
         entity_id: 'media_player.gmusic_player'
 
   - alias: "gmusic_player_auto_play"
-    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state
@@ -90,7 +88,6 @@ homeassistant:
 ## This group may only be visable when using the "states UI"
 group:
   google_music_media_player:
-    control: hidden
     name: Google Music
     entities:
     - media_player.gmusic_player
