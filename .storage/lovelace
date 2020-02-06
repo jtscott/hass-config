@@ -334,7 +334,7 @@
                         {
                             "elements": [
                                 {
-                                    "camera_image": "camera.entryway",
+                                    "camera_image": "camera.netatmo_entryway",
                                     "camera_view": "live",
                                     "style": {
                                         "heigth": "100%",
@@ -343,17 +343,6 @@
                                         "width": "100%"
                                     },
                                     "type": "image"
-                                },
-                                {
-                                    "entity": "sensor.entryway_detection",
-                                    "style": {
-                                        "background-color": "rgba(255, 255, 255, 1)",
-                                        "bottom": "0px",
-                                        "font-weight": "bold",
-                                        "right": "0%",
-                                        "transform": "initial"
-                                    },
-                                    "type": "state-label"
                                 }
                             ],
                             "image": "/local/camerablank.png",
