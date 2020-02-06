@@ -204,6 +204,10 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
+netatmo:
+  client_id: !secret netatmo_clientid
+  client_secret: !secret netatmo_secret
+
 remote:
   - platform: harmony
     name: 'Living Room'
