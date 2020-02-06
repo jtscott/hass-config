@@ -86,13 +86,6 @@ panel_iframe:
     url: !secret cockpit_url
     icon: mdi:debian
     require_admin: true
-
-weblink:
-  entities:
-    - name: Deconz
-      url: http://192.168.2.10/pwa/index.html
-    - name: Google Assistant Relay
-      url: http://192.168.1.15:3000/sandbox
     
 ###########################################
 # Home Assistant Community Store (HACS)
@@ -132,8 +125,8 @@ image_processing:
     save_file_folder: !secret snapshot_folder
     target: Person
     source:
-      - entity_id: camera.front_door
-      - entity_id: camera.back_door
+      - entity_id: camera.front_door_still
+      - entity_id: camera.back_door_still
 
 ###########################################
 # Weather
