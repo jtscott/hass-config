@@ -12,6 +12,7 @@ custom_components/
 .cloud/
 .storage/tmp*
 .storage/hassio
+.storage/http
 .storage/person
 .storage/cloud
 .storage/camera
