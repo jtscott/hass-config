@@ -65,6 +65,14 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/simple-weather-card/simple-weather-card-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/harmony-card/harmony-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/swipe-glance-card/swipe-glance-card.js"
                 }
             ],
             "title": "Home",
@@ -77,6 +85,14 @@
                     "cards": [
                         {
                             "card": {
+                                "entities": [
+                                    {
+                                        "entity": "light.office"
+                                    },
+                                    {
+                                        "entity": "switch.amp"
+                                    }
+                                ],
                                 "show_header_toggle": true,
                                 "title": "On",
                                 "type": "entities"
@@ -155,6 +171,14 @@
                         },
                         {
                             "card": {
+                                "entities": [
+                                    {
+                                        "entity": "cover.blinds_dining_room"
+                                    },
+                                    {
+                                        "entity": "cover.window_upstairs"
+                                    }
+                                ],
                                 "show_header_toggle": false,
                                 "title": "Open",
                                 "type": "entities"
@@ -185,6 +209,11 @@
                         },
                         {
                             "card": {
+                                "entities": [
+                                    {
+                                        "entity": "sensor.office_occupancy"
+                                    }
+                                ],
                                 "show_header_toggle": false,
                                 "title": "Occupied",
                                 "type": "entities"
@@ -212,6 +241,7 @@
                         },
                         {
                             "card": {
+                                "entities": [],
                                 "show_header_toggle": false,
                                 "title": "Low Battery",
                                 "type": "entities"
@@ -229,6 +259,7 @@
                         },
                         {
                             "card": {
+                                "entities": [],
                                 "show_header_toggle": false,
                                 "title": "Wet",
                                 "type": "entities"
@@ -357,10 +388,11 @@
                             "entities": [
                                 {
                                     "entities": [
-                                        "input_boolean.camera_alerts",
+                                        "input_select.camera_motion_alerts",
+                                        "input_select.camera_person_alerts",
                                         "switch.netatmo_camera"
                                     ],
-                                    "head": "input_select.camera_person_alerts",
+                                    "head": "input_boolean.camera_alerts",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -542,30 +574,39 @@
                             "animate": true,
                             "color_thresholds": [
                                 {
-                                    "color": "#515b99",
-                                    "value": 15
-                                },
-                                {
-                                    "color": "#549cce",
-                                    "value": 21
-                                },
-                                {
-                                    "color": "#eaac3c",
-                                    "value": 21.5
+                                    "color": "#c53e4a",
+                                    "value": 23
                                 },
                                 {
                                     "color": "#dc7a39",
                                     "value": 22.5
                                 },
                                 {
-                                    "color": "#c53e4a",
-                                    "value": 23
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
                                 }
                             ],
                             "entities": [
-                                "sensor.main_floor_temperature",
-                                "sensor.living_room_temperature",
-                                "sensor.office_temperature"
+                                {
+                                    "entity": "sensor.main_floor_temperature",
+                                    "index": 0
+                                },
+                                {
+                                    "entity": "sensor.living_room_temperature",
+                                    "index": 1
+                                },
+                                {
+                                    "entity": "sensor.office_temperature",
+                                    "index": 2
+                                }
                             ],
                             "font_size": 60,
                             "font_size_header": 12,
@@ -681,29 +722,35 @@
                             "animate": true,
                             "color_thresholds": [
                                 {
-                                    "color": "#515b99",
-                                    "value": 15
-                                },
-                                {
-                                    "color": "#549cce",
-                                    "value": 21
-                                },
-                                {
-                                    "color": "#eaac3c",
-                                    "value": 21.5
+                                    "color": "#c53e4a",
+                                    "value": 23
                                 },
                                 {
                                     "color": "#dc7a39",
                                     "value": 22.5
                                 },
                                 {
-                                    "color": "#c53e4a",
-                                    "value": 23
+                                    "color": "#eaac3c",
+                                    "value": 21.5
+                                },
+                                {
+                                    "color": "#549cce",
+                                    "value": 21
+                                },
+                                {
+                                    "color": "#515b99",
+                                    "value": 15
                                 }
                             ],
                             "entities": [
-                                "sensor.theater_temperature",
-                                "sensor.sensor.guest_bedroom_temperature"
+                                {
+                                    "entity": "sensor.theater_temperature",
+                                    "index": 0
+                                },
+                                {
+                                    "entity": "sensor.sensor.guest_bedroom_temperature",
+                                    "index": 1
+                                }
                             ],
                             "font_size": 60,
                             "font_size_header": 12,
@@ -1102,6 +1149,9 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "input_boolean.automations"
+                                },
+                                {
                                     "entity": "sensor.hass_release"
                                 },
                                 {
@@ -1116,13 +1166,16 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "input_boolean.automations"
+                                    "icon": "mdi:zigbee",
+                                    "name": "Deconz",
+                                    "type": "weblink",
+                                    "url": "http://192.168.2.10/pwa/index.html"
                                 },
                                 {
-                                    "entity": "weblink.deconz"
-                                },
-                                {
-                                    "entity": "weblink.google_assistant_relay"
+                                    "icon": "mdi:google-assistant",
+                                    "name": "Google Assistant Relay",
+                                    "type": "weblink",
+                                    "url": "http://192.168.1.15:3000/sandbox"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1133,7 +1186,10 @@
                             "cards": [
                                 {
                                     "entities": [
-                                        "sensor.processor_use"
+                                        {
+                                            "entity": "sensor.processor_use",
+                                            "index": 0
+                                        }
                                     ],
                                     "font_size": 75,
                                     "line_color": "blue",
@@ -1142,7 +1198,10 @@
                                 },
                                 {
                                     "entities": [
-                                        "sensor.memory_use_percent"
+                                        {
+                                            "entity": "sensor.memory_use_percent",
+                                            "index": 0
+                                        }
                                     ],
                                     "font_size": 75,
                                     "line_color": "#e74c3c",
@@ -1151,7 +1210,10 @@
                                 },
                                 {
                                     "entities": [
-                                        "sensor.disk_use_percent"
+                                        {
+                                            "entity": "sensor.disk_use_percent",
+                                            "index": 0
+                                        }
                                     ],
                                     "font_size": 75,
                                     "line_color": "var(--accent-color)",
@@ -1163,6 +1225,17 @@
                         },
                         {
                             "card": {
+                                "entities": [
+                                    {
+                                        "entity": "sensor.downstairs_nest_protect_status"
+                                    },
+                                    {
+                                        "entity": "sensor.kitchen_nest_protect_status"
+                                    },
+                                    {
+                                        "entity": "sensor.upstairs_nest_protect_status"
+                                    }
+                                ],
                                 "show_header_toggle": false,
                                 "title": "Hub Status",
                                 "type": "glance"
@@ -1192,6 +1265,17 @@
                         },
                         {
                             "card": {
+                                "entities": [
+                                    {
+                                        "entity": "sensor.garagedoor_code"
+                                    },
+                                    {
+                                        "entity": "sensor.garage_door_code_entered"
+                                    },
+                                    {
+                                        "entity": "sensor.vacuum_upstairs_cycle"
+                                    }
+                                ],
                                 "show_header_toggle": false,
                                 "title": "Broken Entities",
                                 "type": "entities"
@@ -1202,7 +1286,7 @@
                                         "entity_id": "group.*"
                                     },
                                     {
-                                        "entity_id": "sensor.vacuum_mainfloor_cycle*"
+                                        "entity_id": "sensor.vacuum_*"
                                     },
                                     {
                                         "entity_id": "media_player.*"
