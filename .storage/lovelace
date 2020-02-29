@@ -9,11 +9,10 @@
                 "swipe_animate": "fade",
                 "voice": "hide"
             },
+            "custom_header": {
+                "compact_mode": true
+            },
             "resources": [
-                {
-                    "type": "js",
-                    "url": "/community_plugin/monster-card/monster-card.js"
-                },
                 {
                     "type": "js",
                     "url": "/community_plugin/lovelace-slider-entity-row/slider-entity-row.js"
@@ -56,10 +55,6 @@
                 },
                 {
                     "type": "module",
-                    "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
-                },
-                {
-                    "type": "module",
                     "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
                 },
                 {
@@ -73,6 +68,14 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/swipe-glance-card/swipe-glance-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/custom-header/custom-header.js"
                 }
             ],
             "title": "Home",
@@ -87,13 +90,20 @@
                             "card": {
                                 "entities": [
                                     {
-                                        "entity": "light.office"
+                                        "entity": "light.theater"
+                                    },
+                                    {
+                                        "entity": "media_player.un65f8000"
+                                    },
+                                    {
+                                        "entity": "remote.living_room"
                                     },
                                     {
                                         "entity": "switch.amp"
                                     }
                                 ],
                                 "show_header_toggle": true,
+                                "state_color": true,
                                 "title": "On",
                                 "type": "entities"
                             },
@@ -167,16 +177,19 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "card": {
                                 "entities": [
                                     {
+                                        "entity": "sensor.basement_door_template"
+                                    },
+                                    {
                                         "entity": "cover.blinds_dining_room"
                                     },
                                     {
-                                        "entity": "cover.window_upstairs"
+                                        "entity": "cover.blinds_stairway"
                                     }
                                 ],
                                 "show_header_toggle": false,
@@ -205,13 +218,16 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "card": {
                                 "entities": [
                                     {
                                         "entity": "sensor.office_occupancy"
+                                    },
+                                    {
+                                        "entity": "sensor.theater_occupancy"
                                     }
                                 ],
                                 "show_header_toggle": false,
@@ -237,7 +253,7 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "card": {
@@ -255,7 +271,7 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "card": {
@@ -273,7 +289,7 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "elements": [
@@ -635,18 +651,12 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "light.library"
-                                },
-                                {
-                                    "entity": "sensor.library_window_template"
-                                },
-                                {
-                                    "entity": "sensor.library_temperature"
-                                },
-                                {
-                                    "entity": "sensor.library_occupancy"
-                                }
+                                "light.library",
+                                "sensor.library_window_template",
+                                "sensor.library_temperature",
+                                "sensor.library_occupancy",
+                                "sensor.upstairs_nest_protect_smoke_status",
+                                "sensor.upstairs_nest_protect_co_status"
                             ],
                             "title": "Library",
                             "type": "entities"
@@ -668,7 +678,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "cover.window_upstairs"
+                                    "entity": "cover.blinds_stairway"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -816,17 +826,14 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.sump_pump_leak_template"
-                                },
-                                {
-                                    "entity": "sensor.water_heater_leak_template"
-                                }
+                                "sensor.sump_pump_leak_template",
+                                "sensor.water_heater_leak_template",
+                                "sensor.downstairs_nest_protect_smoke_status",
+                                "sensor.downstairs_nest_protect_co_status"
                             ],
-                            "show_icon": true,
-                            "show_name": true,
-                            "title": "Utilities",
-                            "type": "glance"
+                            "show_header_toggle": false,
+                            "title": "Safety",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:alpha-b-circle",
@@ -1250,7 +1257,7 @@
                                     }
                                 ]
                             },
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "card": {
@@ -1259,10 +1266,10 @@
                                         "entity": "sensor.garagedoor_code"
                                     },
                                     {
-                                        "entity": "sensor.garage_door_code_entered"
+                                        "entity": "binary_sensor.updater"
                                     },
                                     {
-                                        "entity": "sensor.vacuum_upstairs_cycle"
+                                        "entity": "sensor.garage_door_code_entered"
                                     }
                                 ],
                                 "show_header_toggle": false,
@@ -1303,6 +1310,9 @@
                                     },
                                     {
                                         "entity_id": "switch.unifi_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.updater"
                                     }
                                 ],
                                 "include": [
@@ -1321,7 +1331,7 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         }
                     ],
                     "icon": "mdi:server",
