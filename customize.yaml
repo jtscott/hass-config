@@ -44,10 +44,10 @@ sensor.dark_sky_daytime_high_temperature_1d:
   icon: mdi:temperature-celsius
 sensor.dark_sky_cloud_coverage:
   friendly_name: Cloud Coverage
-  icon: mdi:weather-partlycloudy
+  icon: mdi:weather-partly-cloudy
 sensor.dark_sky_cloud_coverage_1d:
   friendly_name: Cloud Coverage
-  icon: mdi:weather-partlycloudy
+  icon: mdi:weather-partly-cloudy
 sensor.dark_sky_precip_probability_template:
   icon: mdi:weather-rainy
 sensor.dark_sky_precip_probability_tomorrow_template:
@@ -152,12 +152,30 @@ switch.amp:
   icon: mdi:boombox
 sensor.master_bedroom_temperature:
   friendly_name: Master Bedroom
+sensor.upstairs_nest_protect_co_status:
+  device_class: co
+  icon: mdi:google-circles-extended
+sensor.upstairs_nest_protect_smoke_status:
+  friendly_name: Smoke
+  icon: mdi:fire
+sensor.upstairs_nest_protect_status:
+  icon: mdi:smoke-detector
 sensor.kitchen_nest_protect_co_status:
   device_class: co
   icon: mdi:google-circles-extended
 sensor.kitchen_nest_protect_smoke_status:
   friendly_name: Smoke
   icon: mdi:fire
+sensor.kitchen_nest_protect_status:
+  icon: mdi:smoke-detector
+sensor.downstairs_nest_protect_co_status:
+  device_class: co
+  icon: mdi:google-circles-extended
+sensor.downstairs_nest_protect_smoke_status:
+  friendly_name: Smoke
+  icon: mdi:fire
+sensor.downstairs_nest_protect_status:
+  icon: mdi:smoke-detector
 sensor.main_floor_humidity:
   friendly_name: Humidity
 sensor.main_floor_temperature:
@@ -180,8 +198,6 @@ light.dining_room:
 light.theater:
   icon: mdi:light-switch
   friendly_name: Theater
-sensor.kitchen_nest_protect_status:
-  icon: mdi:smoke-detector
 sensor.living_room_temperature:
   friendly_name: Living Room
 sensor.office_temperature:
@@ -556,6 +572,7 @@ light.front_porch_led:
   icon: mdi:led-strip
 light.office_led:
   friendly_name: Office Lamp
+  icon: mdi:desk-lamp
 sensor.library_occupancy:
   friendly_name: Library
   icon: mdi:book-multiple
