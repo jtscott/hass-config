@@ -4,10 +4,16 @@ secure_devices_pin: !secret google_assistant_secure_pin
 expose_by_default: false
 report_state: true
 entity_config:
+  camera.front_door_still:
+    room: 'Front Door'
+    name: 'Front Door Camera'
   switch.front_door:
     expose: true
     room: 'Front Door'
     name: 'Front Door Light'
+  camera.back_door_still:
+    room: 'Back Door'
+    name: 'Back Door Camera'
   switch.back_door:
     expose: true
     room: 'Back Door'
@@ -24,6 +30,9 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
+  cover.blinds_dining_room:
+    room: 'Dining Room'
+    name: 'Dining Room Blinds'
   light.library:
     expose: true
     room: 'Library'
@@ -56,6 +65,9 @@ entity_config:
     expose: true
     room: 'Garage'
     name: 'Garage Cover'
+  cover.blinds_stairway:
+    room: 'Stairway'
+    name: 'Stairway Blinds'
   switch.garage_exterior_lights:
     expose: true
     room: 'Garage'
