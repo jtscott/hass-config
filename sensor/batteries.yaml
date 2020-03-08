@@ -3,7 +3,7 @@
 ###########################################
 -  platform: template
    sensors:
-     battery_dining_room_window:
+     battery_level_dining_room_window:
        value_template: '{{ state_attr("zwave.dining_room_window_sensor","battery_level")|round }}'
        friendly_name: "Dining Room Window Battery"
        unit_of_measurement: '%'
@@ -11,7 +11,7 @@
 
 -  platform: template
    sensors:
-     battery_master_bedroom_window:
+     battery_level_master_bedroom_window:
        value_template: '{{ state_attr("zwave.master_bedroom_window_sensor","battery_level")|round }}'
        friendly_name: "Master Bedroom Window Battery"
        unit_of_measurement: '%'
@@ -19,7 +19,7 @@
 
 -  platform: template
    sensors:
-     battery_office_window:
+     battery_level_office_window:
        value_template: '{{ state_attr("zwave.office_window_sensor","battery_level")|round }}'
        friendly_name: "Office Window Battery"
        unit_of_measurement: '%'
@@ -30,7 +30,7 @@
 ###########################################
 -  platform: template
    sensors:
-     battery_alfie_tracker:
+     battery_level_device_tracker_alfie:
        value_template: '{{ state_attr("device_tracker.alfie","battery_level")|round }}'
        friendly_name: "Alfie Tracker Battery"
        unit_of_measurement: '%'

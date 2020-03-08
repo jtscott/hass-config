@@ -1,13 +1,3 @@
 - platform: workday
   country: CA
   province: AB
-
-- platform: template
-  sensors:
-    device_tracker_george_battery_low:
-      value_template: '{{ states.device_tracker.george.attributes.battery_level < 10 }}'
-
-- platform: template
-  sensors:
-    device_tracker_alfie_battery_low:
-      value_template: '{{ states.device_tracker.alfie.attributes.battery_level < 10 }}'

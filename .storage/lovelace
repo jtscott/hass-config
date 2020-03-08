@@ -88,22 +88,32 @@
                     "cards": [
                         {
                             "card": {
-                                "entities": [
+                                "show_header_toggle": false,
+                                "title": "Low Battery",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
                                     {
-                                        "entity": "light.theater"
+                                        "entity_id": "*iphone*"
                                     },
                                     {
-                                        "entity": "media_player.un65f8000"
-                                    },
-                                    {
-                                        "entity": "remote.living_room"
-                                    },
-                                    {
-                                        "entity": "switch.amp"
+                                        "entity_id": "*ipad*"
                                     }
                                 ],
-                                "show_header_toggle": true,
-                                "state_color": true,
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.battery_level*",
+                                        "state": "<=30"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
                                 "title": "On",
                                 "type": "entities"
                             },
@@ -181,37 +191,12 @@
                         },
                         {
                             "card": {
-                                "entities": [
-                                    {
-                                        "entity": "sensor.basement_door_template"
-                                    },
-                                    {
-                                        "entity": "cover.blinds_dining_room"
-                                    },
-                                    {
-                                        "entity": "cover.blinds_stairway"
-                                    }
-                                ],
                                 "show_header_toggle": false,
                                 "title": "Open",
                                 "type": "entities"
                             },
                             "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
-                                    }
-                                ],
                                 "include": [
-                                    {
-                                        "state": "Open"
-                                    },
-                                    {
-                                        "state": "unlocked"
-                                    },
                                     {
                                         "state": "open"
                                     }
@@ -222,14 +207,6 @@
                         },
                         {
                             "card": {
-                                "entities": [
-                                    {
-                                        "entity": "sensor.office_occupancy"
-                                    },
-                                    {
-                                        "entity": "sensor.theater_occupancy"
-                                    }
-                                ],
                                 "show_header_toggle": false,
                                 "title": "Occupied",
                                 "type": "entities"
@@ -249,24 +226,6 @@
                                 "include": [
                                     {
                                         "state": "Occupied"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "card": {
-                                "entities": [],
-                                "show_header_toggle": false,
-                                "title": "Low Battery",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.battery_*",
-                                        "state": "< 35"
                                     }
                                 ]
                             },
@@ -807,6 +766,40 @@
                             "type": "entities"
                         },
                         {
+                            "activities": [
+                                {
+                                    "name": "Watch Plex"
+                                },
+                                {
+                                    "name": "Watch a Movie"
+                                },
+                                {
+                                    "name": "Nintendo Switch"
+                                }
+                            ],
+                            "buttons": {
+                                "a": {
+                                    "command": "Source",
+                                    "device": "Samsung TV",
+                                    "icon": "mdi:video-input-hdmi"
+                                },
+                                "b": {
+                                    "hide": true
+                                },
+                                "x": {
+                                    "hide": true
+                                },
+                                "xbox": {
+                                    "hide": true
+                                },
+                                "y": {
+                                    "hide": true
+                                }
+                            },
+                            "entity": "remote.living_room",
+                            "type": "custom:harmony-card"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.basement_door_template"
@@ -847,28 +840,6 @@
                             "entities": [
                                 {
                                     "entities": [
-                                        "input_select.gmusic_player_station",
-                                        "input_select.gmusic_player_playlist"
-                                    ],
-                                    "head": "input_select.gmusic_player_source",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "input_select.gmusic_player_speakers"
-                                    ],
-                                    "head": "input_select.multi_room_audio",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.gmusic_player",
-                                    "group": true,
-                                    "name": "Google Music",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entities": [
                                         "sensor.amp_wattage"
                                     ],
                                     "head": "switch.amp",
@@ -876,38 +847,24 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Multi-Room Audio",
+                            "title": "Amplifiers",
                             "type": "entities"
                         },
                         {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
                             "cards": [
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.google_home_kitchen",
-                                    "name": "Kitchen Assistant",
-                                    "tts": {
-                                        "platform": "google_translate"
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
                                 {
                                     "artwork": "full-cover-fit",
                                     "entity": "media_player.kitchen_ceiling",
                                     "name": "Kitchen Speakers",
-                                    "tts": {
-                                        "platform": "google_translate"
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.google_home_living_room",
-                                    "name": "Living Room",
                                     "tts": {
                                         "platform": "google_translate"
                                     },
@@ -926,36 +883,9 @@
                                         "platform": "google_translate"
                                     },
                                     "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.google_home_master_bedroom",
-                                    "name": "Master Bedroom Assistant",
-                                    "tts": {
-                                        "platform": "google_translate"
-                                    },
-                                    "type": "custom:mini-media-player"
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.google_home_office",
-                            "name": "Office Mini",
-                            "tts": {
-                                "platform": "google_translate"
-                            },
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
                         },
                         {
                             "artwork": "full-cover-fit",
@@ -968,21 +898,21 @@
                         },
                         {
                             "all_shadows": false,
+                            "entity": "sensor.radarr_upcoming_media",
+                            "hide_empty": true,
+                            "image_style": "fanart",
+                            "max": 3,
+                            "title": "Upcoming Movies",
+                            "type": "custom:upcoming-media-card"
+                        },
+                        {
+                            "all_shadows": false,
                             "entity": "sensor.sonarr_upcoming_media",
                             "hide_empty": true,
                             "icon": "mdi:television-box",
                             "image_style": "fanart",
                             "max": 3,
                             "title": "Upcoming TV",
-                            "type": "custom:upcoming-media-card"
-                        },
-                        {
-                            "all_shadows": false,
-                            "entity": "sensor.radarr_upcoming_media",
-                            "hide_empty": true,
-                            "image_style": "fanart",
-                            "max": 3,
-                            "title": "Upcoming Movies",
                             "type": "custom:upcoming-media-card"
                         }
                     ],
