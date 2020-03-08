@@ -4,14 +4,14 @@ secure_devices_pin: !secret google_assistant_secure_pin
 expose_by_default: false
 report_state: true
 entity_config:
-  camera.front_door_still:
+  camera.front_door:
     room: 'Front Door'
     name: 'Front Door Camera'
   switch.front_door:
     expose: true
     room: 'Front Door'
     name: 'Front Door Light'
-  camera.back_door_still:
+  camera.back_door:
     room: 'Back Door'
     name: 'Back Door Camera'
   switch.back_door:
