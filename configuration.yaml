@@ -162,10 +162,6 @@ media_player:
     host: !secret nvidia_shield_ip
     name: Nvidia Shield
     adb_server_ip: !secret advertise_ip
-  - platform: gmusic_player
-    username: !secret email_account
-    password: !secret gmusic_password
-    device_id: !secret gmusic_deviceid
 
 ###########################################
 # Device Tracker
