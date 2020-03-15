@@ -479,22 +479,6 @@
                     "cards": [
                         {
                             "entities": [
-                                {
-                                    "entity": "light.dining_room"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_window_template"
-                                },
-                                {
-                                    "entity": "cover.blinds_dining_room"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Dining Room",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
                                 "switch.kitchen_light",
                                 "light.island",
                                 {
@@ -509,6 +493,22 @@
                                 "sensor.kitchen_nest_protect_co_status"
                             ],
                             "title": "Kitchen",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.dining_room"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_window_template"
+                                },
+                                {
+                                    "entity": "cover.blinds_dining_room"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dining Room",
                             "type": "entities"
                         },
                         {
