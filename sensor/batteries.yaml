@@ -24,14 +24,3 @@
        friendly_name: "Office Window Battery"
        unit_of_measurement: '%'
        device_class: battery
-
-###########################################
-# Trackr
-###########################################
--  platform: template
-   sensors:
-     battery_level_device_tracker_alfie:
-       value_template: '{{ state_attr("device_tracker.alfie","battery_level")|round }}'
-       friendly_name: "Alfie Tracker Battery"
-       unit_of_measurement: '%'
-       device_class: battery
