@@ -28,6 +28,7 @@ custom_components/
 .storage/mobile_app
 .storage/*.json
 .storage/google_assistant
+esphome/secrets.yaml
 auth*
 core.*
 onboarding
