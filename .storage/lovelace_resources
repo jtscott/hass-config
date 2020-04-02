@@ -1,0 +1,83 @@
+{
+    "data": {
+        "items": [
+            {
+                "id": "d495659506cd490f9441a51bd948e56f",
+                "type": "js",
+                "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js"
+            },
+            {
+                "id": "bd87637b57494c87bad7ed02ba67b4c1",
+                "type": "js",
+                "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js"
+            },
+            {
+                "id": "1cd97b3da0fc493b8116f3c45447e531",
+                "type": "js",
+                "url": "/hacsfiles/upcoming-media-card/upcoming-media-card.js"
+            },
+            {
+                "id": "e7237f4611d04c3e8e0b59676524061a",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js"
+            },
+            {
+                "id": "20ebb7e30d9649d6b531426e7810b32b",
+                "type": "module",
+                "url": "/hacsfiles/mini-media-player/mini-media-player.js"
+            },
+            {
+                "id": "f6a9e06ea2ff4867b1253ad4e7a8a40b",
+                "type": "module",
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js"
+            },
+            {
+                "id": "719d32f27492476d8ab8687c03592646",
+                "type": "module",
+                "url": "/hacsfiles/simple-weather-card/simple-weather-card.js"
+            },
+            {
+                "id": "46341f997366407190e77c696b90c130",
+                "type": "module",
+                "url": "/hacsfiles/simple-thermostat/simple-thermostat.js"
+            },
+            {
+                "id": "be795bb1df8c42d2a7ea7c816286b0f3",
+                "type": "module",
+                "url": "/hacsfiles/banner-card/banner-card.js"
+            },
+            {
+                "id": "57170e1e39d5411f806ad9c0796dc13d",
+                "type": "module",
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"
+            },
+            {
+                "id": "2b2c82e8a1004b45a482b493cb00eb23",
+                "type": "module",
+                "url": "/hacsfiles/simple-weather-card/simple-weather-card-bundle.js"
+            },
+            {
+                "id": "aa3fd6deb34448b78781e6d02102d6c9",
+                "type": "module",
+                "url": "/hacsfiles/harmony-card/harmony-card.js"
+            },
+            {
+                "id": "a32d400687604cd4b5a816a4581a7758",
+                "type": "module",
+                "url": "/hacsfiles/swipe-glance-card/swipe-glance-card.js"
+            },
+            {
+                "id": "784bfdb1d5f74ab8809b18c4dbc1ef37",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js"
+            },
+            {
+                "id": "4a5d240cbefb4e1285765e10e894d6ec",
+                "type": "module",
+                "url": "/hacsfiles/custom-header/custom-header.js"
+            }
+        ]
+    },
+    "key": "lovelace_resources",
+    "version": 1
+}
