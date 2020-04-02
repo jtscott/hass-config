@@ -50,7 +50,7 @@
     type: remote_button_short_press
   condition: []
   action:
-  - entity_id: cover.window_stairs
+  - entity_id: cover.blinds_stairway
     service: cover.open_cover
 - id: '1578282135300'
   alias: Window - Stairs Closed
@@ -63,7 +63,7 @@
     type: remote_button_short_press
   condition: []
   action:
-  - entity_id: cover.window_stairs
+  - entity_id: cover.blinds_stairway
     service: cover.close_cover
 - id: '1578367731900'
   alias: Window - Dining Room Open
