@@ -40,7 +40,7 @@
         command: upload
     service: hassio.addon_stdin
 - id: '1578282105600'
-  alias: Window - Stairs Open
+  alias: Window - Stairway Blinds Open
   description: ''
   trigger:
   - device_id: 5cd192b226674f6a915e599a744493f7
@@ -50,10 +50,19 @@
     type: remote_button_short_press
   condition: []
   action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
   - entity_id: cover.blinds_stairway
     service: cover.open_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
 - id: '1578282135300'
-  alias: Window - Stairs Closed
+  alias: Window - Stairway Blinds Closed
   description: ''
   trigger:
   - device_id: 5cd192b226674f6a915e599a744493f7
@@ -63,10 +72,19 @@
     type: remote_button_short_press
   condition: []
   action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
   - entity_id: cover.blinds_stairway
     service: cover.close_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
 - id: '1578367731900'
-  alias: Window - Dining Room Open
+  alias: Window - Dining Room Blinds Open
   description: ''
   trigger:
   - device_id: b3791527cb764ca694fc1342ad107d07
@@ -76,10 +94,19 @@
     type: remote_button_short_press
   condition: []
   action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
   - entity_id: cover.blinds_dining_room
     service: cover.open_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
 - id: '1578367768100'
-  alias: Window - Dining Room Closed
+  alias: Window - Dining Room Blinds Closed
   description: ''
   trigger:
   - device_id: b3791527cb764ca694fc1342ad107d07
@@ -89,5 +116,14 @@
     type: remote_button_short_press
   condition: []
   action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
   - entity_id: cover.blinds_dining_room
     service: cover.close_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option

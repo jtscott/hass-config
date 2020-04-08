@@ -580,3 +580,7 @@ light.office:
   icon: mdi:ceiling-light
 input_boolean.automations:
   icon: mdi:robot
+input_select.blinds_dining_room_mode:
+  friendly_name: Blinds Mode
+input_select.blinds_stairway_mode:
+  friendly_name: Blinds Mode

@@ -441,7 +441,11 @@
                                     "entity": "sensor.dining_room_window_template"
                                 },
                                 {
-                                    "entity": "cover.blinds_dining_room"
+                                    "entities": [
+                                        "input_select.blinds_dining_room_mode"
+                                    ],
+                                    "head": "cover.blinds_dining_room",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -574,7 +578,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "cover.blinds_stairway"
+                                    "entities": [
+                                        "input_select.blinds_stairway_mode"
+                                    ],
+                                    "head": "cover.blinds_stairway",
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
