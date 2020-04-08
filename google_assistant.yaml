@@ -37,7 +37,7 @@ entity_config:
     expose: true
     room: 'Library'
     name: 'Library Light'
-  light.office_led:
+  light.office_lamp:
     expose: true
     room: 'Office'
     name: 'Lamp'

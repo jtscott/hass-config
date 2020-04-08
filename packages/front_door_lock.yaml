@@ -175,38 +175,6 @@ automation:
           title: >-
             Temporary code enabled on Front Door
 
-  - alias: Notify on Unlock (Front Door)
-    initial_state: true
-    trigger:
-    - platform: template
-      value_template: "{{ states.sensor.front_door_report.state.lower().startswith('keypad unlock') }}"
-    condition:
-    - condition: numeric_state
-      entity_id: sensor.ha_runtime_in_minutes
-      above: 3
-    action:
-    - delay:
-        seconds: 1
-# This will set a a friendly name of whoever unlocked the door to input_text.front_door_code, use in other automations if you wish
-    - service: input_text.set_value
-      data_template:
-        entity_id: input_text.front_door_code
-        value: >
-          {% set number = states('sensor.front_door_deadbolt_alarm_level') %}
-          {% set entity_id = 'input_text.door_keypad_' + number + '_name' %}
-          {% set user = 'Master' if number == '0' else states(entity_id) %}
-          {{ user }}
-    - condition: template
-      value_template: >-
-        {% set code_used = states('sensor.front_door_deadbolt_alarm_level') %}
-        {% set notify_input_object_id = 'code_' ~ code_used ~ '_notify' %}
-        {{ states['input_boolean'][notify_input_object_id].state == 'on' }}
-    - service: notify.pushover
-      data_template:
-        title: "Front Door Unlocked"
-        message: >-
-           by {{ states.input_text.front_door_code.state }} at {{ as_timestamp (now()) | timestamp_custom('%I:%M %p') }}
-
   - alias: Set Lock Options (Front Door)
     trigger:
       - platform: state

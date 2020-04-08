@@ -200,44 +200,6 @@ automation:
               HA Unlock
             {% endif %}
 
-  - alias: Notify on Unlock (Garage Door)
-    initial_state: true
-    trigger:
-      - platform: state
-        entity_id: sensor.garage_door_code_entered
-        from: '0'
-    condition:
-
-    action:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.hass_status_for_garage_door_lock
-        option: Unlocked with Code
-## This  will just set a a friendly name of whoever unlocked the door to input_text.garage_door_code,  Use for other automations if you want.
-    - service: input_text.set_value
-      data_template:
-        entity_id: input_text.garage_door_code
-        value: >
-          {% set number = states('sensor.garage_door_lock_alarm_level') %}
-          {% set entity_id = 'input_text.door_keypad_' + number + '_name' %}
-          {% set user = 'Master' if number == '0' else states(entity_id) %}
-          {{ user }}
-    - delay:
-        seconds: 1
-    - condition: template
-      value_template: >-
-        {% set object_id = trigger.to_state.entity_id.split(".")[1] %}
-        {% set door_unlocked = object_id.split("_")[0] %}
-        {% set alarm_level_object_id = 'lock_' ~ door_unlocked ~ '_door_lock_alarm_level' %}
-        {% set code_used = states['sensor'][alarm_level_object_id].state %}
-        {% set notify_input_object_id = 'code_' ~ code_used ~ '_notify' %}
-        {{ states['input_boolean'][notify_input_object_id].state == 'on' }}
-    - service: notify.pushover
-      data_template:
-        title: "Garage Door Unlocked"
-        message: >-
-           by {{ states.input_text.garage_door_code.state }} at {{ as_timestamp (now()) | timestamp_custom('%I:%M %p') }}
-
 input_text:
   garage_door_code:
     name: Last Person to Unlock Garage Door with Keypad
