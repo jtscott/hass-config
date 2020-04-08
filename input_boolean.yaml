@@ -2,15 +2,6 @@ automations:
   name: "Automations"
   initial: on
 
-homesitter:
-  name: "Home Sitter"
-
-guestmode:
-  name: "Guest Mode"
-  
-guest_wifi:
-  name: "Guest WiFi"
-
 camera_alerts:
   name: "Camera Alerts"
   initial: on

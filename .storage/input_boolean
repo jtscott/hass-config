@@ -1,0 +1,20 @@
+{
+    "data": {
+        "items": [
+            {
+                "id": "homesitter",
+                "name": "Home Sitter"
+            },
+            {
+                "id": "guestmode",
+                "name": "Guest Mode"
+            },
+            {
+                "id": "guest_wifi",
+                "name": "Guest Wifi"
+            }
+        ]
+    },
+    "key": "input_boolean",
+    "version": 1
+}

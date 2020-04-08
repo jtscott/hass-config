@@ -1,0 +1,68 @@
+{
+    "data": {
+        "items": [
+            {
+                "id": "blinds_dining_room_mode",
+                "name": "blinds_dining_room_mode",
+                "options": [
+                    "Automatic",
+                    "Manual"
+                ]
+            },
+            {
+                "id": "blinds_stairway_mode",
+                "name": "blinds_stairway_mode",
+                "options": [
+                    "Automatic",
+                    "Manual"
+                ]
+            },
+            {
+                "icon": "mdi:cctv",
+                "id": "camera_motion_alerts",
+                "name": "camera_motion_alerts",
+                "options": [
+                    "Enabled",
+                    "Front Door",
+                    "Back Door",
+                    "Disabled"
+                ]
+            },
+            {
+                "icon": "mdi:cctv",
+                "id": "camera_person_alerts",
+                "name": "camera_person_alerts",
+                "options": [
+                    "Enabled",
+                    "Front Door",
+                    "Back Door",
+                    "Disabled"
+                ]
+            },
+            {
+                "id": "theater_outlet_1",
+                "name": "theater_outlet_1",
+                "options": [
+                    "Manual Mode",
+                    "Space Heater",
+                    "Air Freshener",
+                    "Christmas Tree"
+                ]
+            },
+            {
+                "icon": "mdi:remote",
+                "id": "harmony",
+                "name": "harmony",
+                "options": [
+                    "Select Activity",
+                    "Watch Plex",
+                    "Nintendo Switch",
+                    "Watch DVD",
+                    "Power Off"
+                ]
+            }
+        ]
+    },
+    "key": "input_select",
+    "version": 1
+}
