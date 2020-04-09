@@ -462,7 +462,11 @@
                                     "entity": "light.office"
                                 },
                                 {
-                                    "entity": "light.office_lamp"
+                                    "entities": [
+                                        "switch.office_lamp_restart"
+                                    ],
+                                    "head": "light.office_lamp",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entity": "sensor.office_temperature"

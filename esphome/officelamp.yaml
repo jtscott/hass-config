@@ -6,12 +6,46 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
+    ssid: esp_office_lamp
+    password: !secret wifi_password
 
-api:
+captive_portal:
 
 logger:
 
+api:
+  password: !secret esphome_api_password
+
 ota:
+  password: !secret esphome_ota_password
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+sensor:
+  - platform: wifi_signal
+    name: office_lamp_wifi_signal
+    update_interval: 60s
+  - platform: uptime
+    name: office_lamp_uptime
+
+text_sensor:
+  - platform: version
+    name: office_lamp_esphome_version
+  - platform: wifi_info
+    ip_address:
+      name: office_lamp_ip
+    ssid:
+      name: office_lamp_ssid
+    bssid:
+      name: office_lamp_bssid
+
+switch:
+  # Switch to restart the board
+  - platform: restart
+    name: office_lamp_restart
 
 light:
   - platform: rgb
