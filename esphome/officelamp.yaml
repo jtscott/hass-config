@@ -97,6 +97,27 @@ light:
               duration: 150ms
             - state: False
               duration: 100ms
+      - strobe:
+          name: Christmas
+          colors:
+            - state: True
+              brightness: 100%
+              red: 100%
+              blue: 0%
+              green: 0%
+              duration: 30s
+            - state: True
+              brightness: 100%
+              red: 0%
+              blue: 0%
+              green: 100%
+              duration: 30s
+            - state: True
+              brightness: 100%
+              red: 0%
+              blue: 100%
+              green: 0%
+              duration: 30s
 
 output:
   - platform: esp8266_pwm
