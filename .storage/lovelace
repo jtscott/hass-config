@@ -420,8 +420,8 @@
                                 "light.island",
                                 {
                                     "entities": [
-                                        "light.kitchen_led_left",
-                                        "light.kitchen_led_right"
+                                        "light.kitchen_left_led",
+                                        "light.kitchen_right_led"
                                     ],
                                     "head": "light.kitchen_led",
                                     "type": "custom:fold-entity-row"
@@ -1140,17 +1140,6 @@
                         },
                         {
                             "card": {
-                                "entities": [
-                                    {
-                                        "entity": "sensor.garagedoor_code"
-                                    },
-                                    {
-                                        "entity": "binary_sensor.updater"
-                                    },
-                                    {
-                                        "entity": "sensor.garage_door_code_entered"
-                                    }
-                                ],
                                 "show_header_toggle": false,
                                 "title": "Broken Entities",
                                 "type": "entities"

@@ -118,6 +118,41 @@ light:
               blue: 100%
               green: 0%
               duration: 30s
+      - strobe:
+          name: Halloween
+          colors:
+            - state: True
+              brightness: 100%
+              red: 100%
+              blue: 0%
+              green: 64.7%
+              duration: 60s
+            - state: False
+              duration: 100ms
+            - state: True
+              brightness: 100%
+              red: 100%
+              blue: 0%
+              green: 0%
+              duration: 150ms
+            - state: False
+              duration: 100ms
+            - state: True
+              brightness: 100%
+              red: 100%
+              blue: 0%
+              green: 0%
+              duration: 150ms
+            - state: False
+              duration: 100ms
+            - state: True
+              brightness: 100%
+              red: 100%
+              blue: 0%
+              green: 0%
+              duration: 150ms
+            - state: False
+              duration: 100ms
 
 output:
   - platform: esp8266_pwm
