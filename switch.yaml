@@ -1,7 +1,0 @@
-- platform: command_line
-  switches:
-    netatmo_camera:
-      command_on: 'bash netatmo_camera.sh on'
-      command_off: 'bash netatmo_camera.sh off'
-      command_state: 'bash netatmo_camera.sh status'
-      value_template: '{{ value == "on" }}'

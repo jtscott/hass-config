@@ -61,7 +61,6 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
-switch: !include switch.yaml
 
 ###########################################
 # Panels & iFrames & Weblinks
@@ -180,12 +179,6 @@ device_tracker:
 ###########################################
 # Third Party Components
 ########################################### 
-cover:
-  - platform: myq
-    username: !secret email_account
-    password: !secret myq_password
-    type: chamberlain
-
 ecobee:
   api_key: !secret ecobee_api
 
@@ -201,11 +194,6 @@ nest:
 netatmo:
   client_id: !secret netatmo_clientid
   client_secret: !secret netatmo_secret
-
-remote:
-  - platform: harmony
-    name: 'Living Room'
-    host: !secret harmony_ip
 
 wemo:
   static:
