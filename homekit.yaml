@@ -2,6 +2,8 @@ auto_start: false
 filter:
   include_entities:
     - cover.garage_door 
+    - cover.blinds_dining_room
+    - cover.blinds_stairway
     - switch.front_door
     - switch.back_door
     - switch.kitchen_light
@@ -13,7 +15,7 @@ filter:
     - light.dining_room
     - light.library
     - light.office
-    - light.office_led
+    - light.office_lamp
     - light.front_porch_led
     - light.theater
     - light.garage_lights

@@ -1,10 +1,5 @@
-- platform: flux_led
-  devices:
-    192.168.2.22:
-      name: front_porch_led
-
 - platform: group
   name: Kitchen LED
   entities:
-    - light.kitchen_led_left
-    - light.kitchen_led_right
+    - light.kitchen_left_led
+    - light.kitchen_right_led
