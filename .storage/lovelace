@@ -1180,6 +1180,9 @@
                                         "entity_id": "switch.unifi_*"
                                     },
                                     {
+                                        "entity_id": "device_tracker.unifi_*"
+                                    },
+                                    {
                                         "entity_id": "binary_sensor.updater"
                                     }
                                 ],
