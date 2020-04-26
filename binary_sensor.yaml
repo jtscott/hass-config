@@ -1,3 +1,7 @@
 - platform: workday
   country: CA
   province: AB
+
+- platform: car_wash
+  weather: weather.calgary_olympic_park
+  days: 6
