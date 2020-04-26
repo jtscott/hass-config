@@ -42,6 +42,7 @@ updater:
   include_used_components: true
 tts:
   - platform: google_translate
+    base_url: !secret base_url
 
 ###########################################
 # Includes
@@ -73,11 +74,6 @@ panel_custom:
     require_admin: true
 
 panel_iframe:
-  homebridge:
-    title: 'Homebridge'
-    url: !secret homebridge_url
-    icon: mdi:home-automation
-    require_admin: true
   cockpit:
     title: 'Cockpit'
     url: !secret cockpit_url
@@ -175,6 +171,18 @@ device_tracker:
   - platform: trackr
     username: !secret email_account
     password: !secret trackr_password
+
+###########################################
+# Influx
+###########################################
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret http_password
+  max_retries: 3
+  default_measurement: state
 
 ###########################################
 # Third Party Components
