@@ -127,3 +127,27 @@
       option: Automatic
     entity_id: input_select.blinds_dining_room_mode
     service: input_select.select_option
+- id: '1587425847944'
+  alias: Roomba S9 - GUI - Start
+  description: Start from the GUI when flipping the input
+  trigger:
+  - entity_id: input_boolean.vacuum_mainfloor_manual
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: script.1587409042440
+    service: script.turn_on
+- id: '1587425894616'
+  alias: Roomba S9 - GUI - Stop
+  description: Stop from the GUI when flipping the input
+  trigger:
+  - entity_id: input_boolean.vacuum_mainfloor_manual
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    entity_id: script.1587409318603
+    service: script.turn_on

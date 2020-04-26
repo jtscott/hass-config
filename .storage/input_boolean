@@ -12,6 +12,15 @@
             {
                 "id": "guest_wifi",
                 "name": "Guest Wifi"
+            },
+            {
+                "icon": "mdi:robot-vacuum",
+                "id": "vacuum_mainfloor_manual",
+                "name": "Roomba S9+"
+            },
+            {
+                "id": "vacuum_mainfloor_binfull",
+                "name": "Roomba S9+ Bin Full"
             }
         ]
     },

@@ -60,6 +60,15 @@
                     "Watch DVD",
                     "Power Off"
                 ]
+            },
+            {
+                "id": "vacuum_mainfloor_state",
+                "name": "Cycle",
+                "options": [
+                    "Docked",
+                    "Cleaning",
+                    "Stuck"
+                ]
             }
         ]
     },
