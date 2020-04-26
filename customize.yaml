@@ -584,3 +584,15 @@ input_select.blinds_dining_room_mode:
   friendly_name: Blinds Mode
 input_select.blinds_stairway_mode:
   friendly_name: Blinds Mode
+sensor.dryer_remaining_time:
+  icon: mdi:timelapse
+sensor.washer_remaining_time:
+  icon: mdi:timelapse
+sensor.dryer_initial_time:
+  icon: mdi:timer
+sensor.washer_initial_time:
+  icon: mdi:timer
+sensor.dryer_reserve_time:
+  icon: mdi:av-timer
+sensor.washer_reserve_time:
+  icon: mdi:av-timer
