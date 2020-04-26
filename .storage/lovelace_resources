@@ -67,14 +67,29 @@
                 "url": "/hacsfiles/swipe-glance-card/swipe-glance-card.js"
             },
             {
-                "id": "784bfdb1d5f74ab8809b18c4dbc1ef37",
+                "id": "4a5d240cbefb4e1285765e10e894d6ec",
+                "type": "module",
+                "url": "/hacsfiles/custom-header/custom-header.js"
+            },
+            {
+                "id": "2be52c81f1ee48c68dfcd0ee469220f4",
+                "type": "module",
+                "url": "/hacsfiles/button-card/button-card.js"
+            },
+            {
+                "id": "f17ca0f2185045c09523029cfb9a0468",
+                "type": "module",
+                "url": "/hacsfiles/entity-attributes-card/entity-attributes-card.js"
+            },
+            {
+                "id": "5020d19dbfed46eeac7ca3e5e1e2c37d",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js"
             },
             {
-                "id": "4a5d240cbefb4e1285765e10e894d6ec",
+                "id": "718ad5ef1e0b40df95ba0a897ee9c137",
                 "type": "module",
-                "url": "/hacsfiles/custom-header/custom-header.js"
+                "url": "/hacsfiles/battery-state-card/battery-state-card.js"
             }
         ]
     },

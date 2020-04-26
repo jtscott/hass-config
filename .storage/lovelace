@@ -106,17 +106,14 @@
                                     },
                                     {
                                         "entity_id": "light.blinds"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.code_*"
                                     }
                                 ],
                                 "include": [
                                     {
                                         "state": "on"
-                                    },
-                                    {
-                                        "state": "Drying"
-                                    },
-                                    {
-                                        "state": "Washing"
                                     }
                                 ]
                             },
@@ -290,8 +287,7 @@
                                 {
                                     "entities": [
                                         "input_select.camera_motion_alerts",
-                                        "input_select.camera_person_alerts",
-                                        "switch.netatmo_camera"
+                                        "input_select.camera_person_alerts"
                                     ],
                                     "head": "input_boolean.camera_alerts",
                                     "type": "custom:fold-entity-row"
@@ -319,7 +315,7 @@
                                     "entity": "switch.front_door"
                                 },
                                 {
-                                    "entity": "light.front_porch_led"
+                                    "entity": "light.front_porch"
                                 },
                                 {
                                     "entity": "switch.back_door"
@@ -381,7 +377,8 @@
                                     ],
                                     "head": "device_tracker.alfie",
                                     "type": "custom:fold-entity-row"
-                                }
+                                },
+                                "binary_sensor.car_wash"
                             ],
                             "show_header_toggle": false,
                             "title": "Pets",
@@ -527,6 +524,35 @@
                                 "legend": false
                             },
                             "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "script.1587409318603",
+                                        "script.1587409265127",
+                                        "script.1587409349159",
+                                        "script.1587409291007"
+                                    ],
+                                    "head": "input_boolean.vacuum_mainfloor_manual",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "script.1587409532673",
+                                        "script.1587423874818",
+                                        "script.1587423902387",
+                                        "script.1587423929133",
+                                        "script.1587423962091",
+                                        "script.1587423988689"
+                                    ],
+                                    "head": "input_select.vacuum_mainfloor_state",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Vacuum",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:numeric-1-circle",
@@ -537,6 +563,20 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "input_select.blinds_stairway_mode"
+                                    ],
+                                    "head": "cover.blinds_stairway",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Stairway",
+                            "type": "entities"
+                        },
                         {
                             "entities": [
                                 {
@@ -551,46 +591,6 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Master Bedroom",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "light.library",
-                                "sensor.library_window_template",
-                                "sensor.library_temperature",
-                                "sensor.library_occupancy",
-                                "sensor.upstairs_nest_protect_smoke_status",
-                                "sensor.upstairs_nest_protect_co_status"
-                            ],
-                            "title": "Library",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.washer_template"
-                                },
-                                {
-                                    "entity": "sensor.dryer_template"
-                                }
-                            ],
-                            "show_icon": true,
-                            "show_state": true,
-                            "title": "Laundry",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        "input_select.blinds_stairway_mode"
-                                    ],
-                                    "head": "cover.blinds_stairway",
-                                    "type": "custom:fold-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Stairway",
                             "type": "entities"
                         },
                         {
@@ -615,6 +615,98 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Vacuum",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "light.library",
+                                "sensor.library_window_template",
+                                "sensor.library_temperature",
+                                "sensor.library_occupancy"
+                            ],
+                            "title": "Library",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "sensor.washer_prewash_mode",
+                                        "sensor.washer_turbowash_mode",
+                                        "sensor.washer_childlock_mode",
+                                        "sensor.washer_doorlock_mode"
+                                    ],
+                                    "head": "sensor.washer",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.washer_pre_state"
+                                    ],
+                                    "head": "sensor.washer_run_state",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.washer_initial_time",
+                                        "sensor.washer_reserve_time"
+                                    ],
+                                    "head": "sensor.washer_remaining_time",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.washer_spin_option_state",
+                                        "sensor.washer_watertemp_option_state",
+                                        "sensor.washer_creasecare_mode",
+                                        "sensor.washer_steam_mode",
+                                        "sensor.washer_steam_softener_mode"
+                                    ],
+                                    "head": "sensor.washer_current_course",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Washer",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        "sensor.dryer_drylevel_option_state",
+                                        "sensor.dryer_tempcontrol_option_state"
+                                    ],
+                                    "head": "sensor.dryer",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.dryer_pre_state"
+                                    ],
+                                    "head": "sensor.dryer_run_state",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.dryer_initial_time",
+                                        "sensor.dryer_reserve_time"
+                                    ],
+                                    "head": "sensor.dryer_remaining_time",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                "sensor.dryer_current_course"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dryer",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.upstairs_nest_protect_smoke_status",
+                                "sensor.upstairs_nest_protect_co_status"
+                            ],
+                            "title": "Safety",
                             "type": "entities"
                         }
                     ],
@@ -876,7 +968,7 @@
                                 "day": "var(--primary-color)",
                                 "night": "#40445a"
                             },
-                            "entity": "weather.dark_sky",
+                            "entity": "weather.calgary_olympic_park",
                             "type": "custom:simple-weather-card"
                         },
                         {
@@ -1047,10 +1139,10 @@
                                     "url": "http://192.168.2.10/pwa/index.html"
                                 },
                                 {
-                                    "icon": "mdi:google-assistant",
-                                    "name": "Google Assistant Relay",
+                                    "icon": "mdi:apple",
+                                    "name": "Homebridge",
                                     "type": "weblink",
-                                    "url": "http://192.168.1.15:3000/sandbox"
+                                    "url": "https://192.168.1.15:8080"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1137,6 +1229,43 @@
                                 ]
                             },
                             "type": "custom:auto-entities"
+                        },
+                        {
+                            "color_gradient": [
+                                "#ff0000",
+                                "#ffff00",
+                                "#00ff00"
+                            ],
+                            "entities": [
+                                {
+                                    "entity": "sensor.battery_level_back_door"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_blinds_dining_room"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_blinds_stairway"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_dining_room_window"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_master_bedroom_window"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_office_window"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_tradfri_open_close_remote"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_water_hot_water_heater"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_water_sump_pump"
+                                }
+                            ],
+                            "type": "custom:battery-state-card"
                         },
                         {
                             "card": {
