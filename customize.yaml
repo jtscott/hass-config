@@ -596,3 +596,11 @@ sensor.dryer_reserve_time:
   icon: mdi:av-timer
 sensor.washer_reserve_time:
   icon: mdi:av-timer
+sensor.rain_delay_lawn_finishing:
+  friendly_name: Rain Delay Date
+  icon: mdi:calendar-arrow-right
+sensor.rain_delay_lawn_remaining:
+  friendly_name: Rain Delay Duration
+  icon: mdi:clock-start
+binary_sensor.rain_delay_backyard_timer:
+  friendly_name: Backyard Sprinkler Delay

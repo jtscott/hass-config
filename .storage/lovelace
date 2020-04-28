@@ -400,6 +400,21 @@
                                 }
                             ],
                             "type": "horizontal-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.rain_delay_backyard_timer"
+                                },
+                                {
+                                    "entity": "sensor.rain_delay_lawn_finishing"
+                                },
+                                {
+                                    "entity": "sensor.rain_delay_lawn_remaining"
+                                }
+                            ],
+                            "title": "Backyard Sprinkler",
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:garage",
