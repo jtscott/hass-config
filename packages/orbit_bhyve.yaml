@@ -1,0 +1,33 @@
+bhyve:
+  username: !secret bhyve_username
+  password: !secret bhyve_password
+
+sensor:
+  - platform: bhyve
+  - platform: template
+    sensors:
+      rain_delay_lawn_finishing:
+        friendly_name: "Rain Delay Lawn Finishing"
+        availability_template: "{{ states('binary_sensor.rain_delay_backyard_timer') != 'unavailable' }}"
+        value_template: "{{(as_timestamp(state_attr('binary_sensor.rain_delay_backyard_timer', 'started_at')) + state_attr('binary_sensor.rain_delay_backyard_timer', 'delay') * 3600) | timestamp_local }}"
+      rain_delay_lawn_remaining:
+        friendly_name: "Rain Delay Lawn Remaining"
+        unit_of_measurement: "h"
+        availability_template: "{{ states('binary_sensor.rain_delay_backyard_timer') != 'unavailable' }}"
+        value_template: "{{((as_timestamp(state_attr('binary_sensor.rain_delay_backyard_timer', 'started_at')) + state_attr('binary_sensor.rain_delay_backyard_timer', 'delay') * 3600 - as_timestamp(now())) / 3600) | round(0) }}"
+      lawn_next_watering:
+        friendly_name: "Next watering"
+        availability_template: "{{ states('switch.backyard_zone') != 'unavailable' }}"
+        value_template: >-
+          {% set program = state_attr('switch.backyard_zone', 'watering_program') -%}
+          {% if program and (program | count > 0) %}
+            {{ as_timestamp(program[0]) | timestamp_local }}
+          {% else %}
+            unknown
+          {% endif %}
+
+binary_sensor:
+  - platform: bhyve
+
+switch:
+  - platform: bhyve
