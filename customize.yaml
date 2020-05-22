@@ -266,7 +266,7 @@ switch.kitchen_light:
   icon: mdi:light-switch
 input_boolean.guestmode:
   icon: mdi:account-supervisor
-switch.dome_outlet_1:
+switch.theater_outlet_2:
   icon: mdi:fridge
 switch.flux:
   icon: mdi:theme-light-dark
@@ -604,3 +604,37 @@ sensor.rain_delay_lawn_remaining:
   icon: mdi:clock-start
 binary_sensor.rain_delay_backyard_timer:
   friendly_name: Backyard Sprinkler Delay
+sensor.dryer_run_state:
+  icon: mdi:rotate-right
+sensor.washer_run_state:
+  icon: mdi:rotate-right
+sensor.dryer_pre_state:
+  icon: mdi:rotate-left
+sensor.washer_pre_state:
+  icon: mdi:mdi:rotate-left
+sensor.dryer_current_course:
+  icon: mdi:selection-ellipse-arrow-inside
+sensor.washer_current_course:
+  icon: mdi:selection-ellipse-arrow-inside
+sensor.washer_steam_mode:
+  icon: mdi:water
+sensor.washer_watertemp_option_state:
+  icon: mdi:thermometer
+sensor.washer_prewash_mode:
+  icon: mdi:backup-restore
+sensor.washer_doorlock_mode:
+  icon: mdi:lock-outline
+sensor.washer_childlock_mode:
+  icon: mdi:human-child
+sensor.washer_turbowash_mode:
+  icon: mdi:clock-fast
+sensor.dryer_tempcontrol_option_state:
+  icon: mdi:thermometer
+sensor.washer_creasecare_mode:
+  icon: mdi:tshirt-crew-outline
+sensor.washer_steam_softener_mode:
+  icon: mdi:sheep
+sensor.washer_spin_option_state:
+  icon: mdi:speedometer
+sensor.dryer_drylevel_option_state:
+  icon: mdi:fan
