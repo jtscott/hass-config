@@ -151,3 +151,15 @@
   - data: {}
     entity_id: script.1587409318603
     service: script.turn_on
+- id: '1589125991236'
+  alias: Certificate Renewal
+  description: ''
+  trigger:
+  - below: '11'
+    entity_id: sensor.cert_expiry_home_eatsleepbreach_ca
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      addon: core_letsencrypt
+    service: hassio.addon_start
