@@ -10,9 +10,6 @@ frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes/
 http:
-  base_url: !secret base_url
-  # ssl_certificate: !secret ssl_certificate
-  # ssl_key: !secret ssl_key
   cors_allowed_origins:
     - !secret base_origin
   use_x_forwarded_for: true
@@ -25,10 +22,6 @@ http:
 config:
 sun:
 discovery:
-  ignore:
-    - igd
-    - google_cast
-    - belkin_wemo
 system_health:
 mobile_app:
 history: !include history.yaml
@@ -62,31 +55,7 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
-
-###########################################
-# Panels & iFrames & Weblinks
-###########################################
-panel_custom:
-  - name: zwavegraph2
-    sidebar_title: Z-Wave Map
-    sidebar_icon: mdi:access-point-network
-    url_path: zwave
-    require_admin: true
-
-panel_iframe:
-  cockpit:
-    title: 'Cockpit'
-    url: !secret cockpit_url
-    icon: mdi:debian
-    require_admin: true
     
-###########################################
-# Home Assistant Community Store (HACS)
-###########################################
-hacs:
-  token: !secret github_token
-  theme: true
-
 ###########################################
 # MQTT
 ###########################################
@@ -97,9 +66,6 @@ mqtt:
   port: 1883
   username: home-assistant
   password: !secret mqtt_password
-  # certificate: !secret ssl_ca
-  # tls_insecure: true
-  # tls_version: auto
   birth_message:
     topic: 'hass/status'
     payload: 'online'
@@ -116,7 +82,6 @@ image_processing:
     aws_secret_access_key: !secret aws_secret_access_key
     region_name: us-west-2
     save_file_folder: !secret snapshot_folder
-    target: Person
     source:
       - entity_id: camera.front_door_still
       - entity_id: camera.back_door_still
@@ -147,10 +112,6 @@ cast:
     - host: !secret google_home_office_left_ip
 
 media_player:
-  - platform: samsungtv_custom
-    host: !secret samsung_tv_ip
-    name: UN65F8000
-    sourcelist: '{"AV1": "KEY_AV1", "DVD": "KEY_HDMI2", "Nvidia Shield": "KEY_HDMI3", "Nintendo Switch": "KEY_HDMI4"}'
   - platform: androidtv
     host: !secret nvidia_shield_ip
     name: Nvidia Shield
@@ -159,30 +120,10 @@ media_player:
 ###########################################
 # Device Tracker
 ###########################################
-unifi:
-  controllers:
-    - host: !secret unifi_ip
-      site: !secret unifi_site
-      ssid_filter:
-        - 'znqp'
-        - 'znqp_iot'
-
 device_tracker:
   - platform: trackr
     username: !secret email_account
     password: !secret trackr_password
-
-###########################################
-# Influx
-###########################################
-influxdb:
-  host: a0d7b954-influxdb
-  port: 8086
-  database: homeassistant
-  username: homeassistant
-  password: !secret http_password
-  max_retries: 3
-  default_measurement: state
 
 ###########################################
 # Third Party Components
@@ -198,10 +139,6 @@ ifttt:
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
-
-netatmo:
-  client_id: !secret netatmo_clientid
-  client_secret: !secret netatmo_secret
 
 wemo:
   static:
