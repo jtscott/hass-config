@@ -1,5 +1,3 @@
-purge_keep_days: 3
-purge_interval: 1
 include:
   domains:
     - switch
@@ -14,8 +12,14 @@ include:
     - media_player
     - person
     - climate
+    - vacuum
 exclude:
   domains:
+    - automaton
     - weblink
     - updater
     - camera
+  entities:
+    - sensor.date
+  event_types:
+    - call_service
