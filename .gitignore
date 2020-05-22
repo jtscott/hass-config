@@ -29,9 +29,11 @@ custom_components/
 .storage/*.json
 .storage/google_assistant
 .storage/esphome.*
+.storage/homekit*
 esphome/secrets.yaml
 auth*
 core.*
+core
 onboarding
 .gmusic_authtoken
 *.conf

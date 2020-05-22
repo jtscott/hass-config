@@ -67,11 +67,6 @@
                 "url": "/hacsfiles/swipe-glance-card/swipe-glance-card.js"
             },
             {
-                "id": "4a5d240cbefb4e1285765e10e894d6ec",
-                "type": "module",
-                "url": "/hacsfiles/custom-header/custom-header.js"
-            },
-            {
                 "id": "2be52c81f1ee48c68dfcd0ee469220f4",
                 "type": "module",
                 "url": "/hacsfiles/button-card/button-card.js"
@@ -90,6 +85,21 @@
                 "id": "718ad5ef1e0b40df95ba0a897ee9c137",
                 "type": "module",
                 "url": "/hacsfiles/battery-state-card/battery-state-card.js"
+            },
+            {
+                "id": "642afbf5200343b29469c0ffffa1f021",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-card-tools/card-tools.js"
+            },
+            {
+                "id": "47a5f1afc1494254b3bd61577e2363ff",
+                "type": "module",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js"
+            },
+            {
+                "id": "5d01c119a1f6492a926088e8c0921551",
+                "type": "module",
+                "url": "/hacsfiles/custom-header/custom-header.js"
             }
         ]
     },
