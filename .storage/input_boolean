@@ -10,6 +10,7 @@
                 "name": "Guest Mode"
             },
             {
+                "icon": "mdi:wifi-star",
                 "id": "guest_wifi",
                 "name": "Guest Wifi"
             },

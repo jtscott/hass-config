@@ -8,8 +8,6 @@ device_tracker.jaredsrotary:
   friendly_name: Jared
 device_tracker.brittanysiphone:
   friendly_name: Brittany
-device_tracker.george:
-  friendly_name: George
 device_tracker.alfie:
   friendly_name: Alfie
 media_player.shield:
@@ -73,21 +71,9 @@ sensor.date:
 sensor.disk_use_percent:
   friendly_name: Disk
   icon: mdi:harddisk
-sensor.george_last_seen_template:
-  icon: mdi:crosshairs-gps
-sensor.george_ear_tattoo_template:
-  icon: mdi:tag-text-outline
-sensor.george_petlynx_template:
-  icon: mdi:puzzle
 sensor.hass_release:
   friendly_name: Release
   icon: mdi:github-circle
-sensor.home_to_supported_lifestyles:
-  icon: mdi:car
-sensor.home_to_acadia:
-  icon: mdi:car
-sensor.home_to_airport:
-  icon: mdi:airplane
 sensor.moon:
   friendly_name: Moon
   icon: mdi:weather-night
@@ -103,30 +89,6 @@ switch.vacuum_mainfloor:
   icon: mdi:robot-vacuum
 switch.vacuum_upstairs:
   icon: mdi:robot-vacuum
-sensor.vacuum_mainfloor_bin_state_template:
-  icon: mdi:delete-sweep
-sensor.vacuum_mainfloor_bin_presence_template:
-  icon: mdi:delete-sweep
-sensor.vacuum_mainfloor_cycle_template:
-  friendly_name: Cycle
-  icon: mdi:autorenew
-sensor.vacuum_mainfloor_runtime:
-  icon: mdi:timelapse
-  friendly_name: Runtime
-sensor.vacuum_mainfloor_batpct:
-  friendly_name: Battery
-sensor.vacuum_upstairs_bin_state_template:
-  icon: mdi:delete-sweep
-sensor.vacuum_upstairs_bin_presence_template:
-  icon: mdi:delete-sweep
-sensor.vacuum_upstairs_cycle_template:
-  friendly_name: Cycle
-  icon: mdi:autorenew
-sensor.vacuum_upstairs_runtime:
-  icon: mdi:timelapse
-  friendly_name: Runtime
-sensor.vacuum_upstairs_batpct:
-  friendly_name: Battery
 sensor.rro_rate:
   icon: mdi:power-plug
 sensor.solar_angle:
@@ -249,7 +211,7 @@ input_select.favourite_radio_stations:
 switch.theater_outlet_1:
   icon: mdi:power-socket-us
 input_boolean.guest_wifi:
-  icon: mdi:wifi
+  icon: mdi:wifi-star
 light.island:
   icon: mdi:ceiling-light
 switch.front_door:
@@ -290,255 +252,9 @@ switch.garage_cover_outlet_1:
   icon: mdi:power-socket-us
 switch.garage_cover_outlet_2:
   icon: mdi:power-socket-us
-input_boolean.front_door_enabled_1:
-  icon: mdi:home-lock
-input_boolean.front_door_enabled_2:
-  icon: mdi:home-lock
-input_boolean.front_door_enabled_3:
-  icon: mdi:home-lock
-input_boolean.front_door_enabled_4:
-  icon: mdi:home-lock
-input_boolean.front_door_enabled_5:
-  icon: mdi:home-lock
-input_boolean.front_door_enabled_6:
-  icon: mdi:home-lock
-input_boolean.front_door_notify_1:
-  icon: mdi:lock-alert
-input_boolean.front_door_notify_2:
-  icon: mdi:lock-alert
-input_boolean.front_door_notify_3:
-  icon: mdi:lock-alert
-input_boolean.front_door_notify_4:
-  icon: mdi:lock-alert
-input_boolean.front_door_notify_5:
-  icon: mdi:lock-alert
-input_boolean.front_door_notify_6:
-  icon: mdi:lock-alert
-input_boolean.front_door_accesslimit_1:
-  icon: mdi:lock-plus
-input_boolean.front_door_accesslimit_2:
-  icon: mdi:lock-plus
-input_boolean.front_door_accesslimit_3:
-  icon: mdi:lock-plus
-input_boolean.front_door_accesslimit_4:
-  icon: mdi:lock-plus
-input_boolean.front_door_accesslimit_5:
-  icon: mdi:lock-plus
-input_boolean.front_door_accesslimit_6:
-  icon: mdi:lock-plus
-input_boolean.front_door_daterange_1:
-  icon: mdi:lock-clock
-input_boolean.front_door_daterange_2:
-  icon: mdi:lock-clock
-input_boolean.front_door_daterange_3:
-  icon: mdi:lock-clock
-input_boolean.front_door_daterange_4:
-  icon: mdi:lock-clock
-input_boolean.front_door_daterange_5:
-  icon: mdi:lock-clock
-input_boolean.front_door_daterange_6:
-  icon: mdi:lock-clock
-input_boolean.front_sun_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_mon_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_tue_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_wed_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_thu_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_fri_1:
-  icon: mdi:calendar-multiselect
-input_boolean.front_sat_1:
-  icon: mdi:calendar-multiselect
-input_select.lock_zwave_option_3_front:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_5_front:
-  icon: mdi:exit-run
-input_select.lock_zwave_option_4_front:
-  icon: mdi:beach
-input_select.lock_zwave_option_7_front:
-  icon: mdi:alarm-bell
-input_select.lock_zwave_option_8_front:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_9_front:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_10_front:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_11_front:
-  icon: mdi:gesture-double-tap
-input_select.lock_zwave_option_15_front:
-  icon: mdi:shield-lock
-input_select.lock_zwave_option_16_front:
-  icon: mdi:numeric
-input_boolean.back_door_enabled_1:
-  icon: mdi:home-lock
-input_boolean.back_door_enabled_2:
-  icon: mdi:home-lock
-input_boolean.back_door_enabled_3:
-  icon: mdi:home-lock
-input_boolean.back_door_enabled_4:
-  icon: mdi:home-lock
-input_boolean.back_door_enabled_5:
-  icon: mdi:home-lock
-input_boolean.back_door_enabled_6:
-  icon: mdi:home-lock
-input_boolean.back_door_notify_1:
-  icon: mdi:lock-alert
-input_boolean.back_door_notify_2:
-  icon: mdi:lock-alert
-input_boolean.back_door_notify_3:
-  icon: mdi:lock-alert
-input_boolean.back_door_notify_4:
-  icon: mdi:lock-alert
-input_boolean.back_door_notify_5:
-  icon: mdi:lock-alert
-input_boolean.back_door_notify_6:
-  icon: mdi:lock-alert
-input_boolean.back_door_accesslimit_1:
-  icon: mdi:lock-plus
-input_boolean.back_door_accesslimit_2:
-  icon: mdi:lock-plus
-input_boolean.back_door_accesslimit_3:
-  icon: mdi:lock-plus
-input_boolean.back_door_accesslimit_4:
-  icon: mdi:lock-plus
-input_boolean.back_door_accesslimit_5:
-  icon: mdi:lock-plus
-input_boolean.back_door_accesslimit_6:
-  icon: mdi:lock-plus
-input_boolean.back_door_daterange_1:
-  icon: mdi:lock-clock
-input_boolean.back_door_daterange_2:
-  icon: mdi:lock-clock
-input_boolean.back_door_daterange_3:
-  icon: mdi:lock-clock
-input_boolean.back_door_daterange_4:
-  icon: mdi:lock-clock
-input_boolean.back_door_daterange_5:
-  icon: mdi:lock-clock
-input_boolean.back_door_daterange_6:
-  icon: mdi:lock-clock
-input_boolean.back_sun_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_mon_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_tue_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_wed_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_thu_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_fri_1:
-  icon: mdi:calendar-multiselect
-input_boolean.back_sat_1:
-  icon: mdi:calendar-multiselect
-input_select.lock_zwave_option_3_back:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_5_back:
-  icon: mdi:exit-run
-input_select.lock_zwave_option_4_back:
-  icon: mdi:beach
-input_select.lock_zwave_option_7_back:
-  icon: mdi:alarm-bell
-input_select.lock_zwave_option_8_back:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_9_back:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_10_back:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_11_back:
-  icon: mdi:gesture-double-tap
-input_select.lock_zwave_option_15_back:
-  icon: mdi:shield-lock
-input_select.lock_zwave_option_16_back:
-  icon: mdi:numeric
-input_boolean.garage_door_enabled_1:
-  icon: mdi:home-lock
-input_boolean.garage_door_enabled_2:
-  icon: mdi:home-lock
-input_boolean.garage_door_enabled_3:
-  icon: mdi:home-lock
-input_boolean.garage_door_enabled_4:
-  icon: mdi:home-lock
-input_boolean.garage_door_enabled_5:
-  icon: mdi:home-lock
-input_boolean.garage_door_enabled_6:
-  icon: mdi:home-lock
-input_boolean.garage_door_notify_1:
-  icon: mdi:lock-alert
-input_boolean.garage_door_notify_2:
-  icon: mdi:lock-alert
-input_boolean.garage_door_notify_3:
-  icon: mdi:lock-alert
-input_boolean.garage_door_notify_4:
-  icon: mdi:lock-alert
-input_boolean.garage_door_notify_5:
-  icon: mdi:lock-alert
-input_boolean.garage_door_notify_6:
-  icon: mdi:lock-alert
-input_boolean.garage_door_accesslimit_1:
-  icon: mdi:lock-plus
-input_boolean.garage_door_accesslimit_2:
-  icon: mdi:lock-plus
-input_boolean.garage_door_accesslimit_3:
-  icon: mdi:lock-plus
-input_boolean.garage_door_accesslimit_4:
-  icon: mdi:lock-plus
-input_boolean.garage_door_accesslimit_5:
-  icon: mdi:lock-plus
-input_boolean.garage_door_accesslimit_6:
-  icon: mdi:lock-plus
-input_boolean.garage_door_daterange_1:
-  icon: mdi:lock-clock
-input_boolean.garage_door_daterange_2:
-  icon: mdi:lock-clock
-input_boolean.garage_door_daterange_3:
-  icon: mdi:lock-clock
-input_boolean.garage_door_daterange_4:
-  icon: mdi:lock-clock
-input_boolean.garage_door_daterange_5:
-  icon: mdi:lock-clock
-input_boolean.garage_door_daterange_6:
-  icon: mdi:lock-clock
-input_boolean.garage_sun_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_mon_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_tue_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_wed_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_thu_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_fri_1:
-  icon: mdi:calendar-multiselect
-input_boolean.garage_sat_1:
-  icon: mdi:calendar-multiselect
-input_select.lock_zwave_option_3_garage:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_5_garage:
-  icon: mdi:exit-run
-input_select.lock_zwave_option_4_garage:
-  icon: mdi:beach
-input_select.lock_zwave_option_7_garage:
-  icon: mdi:alarm-bell
-input_select.lock_zwave_option_8_garage:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_9_garage:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_10_garage:
-  icon: mdi:volume-high
-input_select.lock_zwave_option_11_garage:
-  icon: mdi:gesture-double-tap
-input_select.lock_zwave_option_15_garage:
-  icon: mdi:shield-lock
-input_select.lock_zwave_option_16_garage:
-  icon: mdi:numeric
 sensor.last_successful_authentication_username:
   friendly_name: Last User Logon
-  icon: icon:mdi:account-key
+  icon: mdi:account-key
 light.kitchen_led:
   icon: mdi:led-strip
 light.kitchen_led_left:
@@ -555,14 +271,6 @@ script.1565103348600:
   icon: mdi:bell-ring
 binary_sensor.office_occupancy:
   icon: mdi:desktop-classic
-sensor.office_window_template:
-  device_class: window
-sensor.master_bedroom_window_template:
-  device_class: window
-sensor.dining_room_window_template:
-  device_class: window
-sensor.basement_door_template:
-  device_class: door
 sensor.amp_wattage:
   icon: mdi:flash
 input_boolean.camera_alerts:
@@ -638,3 +346,9 @@ sensor.washer_spin_option_state:
   icon: mdi:speedometer
 sensor.dryer_drylevel_option_state:
   icon: mdi:fan
+sensor.zwave_controller_status:
+  icon: si:z-wave
+sensor.zwave_controller_notification:
+  icon: mdi:alert-box-outline
+sensor.zwave_controller_last_activity:
+  icon: mdi:clock-time-five-outline

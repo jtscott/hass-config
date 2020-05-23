@@ -1110,16 +1110,24 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "icon": "mdi:zigbee",
-                                    "name": "Deconz",
-                                    "type": "weblink",
-                                    "url": "http://192.168.2.10/pwa/index.html"
-                                },
-                                {
                                     "icon": "si:z-wave",
                                     "name": "zwave2mqtt",
                                     "type": "weblink",
                                     "url": "http://192.168.1.15:8091"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.zwave_controller_notification",
+                                        "sensor.zwave_controller_last_activity"
+                                    ],
+                                    "head": "sensor.zwave_controller_status",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "icon": "mdi:zigbee",
+                                    "name": "Deconz",
+                                    "type": "weblink",
+                                    "url": "http://192.168.2.10/pwa/index.html"
                                 }
                             ],
                             "show_header_toggle": false,
