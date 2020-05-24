@@ -100,17 +100,9 @@ weather:
 ###########################################
 cast:
   media_player:
-    - host: !secret google_home_living_room_ip
-    - host: !secret google_home_master_bedroom_ip
-    - host: !secret google_home_kitchen_ip
-    - host: !secret google_home_library_ip
-    - host: !secret google_home_theater_ip
     - host: !secret chromecast_audio_kitchen_ip
     - host: !secret chromecast_audio_master_bedroom_ip
-    - host: !secret google_home_office_right_ip 
-    - host: !secret google_home_dining_room_ip
-    - host: !secret google_home_office_left_ip
-
+    - host: !secret chromecast_audio_patio_ip
 media_player:
   - platform: androidtv
     host: !secret nvidia_shield_ip

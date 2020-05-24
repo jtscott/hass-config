@@ -185,6 +185,20 @@
                                 "type": "entities"
                             },
                             "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.*window*"
+                                    },
+                                    {
+                                        "entity_id": "automation.*"
+                                    },
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "state": "off"
+                                    }
+                                ],
                                 "include": [
                                     {
                                         "state": "open"
@@ -194,6 +208,9 @@
                                     },
                                     {
                                         "state": "unlocked"
+                                    },
+                                    {
+                                        "name": "/[Ww]indow/"
                                     }
                                 ]
                             },
