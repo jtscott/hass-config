@@ -8,16 +8,24 @@ kitchen_nest_protect_offline:
     
 sump_pump_water_leak:
   name: "Sump Pump Leak Detected"
-  entity_id: sensor.sump_pump_leak_template
-  state: 'Wet'
+  entity_id: sensor.water_sump_pump
+  state: 'True'
   repeat: 240
   notifiers:
     - notify.notify
 
 water_heater_water_leak:
   name: "Water Heater Leak Detected"
-  entity_id: sensor.water_heater_leak_template
-  state: 'Wet'
+  entity_id: binary_sensor.water_hot_water_heater
+  state: 'on'
+  repeat: 240
+  notifiers:
+    - notify.notify
+
+master_bath_water_leak:
+  name: "Master Leak Detected"
+  entity_id: binary_sensor.master_bathroom_tub
+  state: 'on'
   repeat: 240
   notifiers:
     - notify.notify
