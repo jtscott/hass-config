@@ -352,3 +352,8 @@ sensor.zwave_controller_notification:
   icon: mdi:alert-box-outline
 sensor.zwave_controller_last_activity:
   icon: mdi:clock-time-five-outline
+camera.front_door_still: {}
+image_processing.rekognition_front_door_still:
+  friendly_name: Front Door People
+image_processing.rekognition_back_door_still:
+  friendly_name: Back Door People
