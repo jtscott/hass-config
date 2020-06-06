@@ -13,14 +13,6 @@
   condition: []
   action:
   - service: homekit.start
-- id: '1559083319100'
-  alias: Z-Wave Test Network
-  trigger:
-  - at: 03:00
-    platform: time
-  condition: []
-  action:
-  - service: zwave.test_network
 - id: '1577904430400'
   alias: Dropbox Backup Sync
   description: Synchronize hass.io backup snapshots to Dropbox
@@ -163,3 +155,73 @@
   - data:
       addon: core_letsencrypt
     service: hassio.addon_start
+- id: '1590940754797'
+  alias: Cameras - Re-enable after 1 Hour
+  description: ''
+  trigger:
+  - entity_id: input_boolean.camera_alerts
+    platform: state
+    to: 'off'
+  - entity_id: input_select.camera_person_alerts
+    platform: state
+    to: Front Door
+  - entity_id: input_select.camera_person_alerts
+    platform: state
+    to: Back Door
+  condition: []
+  action:
+  - delay: 00:60:00
+  - data: {}
+    entity_id: input_boolean.camera_alerts
+    service: input_boolean.turn_on
+  - data:
+      option: Enabled
+    entity_id: input_select.camera_person_alerts
+    service: input_select.select_option
+- id: '1590940832684'
+  alias: Cameras - Input Boolean - Turn Off
+  description: ''
+  trigger:
+  - entity_id: input_boolean.camera_alerts
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      option: Disabled
+    entity_id: input_select.camera_motion_alerts
+    service: input_select.select_option
+  - data:
+      option: Disabled
+    entity_id: input_select.camera_person_alerts
+    service: input_select.select_option
+- id: '1590940940768'
+  alias: Cameras - Input Boolean - Turn Off
+  description: ''
+  trigger:
+  - entity_id: input_boolean.camera_alerts
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      option: Enabled
+    entity_id: input_select.camera_person_alerts
+    service: input_select.select_option
+- id: '1591375582026'
+  alias: Locks - Lock at 10pm
+  description: ''
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    entity_id: lock.front_door
+    service: lock.lock
+  - data: {}
+    entity_id: lock.back_door
+    service: lock.lock
+  - data: {}
+    entity_id: lock.garage_door
+    service: lock.lock

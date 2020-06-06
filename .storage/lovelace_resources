@@ -24,7 +24,7 @@
             {
                 "id": "20ebb7e30d9649d6b531426e7810b32b",
                 "type": "module",
-                "url": "/hacsfiles/mini-media-player/mini-media-player.js"
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"
             },
             {
                 "id": "f6a9e06ea2ff4867b1253ad4e7a8a40b",
@@ -100,6 +100,16 @@
                 "id": "5d01c119a1f6492a926088e8c0921551",
                 "type": "module",
                 "url": "/hacsfiles/custom-header/custom-header.js"
+            },
+            {
+                "id": "faf4f50a307440fd945b80520703c24a",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js"
+            },
+            {
+                "id": "4e799070ba1443e9aef94601514ab25c",
+                "type": "module",
+                "url": "/hacsfiles/surveillance-card/surveillance-card.js"
             }
         ]
     },
