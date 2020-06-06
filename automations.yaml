@@ -1,18 +1,3 @@
-- id: '1557758650300'
-  alias: Start HomeKit
-  trigger:
-  - event_data: {}
-    event_type: zwave.network_complete
-    platform: event
-  - event_data: {}
-    event_type: zwave.network_complete_some_dead
-    platform: event
-  - event_data: {}
-    event_type: zwave.network_ready
-    platform: event
-  condition: []
-  action:
-  - service: homekit.start
 - id: '1577904430400'
   alias: Dropbox Backup Sync
   description: Synchronize hass.io backup snapshots to Dropbox
@@ -225,3 +210,14 @@
   - data: {}
     entity_id: lock.garage_door
     service: lock.lock
+- id: '1591481819436'
+  alias: Startup - Restart Node-Red
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      addon: a0d7b954_nodered
+    service: hassio.addon_restart
