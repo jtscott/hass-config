@@ -251,40 +251,6 @@
                             "type": "custom:auto-entities"
                         },
                         {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.front_door",
-                                    "camera_view": "live",
-                                    "style": {
-                                        "heigth": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                }
-                            ],
-                            "image": "/local/camerablank.png",
-                            "type": "picture-elements"
-                        },
-                        {
-                            "elements": [
-                                {
-                                    "camera_image": "camera.back_door",
-                                    "camera_view": "live",
-                                    "style": {
-                                        "heigth": "100%",
-                                        "left": "50%",
-                                        "top": "50%",
-                                        "width": "100%"
-                                    },
-                                    "type": "image"
-                                }
-                            ],
-                            "image": "/local/camerablank.png",
-                            "type": "picture-elements"
-                        },
-                        {
                             "card_id": "main_feed",
                             "compact_mode": true,
                             "entities": [
@@ -309,6 +275,38 @@
                     ],
                     "icon": "mdi:feature-search-outline",
                     "title": "Status"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cameras": [
+                                {
+                                    "entity": "camera.front_door",
+                                    "motion_entity": "binary_sensor.front_door_motion"
+                                },
+                                {
+                                    "entity": "camera.front_door_detection"
+                                },
+                                {
+                                    "entity": "camera.back_door",
+                                    "motion_entity": "binary_sensor.back_door_motion"
+                                },
+                                {
+                                    "entity": "camera.back_door_detection"
+                                },
+                                {
+                                    "entity": "camera.netatmo_entryway"
+                                }
+                            ],
+                            "thumb_interval": 15,
+                            "type": "custom:surveillance-card",
+                            "update_interval": 2
+                        }
+                    ],
+                    "icon": "mdi:cctv",
+                    "panel": true,
+                    "title": "Cameras"
                 },
                 {
                     "badges": [],
@@ -1382,37 +1380,6 @@
                     "icon": "mdi:server",
                     "path": "system",
                     "title": "System"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cameras": [
-                                {
-                                    "entity": "camera.front_door",
-                                    "motion_entity": "binary_sensor.front_door_motion"
-                                },
-                                {
-                                    "entity": "camera.front_door_detection"
-                                },
-                                {
-                                    "entity": "camera.back_door",
-                                    "motion_entity": "binary_sensor.back_door_motion"
-                                },
-                                {
-                                    "entity": "camera.back_door_detection"
-                                },
-                                {
-                                    "entity": "camera.netatmo_entryway"
-                                }
-                            ],
-                            "thumb_interval": 15,
-                            "type": "custom:surveillance-card",
-                            "update_interval": 2
-                        }
-                    ],
-                    "icon": "mdi:cctv",
-                    "panel": true
                 }
             ]
         }
