@@ -155,7 +155,7 @@
     to: Back Door
   condition: []
   action:
-  - delay: 00:60:00
+  - delay: 02:00:00
   - data: {}
     entity_id: input_boolean.camera_alerts
     service: input_boolean.turn_on

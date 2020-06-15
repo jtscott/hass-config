@@ -9,6 +9,7 @@ include:
     - weather
     - image_processing
     - input_select
+    - input_boolean
     - media_player
     - person
     - climate
