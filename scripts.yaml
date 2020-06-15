@@ -32,42 +32,6 @@
   - data:
       volume_level: 0.35
     service: media_player.volume_set
-'1587409042440':
-  alias: Roomba S9 - Start
-  sequence:
-  - data:
-      event: start_roomba_s9
-    service: ifttt.trigger
-'1587409130728':
-  alias: Roomba S9 - Dock
-  sequence:
-  - data:
-      event: dock_roomba_s9
-    service: ifttt.trigger
-'1587409265127':
-  alias: Roomba S9 - Locate
-  sequence:
-  - data:
-      event: locate_roomba_s9
-    service: ifttt.trigger
-'1587409291007':
-  alias: Roomba S9 - Resume
-  sequence:
-  - data:
-      event: resume_roomba_s9
-    service: ifttt.trigger
-'1587409318603':
-  alias: Roomba S9 - Stop
-  sequence:
-  - data:
-      event: stop_roomba_s9
-    service: ifttt.trigger
-'1587409349159':
-  alias: Roomba S9 - Pause
-  sequence:
-  - data:
-      event: pause_roomba_s9
-    service: ifttt.trigger
 '1587409532673':
   alias: Roomba S9 - Clean - Kitchen
   sequence:
@@ -104,30 +68,3 @@
   - data:
       event: clean_foyer_s9
     service: ifttt.trigger
-'1587425307966':
-  alias: Roomba S9 - State - Started
-  sequence:
-  - data:
-      option: Cleaning
-    entity_id: input_select.vacuum_mainfloor_state
-    service: input_select.select_option
-'1587425542154':
-  alias: Roomba S9 - State - Docked
-  sequence:
-  - data:
-      option: Docked
-    entity_id: input_select.vacuum_mainfloor_state
-    service: input_select.select_option
-'1587425616443':
-  alias: Roomba S9 - State - Stuck
-  sequence:
-  - data:
-      option: Stuck
-    entity_id: input_select.vacuum_mainfloor_state
-    service: input_select.select_option
-'1587481213019':
-  alias: Roomba S9 - State - Bin Full
-  sequence:
-  - data: {}
-    entity_id: input_boolean.vacuum_mainfloor_binfull
-    service: input_boolean.turn_on

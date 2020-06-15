@@ -151,7 +151,10 @@
                                         "entity_id": "light.garage_*"
                                     },
                                     {
-                                        "entity_id": "switch.unifiprotect_*"
+                                        "entity_id": "switch.record_always_*_door"
+                                    },
+                                    {
+                                        "entity_id": "switch.ir_active_*_door"
                                     },
                                     {
                                         "entity_id": "light.blinds"
@@ -251,6 +254,42 @@
                             "type": "custom:auto-entities"
                         },
                         {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.front_door",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.front_door_motion"
+                                },
+                                {
+                                    "entity": "image_processing.rekognition_front_door_still"
+                                },
+                                {
+                                    "entity": "switch.ir_active_front_door"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Front Door",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.back_door",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.back_door_motion"
+                                },
+                                {
+                                    "entity": "image_processing.rekognition_back_door_still"
+                                },
+                                {
+                                    "entity": "switch.ir_active_back_door"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Back Door",
+                            "type": "picture-glance"
+                        },
+                        {
                             "card_id": "main_feed",
                             "compact_mode": true,
                             "entities": [
@@ -275,38 +314,6 @@
                     ],
                     "icon": "mdi:feature-search-outline",
                     "title": "Status"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cameras": [
-                                {
-                                    "entity": "camera.front_door",
-                                    "motion_entity": "binary_sensor.front_door_motion"
-                                },
-                                {
-                                    "entity": "camera.front_door_detection"
-                                },
-                                {
-                                    "entity": "camera.back_door",
-                                    "motion_entity": "binary_sensor.back_door_motion"
-                                },
-                                {
-                                    "entity": "camera.back_door_detection"
-                                },
-                                {
-                                    "entity": "camera.netatmo_entryway"
-                                }
-                            ],
-                            "thumb_interval": 15,
-                            "type": "custom:surveillance-card",
-                            "update_interval": 2
-                        }
-                    ],
-                    "icon": "mdi:cctv",
-                    "panel": true,
-                    "title": "Cameras"
                 },
                 {
                     "badges": [],
@@ -542,14 +549,10 @@
                         {
                             "entities": [
                                 {
-                                    "entities": [
-                                        "script.1587409318603",
-                                        "script.1587409265127",
-                                        "script.1587409349159",
-                                        "script.1587409291007"
-                                    ],
-                                    "head": "input_boolean.vacuum_mainfloor_manual",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "vacuum.main_floor"
+                                },
+                                {
+                                    "entity": "vacuum.main_floor_mop"
                                 },
                                 {
                                     "entities": [
@@ -711,8 +714,12 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "vacuum.roomba",
+                            "compact_view": true,
+                            "entity": "vacuum.upstairs",
                             "image": "default",
+                            "show_name": true,
+                            "show_status": true,
+                            "show_toolbar": true,
                             "type": "custom:vacuum-card"
                         }
                     ],
@@ -1059,10 +1066,9 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "camera.yyc_doppler",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
+                            "aspect_ratio": "75%",
+                            "type": "iframe",
+                            "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
                         }
                     ],
                     "icon": "mdi:weather-partly-cloudy",
@@ -1298,6 +1304,15 @@
                                 },
                                 {
                                     "entity": "sensor.battery_level_master_bathroom_tub"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_vacuum_upstairs"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_vacuum_main_floor"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_main_floor_mop"
                                 }
                             ],
                             "sort_by_level": "asc",

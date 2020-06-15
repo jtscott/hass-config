@@ -2,25 +2,27 @@
     "data": {
         "items": [
             {
+                "icon": "mdi:blinds",
                 "id": "blinds_dining_room_mode",
-                "name": "blinds_dining_room_mode",
+                "name": "Dining Room Blinds Mode",
                 "options": [
                     "Automatic",
                     "Manual"
                 ]
             },
             {
+                "icon": "mdi:blinds",
                 "id": "blinds_stairway_mode",
-                "name": "blinds_stairway_mode",
+                "name": "Stairway Blinds Mode",
                 "options": [
                     "Automatic",
                     "Manual"
                 ]
             },
             {
-                "icon": "mdi:cctv",
+                "icon": "mdi:run",
                 "id": "camera_motion_alerts",
-                "name": "camera_motion_alerts",
+                "name": "Motion Alerts",
                 "options": [
                     "Enabled",
                     "Front Door",
@@ -29,9 +31,9 @@
                 ]
             },
             {
-                "icon": "mdi:cctv",
+                "icon": "mdi:human",
                 "id": "camera_person_alerts",
-                "name": "camera_person_alerts",
+                "name": "Person Alerts",
                 "options": [
                     "Enabled",
                     "Front Door",
