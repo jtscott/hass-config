@@ -550,9 +550,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "vacuum.main_floor"
-                                },
-                                {
                                     "entity": "vacuum.main_floor_mop"
                                 },
                                 {
@@ -564,7 +561,7 @@
                                         "script.1587423962091",
                                         "script.1587423988689"
                                     ],
-                                    "head": "input_select.vacuum_mainfloor_state",
+                                    "head": "vacuum.main_floor",
                                     "type": "custom:fold-entity-row"
                                 }
                             ],

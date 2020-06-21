@@ -71,6 +71,30 @@
                     "Cleaning",
                     "Stuck"
                 ]
+            },
+            {
+                "id": "vacuum_main_floor_user",
+                "name": "Vacuum Main Floor User",
+                "options": [
+                    "Person",
+                    "Automatic"
+                ]
+            },
+            {
+                "id": "vacuum_upstairs_user",
+                "name": "Vacuum Upstairs User",
+                "options": [
+                    "Person",
+                    "Automatic"
+                ]
+            },
+            {
+                "id": "main_floor_mop",
+                "name": "Vacuum Main Floor Mop",
+                "options": [
+                    "Person",
+                    "Automatic"
+                ]
             }
         ]
     },
