@@ -303,7 +303,8 @@
                                 "cover.garage_door",
                                 "binary_sensor.dining_room_window",
                                 "switch.backyard_zone",
-                                "switch.garage_cover_outlet_2"
+                                "switch.garage_cover_outlet_2",
+                                "binary_sensor.door_bell_front"
                             ],
                             "more_info_on_tap": true,
                             "show_empty": false,
@@ -913,15 +914,6 @@
                             "type": "entities"
                         },
                         {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
                             "cards": [
                                 {
                                     "artwork": "full-cover-fit",
@@ -956,6 +948,15 @@
                             "tts": {
                                 "platform": "google_translate"
                             },
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "artwork": "full-cover-fit",
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "volume": true
+                            },
+                            "icon": "mdi:playstation",
                             "type": "custom:mini-media-player"
                         },
                         {
@@ -1313,6 +1314,9 @@
                                 },
                                 {
                                     "entity": "sensor.battery_level_main_floor_mop"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_door_bell_front"
                                 }
                             ],
                             "sort_by_level": "asc",
