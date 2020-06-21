@@ -49,6 +49,7 @@ emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
 homekit: !include homekit.yaml
 light: !include light.yaml
+media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
 ios: !include ios.yaml
@@ -94,20 +95,6 @@ weather:
     api_key: !secret darksky_api
   - platform: environment_canada
     station: !secret ec_station_id
-
-###########################################
-# Media Players
-###########################################
-cast:
-  media_player:
-    - host: !secret chromecast_audio_kitchen_ip
-    - host: !secret chromecast_audio_master_bedroom_ip
-    - host: !secret chromecast_audio_patio_ip
-media_player:
-  - platform: androidtv
-    host: !secret nvidia_shield_ip
-    name: Nvidia Shield
-    adb_server_ip: !secret advertise_ip
 
 ###########################################
 # Device Tracker
