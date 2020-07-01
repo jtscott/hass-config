@@ -3,14 +3,14 @@ host: !secret nvidia_shield_ip
 name: Nvidia Shield
 adb_server_ip: !secret advertise_ip
 apps:
-  com.google.android.tvlauncher: "Homescreen"
-  com.android.tv.settings: "Settings"
-  com.netflix.ninja: "Netflix"
-  com.google.android.youtube.tv: "YouTube"
-  com.amazon.amazonvideo.livingroom: “Amazon Prime Video”
-  com.plexapp.android: “Plex”
-  com.ubnt.unifi.protect: "Unifi Protect"
-  com.waxrain.airplaydmr2: "AirPlay"
+  com.google.android.tvlauncher: Homescreen
+  com.android.tv.settings: Settings
+  com.netflix.ninja: Netflix
+  com.google.android.youtube.tv: YouTube
+  com.amazon.amazonvideo.livingroom: Amazon Prime Video
+  com.plexapp.android: Plex
+  com.ubnt.unifi.protect: Unifi Protect
+  com.waxrain.airplaydmr2: AirPlay
 state_detection_rules:
     'com.android.vending':
         - 'standby'
