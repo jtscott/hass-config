@@ -140,29 +140,6 @@
   - data:
       addon: core_letsencrypt
     service: hassio.addon_start
-- id: '1590940754797'
-  alias: Cameras - Re-enable after 1 Hour
-  description: ''
-  trigger:
-  - entity_id: input_boolean.camera_alerts
-    platform: state
-    to: 'off'
-  - entity_id: input_select.camera_person_alerts
-    platform: state
-    to: Front Door
-  - entity_id: input_select.camera_person_alerts
-    platform: state
-    to: Back Door
-  condition: []
-  action:
-  - delay: 02:00:00
-  - data: {}
-    entity_id: input_boolean.camera_alerts
-    service: input_boolean.turn_on
-  - data:
-      option: Enabled
-    entity_id: input_select.camera_person_alerts
-    service: input_select.select_option
 - id: '1590940832684'
   alias: Cameras - Input Boolean - Turn Off
   description: ''
@@ -221,3 +198,77 @@
   - data:
       addon: a0d7b954_nodered
     service: hassio.addon_restart
+- id: '1593611565975'
+  alias: Window - All Blinds Open
+  description: ''
+  trigger:
+  - device_id: 5cd192b226674f6a915e599a744493f7
+    domain: deconz
+    platform: device
+    subtype: open
+    type: remote_button_long_press
+  - device_id: b3791527cb764ca694fc1342ad107d07
+    domain: deconz
+    platform: device
+    subtype: open
+    type: remote_button_long_press
+  condition: []
+  action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
+  - entity_id: cover.blinds_stairway
+    service: cover.open_cover
+  - entity_id: cover.blinds_dining_room
+    service: cover.open_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
+- id: '1593612035775'
+  alias: Window - All Blinds Closed
+  description: ''
+  trigger:
+  - device_id: 5cd192b226674f6a915e599a744493f7
+    domain: deconz
+    platform: device
+    subtype: close
+    type: remote_button_long_press
+  - device_id: b3791527cb764ca694fc1342ad107d07
+    domain: deconz
+    platform: device
+    subtype: close
+    type: remote_button_long_press
+  condition: []
+  action:
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
+  - data:
+      option: Manual
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
+  - entity_id: cover.blinds_stairway
+    service: cover.close_cover
+  - entity_id: cover.blinds_dining_room
+    service: cover.close_cover
+  - delay: 02:00
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_stairway_mode
+    service: input_select.select_option
+  - data:
+      option: Automatic
+    entity_id: input_select.blinds_dining_room_mode
+    service: input_select.select_option
