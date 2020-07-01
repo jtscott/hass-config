@@ -170,6 +170,12 @@
                                     },
                                     {
                                         "entity_id": "light.kitchen_right_led"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_smart_watering_program"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_rain_delay"
                                     }
                                 ],
                                 "include": [
@@ -458,13 +464,12 @@
                         },
                         {
                             "entities": [
-                                "switch.backyard_zone",
                                 {
                                     "entities": [
-                                        "sensor.rain_delay_lawn_remaining",
-                                        "sensor.rain_delay_lawn_finishing"
+                                        "switch.backyard_timer_smart_watering_program",
+                                        "sensor.backyard_zone_history"
                                     ],
-                                    "head": "binary_sensor.rain_delay_backyard_timer",
+                                    "head": "switch.backyard_zone",
                                     "type": "custom:fold-entity-row"
                                 }
                             ],
@@ -1257,66 +1262,71 @@
                             "type": "custom:auto-entities"
                         },
                         {
-                            "collapse": 4,
+                            "bulk_rename": [
+                                {
+                                    "from": "Battery Level",
+                                    "to": "sensor"
+                                },
+                                {
+                                    "from": "/\\s(temperature|temp)\\s/",
+                                    "to": " temp. "
+                                }
+                            ],
+                            "charging_state": {
+                                "attribute": [
+                                    {
+                                        "name": "Battery State",
+                                        "value": "Charging"
+                                    },
+                                    {
+                                        "name": "is_charging",
+                                        "value": true
+                                    }
+                                ],
+                                "state": [
+                                    "charging",
+                                    "Charging"
+                                ]
+                            },
+                            "collapse": 5,
                             "color_gradient": [
                                 "#ff0000",
                                 "#ffff00",
                                 "#00ff00"
                             ],
-                            "entities": [
-                                {
-                                    "entity": "sensor.battery_level_front_door"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_back_door"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_dining_room_window"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_blinds_dining_room"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_diningroom_blinds_remote"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_blinds_stairway"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_stairway_blinds_remote"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_master_bedroom_window"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_library_window"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_water_hot_water_heater"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_water_sump_pump"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_basement_door"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_master_bathroom_tub"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_vacuum_upstairs"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_vacuum_main_floor"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_main_floor_mop"
-                                },
-                                {
-                                    "entity": "sensor.battery_level_door_bell_front"
-                                }
-                            ],
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "state",
+                                        "operator": ">",
+                                        "value": 75
+                                    },
+                                    {
+                                        "name": "attributes.friendly_name",
+                                        "operator": "contains",
+                                        "value": "iPhone"
+                                    },
+                                    {
+                                        "name": "attributes.friendly_name",
+                                        "operator": "contains",
+                                        "value": "iPad"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "name": "entity_id",
+                                        "value": "*_battery_level"
+                                    },
+                                    {
+                                        "name": "attributes.device_class",
+                                        "value": "battery"
+                                    }
+                                ]
+                            },
                             "sort_by_level": "asc",
+                            "tap_action": {
+                                "action": "more-info"
+                            },
                             "title": "Batteries",
                             "type": "custom:battery-state-card"
                         },
