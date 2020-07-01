@@ -11,5 +11,18 @@
 
 - platform: template
   sensors:
+    day:
+      entity_id: sensor.date
+      value_template: "{{ now().strftime('%A') }}"
+
     month:
-      value_template: "{{ now().month }}"
+      entity_id: sensor.date
+      value_template: "{{ now().strftime('%B') }}"
+    
+    dateofthemonth:
+      entity_id: sensor.date 
+      value_template: >
+        {% set suffix = ['st', 'nd', 'rd'] %}
+        {% set day = now().day %}
+        {% set index = 3 if day // 10 == 1 or day % 10 == 0 else (day % 10) - 1 %}
+        {{ day~'th' if index > 2 else day~suffix[index] }}

@@ -1072,6 +1072,19 @@
                             "aspect_ratio": "75%",
                             "type": "iframe",
                             "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
+                        },
+                        {
+                            "aspect_ratio": "75%",
+                            "camera_image": "camera.yyc_doppler",
+                            "entities": [
+                                {
+                                    "entity": "weather.calgary_olympic_park"
+                                }
+                            ],
+                            "entity": "weather.calgary_olympic_park",
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Doppler",
+                            "type": "picture-glance"
                         }
                     ],
                     "icon": "mdi:weather-partly-cloudy",

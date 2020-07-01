@@ -21,7 +21,6 @@
   name: 'Bow & Sarcee' 
 - platform: environment_canada
   name: 'YYC Doppler'
-  station: !secret ec_radar_id
 
 ##########################################
 # Home Cams
