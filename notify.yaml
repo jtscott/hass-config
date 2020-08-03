@@ -1,10 +1,6 @@
-- platform: pushover
-  name: Pushover
-  api_key: !secret pushover_api
-  user_key: !secret pushover_userkey
-
-- platform: html5
-  name: HTML5
-  vapid_pub_key: !secret vapid_pub_key
-  vapid_prv_key: !secret vapid_prv_key
-  vapid_email: !secret email_account
+- name: ios_all_devices
+  platform: group
+  services:
+    - service: ios_brittanys_iphone
+    - service: ios_home_ipad
+    - service: mobile_app_iphone
