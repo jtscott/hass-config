@@ -61,16 +61,16 @@ sensor: !include_dir_merge_list sensor
 ###########################################
 mqtt:
   discovery: true
-  discovery_prefix: hass
+  discovery_prefix: homeassistant
   broker: !secret mqtt_host
   port: 1883
   username: home-assistant
   password: !secret mqtt_password
   birth_message:
-    topic: 'hass/status'
+    topic: 'homeassistant/status'
     payload: 'online'
   will_message:
-    topic: 'hass/status'
+    topic: 'homeassistant/status'
     payload: 'offline'
 
 ###########################################
