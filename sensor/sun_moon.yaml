@@ -24,8 +24,8 @@
 - platform: template
   sensors:
     sun_elevation:
-      value_template: '{{ states.sun.sun.attributes.elevation }}'
-      unit_of_measurement: 'degrees'
+      unit_of_measurement: '°'
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
 - platform: season
   type: astronomical
