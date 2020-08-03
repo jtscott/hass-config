@@ -67,36 +67,6 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
-                                "title": "Disabled",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "input_select.door_*"
-                                    },
-                                    {
-                                        "entity_id": "input_select.camera_motion_alerts"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "Disabled"
-                                    },
-                                    {
-                                        "state": "Front Door"
-                                    },
-                                    {
-                                        "state": "Back Door"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
                                 "title": "On",
                                 "type": "entities"
                             },
@@ -172,10 +142,13 @@
                                         "entity_id": "light.kitchen_right_led"
                                     },
                                     {
-                                        "entity_id": "switch.*_timer_smart_watering_program"
+                                        "entity_id": "switch.*_timer_smart_watering_program*"
                                     },
                                     {
                                         "entity_id": "switch.*_timer_rain_delay"
+                                    },
+                                    {
+                                        "entity_id": "media_player.theater"
                                     }
                                 ],
                                 "include": [
@@ -187,6 +160,36 @@
                                     },
                                     {
                                         "state": "paused"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Disabled",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "input_select.door_*"
+                                    },
+                                    {
+                                        "entity_id": "input_select.camera_motion_alerts"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Disabled"
+                                    },
+                                    {
+                                        "state": "Front Door"
+                                    },
+                                    {
+                                        "state": "Back Door"
                                     }
                                 ]
                             },
@@ -309,7 +312,7 @@
                                 "cover.garage_door",
                                 "binary_sensor.dining_room_window",
                                 "switch.backyard_zone",
-                                "switch.garage_cover_outlet_2",
+                                "switch.front_yard_zone",
                                 "binary_sensor.door_bell_front"
                             ],
                             "more_info_on_tap": true,
@@ -348,7 +351,8 @@
                                 {
                                     "entities": [
                                         "input_select.camera_motion_alerts",
-                                        "input_select.camera_person_alerts"
+                                        "input_select.camera_person_alerts",
+                                        "switch.entryway_outlet_1"
                                     ],
                                     "head": "input_boolean.camera_alerts",
                                     "type": "custom:fold-entity-row"
@@ -390,33 +394,9 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.front_door_report",
-                                        "sensor.front_door_code"
-                                    ],
-                                    "head": "lock.front_door",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.back_door_report",
-                                        "sensor.back_door_code"
-                                    ],
-                                    "head": "lock.back_door",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.garage_door_report",
-                                        "sensor.garage_door_code"
-                                    ],
-                                    "group_config": {
-                                        "secondary_info": "last-changed"
-                                    },
-                                    "head": "lock.garage_door",
-                                    "type": "custom:fold-entity-row"
-                                },
+                                "lock.front_door",
+                                "lock.back_door",
+                                "lock.garage_door",
                                 {
                                     "entities": [
                                         "switch.garage_cover_outlet_1",
@@ -466,6 +446,16 @@
                             "entities": [
                                 {
                                     "entities": [
+                                        "switch.frontyard_timer_rain_delay",
+                                        "switch.frontyard_timer_smart_watering_program",
+                                        "sensor.front_yard_zone_history"
+                                    ],
+                                    "head": "switch.front_yard_zone",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "switch.backyard_timer_rain_delay",
                                         "switch.backyard_timer_smart_watering_program",
                                         "sensor.backyard_zone_history"
                                     ],
@@ -474,7 +464,7 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Backyard Sprinkler",
+                            "title": "Sprinklers",
                             "type": "entities"
                         }
                     ],
@@ -546,6 +536,9 @@
                                 },
                                 {
                                     "entity": "sensor.office_occupancy"
+                                },
+                                {
+                                    "entity": "binary_sensor.office_window"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -981,7 +974,7 @@
                             "type": "custom:upcoming-media-card"
                         }
                     ],
-                    "icon": "mdi:library-music",
+                    "icon": "mdi:music-box-multiple",
                     "title": "Media"
                 },
                 {
@@ -1076,11 +1069,7 @@
                         {
                             "aspect_ratio": "75%",
                             "camera_image": "camera.yyc_doppler",
-                            "entities": [
-                                {
-                                    "entity": "weather.calgary_olympic_park"
-                                }
-                            ],
+                            "entities": [],
                             "entity": "weather.calgary_olympic_park",
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
                             "title": "Doppler",
@@ -1155,10 +1144,11 @@
                                     "entity": "input_boolean.automations"
                                 },
                                 {
-                                    "entity": "sensor.hass_release"
-                                },
-                                {
-                                    "entity": "sensor.current_version"
+                                    "entities": [
+                                        "sensor.current_version"
+                                    ],
+                                    "head": "sensor.hass_release",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entities": [
@@ -1169,13 +1159,13 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "icon": "si:z-wave",
-                                    "name": "zwave2mqtt",
-                                    "type": "weblink",
-                                    "url": "http://192.168.1.15:8091"
-                                },
-                                {
                                     "entities": [
+                                        {
+                                            "icon": "si:z-wave",
+                                            "name": "zwave2mqtt",
+                                            "type": "weblink",
+                                            "url": "http://192.168.2.11:8091"
+                                        },
                                         "sensor.zwave_controller_notification",
                                         "sensor.zwave_controller_last_activity"
                                     ],
@@ -1235,44 +1225,20 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "card": {
-                                "entities": [
-                                    {
-                                        "entity": "sensor.downstairs_nest_protect_status"
-                                    },
-                                    {
-                                        "entity": "sensor.kitchen_nest_protect_status"
-                                    },
-                                    {
-                                        "entity": "sensor.upstairs_nest_protect_status"
-                                    }
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Hub Status",
-                                "type": "glance"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.radarr*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.sonarr*"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "Online"
-                                    },
-                                    {
-                                        "state": "Offline"
-                                    }
-                                ]
-                            },
-                            "type": "custom:auto-entities"
+                            "card_style": "glance",
+                            "entity": "sensor.rpi_monitor_zwave2mqtt",
+                            "name": "zwave2mqtt",
+                            "name_prefix": "",
+                            "temp_scale": "c",
+                            "type": "custom:rpi-monitor-card"
+                        },
+                        {
+                            "card_style": "glance",
+                            "entity": "sensor.rpi_monitor_phoscon",
+                            "name": "Deconz",
+                            "name_prefix": "",
+                            "temp_scale": "c",
+                            "type": "custom:rpi-monitor-card"
                         },
                         {
                             "bulk_rename": [
@@ -1311,7 +1277,12 @@
                                     {
                                         "name": "state",
                                         "operator": ">",
-                                        "value": 75
+                                        "value": 60
+                                    },
+                                    {
+                                        "name": "state",
+                                        "operator": "matches",
+                                        "value": "Unavailable"
                                     },
                                     {
                                         "name": "attributes.friendly_name",
@@ -1408,6 +1379,9 @@
                                     },
                                     {
                                         "state": "None"
+                                    },
+                                    {
+                                        "state": "Offline"
                                     }
                                 ]
                             },

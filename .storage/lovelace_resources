@@ -97,14 +97,14 @@
                 "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js"
             },
             {
-                "id": "4e799070ba1443e9aef94601514ab25c",
-                "type": "module",
-                "url": "/hacsfiles/surveillance-card/surveillance-card.js"
-            },
-            {
                 "id": "779dbef1871444ad8ecc5fadf34d26c9",
                 "type": "module",
                 "url": "/hacsfiles/upcoming-media-card/upcoming-media-card.js"
+            },
+            {
+                "id": "eaca57b516f04115873c977fdd06db37",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js"
             }
         ]
     },
