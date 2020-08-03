@@ -44,15 +44,15 @@
 
 - platform: mqtt
   name: "Zwave Controller Status"
-  state_topic: "hass/nodeID_1/status"
+  state_topic: "homeassistant/nodeID_1/status"
   value_template: "{{ value_json.status }}"
 
 - platform: mqtt
   name: "Zwave Controller Last Activity"
-  state_topic: "hass/nodeID_1/status"
+  state_topic: "homeassistant/nodeID_1/status"
   value_template: "{{ value_json.time | multiply(0.001) | round(0) | timestamp_local }}"
 
 - platform: mqtt
   name: "Zwave Controller Notification"
-  state_topic: "hass/_EVENTS/ZWAVE_GATEWAY-hass/notification"
+  state_topic: "homeassistant/_EVENTS/ZWAVE_GATEWAY-hass/notification"
   value_template: "{{ value_json.data[2] }}"
