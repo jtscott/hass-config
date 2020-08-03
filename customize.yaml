@@ -73,7 +73,7 @@ sensor.disk_use_percent:
   icon: mdi:harddisk
 sensor.hass_release:
   friendly_name: Release
-  icon: mdi:github-circle
+  icon: mdi:github
 sensor.moon:
   friendly_name: Moon
   icon: mdi:weather-night
@@ -357,3 +357,11 @@ image_processing.rekognition_front_door_still:
   friendly_name: Front Door People
 image_processing.rekognition_back_door_still:
   friendly_name: Back Door People
+binary_sensor.office_window:
+  device_class: window
+binary_sensor.living_room_window_left:
+  device_class: window
+binary_sensor.living_room_window_right:
+  device_class: window
+binary_sensor.office_window_contact:
+  device_class: window
