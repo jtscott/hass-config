@@ -11,6 +11,8 @@ apps:
   com.plexapp.android: Plex
   com.ubnt.unifi.protect: Unifi Protect
   com.waxrain.airplaydmr2: AirPlay
+  com.disney.disneyplus: Disney+
+  psplay.grill.com: PSPlay
 state_detection_rules:
     'com.android.vending':
         - 'standby'

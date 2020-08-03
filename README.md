@@ -12,13 +12,13 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 
 ## Screenshots
 ### Status
-![Status](https://www.dropbox.com/s/44zs82n1el5entx/status.PNG?raw=1)
+![Status](https://www.dropbox.com/s/8h8h5tilk81oxoe/status.PNG?raw=1)
 ### Outside
-![Outside](https://www.dropbox.com/s/6de2yt740tui38s/outside.PNG?raw=1)
+![Outside](https://www.dropbox.com/s/c3euryyrnfmhhyx/outside.PNG?raw=1)
 ### Media
 ![Media](https://www.dropbox.com/s/okm0yg14avwy43c/media.png?raw=1)
 ### 1F
-![1F](https://www.dropbox.com/s/1qrztdywv4vlit2/1f.png?raw=1)
+![1F](https://www.dropbox.com/s/ywbs2mwr36ujv2h/1f.PNG?raw=1)
 ### 2F
 ![2F](https://www.dropbox.com/s/ablt91smnny837p/2f.PNG?raw=1)
 ### Basement
@@ -30,7 +30,7 @@ Check out all the cool things you can do with [Home Assistant](https://home-assi
 ### System
 ![System](https://www.dropbox.com/s/tmg8tpoowa1brls/system.PNG?raw=1)
 
-## Requirements
+## Script Requirements
 - Install [jq 1.5 manually](https://stedolan.github.io/jq/download/). Jessie repos have old versions that have a bug accessing the last item in an array. Needed for withings scripts.
 - Curl
 - Scripts based on Debian

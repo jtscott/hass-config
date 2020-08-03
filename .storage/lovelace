@@ -274,6 +274,9 @@
                                 },
                                 {
                                     "entity": "switch.ir_active_front_door"
+                                },
+                                {
+                                    "entity": "camera.front_door_detection"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -292,6 +295,9 @@
                                 },
                                 {
                                     "entity": "switch.ir_active_back_door"
+                                },
+                                {
+                                    "entity": "camera.back_door_detection"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -798,14 +804,14 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "artwork": "full-cover-fit",
+                                    "artwork": "cover",
                                     "entity": "media_player.un65f8000",
                                     "group": true,
                                     "name": "Samsung TV",
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "artwork": "full-cover-fit",
+                                    "artwork": "cover",
                                     "entity": "media_player.nvidia_shield",
                                     "group": true,
                                     "type": "custom:mini-media-player"
@@ -946,7 +952,7 @@
                             "type": "custom:mini-media-player"
                         },
                         {
-                            "artwork": "full-cover-fit",
+                            "artwork": "cover",
                             "entity": "media_player.playstation_4",
                             "hide": {
                                 "volume": true
