@@ -108,7 +108,7 @@
   alias: System - Certificate Renewal
   description: ''
   trigger:
-  - below: '11'
+  - below: '21'
     entity_id: sensor.cert_expiry_home_eatsleepbreach_ca
     platform: numeric_state
   condition: []
@@ -116,6 +116,9 @@
   - data:
       addon: core_letsencrypt
     service: hassio.addon_start
+  - delay: '10:00'
+  - data: {}
+    service: homeassistant.restart
 - id: '1590940832684'
   alias: Cameras - Input Boolean - Turn Off
   description: ''
