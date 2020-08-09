@@ -105,6 +105,16 @@
                 "id": "eaca57b516f04115873c977fdd06db37",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js"
+            },
+            {
+                "id": "8f7c79cd519e4a0abf11ee9486529446",
+                "type": "module",
+                "url": "/hacsfiles/love-lock-card/love-lock-card.js"
+            },
+            {
+                "id": "ae187a4bb0044731b08f0f0f1712236c",
+                "type": "module",
+                "url": "/hacsfiles/restriction-card/restriction-card.js"
             }
         ]
     },

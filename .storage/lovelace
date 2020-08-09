@@ -339,6 +339,7 @@
                                 {
                                     "entity": "input_boolean.guest_wifi",
                                     "style": {
+                                        "--paper-item-icon-color": "slategrey",
                                         "left": "61%",
                                         "top": "35%",
                                         "transform": "scale(3,3)"
@@ -358,7 +359,8 @@
                                     "entities": [
                                         "input_select.camera_motion_alerts",
                                         "input_select.camera_person_alerts",
-                                        "switch.entryway_outlet_1"
+                                        "switch.entryway_outlet_1",
+                                        "input_select.entryway_outlet_1"
                                     ],
                                     "head": "input_boolean.camera_alerts",
                                     "type": "custom:fold-entity-row"
@@ -420,6 +422,31 @@
                             "entities": [
                                 {
                                     "entities": [
+                                        "switch.frontyard_timer_rain_delay",
+                                        "switch.frontyard_timer_smart_watering_program",
+                                        "sensor.front_yard_zone_history"
+                                    ],
+                                    "head": "switch.front_yard_zone",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "switch.backyard_timer_rain_delay",
+                                        "switch.backyard_timer_smart_watering_program",
+                                        "sensor.backyard_zone_history"
+                                    ],
+                                    "head": "switch.backyard_zone",
+                                    "type": "custom:fold-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Sprinklers",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
                                         "sensor.alfred_last_seen_template"
                                     ],
                                     "head": "device_tracker.alfie",
@@ -449,29 +476,24 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entities": [
-                                        "switch.frontyard_timer_rain_delay",
-                                        "switch.frontyard_timer_smart_watering_program",
-                                        "sensor.front_yard_zone_history"
-                                    ],
-                                    "head": "switch.front_yard_zone",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "sensor.brittany_s_birthday",
+                                    "icon": "mdi:cake-layered",
+                                    "type": "sensor"
                                 },
                                 {
-                                    "entities": [
-                                        "switch.backyard_timer_rain_delay",
-                                        "switch.backyard_timer_smart_watering_program",
-                                        "sensor.backyard_zone_history"
-                                    ],
-                                    "head": "switch.backyard_zone",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "sensor.jared_s_birthday",
+                                    "icon": "mdi:cake",
+                                    "type": "sensor"
+                                },
+                                {
+                                    "entity": "sensor.wedding",
+                                    "icon": "mdi:party-popper",
+                                    "type": "sensor"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Sprinklers",
-                            "type": "entities"
+                            "type": "horizontal-stack"
                         }
                     ],
                     "icon": "mdi:garage",
@@ -1051,6 +1073,12 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.moon"
+                                },
+                                {
+                                    "entity": "sun.sun"
+                                },
+                                {
                                     "entity": "sensor.season_template"
                                 },
                                 {
@@ -1150,11 +1178,10 @@
                                     "entity": "input_boolean.automations"
                                 },
                                 {
-                                    "entities": [
-                                        "sensor.current_version"
-                                    ],
-                                    "head": "sensor.hass_release",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "sensor.hass_release"
+                                },
+                                {
+                                    "entity": "sensor.current_version"
                                 },
                                 {
                                     "entities": [
@@ -1166,16 +1193,16 @@
                                 },
                                 {
                                     "entities": [
-                                        {
-                                            "icon": "si:z-wave",
-                                            "name": "zwave2mqtt",
-                                            "type": "weblink",
-                                            "url": "http://192.168.2.11:8091"
-                                        },
+                                        "sensor.zwave_controller_status",
                                         "sensor.zwave_controller_notification",
                                         "sensor.zwave_controller_last_activity"
                                     ],
-                                    "head": "sensor.zwave_controller_status",
+                                    "head": {
+                                        "icon": "si:z-wave",
+                                        "name": "zwave2mqtt",
+                                        "type": "weblink",
+                                        "url": "http://192.168.2.11:8091"
+                                    },
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -1283,7 +1310,7 @@
                                     {
                                         "name": "state",
                                         "operator": ">",
-                                        "value": 60
+                                        "value": 49
                                     },
                                     {
                                         "name": "state",
@@ -1371,6 +1398,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.dryer*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.zwave_controller_notification"
                                     }
                                 ],
                                 "include": [
