@@ -1,6 +1,8 @@
 ###########################################
 # Sun & Moon Sensors
 ###########################################
+- platform: moon
+
 - platform: template
   sensors:
     day_night:
