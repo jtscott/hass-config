@@ -1,5 +1,6 @@
 include:
   domains:
+    - sun
     - switch
     - lock
     - cover
@@ -22,5 +23,6 @@ exclude:
     - camera
   entities:
     - sensor.date
+    - sensor.moon
   event_types:
     - call_service
