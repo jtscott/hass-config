@@ -95,6 +95,14 @@
                     "Person",
                     "Automatic"
                 ]
+            },
+            {
+                "id": "entryway_outlet_1",
+                "name": "entryway_outlet_1",
+                "options": [
+                    "Automatic",
+                    "Manual"
+                ]
             }
         ]
     },
