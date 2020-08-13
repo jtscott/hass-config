@@ -1423,6 +1423,20 @@
                             },
                             "show_empty": false,
                             "type": "custom:auto-entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.washing_machine_maintenance",
+                                    "type": "sensor"
+                                },
+                                {
+                                    "entity": "sensor.dishwasher_maintenance",
+                                    "icon": "mdi:dishwasher-alert",
+                                    "type": "sensor"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         }
                     ],
                     "icon": "mdi:server",
