@@ -1,6 +1,6 @@
 - name: ios_all_devices
   platform: group
   services:
-    - service: ios_brittanys_iphone
-    - service: ios_home_ipad
+    - service: mobile_app_brittanys_iphone
     - service: mobile_app_iphone
+    - service: mobile_app_7510_home_ipad
