@@ -30,6 +30,7 @@ custom_components/
 .storage/google_assistant
 .storage/esphome.*
 .storage/homekit*
+.storage/tag
 esphome/secrets.yaml
 auth*
 core.*
