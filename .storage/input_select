@@ -98,7 +98,7 @@
             },
             {
                 "id": "entryway_outlet_1",
-                "name": "entryway_outlet_1",
+                "name": "Entryway Outlet",
                 "options": [
                     "Automatic",
                     "Manual"
