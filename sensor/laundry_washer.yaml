@@ -15,12 +15,6 @@
 
 - platform: template
   sensors:
-    washer_initial_time:
-      friendly_name: 'Initial Time'
-      value_template: '{{ states.sensor.washer.attributes.initial_time }}'
-
-- platform: template
-  sensors:
     washer_remaining_time:
       friendly_name: 'Remaining Time'
       value_template: '{{ states.sensor.washer.attributes.remain_time }}'
@@ -102,3 +96,32 @@
     washer_remotestart_mode:
       friendly_name: 'Remote Start'
       value_template: '{{ states.sensor.washer.attributes.remotestart_mode }}'
+
+- platform: template
+  sensors:
+    washer_state:
+      friendly_name: 'Washer State'
+      value_template: '{{ state_attr("sensor.washer", "run_state") }}'
+      icon_template: mdi:washing-machine      
+    washer_program_length:
+      friendly_name: 'Washer Program Length'
+      value_template: >-
+        {% set washerprogramminutes = (states.sensor.washer.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.washer.attributes.initial_time.split(':')[1] | int) %}
+        {{ washerprogramminutes }}
+      icon_template: mdi:washing-machine      
+    washer_remaining_time:
+      friendly_name: 'Washer Remaining Time'
+      value_template: >-
+        {% set washerremainminutes = (states.sensor.washer.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.washer.attributes.remain_time.split(':')[1] | int) %}
+        {{ washerremainminutes }}
+      icon_template: mdi:washing-machine
+    washer_progress:
+      friendly_name: 'Washer Progress'
+      value_template: >-
+        {% if (states.sensor.washer_program_length.state | int) < 1 %}
+          0
+        {% else %}          
+          {% set washerprogress = (100 - (((states.sensor.washer_remaining_time.state | int) / (states.sensor.washer_program_length.state | int)) * 100)) %}
+          {{ washerprogress }}
+        {% endif %}             
+      icon_template: mdi:dishwasher
