@@ -18,3 +18,11 @@ push:
           activationMode: 'background'
           authenticationRequired: true
           destructive: false
+    - name: Garage Door
+      identifier: 'garage_door'
+      actions:
+        - identifier: 'close_garage'
+          title: 'Close Garage'
+          activationMode: 'background'
+          authenticationRequired: true
+          destructive: true
