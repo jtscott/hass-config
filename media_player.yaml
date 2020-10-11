@@ -1,59 +1,67 @@
-platform: androidtv
-host: !secret nvidia_shield_ip
-name: Nvidia Shield
-adb_server_ip: !secret advertise_ip
-apps:
-  com.google.android.tvlauncher: Homescreen
-  com.android.tv.settings: Settings
-  com.netflix.ninja: Netflix
-  com.google.android.youtube.tv: YouTube
-  com.amazon.amazonvideo.livingroom: Amazon Prime Video
-  com.plexapp.android: Plex
-  com.ubnt.unifi.protect: Unifi Protect
-  com.waxrain.airplaydmr2: AirPlay
-  com.disney.disneyplus: Disney+
-  psplay.grill.com: PSPlay
-state_detection_rules:
-    'com.android.vending':
-        - 'standby'
-    'com.android.tv.settings':
-        - 'standby'
-    'com.google.android.tvlauncher':
-        - 'standby':
-            'wake_lock_size': 0
-    'com.netflix.ninja':
-        - 'playing':
-            'media_session_state': 3
-            'wake_lock_size': 2
-        - 'paused':
-            'media_session_state': 2
-            'wake_lock_size': 0
-        - 'standby':
-            'media_session_state': 1
-            'wake_lock_size': 0
-    'com.plexapp.android':
-        - 'playing':
-            'media_session_state': 3
-            'wake_lock_size': 3
-        - 'paused':
-            'media_session_state': 2
-            'wake_lock_size': 1
-        - 'standby':
-            'wake_lock_size': 1
-    'com.google.android.youtube.tv':
-        - 'playing':
-            'media_session_state': 3
-            'wake_lock_size': 3
-        - 'paused':
-            'media_session_state': 2
-            'wake_lock_size': 1
-        - 'standby':
-            'media_session_state': 0
-            'wake_lock_size': 1
-    'com.amazon.amazonvideo.livingroom':
-        - 'playing':
-            'wake_lock_size': 4
-        - 'paused':
-            'wake_lock_size': 2
-        - 'idle':
-            'wake_lock_size': 1
+- platform: samsungtv_tizen
+  name: TheFrame
+  host: !secret theframe_ip
+  mac: !secret theframe_mac
+  port: 8002
+  is_frame_tv: true
+  app_list: '{"Netflix": "11101200001", "YouTube": "111299001912", "Plex": "3201512006963", "Prime Video": "3201512006785"}'
+
+- platform: androidtv
+  host: !secret nvidia_shield_ip
+  name: Nvidia Shield
+  adb_server_ip: !secret advertise_ip
+  apps:
+    com.google.android.tvlauncher: Homescreen
+    com.android.tv.settings: Settings
+    com.netflix.ninja: Netflix
+    com.google.android.youtube.tv: YouTube
+    com.amazon.amazonvideo.livingroom: Amazon Prime Video
+    com.plexapp.android: Plex
+    com.ubnt.unifi.protect: Unifi Protect
+    com.waxrain.airplaydmr2: AirPlay
+    com.disney.disneyplus: Disney+
+    psplay.grill.com: PSPlay
+  state_detection_rules:
+      'com.android.vending':
+          - 'standby'
+      'com.android.tv.settings':
+          - 'standby'
+      'com.google.android.tvlauncher':
+          - 'standby':
+              'wake_lock_size': 0
+      'com.netflix.ninja':
+          - 'playing':
+              'media_session_state': 3
+              'wake_lock_size': 2
+          - 'paused':
+              'media_session_state': 2
+              'wake_lock_size': 0
+          - 'standby':
+              'media_session_state': 1
+              'wake_lock_size': 0
+      'com.plexapp.android':
+          - 'playing':
+              'media_session_state': 3
+              'wake_lock_size': 3
+          - 'paused':
+              'media_session_state': 2
+              'wake_lock_size': 1
+          - 'standby':
+              'wake_lock_size': 1
+      'com.google.android.youtube.tv':
+          - 'playing':
+              'media_session_state': 3
+              'wake_lock_size': 3
+          - 'paused':
+              'media_session_state': 2
+              'wake_lock_size': 1
+          - 'standby':
+              'media_session_state': 0
+              'wake_lock_size': 1
+      'com.amazon.amazonvideo.livingroom':
+          - 'playing':
+              'wake_lock_size': 4
+          - 'paused':
+              'wake_lock_size': 2
+          - 'idle':
+              'wake_lock_size': 1
