@@ -1,108 +1,23 @@
-- id: '1577904430400'
-  alias: System - Dropbox Backup Sync
-  description: Synchronize hass.io backup snapshots to Dropbox
-  trigger:
-  - at: '12:00:00'
-    platform: time
-  condition:
-  - after: '12:00:00'
-    before: 02:00:00
-    condition: time
-    weekday:
-    - sun
-  action:
-  - data:
-      addon: 7be23ff5_dropbox_sync
-      input:
-        command: upload
-    service: hassio.addon_stdin
-- id: '1578282105600'
-  alias: Window - Stairway Blinds Open
+- id: '1593612773178'
+  alias: Remote - Select Activity
   description: ''
   trigger:
-  - device_id: 5cd192b226674f6a915e599a744493f7
-    domain: deconz
-    platform: device
-    subtype: open
-    type: remote_button_short_press
+  - entity_id: input_select.harmony
+    from: Select Activity
+    platform: state
   condition: []
   action:
   - data:
-      option: Manual
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_stairway
-    service: cover.open_cover
-  - delay: 02:00
+      data_template:
+        activity: "{% if is_state(\"input_select.harmony\", \"Watch Plex\") %}\n \
+          \ 27670057\n{% elif is_state(\"input_select.harmony\", \"Watch DVD\") %}\n\
+          \  37587221\n{% elif is_state(\"input_select.harmony\", \"Power Off\") %}\n\
+          \  -1\n{% else %} {% endif %}"
+    entity_id: remote.living_room
+    service: remote.turn_on
   - data:
-      option: Automatic
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-- id: '1578282135300'
-  alias: Window - Stairway Blinds Closed
-  description: ''
-  trigger:
-  - device_id: 5cd192b226674f6a915e599a744493f7
-    domain: deconz
-    platform: device
-    subtype: close
-    type: remote_button_short_press
-  condition: []
-  action:
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_stairway
-    service: cover.close_cover
-  - delay: 02:00
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-- id: '1578367731900'
-  alias: Window - Dining Room Blinds Open
-  description: ''
-  trigger:
-  - device_id: b3791527cb764ca694fc1342ad107d07
-    domain: deconz
-    platform: device
-    subtype: open
-    type: remote_button_short_press
-  condition: []
-  action:
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_dining_room
-    service: cover.open_cover
-  - delay: 02:00
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-- id: '1578367768100'
-  alias: Window - Dining Room Blinds Closed
-  description: ''
-  trigger:
-  - device_id: b3791527cb764ca694fc1342ad107d07
-    domain: deconz
-    platform: device
-    subtype: close
-    type: remote_button_short_press
-  condition: []
-  action:
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_dining_room
-    service: cover.close_cover
-  - delay: 02:00
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_dining_room_mode
+      option: Select Activity
+    entity_id: input_select.harmony
     service: input_select.select_option
 - id: '1589125991236'
   alias: System - Certificate Renewal
@@ -119,6 +34,440 @@
   - delay: '10:00'
   - data: {}
     service: homeassistant.restart
+  - service: hassio.addon_restart
+    data:
+      addon: core_nginx_proxy
+  mode: single
+- id: '1577904430400'
+  alias: System - Dropbox Backup Sync
+  description: Synchronize hass.io snapshots to Dropbox
+  trigger:
+  - at: '12:00:00'
+    platform: time
+  condition:
+  - after: '12:00:00'
+    before: 02:00:00
+    condition: time
+    weekday:
+    - sun
+  action:
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
+  mode: single
+- id: '1591481819436'
+  alias: System - Startup Tasks
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - delay: 00:00:20
+  - data:
+      addon: a0d7b954_nodered
+    service: hassio.addon_restart
+  - data:
+      payload: announce
+      topic: shellies/command
+    service: mqtt.publish
+  mode: single
+- id: '1603043020584'
+  alias: Doorbell - Front Ring
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell_front_door
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: time
+    after: 08:00:00
+    before: '22:00:00'
+  - condition: state
+    entity_id: group.family_devices
+    state: home
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: https://home.eatsleepbreach.ca/local/doorbell_front.mp3
+      media_content_type: music
+    entity_id: media_player.library_speaker, media_player.master_bedroom_display,
+      media_player.theater_speaker
+  - delay: 00:00:01
+  - service: camera.play_stream
+    data:
+      media_player: media_player.master_bedroom_display
+    entity_id: camera.front_door_doorbell
+  - delay: 00:01:00
+  - service: media_player.turn_off
+    data: {}
+    entity_id: media_player.master_bedroom_display
+  mode: single
+- id: '1602687924312'
+  alias: Cover - Garage Door Opened
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    from: closed
+    to: open
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Garage Cover has been opened.
+      title: 🚗 Garage Cover Opened!
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.back_door_still
+  mode: single
+- id: '1602786040005'
+  alias: Mailbox - Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.vibration_mailbox
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: You've got mail!
+      title: 📬 Mailbox
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.front_door_still
+  mode: single
+- id: '1591375582026'
+  alias: Lock - Secure all at 10pm
+  description: ''
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: lock.front_door
+    service: lock.lock
+  - data: {}
+    entity_id: lock.back_door
+    service: lock.lock
+  - data: {}
+    entity_id: lock.garage_door
+    service: lock.lock
+  mode: single
+- id: '1602346908294'
+  alias: Lock - Front Door Unlocked
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: lock.front_door
+    from: locked
+    to: unlocked
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Front Door has been opened.
+      title: 🚪 Front Door Unlocked!
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.front_door_still
+  mode: single
+- id: '1603502802809'
+  alias: Lock - Back Door Unlocked
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: lock.back_door
+    from: locked
+    to: unlocked
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Back Door has been opened.
+      title: 🚪 Back Door Unlocked!
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.back_door_still
+  mode: single
+- id: '1602687787297'
+  alias: Lock - Garage Door Unlocked
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: lock.garage_door
+    from: locked
+    to: unlocked
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Garage Door has been opened.
+      title: 🚪 Garage Door Unlocked!
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.back_door_still
+  mode: single
+- id: '1602435260480'
+  alias: Lights - Halloween Effects
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.front_porch
+    to: 'on'
+    from: 'off'
+  condition:
+  - condition: state
+    entity_id: sensor.month
+    state: October
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.dateofthemonth
+      state: 31st
+  action:
+  - service: light.turn_on
+    data:
+      effect: Halloween
+    entity_id: light.front_porch
+  mode: single
+- id: '1602440187444'
+  alias: Amp - Turn On
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.patio_speaker
+    to: playing
+    from: 'off'
+  - platform: state
+    entity_id: media_player.master_bedroom_speaker
+    from: 'off'
+    to: playing
+  - platform: state
+    entity_id: media_player.kitchen_speaker
+    from: 'off'
+    to: playing
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - type: turn_on
+    device_id: 3484f2edfa7446299b0412e9fe378ca1
+    entity_id: switch.amp
+    domain: switch
+  mode: single
+- id: '1602435177490'
+  alias: Lights - Christmas Effects
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.front_porch
+    to: 'on'
+    from: 'off'
+  condition:
+  - condition: state
+    entity_id: sensor.month
+    state: December
+  action:
+  - service: light.turn_on
+    data:
+      effect: Christmas
+    entity_id: light.front_porch
+  mode: single
+- id: '1602430306575'
+  alias: Lights - Sunrise
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 00:10:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.front_door, switch.back_door, switch.garage_exterior_lights
+  - type: turn_off
+    device_id: 38d965d356ff44218994d149daf1634c
+    entity_id: light.front_porch
+    domain: light
+  mode: single
+- id: '1602430417396'
+  alias: Lights - Sunset
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:05:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.front_door, switch.back_door, switch.garage_exterior_lights
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: yellow
+    entity_id: light.front_porch
+  mode: single
+- id: '1602427222710'
+  alias: Mobile - Office Lamp Toggle
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: Office Lamp
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.office_lamp
+  mode: single
+- id: '1602427257720'
+  alias: Mobile - Office Light Toggle
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: Office Light
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.office
+  mode: single
+- id: '1598110682886'
+  alias: Cover - Garage Cover Open for 5 Minutes
+  description: ''
+  trigger:
+  - entity_id: cover.garage_door
+    for: 00:05:00
+    from: closed
+    platform: state
+    to: open
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - data:
+      actions:
+      - action: close_garage
+        title: Close Garage Door
+      message: Garage door has been open for 5 minutes. Close it?
+      title: 🚙 Garage left open!
+    service: notify.ios_all_devices
+  mode: single
+- id: '1598110996311'
+  alias: Action - Close Garage Door
+  description: ''
+  trigger:
+  - event_data:
+      action: close_garage
+    event_type: mobile_app_notification_action
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: cover.garage_door
+    service: cover.close_cover
+  mode: single
+- id: '1602273830036'
+  alias: Laundry - Washer Cycle Complete
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.washer
+    from: 0:02
+    to: 0:01
+    attribute: remain_time
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      title: 👕 Washer is done!
+      message: '{%- if is_state(''sensor.dryer'', ''on'') %}Dryer will be done in
+        {{ relative_time(states.sensor.dryer.attributes.remain_time) }}{%- else -%}Cycle
+        took {{ relative_time(states.sensor.washer.attributes.initial_time) }}{% endif
+        %}'
+  mode: single
+- id: '1602274353769'
+  alias: Laundry - Dryer Cycle Complete
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.dryer
+    attribute: remain_time
+    to: 0:01
+    from: 0:02
+  condition: []
+  action:
+  - service: notify.ios_all_devices
+    data:
+      title: 🧦 Dryer is done!
+      message: '{%- if is_state(''sensor.washer'', ''on'') %}Washer will be done in
+        {{ relative_time(states.sensor.washer.attributes.remain_time) }}{%- else -%}Cycle
+        took {{ relative_time(states.sensor.dryer.attributes.initial_time) }}{% endif
+        %}'
+  mode: single
 - id: '1590940832684'
   alias: Cameras - Input Boolean - Turn Off
   description: ''
@@ -149,126 +498,84 @@
       option: Enabled
     entity_id: input_select.camera_person_alerts
     service: input_select.select_option
-- id: '1591375582026'
-  alias: Locks - Lock at 10pm
+- id: '1604401387451'
+  alias: Light - Lamp Brightness
   description: ''
   trigger:
-  - at: '22:00:00'
-    platform: time
-  condition: []
+  - platform: state
+    entity_id: light.bedroom_lamp
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: time
+    after: '22:00:00'
+    before: 08:00:00
   action:
-  - data: {}
-    entity_id: lock.front_door
-    service: lock.lock
-  - data: {}
-    entity_id: lock.back_door
-    service: lock.lock
-  - data: {}
-    entity_id: lock.garage_door
-    service: lock.lock
-- id: '1591481819436'
-  alias: System - Restart Node-Red at Startup
+  - service: light.turn_on
+    data:
+      brightness: 1
+    entity_id: light.bedroom_lamp
+  mode: single
+- id: '1604869773228'
+  alias: System - Reset Monthly Counters
   description: ''
   trigger:
-  - event: start
-    platform: homeassistant
+  - platform: state
+    entity_id: sensor.dateofthemonth
+    to: 1st
   condition: []
   action:
-  - data:
-      addon: a0d7b954_nodered
-    service: hassio.addon_restart
-- id: '1593611565975'
-  alias: Window - All Blinds Open
+  - service: counter.reset
+    data: {}
+    entity_id: counter.front_door_motion_events
+  - service: counter.reset
+    data: {}
+    entity_id: counter.doorbell_motion_events
+  - service: counter.reset
+    data: {}
+    entity_id: counter.back_door_motion_events
+  mode: single
+- id: '1604942076638'
+  alias: Game Cabinet - Notification
   description: ''
   trigger:
-  - device_id: 5cd192b226674f6a915e599a744493f7
-    domain: deconz
-    platform: device
-    subtype: open
-    type: remote_button_long_press
-  - device_id: b3791527cb764ca694fc1342ad107d07
-    domain: deconz
-    platform: device
-    subtype: open
-    type: remote_button_long_press
-  condition: []
+  - platform: state
+    entity_id: binary_sensor.vibration_game_cabinet
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
   action:
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_stairway
-    service: cover.open_cover
-  - entity_id: cover.blinds_dining_room
-    service: cover.open_cover
-  - delay: 02:00
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-- id: '1593612035775'
-  alias: Window - All Blinds Closed
+  - service: notify.mobile_app_iphone
+    data:
+      message: Access Detected!
+      title: 🎮 Game Cabinet
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.entryway
+  mode: single
+- id: '1605135271786'
+  alias: Shower - Close Joel's Blind
   description: ''
   trigger:
-  - device_id: 5cd192b226674f6a915e599a744493f7
-    domain: deconz
-    platform: device
-    subtype: close
-    type: remote_button_long_press
-  - device_id: b3791527cb764ca694fc1342ad107d07
-    domain: deconz
-    platform: device
-    subtype: close
-    type: remote_button_long_press
-  condition: []
+  - platform: state
+    entity_id: light.light_shower
+    to: 'on'
+    for: 00:00:05
+  condition:
+  - condition: state
+    entity_id: cover.blinds_joels_room
+    state: open
   action:
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - data:
-      option: Manual
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-  - entity_id: cover.blinds_stairway
-    service: cover.close_cover
-  - entity_id: cover.blinds_dining_room
-    service: cover.close_cover
-  - delay: 02:00
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_stairway_mode
-    service: input_select.select_option
-  - data:
-      option: Automatic
-    entity_id: input_select.blinds_dining_room_mode
-    service: input_select.select_option
-- id: '1593612773178'
-  alias: Remote - Select Activity
-  description: ''
-  trigger:
-  - entity_id: input_select.harmony
-    from: Select Activity
-    platform: state
-  condition: []
-  action:
-  - data:
-      data_template:
-        activity: "{% if is_state(\"input_select.harmony\", \"Watch Plex\") %}\n \
-          \ 27670057\n{% elif is_state(\"input_select.harmony\", \"Watch DVD\") %}\n\
-          \  37587221\n{% elif is_state(\"input_select.harmony\", \"Power Off\") %}\n\
-          \  -1\n{% else %} {% endif %}"
-    entity_id: remote.living_room
-    service: remote.turn_on
-  - data:
-      option: Select Activity
-    entity_id: input_select.harmony
-    service: input_select.select_option
+  - service: cover.close_cover
+    data: {}
+    entity_id: cover.blinds_joels_room
+  mode: single
