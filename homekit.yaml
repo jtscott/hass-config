@@ -4,14 +4,12 @@ filter:
     - binary_sensor.master_bedroom_window
     - camera.front_door
     - camera.back_door
-    - cover.garage_door
     - cover.blinds_dining_room
     - cover.blinds_stairway
     - switch.front_door
     - switch.back_door
     - switch.kitchen_light
     - switch.theater_outlet_1
-    - switch.amp
     - switch.basement_stairs
     - switch.garage_exterior_lights
     - light.island
@@ -19,15 +17,11 @@ filter:
     - light.library
     - light.office
     - light.office_lamp
+    - light.bedroom_lamp
+    - light.joel_s_lamp
     - light.front_porch_led
     - light.theater
     - light.garage_lights
-    - lock.front_door
-    - lock.back_door
-    - lock.garage_door
-    - input_boolean.camera_alerts
-    - input_boolean.guestmode
-    - vacuum.roomba
 entity_config:
   lock.back_door:
      code: secret! homekit_secure_pin
