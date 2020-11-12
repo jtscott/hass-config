@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "key": "counter",
+    "data": {
+        "items": [
+            {
+                "maximum": 9999,
+                "name": "Front Door Motion Events",
+                "icon": "mdi:motion",
+                "minimum": 0,
+                "restore": true,
+                "step": 1,
+                "initial": 0,
+                "id": "front_door_motion_events"
+            },
+            {
+                "maximum": 9999,
+                "name": "Back Door Motion Events",
+                "icon": "mdi:motion",
+                "minimum": 0,
+                "restore": true,
+                "step": 1,
+                "initial": 0,
+                "id": "back_door_motion_events"
+            },
+            {
+                "maximum": 9999,
+                "name": "Doorbell Motion Events",
+                "icon": "mdi:motion",
+                "minimum": 0,
+                "restore": true,
+                "step": 1,
+                "initial": 0,
+                "id": "doorbell_motion_events"
+            }
+        ]
+    }
+}
