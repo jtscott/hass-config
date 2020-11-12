@@ -24,11 +24,8 @@ sun:
 discovery:
 system_health:
 mobile_app:
-#history: !include history.yaml
 history:
-#logbook: !include logbook.yaml
 logbook:
-#recorder: !include recorder.yaml
 recorder:
 stream:
 logger:
@@ -50,7 +47,6 @@ camera: !include camera.yaml
 cover: !include cover.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
-#homekit: !include homekit.yaml
 light: !include light.yaml
 media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
@@ -89,6 +85,7 @@ image_processing:
     source:
       - entity_id: camera.front_door_still
       - entity_id: camera.back_door_still
+      - entity_id: camera.front_door_doorbell_still
 
 ###########################################
 # Weather
