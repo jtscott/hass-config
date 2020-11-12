@@ -32,6 +32,12 @@
   name: 'Front Door Detection'
   still_image_url: !secret front_door_camera_detection
 - platform: generic
+  name: 'Front Door Doorbell Still'
+  still_image_url: !secret front_door_doorbell_snapshot
+- platform: generic
+  name: 'Front Door Doorbell Detection'
+  still_image_url: !secret front_door_doorbell_detection
+- platform: generic
   name: 'Back Door Still'
   still_image_url: !secret back_door_camera_snapshot
 - platform: generic
