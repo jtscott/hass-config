@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace_resources",
     "data": {
         "items": [
             {
@@ -29,7 +31,7 @@
             {
                 "id": "719d32f27492476d8ab8687c03592646",
                 "type": "module",
-                "url": "/hacsfiles/simple-weather-card/simple-weather-card.js"
+                "url": "/hacsfiles/simple-weather-card/simple-weather-card-bundle.js"
             },
             {
                 "id": "46341f997366407190e77c696b90c130",
@@ -87,11 +89,6 @@
                 "url": "/hacsfiles/vacuum-card/vacuum-card.js"
             },
             {
-                "id": "5d01c119a1f6492a926088e8c0921551",
-                "type": "module",
-                "url": "/hacsfiles/custom-header/custom-header.js"
-            },
-            {
                 "id": "faf4f50a307440fd945b80520703c24a",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js"
@@ -115,9 +112,22 @@
                 "id": "ae187a4bb0044731b08f0f0f1712236c",
                 "type": "module",
                 "url": "/hacsfiles/restriction-card/restriction-card.js"
+            },
+            {
+                "url": "/hacsfiles/circle-sensor-card/circle-sensor-card.js",
+                "type": "module",
+                "id": "49f2cee10c624c788f4f6b744aced7cf"
+            },
+            {
+                "url": "/hacsfiles/text-element/text-element.js",
+                "type": "module",
+                "id": "d2ef2c2e307745f1acd25bd4db00e186"
+            },
+            {
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js",
+                "type": "module",
+                "id": "a06210e126b84105bdabcc0e7c2d0c43"
             }
         ]
-    },
-    "key": "lovelace_resources",
-    "version": 1
+    }
 }
