@@ -255,7 +255,7 @@ switch.garage_cover_outlet_2:
 sensor.last_successful_authentication_username:
   friendly_name: Last User Logon
   icon: mdi:account-key
-light.kitchen_led:
+light.kitchen_cabinets:
   icon: mdi:led-strip
 light.kitchen_led_left:
   friendly_name: Left Side
@@ -365,3 +365,10 @@ binary_sensor.living_room_window_right:
   device_class: window
 binary_sensor.office_window_contact:
   device_class: window
+sensor.joels_room_occupancy:
+  friendly_name: Joel’s Room
+  icon: mdi:bed
+cover.garage_door:
+  device_class: garage
+light.joel_s_lamp:
+  icon: mdi:led-strip-variant
