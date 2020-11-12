@@ -34,6 +34,10 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
+  light.joel_s_lamp:
+    expose: true
+    room: "Joel's Room"
+    name: 'Lamp'
   cover.blinds_dining_room:
     room: 'Dining Room'
     name: 'Dining Room Blinds'
@@ -53,6 +57,10 @@ entity_config:
     expose: true
     room: 'Theater'
     name: 'Theater Light'
+  light.bedroom_lamp:
+    expose: true
+    room: 'Master Bedroom'
+    name: 'Lamp'
   switch.theater_outlet_1:
     expose: true
     room: 'Theater'
