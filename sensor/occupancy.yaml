@@ -140,3 +140,23 @@
           {%- else %}
               None
           {%- endif %}
+
+- platform: template
+  sensors:
+    joels_room_occupancy:
+        value_template: >-
+          {%- if is_state("binary_sensor.joels_room_occupancy", "on") %}
+              Occupied
+          {%- elif is_state("binary_sensor.joels_room_occupancy", "off") %}
+              Unoccupied
+          {%- else %}
+              None
+          {%- endif %}
+        icon_template: >-
+          {%- if is_state("binary_sensor.joels_room_occupancy", "on") %}
+              mdi:run-fast
+          {%- elif is_state("binary_sensor.joels_room_occupancy", "off") %}
+              mdi:run
+          {%- else %}
+              None
+          {%- endif %}
