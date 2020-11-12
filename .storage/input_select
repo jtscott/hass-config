@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "input_select",
     "data": {
         "items": [
             {
@@ -27,6 +29,7 @@
                     "Enabled",
                     "Front Door",
                     "Back Door",
+                    "Doorbell",
                     "Disabled"
                 ]
             },
@@ -38,6 +41,7 @@
                     "Enabled",
                     "Front Door",
                     "Back Door",
+                    "Doorbell",
                     "Disabled"
                 ]
             },
@@ -105,7 +109,5 @@
                 ]
             }
         ]
-    },
-    "key": "input_select",
-    "version": 1
+    }
 }
