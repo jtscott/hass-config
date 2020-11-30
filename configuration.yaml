@@ -7,7 +7,6 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-  javascript_version: latest
   themes: !include_dir_merge_named themes/
 http:
   cors_allowed_origins:
@@ -47,6 +46,7 @@ camera: !include camera.yaml
 cover: !include cover.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
+homekit: !include homekit.yaml
 light: !include light.yaml
 media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
@@ -85,7 +85,7 @@ image_processing:
     source:
       - entity_id: camera.front_door_still
       - entity_id: camera.back_door_still
-      - entity_id: camera.front_door_doorbell_still
+      - entity_id: camera.doorbell_still
 
 ###########################################
 # Weather
