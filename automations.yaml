@@ -79,7 +79,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.doorbell_front_door
+    entity_id: binary_sensor.doorbell_doorbell
     from: 'off'
     to: 'on'
   condition:
@@ -574,8 +574,97 @@
   - condition: state
     entity_id: cover.blinds_joels_room
     state: open
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
   action:
   - service: cover.close_cover
     data: {}
     entity_id: cover.blinds_joels_room
+  mode: single
+- id: '1605809987611'
+  alias: Waste Collection - Blue Bin Alert
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.blue_bin
+    state: '1'
+    attribute: days
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: blue
+    entity_id: light.kitchen_left_led
+  mode: single
+- id: '1605810026447'
+  alias: Waste Collection - Green Bin Alert
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.green_bin
+    state: '1'
+    attribute: days
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: green
+    entity_id: light.kitchen_right_led
+  mode: single
+- id: '1605810087167'
+  alias: Waste Collection - Black Bin Alert
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.black_bin
+    state: '1'
+    attribute: days
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: red
+    entity_id: light.kitchen_cabinets
+  mode: single
+- id: '1606157806943'
+  alias: Modem - Reboot
+  description: Reboots the modem if the gateway WAN interface is down
+  trigger:
+  - platform: state
+    entity_id: sensor.pfsense_gateway_wan_dhcp
+    to: 'False'
+    for: 00:05:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - repeat:
+      until:
+      - condition: state
+        entity_id: sensor.pfsense_gateway_wan_dhcp
+        state: 'True'
+      sequence:
+      - service: notify.mobile_app_iphone
+        data:
+          message: WAN gateway failed, rebooting.
+          title: 🖀 Modem Failure!
+      - service: switch.turn_off
+        data: {}
+        entity_id: switch.modem
+      - delay: 00:01:00
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.modem
+      - delay: 00:30:00
   mode: single
