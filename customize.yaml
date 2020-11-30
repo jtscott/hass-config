@@ -372,3 +372,5 @@ cover.garage_door:
   device_class: garage
 light.joel_s_lamp:
   icon: mdi:led-strip-variant
+light.light_shower:
+  icon: mdi:shower-head

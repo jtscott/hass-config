@@ -1,0 +1,39 @@
+- platform: pfsense_gateways
+  host: !secret pfsense_gateway
+  name: pfSense gateway
+  key: !secret pfsense_key
+  monitored_gateway_interfaces:
+    - wan
+
+- platform: template
+  sensors:
+    pfsense_isp:
+      friendly_name: 'Shaw'
+      value_template: >-
+        {%- if is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'okay') %}
+            Up
+        {%- elif is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'down') %}
+            Down
+        {%- elif is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'force_down') %}
+            Force Down
+        {%- elif is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'loss') %}
+            Loss
+        {%- elif is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'delay') %}
+            Delay
+        {%- else %}
+            Unknown
+        {%- endif %}
+
+- platform: template
+  sensors:
+    pfsense_delay:
+      friendly_name: 'pfSense Delay'
+      unit_of_measurement: 'ms'
+      value_template: "{{ state_attr('sensor.pfsense_gateway_wan_dhcp', 'delay') | replace('ms','') }}"
+
+- platform: template
+  sensors:
+    pfsense_loss:
+      friendly_name: 'pfSense Loss'
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('sensor.pfsense_gateway_wan_dhcp', 'loss') | replace('%','') }}"

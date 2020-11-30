@@ -84,11 +84,6 @@
                 "url": "/hacsfiles/lovelace-card-tools/card-tools.js"
             },
             {
-                "id": "47a5f1afc1494254b3bd61577e2363ff",
-                "type": "module",
-                "url": "/hacsfiles/vacuum-card/vacuum-card.js"
-            },
-            {
                 "id": "faf4f50a307440fd945b80520703c24a",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js"
