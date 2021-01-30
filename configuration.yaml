@@ -13,7 +13,8 @@ http:
     - !secret base_origin
   use_x_forwarded_for: true
   trusted_proxies:
-    - !secret trusted_proxy
+    - !secret nginx_proxy
+    - !secret hassio_proxy
 
 ###########################################
 # Core Components
@@ -43,7 +44,7 @@ alert: !include alert.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
-cover: !include cover.yaml
+#cover: !include cover.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
 homekit: !include homekit.yaml
@@ -81,11 +82,34 @@ image_processing:
     aws_access_key_id: !secret aws_access_key_id
     aws_secret_access_key: !secret aws_secret_access_key
     region_name: us-west-2
-    save_file_folder: !secret snapshot_folder
+    save_file_folder: "/config/www/snapshot/"
     source:
       - entity_id: camera.front_door_still
       - entity_id: camera.back_door_still
       - entity_id: camera.doorbell_still
+  - platform: doods
+    url: !secret doods_url
+    auth_key: !secret doods_auth_key
+    detector: default
+    scan_interval: 10000
+    confidence: 50
+    source:
+      - entity_id: camera.front_door_still
+      - entity_id: camera.back_door_still
+      - entity_id: camera.doorbell_still
+    file_out:
+      - "/config/www/snapshot/{{ camera_entity.split('.')[1] }}_latest.jpg"
+    labels:
+      - name: person
+        confidence: 75
+      - bicycle
+      - car
+      - motorcycle
+      - bus
+      - truck
+      - bird
+      - cat
+      - dog
 
 ###########################################
 # Weather
