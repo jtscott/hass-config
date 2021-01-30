@@ -10,9 +10,12 @@ filter:
     - binary_sensor.door_front_contact
     - binary_sensor.door_back_contact
     - binary_sensor.basement_door
+    - binary_sensor.door_master_bedroom
+    - binary_sensor.library_window
     - camera.front_door
     - camera.back_door
     - camera.doorbell
+    - cover.garage_door
     - cover.blinds_dining_room
     - cover.blinds_stairway
     - cover.blinds_joels_room
@@ -32,6 +35,7 @@ filter:
     - light.bedroom_lamp
     - light.joel_s_lamp
     - light.library
+    # - light.twinkly
     - light.theater
     - light.garage_lights
     - light.light_shower

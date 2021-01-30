@@ -45,6 +45,10 @@ entity_config:
     expose: true
     room: 'Library'
     name: 'Library Light'
+  # light.twinkly:
+    # expose: true
+    # room: 'Library'
+    # name: 'Christmas Tree'
   light.office_lamp:
     expose: true
     room: 'Office'
