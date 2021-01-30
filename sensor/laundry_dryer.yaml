@@ -15,12 +15,6 @@
 
 - platform: template
   sensors:
-    dryer_remaining_time:
-      friendly_name: 'Remaining Time'
-      value_template: '{{ states.sensor.dryer.attributes.remain_time }}'
-
-- platform: template
-  sensors:
     dryer_reserve_time:
       friendly_name: 'Reserve Time'
       value_template: '{{ states.sensor.dryer.attributes.reserve_time }}'

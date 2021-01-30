@@ -12,12 +12,6 @@
     washer_pre_state:
       friendly_name: 'Pre State'
       value_template: '{{ states.sensor.washer.attributes.pre_state }}'
-
-- platform: template
-  sensors:
-    washer_remaining_time:
-      friendly_name: 'Remaining Time'
-      value_template: '{{ states.sensor.washer.attributes.remain_time }}'
       
 - platform: template
   sensors:
