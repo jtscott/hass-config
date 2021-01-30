@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "key": "input_datetime",
+    "data": {
+        "items": [
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Alarm Arm",
+                "icon": "mdi:alarm-note",
+                "id": "alarm_arm"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Alarm Disarm",
+                "icon": "mdi:alarm-note-off",
+                "id": "alarm_disarm"
+            }
+        ]
+    }
+}

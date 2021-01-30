@@ -56,6 +56,18 @@
                                         "entity_id": "switch.hdr_mode_*"
                                     },
                                     {
+                                        "entity_id": "switch.high_fps_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.ir_active_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.record_always_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.status_light_on_*"
+                                    },
+                                    {
                                         "entity_id": "switch.modem"
                                     },
                                     {
@@ -86,15 +98,6 @@
                                         "entity_id": "light.dimmable_*"
                                     },
                                     {
-                                        "entity_id": "switch.ir_active_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.record_always_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.status_light_on_*"
-                                    },
-                                    {
                                         "entity_id": "light.blinds"
                                     },
                                     {
@@ -102,12 +105,6 @@
                                     },
                                     {
                                         "entity_id": "light.shellyrgbw2*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.code_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.allow_zwave_automation_execution"
                                     },
                                     {
                                         "entity_id": "light.kitchen_left_led"
@@ -140,6 +137,12 @@
                                     },
                                     {
                                         "state": "paused"
+                                    },
+                                    {
+                                        "state": "armed_away"
+                                    },
+                                    {
+                                        "state": "armed_home"
                                     }
                                 ]
                             },
@@ -414,7 +417,7 @@
                                     "state_header": "current",
                                     "entities": [
                                         "binary_sensor.doorbell_front_door",
-                                        "binary_sensor.door_front_contact"
+                                        "binary_sensor.front_door"
                                     ]
                                 },
                                 {
@@ -423,7 +426,7 @@
                                     "name": "Back Door",
                                     "state_header": "current",
                                     "entities": [
-                                        "binary_sensor.door_back_contact"
+                                        "binary_sensor.back_door"
                                     ]
                                 },
                                 {
@@ -456,7 +459,6 @@
                                     "entities": [
                                         {
                                             "entity": "switch.garage_cover_outlet_1",
-                                            "name": "Shelly1",
                                             "toggle": true
                                         },
                                         {
@@ -568,6 +570,7 @@
                             "entities": [
                                 "switch.kitchen_light",
                                 "light.island",
+                                "binary_sensor.door_refridgerator",
                                 {
                                     "entities": [
                                         "light.kitchen_left_led",
@@ -624,6 +627,26 @@
                                         {
                                             "entity": "sensor.office_temperature",
                                             "name": "Temperature"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "binary_sensor.door_game_cabinet_left",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Cabinets",
+                                    "state_header": "Left",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.door_dunny_cabinet",
+                                            "name": "Dunny"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.door_game_cabinet_right",
+                                            "name": "Right"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.door_game_cabinet_middle",
+                                            "name": "Middle"
                                         }
                                     ]
                                 }
@@ -698,20 +721,25 @@
                     "cards": [
                         {
                             "entities": [
-                                {
-                                    "entity": "light.bedroom_lamp"
-                                },
+                                "light.bedroom_lamp",
                                 {
                                     "artwork": "cover",
                                     "entity": "media_player.theframe",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
+                                "binary_sensor.water_master_bathroom_tub",
                                 {
-                                    "entity": "binary_sensor.master_bedroom_window"
-                                },
-                                {
-                                    "entity": "binary_sensor.water_master_bathroom_tub"
+                                    "entity": "binary_sensor.door_master_bedroom",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Room",
+                                    "state_header": "Door",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.master_bedroom_window",
+                                            "name": "Window"
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "sensor.master_bedroom_occupancy",
@@ -721,7 +749,11 @@
                                     "entities": [
                                         {
                                             "entity": "sensor.master_bedroom_temperature",
-                                            "name": "Temperature"
+                                            "name": "Bedroom"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bathroom_temperature",
+                                            "name": "Bathroom"
                                         }
                                     ]
                                 }
@@ -748,8 +780,12 @@
                                     "state_header": "Occupancy",
                                     "entities": [
                                         {
-                                            "entity": "sensor.joels_room_temperature",
+                                            "entity": "sensor.joel_s_room_temperature",
                                             "name": "Temperature"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.door_joels_room",
+                                            "name": "Door"
                                         }
                                     ]
                                 }
@@ -762,6 +798,13 @@
                                 "light.library",
                                 "vacuum.upstairs",
                                 "binary_sensor.library_window",
+                                {
+                                    "entities": [
+                                        "input_select.blinds_library_mode"
+                                    ],
+                                    "head": "cover.blinds_library",
+                                    "type": "custom:fold-entity-row"
+                                },
                                 {
                                     "entity": "sensor.library_occupancy",
                                     "type": "custom:multiple-entity-row",
@@ -1337,7 +1380,6 @@
                                 {
                                     "entities": [
                                         "sensor.zwave_controller_status",
-                                        "sensor.zwave_controller_notification",
                                         "sensor.zwave_controller_last_activity"
                                     ],
                                     "head": {
@@ -1574,7 +1616,7 @@
                                 "binary_sensor.water_washing_machine",
                                 "binary_sensor.water_hot_water_heater",
                                 "binary_sensor.water_master_bathroom_tub",
-                                "sensor.water_sump_pump_2"
+                                "binary_sensor.water_sump_pump"
                             ],
                             "more_info_on_tap": true,
                             "show_empty": false,

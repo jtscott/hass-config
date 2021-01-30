@@ -107,6 +107,14 @@
                     "Automatic",
                     "Manual"
                 ]
+            },
+            {
+                "name": "Blinds Library Mode",
+                "options": [
+                    "Automatic"
+                ],
+                "id": "blinds_library_mode",
+                "icon": "mdi:blinds"
             }
         ]
     }

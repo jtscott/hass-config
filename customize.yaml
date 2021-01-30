@@ -184,7 +184,7 @@ sensor.guest_bedroom_temperature:
   friendly_name: Guest Bedroom
 sensor.guest_bedroom_occupancy:
   friendly_name: Guest Bedroom
-  icon: mdi:hotel
+  icon: mdi:bed
 input_boolean.homesitter:
   icon: mdi:home-map-marker
 switch.theater_outlet_1d:
@@ -374,3 +374,19 @@ light.joel_s_lamp:
   icon: mdi:led-strip-variant
 light.light_shower:
   icon: mdi:shower-head
+binary_sensor.door_master_bedroom:
+  device_class: door
+binary_sensor.door_back_contact:
+  device_class: door
+binary_sensor.door_dunny_cabinet:
+  device_class: door
+binary_sensor.door_game_cabinet_left:
+  device_class: door
+binary_sensor.door_game_cabinet_middle:
+  device_class: door
+binary_sensor.door_game_cabinet_right:
+  device_class: door
+binary_sensor.door_joels_room:
+  device_class: door
+binary_sensor.door_refridgerator:
+  device_class: door
