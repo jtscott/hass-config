@@ -287,13 +287,13 @@
     to: playing
     from: 'off'
   - platform: state
+    from: 'off'
+    to: playing
     entity_id: media_player.master_bedroom_speaker
-    from: 'off'
-    to: playing
   - platform: state
-    entity_id: media_player.kitchen_speaker
     from: 'off'
     to: playing
+    entity_id: media_player.kitchen_ceiling
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -538,11 +538,23 @@
     entity_id: counter.back_door_motion_events
   mode: single
 - id: '1604942076638'
-  alias: Game Cabinet - Notification
+  alias: Cabinets - Notification
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.vibration_game_cabinet
+    entity_id: binary_sensor.door_game_cabinet_left
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.door_game_cabinet_middle
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.door_game_cabinet_right
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.door_dunny_cabinet
     from: 'off'
     to: 'on'
   condition:
@@ -553,7 +565,7 @@
   - service: notify.mobile_app_iphone
     data:
       message: Access Detected!
-      title: 🎮 Game Cabinet
+      title: 🎮 {{ trigger.to_state.attributes.friendly_name }}
       data:
         attachment:
           content-type: jpeg
@@ -563,7 +575,7 @@
         entity_id: camera.entryway
   mode: single
 - id: '1605135271786'
-  alias: Shower - Close Joel's Blind
+  alias: Shower - Close Bedroom Blinds
   description: ''
   trigger:
   - platform: state
@@ -577,6 +589,11 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - type: is_open
+    condition: device
+    device_id: 2c8e24338a4cea1f770bc54f83c1eac0
+    entity_id: binary_sensor.door_master_bedroom
+    domain: binary_sensor
   action:
   - service: cover.close_cover
     data: {}
@@ -591,8 +608,7 @@
   condition:
   - condition: state
     entity_id: sensor.blue_bin
-    state: '1'
-    attribute: days
+    state: Tomorrow
   action:
   - service: light.turn_on
     data:
@@ -609,8 +625,7 @@
   condition:
   - condition: state
     entity_id: sensor.green_bin
-    state: '1'
-    attribute: days
+    state: Tomorrow
   action:
   - service: light.turn_on
     data:
@@ -627,8 +642,7 @@
   condition:
   - condition: state
     entity_id: sensor.black_bin
-    state: '1'
-    attribute: days
+    state: tomorrow
   action:
   - service: light.turn_on
     data:
@@ -667,4 +681,132 @@
         data: {}
         entity_id: switch.modem
       - delay: 00:30:00
+  mode: single
+- id: '1607991157120'
+  alias: Refrigerator - Left Open
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 22563bf3546620268953e47f24177bf8
+    entity_id: binary_sensor.door_refridgerator
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - repeat:
+      until:
+      - type: is_not_open
+        condition: device
+        device_id: 22563bf3546620268953e47f24177bf8
+        entity_id: binary_sensor.door_refridgerator
+        domain: binary_sensor
+      sequence:
+      - service: notify.ios_all_devices
+        data:
+          message: Close the fridge!
+          title: 🧊 Refrigerator
+      - delay: 00:02:00
+  mode: single
+- id: '1608008281551'
+  alias: Alarm - Disarm
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.alarm_disarm
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: group.family_devices
+    state: home
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data: {}
+    entity_id: alarm_control_panel.calgary_alarm
+  mode: single
+- id: '1608334851404'
+  alias: Alarm - Arm Home
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.alarm_arm
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: group.family_devices
+    state: home
+  action:
+  - service: alarm_control_panel.alarm_arm_home
+    data: {}
+    entity_id: alarm_control_panel.calgary_alarm
+  mode: single
+- id: '1609684788084'
+  alias: Alarm - Arm Away
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.family_devices
+    from: home
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.guestmode
+    state: 'off'
+  action:
+  - service: alarm_control_panel.alarm_arm_away
+    data: {}
+    entity_id: alarm_control_panel.calgary_alarm
+  mode: single
+- id: '1611778095556'
+  alias: Cams - Disable for Weather
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: weather.calgary_olympic_park
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: weather.calgary_olympic_park
+    state: snowy
+  action:
+  - service: input_select.select_option
+    data:
+      option: Disabled
+    entity_id: input_select.camera_person_alerts
+  mode: single
+- id: '1611778136868'
+  alias: Cams - Re-enable after weather
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: weather.calgary_olympic_park
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: weather.calgary_olympic_park
+      state: snowy
+  action:
+  - service: input_select.select_option
+    data:
+      option: Enabled
+    entity_id: input_select.camera_person_alerts
   mode: single
