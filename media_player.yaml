@@ -3,8 +3,11 @@
   host: !secret theframe_ip
   mac: !secret theframe_mac
   port: 8002
+  api_key: !secret smartthings_api
+  device_id: !secret theframe_deviceid
+  update_method: smartthings
   is_frame_tv: true
-  app_list: '{"Netflix": "11101200001", "YouTube": "111299001912", "Plex": "3201512006963", "Prime Video": "3201512006785"}'
+  app_list: '{"Netflix": "Org.Tizen.Netflix-App", "YouTube": "111299001912", "Plex": "3201512006963", "Prime Video": "3201512006785", "Disney+": "MCmYXNxgcu.DisneyPlus"}'
 
 - platform: androidtv
   host: !secret nvidia_shield_ip
