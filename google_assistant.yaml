@@ -34,7 +34,7 @@ entity_config:
     expose: true
     room: 'Dining Room'
     name: 'Dining Room Light'
-  light.joel_s_lamp:
+  light.joels_lamp:
     expose: true
     room: "Joel's Room"
     name: 'Lamp'

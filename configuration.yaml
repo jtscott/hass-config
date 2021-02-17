@@ -44,10 +44,8 @@ alert: !include alert.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
-#cover: !include cover.yaml
 emulated_hue: !include emulated_hue.yaml
 group: !include group.yaml
-homekit: !include homekit.yaml
 light: !include light.yaml
 media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
@@ -110,6 +108,32 @@ image_processing:
       - bird
       - cat
       - dog
+
+###########################################
+# Influx
+###########################################
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret http_password
+  max_retries: 3
+  default_measurement: state
+  tags:
+    source: HA
+  tags_attributes:
+    - friendly_name
+  exclude:
+    entities:
+      - zone.home
+    domains:
+      - persistent_notification
+      - person
+  include:
+    domains:
+      - sensor
+      - binary_sensor
 
 ###########################################
 # Weather

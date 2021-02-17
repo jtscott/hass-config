@@ -31,9 +31,20 @@ outside_lights:
 locks:
   name: "Locks"
   entities:
-    - lock.back_door_lock
-    - lock.front_door_lock
-    - lock.garage_door_lock
+    - lock.back_door
+    - lock.front_door
+    - lock.garage_door
+
+###########################################
+# Alarm Sensors
+########################################### 
+alarm_sensors:
+  name: "Alarm Sensors"
+  entities:
+    - binary_sensor.front_door
+    - binary_sensor.back_door
+    - binary_sensor.theatre_window
+    - binary_sensor.guest_bedroom_window
 
 ###########################################
 # Occupancy

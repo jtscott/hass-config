@@ -98,6 +98,9 @@
                                         "entity_id": "light.dimmable_*"
                                     },
                                     {
+                                        "entity_id": "remote.*"
+                                    },
+                                    {
                                         "entity_id": "light.blinds"
                                     },
                                     {
@@ -134,6 +137,9 @@
                                     },
                                     {
                                         "state": "cleaning"
+                                    },
+                                    {
+                                        "state": "playing"
                                     },
                                     {
                                         "state": "paused"
@@ -671,7 +677,8 @@
                                     ],
                                     "head": "cover.blinds_dining_room",
                                     "type": "custom:fold-entity-row"
-                                }
+                                },
+                                "sensor.radon_level"
                             ],
                             "show_header_toggle": false,
                             "title": "Dining Room",
@@ -730,6 +737,12 @@
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.master_bedroom_display",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
                                 "binary_sensor.water_master_bathroom_tub",
                                 {
                                     "entity": "binary_sensor.door_master_bedroom",
@@ -767,7 +780,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.joel_s_lamp"
+                                    "entity": "light.joels_lamp"
                                 },
                                 {
                                     "entity": "cover.blinds_joels_room"
