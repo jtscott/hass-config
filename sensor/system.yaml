@@ -20,6 +20,9 @@
       value_template: '{{ states.sensor.last_successful_authentication.attributes.hostname }}'
     last_successful_authentication_username:
       value_template: '{{ states.sensor.last_successful_authentication.attributes.username }}'
+    total_month_camera_events:
+      value_template: "{{ (states('counter.front_door_motion_events') | float) + (states('counter.back_door_motion_events') | float) + (states('counter.doorbell_motion_events') | float)  }}"
+ 
 
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
