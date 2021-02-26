@@ -2,6 +2,7 @@ deps/
 local/
 tts/
 node-red/
+blueprints/automation/homeassistant/*.yaml
 www/state_image/
 www/github
 www/*.js

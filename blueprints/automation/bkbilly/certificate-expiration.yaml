@@ -1,0 +1,44 @@
+blueprint:
+  name: Certificate Expiration
+  description: This automation blueprint trigger's let's encrypt when a SSL certificate is about
+    to expire
+  domain: automation
+  input:
+    certificate_input:
+      name: Certificate
+      description: The certificate timestamp
+      selector:
+        entity:
+          integration: cert_expiry
+    days_input:
+      name: Days before
+      description: Set how many days before expiration to run the let's encrypt addon
+      default: 5
+      selector:
+        number:
+          min: 0.0
+          max: 100.0
+          unit_of_measurement: days
+          mode: slider
+          step: 1.0
+    time_input:
+      name: Time
+      description: What time of the day it should check and run the let's encrypt addon
+      default: '15:00'
+      selector:
+        time: {}
+  source_url: https://community.home-assistant.io/t/certificate-expiration/280125
+trigger:
+  platform: time
+  at: !input 'time_input'
+variables:
+  days_var: !input 'days_input'
+  certificate_var: !input 'certificate_input'
+  expire_days_var: '{{ ((as_timestamp(states(certificate_var)) - as_timestamp(now())) / 60 / 60 / 24 ) | int }}'
+condition:
+  condition: template
+  value_template: '{{ expire_days_var < days_var }}'
+action:
+- data:
+    addon: core_letsencrypt
+    service: hassio.addon_start
