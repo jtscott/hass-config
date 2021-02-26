@@ -6,3 +6,15 @@
   command: 'bash /config/electricity/rrorates.sh'
   name: 'RRO Rate'
   scan_interval: 60
+
+- platform: template
+  sensors:
+    space_heater_wattage:
+      friendly_name: 'Watts'
+      value_template: >- 
+        {%- if states.switch.space_heater.attributes.current_power_w %}
+          {{ states.switch.space_heater.attributes.current_power_w|round }}
+        {% else %}
+          0
+        {%- endif %}
+      unit_of_measurement: 'W'
