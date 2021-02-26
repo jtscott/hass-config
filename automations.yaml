@@ -19,25 +19,6 @@
       option: Select Activity
     entity_id: input_select.harmony
     service: input_select.select_option
-- id: '1589125991236'
-  alias: System - Certificate Renewal
-  description: ''
-  trigger:
-  - below: '21'
-    entity_id: sensor.cert_expiry_home_eatsleepbreach_ca
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      addon: core_letsencrypt
-    service: hassio.addon_start
-  - delay: '10:00'
-  - data: {}
-    service: homeassistant.restart
-  - service: hassio.addon_restart
-    data:
-      addon: core_nginx_proxy
-  mode: single
 - id: '1577904430400'
   alias: System - Dropbox Backup Sync
   description: Synchronize hass.io snapshots to Dropbox
@@ -138,7 +119,7 @@
         entity_id: camera.back_door_still
   mode: single
 - id: '1602786040005'
-  alias: Mailbox - Notification
+  alias: Notify - Mailbox
   description: ''
   trigger:
   - platform: state
@@ -258,57 +239,36 @@
           category: camera
         entity_id: camera.back_door_still
   mode: single
-- id: '1602435260480'
-  alias: Lights - Halloween Effects
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.front_porch
-    to: 'on'
-    from: 'off'
-  condition:
-  - condition: state
-    entity_id: sensor.month
-    state: October
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: sensor.dateofthemonth
-      state: 31st
-  action:
-  - service: light.turn_on
-    data:
-      effect: Halloween
-    entity_id: light.front_porch
-  mode: single
 - id: '1602440187444'
-  alias: Amp - Turn On
+  alias: Amps - Power Control
   description: ''
   trigger:
   - platform: state
     entity_id: media_player.patio_speaker
-    to: playing
-    from: 'off'
   - platform: state
-    from: 'off'
-    to: playing
     entity_id: media_player.master_bedroom_speaker
   - platform: state
-    from: 'off'
-    to: playing
     entity_id: media_player.kitchen_ceiling
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
   action:
-  - type: turn_on
-    device_id: 3484f2edfa7446299b0412e9fe378ca1
-    entity_id: switch.amp
-    domain: switch
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.to_state.state == ''playing'' }}'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.amp
+    default:
+    - service: switch.turn_off
+      data: {}
+      entity_id: switch.amp
   mode: single
 - id: '1602435177490'
-  alias: Lights - Christmas Effects
+  alias: Lights - Seasonal Effects
   description: ''
   trigger:
   - platform: state
@@ -317,13 +277,28 @@
     from: 'off'
   condition:
   - condition: state
-    entity_id: sensor.month
-    state: December
+    entity_id: input_boolean.automations
+    state: 'on'
   action:
-  - service: light.turn_on
-    data:
-      effect: Christmas
-    entity_id: light.front_porch
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sensor.month
+        state: December
+      sequence:
+      - service: light.turn_on
+        data:
+          effect: Christmas
+        entity_id: light.front_porch
+    - conditions:
+      - condition: state
+        entity_id: sensor.month
+        state: October
+      sequence:
+      - service: light.turn_on
+        data:
+          effect: Halloween
+    default: []
   mode: single
 - id: '1602430306575'
   alias: Lights - Sunrise
@@ -366,34 +341,6 @@
       color_name: yellow
     entity_id: light.front_porch
   mode: single
-- id: '1602427222710'
-  alias: Mobile - Office Lamp Toggle
-  description: ''
-  trigger:
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: Office Lamp
-  condition: []
-  action:
-  - service: light.toggle
-    data: {}
-    entity_id: light.office_lamp
-  mode: single
-- id: '1602427257720'
-  alias: Mobile - Office Light Toggle
-  description: ''
-  trigger:
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: Office Light
-  condition: []
-  action:
-  - service: light.toggle
-    data: {}
-    entity_id: light.office
-  mode: single
 - id: '1598110682886'
   alias: Cover - Garage Cover Open for 5 Minutes
   description: ''
@@ -415,20 +362,6 @@
       message: Garage door has been open for 5 minutes. Close it?
       title: 🚙 Garage left open!
     service: notify.ios_all_devices
-  mode: single
-- id: '1598110996311'
-  alias: Action - Close Garage Door
-  description: ''
-  trigger:
-  - event_data:
-      action: close_garage
-    event_type: mobile_app_notification_action
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: cover.garage_door
-    service: cover.close_cover
   mode: single
 - id: '1602273830036'
   alias: Laundry - Washer Cycle Complete
@@ -471,36 +404,6 @@
         took {{ relative_time(states.sensor.dryer.attributes.initial_time) }}{% endif
         %}'
   mode: single
-- id: '1590940832684'
-  alias: Cameras - Input Boolean - Turn Off
-  description: ''
-  trigger:
-  - entity_id: input_boolean.camera_alerts
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - data:
-      option: Disabled
-    entity_id: input_select.camera_motion_alerts
-    service: input_select.select_option
-  - data:
-      option: Disabled
-    entity_id: input_select.camera_person_alerts
-    service: input_select.select_option
-- id: '1590940940768'
-  alias: Cameras - Input Boolean - Turn Off
-  description: ''
-  trigger:
-  - entity_id: input_boolean.camera_alerts
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - data:
-      option: Enabled
-    entity_id: input_select.camera_person_alerts
-    service: input_select.select_option
 - id: '1604401387451'
   alias: Light - Lamp Brightness
   description: ''
@@ -541,7 +444,7 @@
     entity_id: counter.back_door_motion_events
   mode: single
 - id: '1604942076638'
-  alias: Cabinets - Notification
+  alias: Notify - Cabinets Open
   description: ''
   trigger:
   - platform: state
@@ -686,7 +589,7 @@
       - delay: 00:30:00
   mode: single
 - id: '1607991157120'
-  alias: Refrigerator - Left Open
+  alias: Notify - Refrigerator Open
   description: ''
   trigger:
   - type: opened
@@ -731,6 +634,9 @@
     entity_id: group.family_devices
     state: home
   action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.garage_cover_outlet_2
   - service: alarm_control_panel.alarm_disarm
     data: {}
     entity_id: alarm_control_panel.calgary_alarm
@@ -755,6 +661,9 @@
     entity_id: group.alarm_sensors
     state: 'off'
   action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.garage_cover_outlet_2
   - service: alarm_control_panel.alarm_arm_home
     data: {}
     entity_id: alarm_control_panel.calgary_alarm
@@ -780,8 +689,8 @@
     entity_id: alarm_control_panel.calgary_alarm
   mode: single
 - id: '1611778095556'
-  alias: Cams - Disable for Weather
-  description: ''
+  alias: Camera - Weather Control
+  description: Disable image processing due to weather
   trigger:
   - platform: state
     entity_id: weather.calgary_olympic_park
@@ -789,35 +698,25 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
-  - condition: state
-    entity_id: weather.calgary_olympic_park
-    state: snowy
   action:
-  - service: input_select.select_option
-    data:
-      option: Disabled
-    entity_id: input_select.camera_person_alerts
-  mode: single
-- id: '1611778136868'
-  alias: Cams - Re-enable after weather
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: weather.calgary_olympic_park
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: weather.calgary_olympic_park
-      state: snowy
-  action:
-  - service: input_select.select_option
-    data:
-      option: Enabled
-    entity_id: input_select.camera_person_alerts
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: weather.calgary_olympic_park
+        state: snowy
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Local
+        entity_id: input_select.image_processing_mode
+    default:
+    - condition: numeric_state
+      entity_id: sensor.total_month_camera_events
+      below: '1000.0'
+    - service: input_select.select_option
+      data:
+        option: Enabled
+      entity_id: input_select.image_processing_mode
   mode: single
 - id: '1613012477376'
   alias: Music - White noise
@@ -842,20 +741,118 @@
       entity_id: '{{ trigger.entity_id }}'
   mode: single
 - id: '1613599134512'
-  alias: Printer Queue - Turn on printer
+  alias: Printer - Power Control
   description: ''
   trigger:
   - platform: state
-    entity_id: sensor.printer_queue
-    from: Idle
+    entity_id: sensor.lexmark_cs310_series
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
   action:
-  - delay:
-      hours: 0
-      minutes: 20
-      seconds: 0
-      milliseconds: 0
+  - choose:
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: sensor.lexmark_cs310_series
+          state: idle
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.printer
+    - conditions:
+      - condition: state
+        entity_id: sensor.lexmark_cs310_series
+        state: idle
+        for: 00:20:00
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        entity_id: switch.printer
+    default: []
+  mode: single
+- id: '1613942808856'
+  alias: Space Heater - Temperature Control
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.master_bathroom_temperature
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: group.family_devices
+    state: home
+  - condition: time
+    after: 06:00:00
+    before: 09:00:00
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.master_bathroom_temperature
+        below: '21.3'
+      - condition: state
+        entity_id: switch.space_heater
+        state: 'off'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.space_heater
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.master_bathroom_temperature
+        above: '21.5'
+      - condition: state
+        entity_id: switch.space_heater
+        state: 'on'
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        entity_id: switch.space_heater
+    default: []
+  mode: single
+- id: '1613960679848'
+  alias: System - Certificate Renewal
+  description: ''
+  use_blueprint:
+    path: bkbilly/certificate-expiration.yaml
+    input:
+      days_input: '9'
+      certificate_input: sensor.cert_expiry_timestamp_home_eatsleepbreach_ca
+      time_input: '1:00:00'
+- id: '1614301350375'
+  alias: Camera - Cost Control
+  description: Disable image processing due to count limit
+  trigger:
+  - platform: state
+    entity_id: sensor.total_month_camera_events
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.total_month_camera_events
+        above: '994.0'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Local
+        entity_id: input_select.image_processing_mode
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.total_month_camera_events
+        below: '995.0'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Enabled
+        entity_id: input_select.image_processing_mode
+    default: []
   mode: single

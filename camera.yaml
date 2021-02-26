@@ -19,27 +19,47 @@
 - platform: generic
   still_image_url: http://trafficcam.calgary.ca/loc125.jpg
   name: 'Bow & Sarcee' 
+##########################################
+# Weather Radar
+##########################################
 - platform: environment_canada
   name: 'YYC Doppler'
 
 ##########################################
-# Home Cams
+# Front Door
 ##########################################
 - platform: generic
-  name: 'Front Door Still'
+  name: 'Front Door Snapshot'
   still_image_url: !secret front_door_camera_snapshot
 - platform: generic
   name: 'Front Door Detection'
   still_image_url: !secret front_door_camera_detection
 - platform: generic
-  name: 'Doorbell Still'
-  still_image_url: !secret front_door_doorbell_snapshot
+  name: 'Front Door Cloud Detection'
+  still_image_url: !secret front_door_camera_cloud_detection
+
+##########################################
+# Doorbell
+##########################################
+- platform: generic
+  name: 'Doorbell Snapshot'
+  still_image_url: !secret doorbell_snapshot
 - platform: generic
   name: 'Doorbell Detection'
-  still_image_url: !secret front_door_doorbell_detection
+  still_image_url: !secret doorbell_detection
 - platform: generic
-  name: 'Back Door Still'
+  name: 'Doorbell Cloud Detection'
+  still_image_url: !secret doorbell_cloud_detection
+
+##########################################
+# Backdoor
+##########################################
+- platform: generic
+  name: 'Back Door Snapshot'
   still_image_url: !secret back_door_camera_snapshot
 - platform: generic
   name: 'Back Door Detection'
   still_image_url: !secret back_door_camera_detection
+- platform: generic
+  name: 'Back Door Cloud Detection'
+  still_image_url: !secret back_door_camera_cloud_detection

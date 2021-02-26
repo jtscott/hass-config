@@ -68,7 +68,16 @@
                                         "entity_id": "switch.status_light_on_*"
                                     },
                                     {
+                                        "entity_id": "switch.basement_powerstrip_switch_4"
+                                    },
+                                    {
+                                        "entity_id": "switch.basement_powerstrip_switch"
+                                    },
+                                    {
                                         "entity_id": "switch.modem"
+                                    },
+                                    {
+                                        "entity_id": "switch.chromecasts"
                                     },
                                     {
                                         "entity_id": "input_boolean.front_*"
@@ -282,10 +291,10 @@
                                     "entity": "binary_sensor.motion_doorbell"
                                 },
                                 {
-                                    "entity": "image_processing.rekognition_doorbell_still"
+                                    "entity": "camera.doorbell_detection"
                                 },
                                 {
-                                    "entity": "camera.doorbell_detection"
+                                    "entity": "camera.doorbell_cloud_detection"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -301,10 +310,10 @@
                                     "entity": "binary_sensor.motion_front_door"
                                 },
                                 {
-                                    "entity": "image_processing.rekognition_front_door_still"
+                                    "entity": "camera.front_door_detection"
                                 },
                                 {
-                                    "entity": "camera.front_door_detection"
+                                    "entity": "camera.front_door_cloud_detection"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -320,10 +329,10 @@
                                     "entity": "binary_sensor.motion_back_door"
                                 },
                                 {
-                                    "entity": "image_processing.rekognition_back_door_still"
+                                    "entity": "camera.back_door_detection"
                                 },
                                 {
-                                    "entity": "camera.back_door_detection"
+                                    "entity": "camera.back_door_cloud_detection"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -337,9 +346,6 @@
                                 "binary_sensor.motion_front_door",
                                 "binary_sensor.motion_back_door",
                                 "binary_sensor.motion_doorbell",
-                                "image_processing.rekognition_front_door_still",
-                                "image_processing.rekognition_back_door_still",
-                                "image_processing.rekognition_doorbell_still",
                                 "lock.front_door",
                                 "lock.back_door",
                                 "lock.garage_door",
@@ -363,20 +369,25 @@
                             "entities": [
                                 {
                                     "entities": [
-                                        "input_select.camera_motion_alerts",
-                                        "input_select.camera_person_alerts",
-                                        "switch.entryway_outlet_1",
-                                        "input_select.entryway_outlet_1"
-                                    ],
-                                    "head": "input_boolean.camera_alerts",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
                                         "input_datetime.alarm_arm",
                                         "input_datetime.alarm_disarm"
                                     ],
                                     "head": "alarm_control_panel.calgary_alarm",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "input_select.camera_motion_alerts",
+                                        "input_select.camera_person_alerts"
+                                    ],
+                                    "head": "input_select.image_processing_mode",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        "input_select.entryway_outlet_1"
+                                    ],
+                                    "head": "switch.entryway_outlet_1",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -657,6 +668,12 @@
                                             "name": "Middle"
                                         }
                                     ]
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.playstation_4",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -743,6 +760,7 @@
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
+                                "switch.space_heater",
                                 "binary_sensor.water_master_bathroom_tub",
                                 {
                                     "entity": "binary_sensor.door_master_bedroom",
@@ -1017,7 +1035,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.water_sump_pump_2",
+                                    "entity": "binary_sensor.water_sump_pump",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Leaks",
                                     "state_header": "Sump Pump",
@@ -1089,15 +1107,7 @@
                             ],
                             "title": "Theater",
                             "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:alpha-b-circle",
-                    "path": "downstairs",
-                    "title": "Downstairs"
-                },
-                {
-                    "badges": [],
-                    "cards": [
+                        },
                         {
                             "entities": [
                                 {
@@ -1106,80 +1116,35 @@
                                     ],
                                     "head": "switch.amp",
                                     "type": "custom:fold-entity-row"
+                                },
+                                "switch.chromecasts",
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.kitchen_ceiling",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.master_bedroom_speaker",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.patio_speaker",
+                                    "group": true,
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Amplifiers",
+                            "title": "Home Audio",
                             "type": "entities"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.kitchen_ceiling",
-                                    "name": "Kitchen Speakers",
-                                    "tts": {
-                                        "platform": "google_translate"
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "artwork": "full-cover-fit",
-                                    "entity": "media_player.master_bedroom_ceiling",
-                                    "name": "Master Bedroom Speakers",
-                                    "tts": {
-                                        "platform": "google_translate"
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "artwork": "full-cover-fit",
-                            "entity": "media_player.patio_speaker",
-                            "name": "Patio",
-                            "tts": {
-                                "platform": "google_translate"
-                            },
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "artwork": "cover",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "volume": true
-                            },
-                            "icon": "mdi:playstation",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "all_shadows": false,
-                            "entity": "sensor.radarr_upcoming_media",
-                            "hide_empty": true,
-                            "image_style": "fanart",
-                            "max": 3,
-                            "title": "Upcoming Movies",
-                            "type": "custom:upcoming-media-card"
-                        },
-                        {
-                            "all_shadows": false,
-                            "entity": "sensor.sonarr_upcoming_media",
-                            "hide_empty": true,
-                            "icon": "mdi:television-box",
-                            "image_style": "fanart",
-                            "max": 3,
-                            "title": "Upcoming TV",
-                            "type": "custom:upcoming-media-card"
                         }
                     ],
-                    "icon": "mdi:music-box-multiple",
-                    "title": "Media"
+                    "icon": "mdi:alpha-b-circle",
+                    "path": "downstairs",
+                    "title": "Downstairs"
                 },
                 {
                     "badges": [],
@@ -1217,6 +1182,58 @@
                             ],
                             "show_header_toggle": false,
                             "type": "entities"
+                        },
+                        {
+                            "aspect_ratio": "75%",
+                            "type": "iframe",
+                            "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
+                        },
+                        {
+                            "aspect_ratio": "75%",
+                            "camera_image": "camera.yyc_doppler",
+                            "entities": [],
+                            "entity": "weather.calgary_olympic_park",
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Doppler",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entities": [
+                                "sensor.rro_rate"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Electricity",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.bow_sarcee",
+                            "show_state": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.bow_6_ave",
+                            "show_state": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.5_ave_7_st",
+                            "show_state": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.glenmore_crowchild",
+                            "show_state": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.4_ave_9_st",
+                            "show_state": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.glenmore_macleod",
+                            "show_state": false,
+                            "type": "picture-entity"
                         },
                         {
                             "entities": [
@@ -1270,75 +1287,6 @@
                             "show_header_toggle": false,
                             "title": "Sun & Moon",
                             "type": "entities"
-                        },
-                        {
-                            "aspect_ratio": "75%",
-                            "type": "iframe",
-                            "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
-                        },
-                        {
-                            "aspect_ratio": "75%",
-                            "camera_image": "camera.yyc_doppler",
-                            "entities": [],
-                            "entity": "weather.calgary_olympic_park",
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Doppler",
-                            "type": "picture-glance"
-                        }
-                    ],
-                    "icon": "mdi:weather-partly-cloudy",
-                    "path": "weather",
-                    "title": "Weather"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                "sensor.rro_rate"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Electricity",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.date",
-                                "sensor.time"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Date & Time",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "camera.bow_sarcee",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.bow_6_ave",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.5_ave_7_st",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.glenmore_crowchild",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.4_ave_9_st",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.glenmore_macleod",
-                            "show_state": false,
-                            "type": "picture-entity"
                         }
                     ],
                     "icon": "mdi:city",
@@ -1346,6 +1294,14 @@
                     "title": "Calgary"
                 },
                 {
+                    "icon": "mdi:server",
+                    "path": "system",
+                    "title": "System",
+                    "visible": [
+                        {
+                            "user": "b9db7fa55b304308a648c8aed76c5861"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -1372,6 +1328,16 @@
                                             "name": "Loss"
                                         }
                                     ]
+                                },
+                                {
+                                    "card": {
+                                        "entity": "switch.basement_powerstrip_switch_4"
+                                    },
+                                    "restrictions": {
+                                        "confirm": true
+                                    },
+                                    "row": true,
+                                    "type": "custom:restriction-card"
                                 },
                                 {
                                     "entity": "sensor.hass_release",
@@ -1410,6 +1376,12 @@
                                     "name": "Deconz",
                                     "type": "weblink",
                                     "url": "http://192.168.2.10/pwa/index.html"
+                                },
+                                {
+                                    "icon": "si:stackbit",
+                                    "name": "Deepstack-UI",
+                                    "type": "weblink",
+                                    "url": "http://192.168.2.5:5001"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1510,7 +1482,7 @@
                                     {
                                         "name": "state",
                                         "operator": ">",
-                                        "value": 49
+                                        "value": 35
                                     },
                                     {
                                         "name": "state",
@@ -1640,26 +1612,6 @@
                             "type": "custom:home-feed-card"
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.dishwasher_maintenance"
-                                },
-                                {
-                                    "entity": "sensor.washing_machine_maintenance"
-                                },
-                                {
-                                    "entity": "sensor.furnace_filter"
-                                },
-                                {
-                                    "entity": "sensor.furnace_maintenance"
-                                }
-                            ],
-                            "title": "Home Maintenance",
-                            "show_header_toggle": false,
-                            "state_color": true
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "counter.front_door_motion_events"
@@ -1674,11 +1626,19 @@
                             "show_header_toggle": false,
                             "title": "Monthly Counters",
                             "type": "entities"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.furnace_maintenance"
+                                }
+                            ],
+                            "title": "Home Maintenance",
+                            "show_header_toggle": false,
+                            "state_color": true
                         }
-                    ],
-                    "icon": "mdi:server",
-                    "path": "system",
-                    "title": "System"
+                    ]
                 }
             ]
         }

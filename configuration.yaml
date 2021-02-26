@@ -4,6 +4,8 @@ default_config:
 homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  media_dirs:
+    snapshot: /config/www/snapshot
 
 # Enables the frontend
 frontend:
@@ -54,7 +56,7 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
-    
+
 ###########################################
 # MQTT
 ###########################################
@@ -81,33 +83,28 @@ image_processing:
     aws_secret_access_key: !secret aws_secret_access_key
     region_name: us-west-2
     save_file_folder: "/config/www/snapshot/"
+    confidence: 70
     source:
-      - entity_id: camera.front_door_still
-      - entity_id: camera.back_door_still
-      - entity_id: camera.doorbell_still
-  - platform: doods
-    url: !secret doods_url
-    auth_key: !secret doods_auth_key
-    detector: default
-    scan_interval: 10000
-    confidence: 50
+      - entity_id: camera.front_door_snapshot
+      - entity_id: camera.back_door_snapshot
+      - entity_id: camera.doorbell_snapshot
+  - platform: deepstack_object
+    ip_address: 192.168.2.5
+    port: 5000
+    api_key: !secret http_password
+    confidence: 80
+    save_file_folder: "/config/www/snapshot/"
+    save_file_format: png
+    targets:
+      - target: person
+      - target: vehicle
+        confidence: 60
+      - target: car
+        confidence: 40
     source:
-      - entity_id: camera.front_door_still
-      - entity_id: camera.back_door_still
-      - entity_id: camera.doorbell_still
-    file_out:
-      - "/config/www/snapshot/{{ camera_entity.split('.')[1] }}_latest.jpg"
-    labels:
-      - name: person
-        confidence: 75
-      - bicycle
-      - car
-      - motorcycle
-      - bus
-      - truck
-      - bird
-      - cat
-      - dog
+      - entity_id: camera.front_door_snapshot
+      - entity_id: camera.back_door_snapshot
+      - entity_id: camera.doorbell_snapshot
 
 ###########################################
 # Influx
@@ -155,13 +152,7 @@ device_tracker:
 ###########################################
 # Third Party Components
 ########################################### 
-ecobee:
-  api_key: !secret ecobee_api
-
 google_assistant: !include google_assistant.yaml
-
-ifttt:
-  key: !secret ifttt_api
 
 nest:
   client_id: !secret nest_client_id

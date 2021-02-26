@@ -390,3 +390,15 @@ binary_sensor.door_joels_room:
   device_class: door
 binary_sensor.door_refridgerator:
   device_class: door
+camera.front_door_cloud_detection:
+  icon: mdi:cloud
+camera.back_door_cloud_detection:
+  icon: mdi:cloud
+camera.doorbell_cloud_detection:
+  icon: mdi:cloud
+camera.back_door_detection:
+  icon: mdi:motion-sensor
+camera.front_door_detection:
+  icon: mdi:motion-sensor
+camera.doorbell_detection:
+  icon: mdi:motion-sensor
