@@ -97,10 +97,6 @@ image_processing:
     save_file_format: png
     targets:
       - target: person
-      - target: vehicle
-        confidence: 60
-      - target: car
-        confidence: 40
     source:
       - entity_id: camera.front_door_snapshot
       - entity_id: camera.back_door_snapshot

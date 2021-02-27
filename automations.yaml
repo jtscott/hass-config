@@ -116,7 +116,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.back_door_still
+        entity_id: camera.back_door_snapshot
   mode: single
 - id: '1602786040005'
   alias: Notify - Mailbox
@@ -187,7 +187,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.front_door_still
+        entity_id: camera.front_door_snapshot
   mode: single
 - id: '1603502802809'
   alias: Lock - Back Door Unlocked
@@ -212,7 +212,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.back_door_still
+        entity_id: camera.back_door_snapshot
   mode: single
 - id: '1602687787297'
   alias: Lock - Garage Door Unlocked
@@ -237,7 +237,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.back_door_still
+        entity_id: camera.back_door_snapshot
   mode: single
 - id: '1602440187444'
   alias: Amps - Power Control
