@@ -173,7 +173,37 @@
                             "filter": {
                                 "exclude": [
                                     {
+                                        "entity_id": "script.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "light.*"
+                                    },
+                                    {
+                                        "entity_id": "media_player.*"
+                                    },
+                                    {
+                                        "entity_id": "switch.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*"
+                                    },
+                                    {
                                         "entity_id": "input_select.door_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.*"
+                                    },
+                                    {
+                                        "entity_id": "remote.*"
+                                    },
+                                    {
+                                        "entity_id": "calendar.*"
                                     },
                                     {
                                         "entity_id": "input_select.camera_motion_alerts"
@@ -188,25 +218,9 @@
                                     },
                                     {
                                         "state": "Back Door"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Maintenance",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "state": "tomorrow"
                                     },
                                     {
-                                        "state": "today"
+                                        "state": "off"
                                     }
                                 ]
                             },
@@ -349,8 +363,7 @@
                                 "lock.front_door",
                                 "lock.back_door",
                                 "lock.garage_door",
-                                "cover.garage_door",
-                                "binary_sensor.dining_room_window"
+                                "cover.garage_door"
                             ],
                             "more_info_on_tap": true,
                             "show_empty": false,
@@ -449,14 +462,13 @@
                                     ]
                                 },
                                 {
-                                    "card": {
-                                        "entity": "lock.garage_door"
-                                    },
-                                    "restrictions": {
-                                        "confirm": true
-                                    },
-                                    "row": true,
-                                    "type": "custom:restriction-card"
+                                    "entity": "lock.garage_door",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Garage Door",
+                                    "state_header": "current",
+                                    "entities": [
+                                        "binary_sensor.garage_door"
+                                    ]
                                 },
                                 {
                                     "card": {
@@ -516,21 +528,6 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Sprinklers",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.alfred_last_seen_template"
-                                    ],
-                                    "head": "device_tracker.alfie",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                "binary_sensor.car_wash"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Pets",
                             "type": "entities"
                         },
                         {
@@ -1076,6 +1073,9 @@
                                             "name": "Temperature"
                                         }
                                     ]
+                                },
+                                {
+                                    "entity": "binary_sensor.guest_bedroom_window"
                                 }
                             ],
                             "title": "Guest Bedroom",
@@ -1103,6 +1103,9 @@
                                     ],
                                     "head": "switch.theater_outlet_1",
                                     "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entity": "binary_sensor.theatre_window"
                                 }
                             ],
                             "title": "Theater",
@@ -1310,15 +1313,11 @@
                                     "entity": "input_boolean.automations"
                                 },
                                 {
-                                    "entity": "switch.modem",
-                                    "toggle": true,
+                                    "entity": "sensor.pfsense_isp",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Internet",
                                     "state_header": "Modem",
                                     "entities": [
-                                        {
-                                            "entity": "sensor.pfsense_isp"
-                                        },
                                         {
                                             "entity": "sensor.pfsense_delay",
                                             "name": "Delay"
@@ -1330,14 +1329,24 @@
                                     ]
                                 },
                                 {
-                                    "card": {
-                                        "entity": "switch.basement_powerstrip_switch_4"
-                                    },
-                                    "restrictions": {
-                                        "confirm": true
-                                    },
-                                    "row": true,
-                                    "type": "custom:restriction-card"
+                                    "entity": "sensor.basement_powerstrip_electricity_w_meter_4",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Power",
+                                    "state_header": "Server",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_3",
+                                            "name": "Printer"
+                                        },
+                                        {
+                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_6",
+                                            "name": "Amps"
+                                        },
+                                        {
+                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_5",
+                                            "name": "Chromecasts"
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "sensor.hass_release",
@@ -1519,6 +1528,24 @@
                             "type": "custom:battery-state-card"
                         },
                         {
+                            "card_id": "main_feed",
+                            "compact_mode": true,
+                            "entities": [
+                                "binary_sensor.water_dishwasher",
+                                "binary_sensor.water_laundry_water_main",
+                                "binary_sensor.water_refrigerator",
+                                "binary_sensor.water_washing_machine",
+                                "binary_sensor.water_hot_water_heater",
+                                "binary_sensor.water_master_bathroom_tub",
+                                "binary_sensor.water_sump_pump"
+                            ],
+                            "more_info_on_tap": true,
+                            "show_empty": false,
+                            "state_color": true,
+                            "title": "Water Sensors",
+                            "type": "custom:home-feed-card"
+                        },
+                        {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Broken Entities",
@@ -1594,25 +1621,10 @@
                             "type": "custom:auto-entities"
                         },
                         {
-                            "card_id": "main_feed",
-                            "compact_mode": true,
                             "entities": [
-                                "binary_sensor.water_dishwasher",
-                                "binary_sensor.water_laundry_water_main",
-                                "binary_sensor.water_refrigerator",
-                                "binary_sensor.water_washing_machine",
-                                "binary_sensor.water_hot_water_heater",
-                                "binary_sensor.water_master_bathroom_tub",
-                                "binary_sensor.water_sump_pump"
-                            ],
-                            "more_info_on_tap": true,
-                            "show_empty": false,
-                            "state_color": true,
-                            "title": "Water Sensors",
-                            "type": "custom:home-feed-card"
-                        },
-                        {
-                            "entities": [
+                                {
+                                    "entity": "sensor.total_month_camera_events"
+                                },
                                 {
                                     "entity": "counter.front_door_motion_events"
                                 },
@@ -1628,15 +1640,21 @@
                             "type": "entities"
                         },
                         {
-                            "type": "entities",
+                            "card_id": "automation_feed",
+                            "compact_mode": true,
                             "entities": [
-                                {
-                                    "entity": "sensor.furnace_maintenance"
-                                }
+                                "automation.camera_cost_control",
+                                "automation.light_away_and_forgotten",
+                                "automation.cams_disable_for_weather",
+                                "automation.climate_window_control",
+                                "automation.chromecasts_reboot",
+                                "automation.modem_reboot"
                             ],
-                            "title": "Home Maintenance",
-                            "show_header_toggle": false,
-                            "state_color": true
+                            "more_info_on_tap": true,
+                            "show_empty": false,
+                            "state_color": true,
+                            "title": "Automation Activity",
+                            "type": "custom:home-feed-card"
                         }
                     ]
                 }
