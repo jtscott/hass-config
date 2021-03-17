@@ -29,6 +29,7 @@ mobile_app:
 history:
 logbook:
 recorder:
+  db_url: !secret db_url
 stream:
 logger:
   default: warning
@@ -89,10 +90,10 @@ image_processing:
       - entity_id: camera.back_door_snapshot
       - entity_id: camera.doorbell_snapshot
   - platform: deepstack_object
-    ip_address: 192.168.2.5
+    ip_address: !secret advertise_ip
     port: 5000
     api_key: !secret http_password
-    confidence: 80
+    confidence: 50
     save_file_folder: "/config/www/snapshot/"
     save_file_format: png
     targets:
@@ -140,10 +141,10 @@ weather:
 ###########################################
 # Device Tracker
 ###########################################
-device_tracker:
-  - platform: trackr
-    username: !secret email_account
-    password: !secret trackr_password
+#device_tracker:
+#  - platform: trackr
+#    username: !secret email_account
+#    password: !secret trackr_password
 
 ###########################################
 # Third Party Components
