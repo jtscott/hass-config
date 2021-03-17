@@ -12,16 +12,20 @@ inside_lights:
   name: "Inside Lights"
   entities:
     - light.office
+    - light.office_lamp
     - light.island
     - switch.kitchen_light
-    - switch.basement_stairs
     - light.dining_room
+    - switch.basement_stairs
     - light.theater
+    - light.library
+    - light.bedroom_lamp
 
 outside_lights:
   name: "Outside Lights"
   entities:
     - switch.front_door
+    - light.front_porch
     - switch.back_door
     - switch.garage_exterior_lights
 
@@ -64,4 +68,9 @@ binary_occupancy:
 all_windows:
   - binary_sensor.office_window
   - binary_sensor.dining_room_window
+  - binary_sensor.living_room_window_left
+  - binary_sensor.living_room_window_right
   - binary_sensor.master_bedroom_window
+  - binary_sensor.library_window
+  - binary_sensor.theatre_window
+  - binary_sensor.guest_bedroom_window
