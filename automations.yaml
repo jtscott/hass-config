@@ -78,12 +78,15 @@
     data:
       media_content_id: https://home.eatsleepbreach.ca/local/doorbell_front.mp3
       media_content_type: music
-    entity_id: media_player.library_speaker, media_player.theater_speaker
-  - delay: 00:00:01
+    target:
+      device_id:
+      - c038376b0bd411ebb661915fc419dff9
+      - c03750400bd411ebbd21d302c0018c1a
   - service: camera.play_stream
     data:
       media_player: media_player.master_bedroom_display
-    entity_id: camera.front_door_doorbell
+    target:
+      device_id: 5f628eea7411345bf14420a07eaa74b3
   - delay:
       hours: 0
       minutes: 2
@@ -141,7 +144,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.front_door_still
+        entity_id: camera.front_door_snapshot
   mode: single
 - id: '1591375582026'
   alias: Lock - Secure all at 10pm
@@ -268,7 +271,7 @@
       entity_id: switch.amp
   mode: single
 - id: '1602435177490'
-  alias: Lights - Seasonal Effects
+  alias: Light - Seasonal Effects
   description: ''
   trigger:
   - platform: state
@@ -301,7 +304,7 @@
     default: []
   mode: single
 - id: '1602430306575'
-  alias: Lights - Sunrise
+  alias: Light - Sunrise
   description: ''
   trigger:
   - platform: sun
@@ -321,7 +324,7 @@
     domain: light
   mode: single
 - id: '1602430417396'
-  alias: Lights - Sunset
+  alias: Light - Sunset
   description: ''
   trigger:
   - platform: sun
@@ -495,11 +498,6 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
-  - type: is_open
-    condition: device
-    device_id: 2c8e24338a4cea1f770bc54f83c1eac0
-    entity_id: binary_sensor.door_master_bedroom
-    domain: binary_sensor
   action:
   - service: cover.close_cover
     data: {}
@@ -709,14 +707,17 @@
         data:
           option: Local
         entity_id: input_select.image_processing_mode
+      - delay:
+          hours: 0
+          minutes: 10
+          seconds: 0
+          milliseconds: 0
     default:
-    - condition: numeric_state
-      entity_id: sensor.total_month_camera_events
-      below: '1000.0'
-    - service: input_select.select_option
-      data:
-        option: Enabled
-      entity_id: input_select.image_processing_mode
+    - delay:
+        hours: 0
+        minutes: 30
+        seconds: 0
+        milliseconds: 0
   mode: single
 - id: '1613012477376'
   alias: Music - White noise
@@ -737,7 +738,7 @@
   action:
   - service: media_player.volume_set
     data:
-      volume_level: 0.9
+      volume_level: 0.8
       entity_id: '{{ trigger.entity_id }}'
   mode: single
 - id: '1613599134512'
@@ -786,18 +787,18 @@
   - condition: state
     entity_id: group.family_devices
     state: home
-  - condition: time
-    after: 06:00:00
-    before: 09:00:00
   action:
   - choose:
     - conditions:
       - condition: numeric_state
         entity_id: sensor.master_bathroom_temperature
-        below: '21.3'
+        below: '21.4'
       - condition: state
         entity_id: switch.space_heater
         state: 'off'
+      - condition: time
+        after: 06:00:00
+        before: 09:00:00
       sequence:
       - service: switch.turn_on
         data: {}
@@ -805,7 +806,7 @@
     - conditions:
       - condition: numeric_state
         entity_id: sensor.master_bathroom_temperature
-        above: '21.5'
+        above: '21.8'
       - condition: state
         entity_id: switch.space_heater
         state: 'on'
@@ -834,6 +835,11 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: weather.calgary_olympic_park
+      state: snowy
   action:
   - choose:
     - conditions:
@@ -852,7 +858,466 @@
       sequence:
       - service: input_select.select_option
         data:
-          option: Enabled
+          option: Cloud
         entity_id: input_select.image_processing_mode
     default: []
+  mode: single
+- id: '1614538081222'
+  alias: Light - Basement Stairs
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 44eae6990c494cfd8a209f98a436e74e
+    entity_id: binary_sensor.basement_door
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - condition: device
+    type: is_off
+    device_id: 8630210676794c5992b4a2c92a73f90d
+    entity_id: switch.basement_stairs
+    domain: switch
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.basement_stairs
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  mode: single
+- id: '1614558915813'
+  alias: Climate - Window Control
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.all_windows
+    for: 00:05:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: group.all_windows
+        state: 'on'
+      sequence:
+      - device_id: a3a722fbf9001c1051f06703aaeb803c
+        domain: climate
+        entity_id: climate.main_floor
+        type: set_hvac_mode
+        hvac_mode: 'off'
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: 'on'
+        target:
+          device_id: a3a722fbf9001c1051f06703aaeb803c
+    - conditions:
+      - condition: state
+        entity_id: group.all_windows
+        state: 'off'
+        for: 00:05:00
+      sequence:
+      - device_id: a3a722fbf9001c1051f06703aaeb803c
+        domain: climate
+        entity_id: climate.main_floor
+        type: set_hvac_mode
+        hvac_mode: heat_cool
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: Auto
+        target:
+          device_id: a3a722fbf9001c1051f06703aaeb803c
+    default: []
+  mode: single
+- id: '1614829216486'
+  alias: Light - Kitchen Night Light
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: cf02d2ad7ec8594e892e42aa8e5b01aa
+    entity_id: binary_sensor.motion_hallway
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: device
+    type: is_off
+    device_id: 5d5445200b93486c913a08288bae6621
+    entity_id: switch.kitchen_light
+    domain: switch
+  - condition: device
+    type: is_off
+    device_id: e10c450fa7254d54804c43d5eaacbfcf
+    entity_id: light.dining_room
+    domain: light
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: device
+    type: is_off
+    device_id: d0cd794a0c194393b3836b635d6220ee
+    entity_id: light.island
+    domain: light
+  action:
+  - service: light.turn_on
+    data:
+      color_name: yellow
+    target:
+      entity_id: light.kitchen_cabinets
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    entity_id: light.kitchen_cabinets
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  mode: single
+- id: '1615395552931'
+  alias: Blind - Dining Room
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:05:00
+  - platform: time
+    at: 08:30:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.blinds_dining_room_mode
+    state: Automatic
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      - type: is_not_open
+        condition: device
+        device_id: 773fc559024ac11ecb6a9280b38a9bce
+        entity_id: binary_sensor.dining_room_window
+        domain: binary_sensor
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 15
+          milliseconds: 0
+      sequence:
+      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+        domain: cover
+        entity_id: cover.blinds_dining_room
+        type: set_position
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
+      - condition: time
+        after: 08:30:00
+      sequence:
+      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+        domain: cover
+        entity_id: cover.blinds_dining_room
+        type: set_position
+        position: 100
+    default: []
+  mode: single
+- id: '1615478976864'
+  alias: Switch - Basement Stairs Inactivity
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 8630210676794c5992b4a2c92a73f90d
+    entity_id: switch.basement_stairs
+    domain: switch
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - type: is_no_motion
+    condition: device
+    device_id: e8d280d931dfd93ddacfcfe74785c318
+    entity_id: binary_sensor.stairway_motion
+    domain: binary_sensor
+  action:
+  - type: turn_off
+    device_id: 8630210676794c5992b4a2c92a73f90d
+    entity_id: switch.basement_stairs
+    domain: switch
+  mode: single
+- id: '1615652464813'
+  alias: Blind - Library
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:05:00
+  - platform: time
+    at: 08:30:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.blinds_library_mode
+    state: Automatic
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      - type: is_not_open
+        condition: device
+        device_id: 4c12bdfa77964af0ab5342561f3e6286
+        entity_id: binary_sensor.library_window
+        domain: binary_sensor
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 15
+          milliseconds: 0
+      sequence:
+      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+        domain: cover
+        entity_id: cover.blinds_dining_room
+        type: set_position
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
+      - condition: time
+        after: 08:30:00
+      sequence:
+      - device_id: df05ff97af8cc94daa4886f41221a920
+        domain: cover
+        entity_id: cover.blinds_library
+        type: set_position
+        position: 100
+    default: []
+  mode: single
+- id: '1615652668231'
+  alias: Blind - Stairway
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:05:00
+  - platform: time
+    at: 08:30:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.blinds_stairway_mode
+    state: Automatic
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      sequence:
+      - device_id: c929b61ad5321e3207f60bccc556b756
+        domain: cover
+        entity_id: cover.blinds_stairway
+        type: set_position
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
+      - condition: time
+        after: 08:30:00
+      sequence:
+      - device_id: c929b61ad5321e3207f60bccc556b756
+        domain: cover
+        entity_id: cover.blinds_stairway
+        type: set_position
+        position: 100
+    default: []
+  mode: single
+- id: '1615652764733'
+  alias: Blind - Joel's Room
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:05:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      sequence:
+      - device_id: 269012f56589fb928303bc8dad06c38b
+        domain: cover
+        entity_id: cover.blinds_joels_room
+        type: set_position
+    default: []
+  mode: single
+- id: '1615654024825'
+  alias: Light - Away and Forgotten
+  description: Turns off lights if we are away but some were left on
+  trigger:
+  - platform: state
+    entity_id: group.family_devices
+    to: not_home
+    for: 00:30:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.homesitter
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.guestmode
+    state: 'off'
+  action:
+  - service: switch.turn_off
+    target:
+      device_id:
+      - 8630210676794c5992b4a2c92a73f90d
+      - 5d5445200b93486c913a08288bae6621
+  - service: light.turn_off
+    target:
+      device_id:
+      - b81d2f783e3141c8ab4ba540ad2588f9
+      - 92c693c7e4267438802e4bb8edbfa0bf
+      - 2a6a260b4e91c9e047f88a0f2702267d
+      - e10c450fa7254d54804c43d5eaacbfcf
+      - d0cd794a0c194393b3836b635d6220ee
+      - 906273b7b475468ea078b648fae1327b
+      - 5a65f08231d24a079cfcf0d0f9c10717
+      - 0ca9e01b57cc4159b389cf67344516ee
+      entity_id: light.kitchen_cabinets
+  mode: single
+- id: '1615754157293'
+  alias: Tag - Front Door Camera
+  description: Turns off camera alerts when scanned
+  trigger:
+  - platform: tag
+    tag_id: 07a17b17-1185-4176-b8ee-9e45dcab91e8
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: input_select.select_option
+    data:
+      option: Disabled
+    target:
+      entity_id: input_select.camera_person_alerts
+  mode: single
+- id: '1615757783776'
+  alias: Tag - Back Door Camera
+  description: Turns off camera alerts when scanned
+  trigger:
+  - platform: tag
+    tag_id: d8e2ba2e-778c-41a1-a2ef-2a5a15142534
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: input_select.select_option
+    data:
+      option: Front Door
+    target:
+      entity_id: input_select.camera_person_alerts
+  mode: single
+- id: '1615761299458'
+  alias: Tag - Alarm Disarm
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: c0633739-0e08-4507-8382-bba521aa3f01
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - device_id: d2f4d5b400ef24f2f92f7e5beb98fd34
+    domain: alarm_control_panel
+    entity_id: alarm_control_panel.calgary_alarm
+    type: disarm
+    code: ''
+  mode: single
+- id: '1615991554264'
+  alias: Chromecasts - Reboot
+  description: Reboot the chromecast audio devices when they become unavailable
+  trigger:
+  - platform: state
+    entity_id: media_player.kitchen_ceiling
+    to: unavailable
+    for: 00:01:00
+  - platform: state
+    entity_id: media_player.master_bedroom_speaker
+    to: unavailable
+    for: 00:01:00
+  - platform: state
+    entity_id: media_player.patio_speaker
+    to: unavailable
+    for: 00:01:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.kitchen_ceiling
+      state: playing
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.master_bedroom_speaker
+      state: playing
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.patio_speaker
+      state: playing
+  - type: turn_off
+    device_id: 5dcc8797a37fb061b95d18f479e563cc
+    entity_id: switch.chromecasts
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - type: turn_on
+    device_id: 5dcc8797a37fb061b95d18f479e563cc
+    entity_id: switch.chromecasts
+    domain: switch
   mode: single
