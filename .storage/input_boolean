@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "input_boolean",
     "data": {
         "items": [
             {
@@ -12,10 +14,8 @@
             {
                 "icon": "mdi:wifi-star",
                 "id": "guest_wifi",
-                "name": "Guest Wifi"
+                "name": "Kids Wifi"
             }
         ]
-    },
-    "key": "input_boolean",
-    "version": 1
+    }
 }
