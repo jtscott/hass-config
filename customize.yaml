@@ -404,3 +404,7 @@ camera.doorbell_detection:
   icon: mdi:motion-sensor
 sensor.total_month_camera_events:
   icon: mdi:plus
+light.bedroom_lamp:
+  icon: mdi:floor-lamp
+sensor.pfsense_isp:
+  icon: mdi:router-network
