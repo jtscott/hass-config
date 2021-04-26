@@ -35,9 +35,9 @@ outside_lights:
 locks:
   name: "Locks"
   entities:
-    - lock.back_door
-    - lock.front_door
-    - lock.garage_door
+    - lock.back_door_lock
+    - lock.front_door_lock
+    - lock.garage_door_lock
 
 ###########################################
 # Alarm Sensors
@@ -74,3 +74,33 @@ all_windows:
   - binary_sensor.library_window
   - binary_sensor.theatre_window
   - binary_sensor.guest_bedroom_window
+
+upstairs_windows:
+  name: "Upstairs Windows"
+  entities:
+  - binary_sensor.master_bedroom_window
+  - binary_sensor.library_window
+
+main_foor_windows:
+  name: "Main Floor Windows"
+  entities:
+  - binary_sensor.office_window
+  - binary_sensor.dining_room_window
+  - binary_sensor.living_room_window_left
+  - binary_sensor.living_room_window_right
+
+basement_windows:
+  name: "Basement Windows"
+  entities:
+  - binary_sensor.theatre_window
+  - binary_sensor.guest_bedroom_window
+  
+main_and_basement_windows:
+  name: "Temperature Control Windows"
+  entities:
+  - binary_sensor.theatre_window
+  - binary_sensor.guest_bedroom_window
+  - binary_sensor.office_window
+  - binary_sensor.dining_room_window
+  - binary_sensor.living_room_window_left
+  - binary_sensor.living_room_window_right
