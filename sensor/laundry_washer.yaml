@@ -12,6 +12,12 @@
     washer_pre_state:
       friendly_name: 'Pre State'
       value_template: '{{ states.sensor.washer.attributes.pre_state }}'
+
+- platform: template
+  sensors:
+    washer_initial_time:
+      friendly_name: 'Initial Time'
+      value_template: '{{ states.sensor.washer.attributes.initial_time }}'
       
 - platform: template
   sensors:
@@ -28,14 +34,14 @@
 - platform: template
   sensors:
     washer_spin_option_state:
-      friendly_name: 'Spin Option'
-      value_template: '{{ states.sensor.washer.attributes.spin_option_state }}'
+      friendly_name: 'Spin Speed'
+      value_template: '{{ states.sensor.washer.attributes.spin_speed }}'
 
 - platform: template
   sensors:
     washer_watertemp_option_state:
       friendly_name: 'Water Temperature'
-      value_template: '{{ states.sensor.washer.attributes.watertemp_option_state }}'
+      value_template: '{{ states.sensor.washer.attributes.water_temp }}'
 
 - platform: template
   sensors:
@@ -47,49 +53,37 @@
   sensors:
     washer_childlock_mode:
       friendly_name: 'Child Lock'
-      value_template: '{{ states.sensor.washer.attributes.childlock_mode }}'
-
-- platform: template
-  sensors:
-    washer_creasecare_mode:
-      friendly_name: 'Crease Care'
-      value_template: '{{ states.sensor.washer.attributes.creasecare_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.child_lock }}'
 
 - platform: template
   sensors:
     washer_steam_mode:
       friendly_name: 'Steam Mode'
-      value_template: '{{ states.sensor.washer.attributes.steam_mode }}'
-
-- platform: template
-  sensors:
-    washer_steam_softener_mode:
-      friendly_name: 'Steam Softener'
-      value_template: '{{ states.sensor.washer.attributes.steam_softener_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.steam }}'
 
 - platform: template
   sensors:
     washer_doorlock_mode:
       friendly_name: 'Door Lock'
-      value_template: '{{ states.sensor.washer.attributes.doorlock_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.door_lock }}'
 
 - platform: template
   sensors:
     washer_prewash_mode:
       friendly_name: 'Prewash'
-      value_template: '{{ states.sensor.washer.attributes.prewash_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.pre_wash }}'
 
 - platform: template
   sensors:
     washer_turbowash_mode:
       friendly_name: 'Turbo Wash'
-      value_template: '{{ states.sensor.washer.attributes.turbowash_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.turbo_wash }}'
 
 - platform: template
   sensors:
     washer_remotestart_mode:
       friendly_name: 'Remote Start'
-      value_template: '{{ states.sensor.washer.attributes.remotestart_mode }}'
+      value_template: '{{ states.sensor.washer.attributes.remote_start }}'
 
 - platform: template
   sensors:
