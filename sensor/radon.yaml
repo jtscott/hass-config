@@ -1,3 +1,16 @@
+###########################################
+# RadonEye RD200 Setup
+###########################################
+# sudo apt-get install git python-pip libglib2.0-dev
+# git clone https://github.com/ceandre/radonreader.git
+# sudo pip install paho-mqtt bluepy
+# sudo hciconfig hci0 up
+# sudo hcitoollescan
+# Edit radon_reader.py to lower QoS to 0
+# nano /home/pi/radonreader/radon_reader.py
+# crontab -e
+# */10 * * * * python /home/pi/radonreader/radon_reader.py -a FB:80:0C:9D:8A:07 --mqtt -ma -ms <hostname> -mp 1883 -mu <username> -mw <password> -v
+
 - platform: mqtt
   name: "Radon Level"
   state_topic: "environment/RADONEYE/9D-8A-07" # <-- last three octets of the MAC
@@ -9,13 +22,9 @@
   icon: mdi:radioactive
   qos: 0
 
-# sudo apt-get install git python-pip libglib2.0-dev
-# git clone https://github.com/ceandre/radonreader.git
-# sudo pip install paho-mqtt bluepy
-# sudo hciconfig hci0 up
-# sudo hcitoollescan
-# Edit radon_reader.py to lower QoS to 0
-# nano /home/pi/radonreader/radon_reader.py
-# crontab -e
-# */10 * * * * python /home/pi/radonreader/radon_reader.py -a FB:80:0C:9D:8A:07 --mqtt -ma -ms home.eatsleepbreach.ca -mp 1883 -mu <username> -mw <password> -v
-# grep CRON /var/log/syslog
+- platform: template
+  sensors:
+    radon_becquerels:
+      value_template: '{{ ((states.sensor.radon_level.state | float * 37)) | round(0) }}'
+      friendly_name: 'Radon Becquerels'
+      unit_of_measurement: 'Bq/m3'
