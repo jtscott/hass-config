@@ -10,7 +10,7 @@
     pfsense_isp:
       friendly_name: 'Shaw'
       value_template: >-
-        {%- if is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'okay') %}
+        {%- if is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'online') %}
             Up
         {%- elif is_state_attr('sensor.pfsense_gateway_wan_dhcp','status', 'down') %}
             Down
