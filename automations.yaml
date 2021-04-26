@@ -50,6 +50,9 @@
   - data:
       addon: a0d7b954_nodered
     service: hassio.addon_restart
+  - service: hassio.addon_restart
+    data:
+      addon: 03cabcc9_ring_mqtt
   - data:
       payload: announce
       topic: shellies/command
@@ -119,7 +122,7 @@
           hide-thumbnail: false
         push:
           category: camera
-        entity_id: camera.back_door_snapshot
+        entity_id: camera.garage_snapshot
   mode: single
 - id: '1602786040005'
   alias: Notify - Mailbox
@@ -158,27 +161,29 @@
     state: 'on'
   action:
   - data: {}
-    entity_id: lock.front_door
     service: lock.lock
-  - data: {}
-    entity_id: lock.back_door
-    service: lock.lock
-  - data: {}
-    entity_id: lock.garage_door
-    service: lock.lock
+    target:
+      device_id:
+      - 87bc70b6345efdbf37f8c5b676cf3e4d
+      - 17ad4d3482096182954b88c4f35bb21f
+      - 5fa5f875376772df0a5008c64b7b4eea
   mode: single
 - id: '1602346908294'
   alias: Lock - Front Door Unlocked
   description: ''
   trigger:
-  - platform: state
-    entity_id: lock.front_door
-    from: locked
-    to: unlocked
+  - platform: device
+    device_id: 17ad4d3482096182954b88c4f35bb21f
+    domain: lock
+    entity_id: lock.front_door_lock
+    type: unlocked
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.uptime_minutes
+    above: '2.0'
   action:
   - service: notify.ios_all_devices
     data:
@@ -196,14 +201,18 @@
   alias: Lock - Back Door Unlocked
   description: ''
   trigger:
-  - platform: state
-    entity_id: lock.back_door
-    from: locked
-    to: unlocked
+  - platform: device
+    device_id: 87bc70b6345efdbf37f8c5b676cf3e4d
+    domain: lock
+    entity_id: lock.back_door_lock
+    type: unlocked
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.uptime_minutes
+    above: '2.0'
   action:
   - service: notify.ios_all_devices
     data:
@@ -221,14 +230,18 @@
   alias: Lock - Garage Door Unlocked
   description: ''
   trigger:
-  - platform: state
-    entity_id: lock.garage_door
-    from: locked
-    to: unlocked
+  - platform: device
+    device_id: 5fa5f875376772df0a5008c64b7b4eea
+    domain: lock
+    entity_id: lock.garage_door_lock
+    type: unlocked
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.uptime_minutes
+    above: '2.0'
   action:
   - service: notify.ios_all_devices
     data:
@@ -419,8 +432,8 @@
     entity_id: input_boolean.automations
     state: 'on'
   - condition: time
-    after: '22:00:00'
     before: 08:00:00
+    after: '20:00:00'
   action:
   - service: light.turn_on
     data:
@@ -561,7 +574,7 @@
   - platform: state
     entity_id: sensor.pfsense_gateway_wan_dhcp
     to: 'False'
-    for: 00:05:00
+    for: 00:02:00
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -580,7 +593,11 @@
       - service: switch.turn_off
         data: {}
         entity_id: switch.modem
-      - delay: 00:01:00
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 30
+          milliseconds: 0
       - service: switch.turn_on
         data: {}
         entity_id: switch.modem
@@ -638,6 +655,9 @@
   - service: alarm_control_panel.alarm_disarm
     data: {}
     entity_id: alarm_control_panel.calgary_alarm
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.quiet_time
   mode: single
 - id: '1608334851404'
   alias: Alarm - Arm Home
@@ -665,6 +685,9 @@
   - service: alarm_control_panel.alarm_arm_home
     data: {}
     entity_id: alarm_control_panel.calgary_alarm
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.quiet_time
   mode: single
 - id: '1609684788084'
   alias: Alarm - Arm Away
@@ -792,7 +815,7 @@
     - conditions:
       - condition: numeric_state
         entity_id: sensor.master_bathroom_temperature
-        below: '21.4'
+        below: '21.6'
       - condition: state
         entity_id: switch.space_heater
         state: 'off'
@@ -806,7 +829,7 @@
     - conditions:
       - condition: numeric_state
         entity_id: sensor.master_bathroom_temperature
-        above: '21.8'
+        above: '21.9'
       - condition: state
         entity_id: switch.space_heater
         state: 'on'
@@ -895,8 +918,11 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.all_windows
+    entity_id: group.basement_windows
     for: 00:05:00
+  - platform: state
+    for: 00:05:00
+    entity_id: group.main_foor_windows
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -905,7 +931,7 @@
   - choose:
     - conditions:
       - condition: state
-        entity_id: group.all_windows
+        entity_id: group.main_and_basement_windows
         state: 'on'
       sequence:
       - device_id: a3a722fbf9001c1051f06703aaeb803c
@@ -920,9 +946,8 @@
           device_id: a3a722fbf9001c1051f06703aaeb803c
     - conditions:
       - condition: state
-        entity_id: group.all_windows
+        entity_id: group.main_and_basement_windows
         state: 'off'
-        for: 00:05:00
       sequence:
       - device_id: a3a722fbf9001c1051f06703aaeb803c
         domain: climate
@@ -1094,16 +1119,10 @@
         device_id: 4c12bdfa77964af0ab5342561f3e6286
         entity_id: binary_sensor.library_window
         domain: binary_sensor
-        for:
-          hours: 0
-          minutes: 0
-          seconds: 15
-          milliseconds: 0
       sequence:
-      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
-        domain: cover
-        entity_id: cover.blinds_dining_room
-        type: set_position
+      - service: cover.close_cover
+        target:
+          device_id: df05ff97af8cc94daa4886f41221a920
     - conditions:
       - condition: state
         entity_id: sun.sun
@@ -1111,11 +1130,9 @@
       - condition: time
         after: 08:30:00
       sequence:
-      - device_id: df05ff97af8cc94daa4886f41221a920
-        domain: cover
-        entity_id: cover.blinds_library
-        type: set_position
-        position: 100
+      - service: cover.open_cover
+        target:
+          device_id: df05ff97af8cc94daa4886f41221a920
     default: []
   mode: single
 - id: '1615652668231'
@@ -1278,20 +1295,16 @@
   - platform: state
     entity_id: media_player.kitchen_ceiling
     to: unavailable
-    for: 00:01:00
   - platform: state
     entity_id: media_player.master_bedroom_speaker
     to: unavailable
-    for: 00:01:00
   - platform: state
     entity_id: media_player.patio_speaker
     to: unavailable
-    for: 00:01:00
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
-  action:
   - condition: not
     conditions:
     - condition: state
@@ -1307,6 +1320,7 @@
     - condition: state
       entity_id: media_player.patio_speaker
       state: playing
+  action:
   - type: turn_off
     device_id: 5dcc8797a37fb061b95d18f479e563cc
     entity_id: switch.chromecasts
@@ -1320,4 +1334,218 @@
     device_id: 5dcc8797a37fb061b95d18f479e563cc
     entity_id: switch.chromecasts
     domain: switch
+  mode: single
+- id: '1618257119742'
+  alias: Notify - Water Leak
+  description: ''
+  trigger:
+  - type: moist
+    platform: device
+    device_id: 93cab1ca67efecc7af1a4d4841c788e7
+    entity_id: binary_sensor.water_sump_pump
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: c620f1b04c034258d051c9cc6e29577b
+    entity_id: binary_sensor.water_hot_water_heater
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: a3e6c0335670a17f6c6198501a2a9235
+    entity_id: binary_sensor.water_dishwasher
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 2bc0e95fab5e927740fa29ab18554885
+    entity_id: binary_sensor.water_laundry_water_main
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 5100179c9103586fe2d245e2fdea14c1
+    entity_id: binary_sensor.water_master_bathroom_tub
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 3b76f90a4333a164bead1b10afdb7b78
+    entity_id: binary_sensor.water_refrigerator
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 6c4dab48e8edf5a9a7bbb3d03f526370
+    entity_id: binary_sensor.water_washing_machine
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Water Leak!
+      title: "\U0001F4A7\t {{ trigger.to_state.attributes.friendly_name }}"
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1
+        attachment:
+          url: https://home.eatsleepbreach.ca/local/cast_waterleak.png
+          content-type: png
+          hide-thumbnail: false
+  mode: single
+- id: '1618258170137'
+  alias: Notify - Windows Open
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.family_devices
+    from: home
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: group.all_windows
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: '{{ states | selectattr(''entity_id'',''in'', state_attr(''group.all_windows'',''entity_id''))
+        | selectattr(''state'',''eq'',''on'') | map(attribute=''name'') | join('',
+        '') }}
+
+        '
+      title: '🪟 Windows Open:'
+      data: {}
+  mode: single
+- id: '1618258922360'
+  alias: Quiet - Manage Volume
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.quiet_time
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.quiet_time
+        state: 'on'
+      sequence:
+      - service: automation.turn_off
+        target:
+          entity_id: automation.doorbell_front_ring
+      - service: media_player.volume_set
+        target:
+          entity_id:
+          - media_player.dining_room_speaker
+          - media_player.joels_room_speaker
+          - media_player.kitchen_ceiling
+          - media_player.kitchen_speaker
+          - media_player.library_speaker
+          - media_player.living_room_speaker
+          - media_player.master_bedroom_display
+          - media_player.master_bedroom_speaker
+          - media_player.theater_speaker
+          - media_player.office_speaker
+        data:
+          volume_level: 0.1
+      - service: unifiprotect.set_doorbell_lcd_message
+        data:
+          entity_id: camera.doorbell
+          message: Do Not Disturb
+      - service: unifiprotect.set_doorbell_chime_duration
+        data:
+          entity_id: camera.doorbell
+          chime_duration: 0
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.quiet_time
+        state: 'off'
+      sequence:
+      - service: automation.turn_on
+        target:
+          entity_id: automation.doorbell_front_ring
+      - service: media_player.volume_set
+        target:
+          entity_id:
+          - media_player.dining_room_speaker
+          - media_player.joels_room_speaker
+          - media_player.kitchen_ceiling
+          - media_player.kitchen_speaker
+          - media_player.library_speaker
+          - media_player.living_room_speaker
+          - media_player.master_bedroom_display
+          - media_player.master_bedroom_speaker
+          - media_player.theater_speaker
+          - media_player.office_speaker
+        data:
+          volume_level: 0.6
+      - service: unifiprotect.set_doorbell_lcd_message
+        data:
+          entity_id: camera.doorbell
+          message: Welcome
+      - service: unifiprotect.set_doorbell_chime_duration
+        data:
+          entity_id: camera.doorbell
+          chime_duration: 300
+    default: []
+  mode: single
+- id: '1618260754009'
+  alias: ISP - High Delay
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.pfsense_delay
+    above: '10.00'
+    for: 00:15:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.mobile_app_iphone
+    data:
+      title: 🌐 High ISP Latency
+      message: Gateway latency is {{ states.sensor.pfsense_gateway_wan_dhcp.attributes.delay
+        }}
+  mode: single
+- id: '1618351062301'
+  alias: Notify - Blue Bin
+  description: ''
+  trigger:
+  - type: vibration
+    platform: device
+    device_id: d2cb50a852578cf532f7dfa1ba44bd8e
+    entity_id: binary_sensor.vibration_blue_bin
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+      milliseconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: sensor.blue_bin
+    state: today
+  action:
+  - service: notify.ios_all_devices
+    data:
+      title: ♻️ Blue Bin Activity
+      message: The blue bin might have been collected
+      data:
+        attachment:
+          content-type: jpeg
+          hide-thumbnail: false
+        push:
+          category: camera
+        entity_id: camera.back_door
   mode: single
