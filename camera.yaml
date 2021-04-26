@@ -63,3 +63,16 @@
 - platform: generic
   name: 'Back Door Cloud Detection'
   still_image_url: !secret back_door_camera_cloud_detection
+
+##########################################
+# Garage
+##########################################
+- platform: generic
+  name: 'Garage Snapshot'
+  still_image_url: !secret garage_camera_snapshot
+- platform: generic
+  name: 'Garage Detection'
+  still_image_url: !secret garage_camera_detection
+- platform: generic
+  name: 'Garage Cloud Detection'
+  still_image_url: !secret garage_camera_cloud_detection

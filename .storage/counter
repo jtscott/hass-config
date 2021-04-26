@@ -32,6 +32,16 @@
                 "step": 1,
                 "initial": 0,
                 "id": "doorbell_motion_events"
+            },
+            {
+                "name": "Garage Motion Events",
+                "minimum": 0,
+                "maximum": 9999,
+                "step": 1,
+                "restore": true,
+                "initial": 0,
+                "id": "garage_motion_events",
+                "icon": "mdi:motion"
             }
         ]
     }

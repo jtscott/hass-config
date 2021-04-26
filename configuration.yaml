@@ -89,6 +89,7 @@ image_processing:
       - entity_id: camera.front_door_snapshot
       - entity_id: camera.back_door_snapshot
       - entity_id: camera.doorbell_snapshot
+      - entity_id: camera.garage_snapshot
   - platform: deepstack_object
     ip_address: !secret advertise_ip
     port: 5000
@@ -102,6 +103,7 @@ image_processing:
       - entity_id: camera.front_door_snapshot
       - entity_id: camera.back_door_snapshot
       - entity_id: camera.doorbell_snapshot
+      - entity_id: camera.garage_snapshot
 
 ###########################################
 # Influx

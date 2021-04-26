@@ -30,7 +30,8 @@
                     "Front Door",
                     "Back Door",
                     "Doorbell",
-                    "Disabled"
+                    "Disabled",
+                    "Garage"
                 ]
             },
             {
@@ -42,7 +43,8 @@
                     "Front Door",
                     "Back Door",
                     "Doorbell",
-                    "Disabled"
+                    "Disabled",
+                    "Garage"
                 ]
             },
             {
