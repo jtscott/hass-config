@@ -18,9 +18,18 @@
             "title": "Home",
             "views": [
                 {
+                    "icon": "mdi:feature-search-outline",
+                    "title": "Status",
                     "badges": [
-                        "person.jared",
-                        "person.brittany"
+                        {
+                            "entity": "person.jared"
+                        },
+                        {
+                            "entity": "person.brittany"
+                        },
+                        {
+                            "entity": "input_boolean.quiet_time"
+                        }
                     ],
                     "cards": [
                         {
@@ -214,13 +223,10 @@
                                         "state": "Disabled"
                                     },
                                     {
-                                        "state": "Front Door"
-                                    },
-                                    {
-                                        "state": "Back Door"
-                                    },
-                                    {
                                         "state": "off"
+                                    },
+                                    {
+                                        "state": "error"
                                     }
                                 ]
                             },
@@ -354,15 +360,48 @@
                             "type": "picture-glance"
                         },
                         {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.garage",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.motion_garage"
+                                },
+                                {
+                                    "entity": "camera.garage_detection"
+                                },
+                                {
+                                    "entity": "camera.garage_cloud_detection"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Garage",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.east_side",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.motion_east_side"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "East Side",
+                            "type": "picture-glance"
+                        },
+                        {
                             "card_id": "main_feed",
                             "compact_mode": true,
                             "entities": [
                                 "binary_sensor.motion_front_door",
                                 "binary_sensor.motion_back_door",
                                 "binary_sensor.motion_doorbell",
-                                "lock.front_door",
-                                "lock.back_door",
-                                "lock.garage_door",
+                                "binary_sensor.motion_east_side",
+                                "lock.front_door_lock",
+                                "lock.back_door_lock",
+                                "lock.garage_door_lock",
                                 "cover.garage_door"
                             ],
                             "more_info_on_tap": true,
@@ -371,12 +410,25 @@
                             "title": "Recent Activity",
                             "type": "custom:home-feed-card"
                         }
-                    ],
-                    "icon": "mdi:feature-search-outline",
-                    "title": "Status"
+                    ]
                 },
                 {
-                    "badges": [],
+                    "icon": "mdi:garage",
+                    "title": "Outside",
+                    "badges": [
+                        {
+                            "entity": "sensor.brittany_s_birthday"
+                        },
+                        {
+                            "entity": "sensor.jared_s_birthday"
+                        },
+                        {
+                            "entity": "sensor.joel_s_birthday"
+                        },
+                        {
+                            "entity": "sensor.wedding"
+                        }
+                    ],
                     "cards": [
                         {
                             "entities": [
@@ -443,31 +495,38 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "lock.front_door",
+                                    "entity": "lock.front_door_lock",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Front Door",
-                                    "state_header": "current",
+                                    "state_header": "Lock",
                                     "entities": [
                                         "binary_sensor.doorbell_front_door",
                                         "binary_sensor.front_door"
                                     ]
                                 },
                                 {
-                                    "entity": "lock.back_door",
+                                    "entity": "lock.back_door_lock",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Back Door",
-                                    "state_header": "current",
+                                    "state_header": "Lock",
                                     "entities": [
                                         "binary_sensor.back_door"
                                     ]
                                 },
                                 {
-                                    "entity": "lock.garage_door",
+                                    "entity": "lock.garage_door_lock",
                                     "type": "custom:multiple-entity-row",
-                                    "name": "Garage Door",
-                                    "state_header": "current",
+                                    "name": "Garage",
+                                    "state_header": "Lock",
                                     "entities": [
-                                        "binary_sensor.garage_door"
+                                        {
+                                            "entity": "binary_sensor.garage_door",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.garage_window",
+                                            "name": "Window"
+                                        }
                                     ]
                                 },
                                 {
@@ -531,55 +590,44 @@
                             "type": "entities"
                         },
                         {
-                            "type": "grid",
-                            "cards": [
+                            "type": "entities",
+                            "entities": [
                                 {
-                                    "type": "entity",
-                                    "entity": "sensor.brittany_s_birthday",
-                                    "name": "Britt's Bday",
-                                    "icon": "mdi:cake-layered"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "sensor.jared_s_birthday",
-                                    "name": "Jared's Bday",
-                                    "icon": "mdi:cake"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "sensor.joel_s_birthday"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "sensor.wedding"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "grid",
-                            "cards": [
-                                {
-                                    "type": "entity",
                                     "entity": "sensor.black_bin"
                                 },
                                 {
-                                    "type": "entity",
+                                    "entity": "sensor.green_bin"
+                                },
+                                {
                                     "entity": "sensor.blue_bin"
                                 },
                                 {
-                                    "type": "entity",
-                                    "entity": "sensor.green_bin"
+                                    "entity": "binary_sensor.vibration_blue_bin"
                                 }
-                            ]
+                            ],
+                            "title": "Waste Collection",
+                            "state_color": false
                         }
-                    ],
-                    "icon": "mdi:garage",
-                    "title": "Outside"
+                    ]
                 },
                 {
+                    "icon": "mdi:numeric-1-circle",
+                    "panel": false,
+                    "path": "mainfloor",
+                    "title": "Main Floor",
                     "badges": [
-                        "sensor.main_floor_temperature",
-                        "sensor.main_floor_humidity"
+                        {
+                            "entity": "sensor.main_floor_temperature"
+                        },
+                        {
+                            "entity": "sensor.main_floor_humidity"
+                        },
+                        {
+                            "entity": "sensor.radon_level"
+                        },
+                        {
+                            "entity": "sensor.radon_becquerels"
+                        }
                     ],
                     "cards": [
                         {
@@ -691,8 +739,7 @@
                                     ],
                                     "head": "cover.blinds_dining_room",
                                     "type": "custom:fold-entity-row"
-                                },
-                                "sensor.radon_level"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Dining Room",
@@ -733,11 +780,7 @@
                             "title": "Living Room",
                             "type": "entities"
                         }
-                    ],
-                    "icon": "mdi:numeric-1-circle",
-                    "panel": false,
-                    "path": "mainfloor",
-                    "title": "Main Floor"
+                    ]
                 },
                 {
                     "badges": [],
@@ -760,22 +803,26 @@
                                 "switch.space_heater",
                                 "binary_sensor.water_master_bathroom_tub",
                                 {
-                                    "entity": "binary_sensor.door_master_bedroom",
+                                    "entity": "sensor.master_bedroom_occupancy",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Room",
-                                    "state_header": "Door",
+                                    "state_header": "Presence",
                                     "entities": [
                                         {
                                             "entity": "binary_sensor.master_bedroom_window",
                                             "name": "Window"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.door_master_bedroom",
+                                            "name": "Door"
                                         }
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.master_bedroom_occupancy",
+                                    "entity": "sensor.master_bedroom_multi_sensor_2",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Conditions",
-                                    "state_header": "Occupancy",
+                                    "state_header": "Humidity",
                                     "entities": [
                                         {
                                             "entity": "sensor.master_bedroom_temperature",
@@ -799,6 +846,22 @@
                                 },
                                 {
                                     "entity": "cover.blinds_joels_room"
+                                },
+                                {
+                                    "entity": "binary_sensor.joel_s_room_window",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Window",
+                                    "state_header": "State",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.joel_s_room_window_temperature",
+                                            "name": "Temperature"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.joel_s_room_window_vibration",
+                                            "name": "Vibration"
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "media_player.joels_room_speaker"
@@ -908,9 +971,7 @@
                                     "entities": [
                                         "sensor.washer_spin_option_state",
                                         "sensor.washer_watertemp_option_state",
-                                        "sensor.washer_creasecare_mode",
-                                        "sensor.washer_steam_mode",
-                                        "sensor.washer_steam_softener_mode"
+                                        "sensor.washer_steam_mode"
                                     ],
                                     "head": "sensor.washer_current_course",
                                     "type": "custom:fold-entity-row"
@@ -971,6 +1032,36 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.theater_occupancy",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Conditions",
+                                    "state_header": "Occupancy",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_temperature",
+                                            "name": "Temperature"
+                                        }
+                                    ]
+                                },
+                                "light.theater",
+                                {
+                                    "entities": [
+                                        "input_select.theater_outlet_1",
+                                        "input_number.basement_target_temperature"
+                                    ],
+                                    "head": "switch.theater_outlet_1",
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entity": "binary_sensor.theatre_window"
+                                }
+                            ],
+                            "title": "Theater",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entities": [
                                         "input_select.harmony"
                                     ],
@@ -1005,6 +1096,15 @@
                                 },
                                 {
                                     "name": "Nintendo Switch"
+                                },
+                                {
+                                    "name": "Playstation 3"
+                                },
+                                {
+                                    "name": "Xbox 360"
+                                },
+                                {
+                                    "name": "Super Nintendo"
                                 }
                             ],
                             "buttons": {
@@ -1079,36 +1179,6 @@
                                 }
                             ],
                             "title": "Guest Bedroom",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.theater_occupancy",
-                                    "type": "custom:multiple-entity-row",
-                                    "name": "Conditions",
-                                    "state_header": "Occupancy",
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.theater_temperature",
-                                            "name": "Temperature"
-                                        }
-                                    ]
-                                },
-                                "light.theater",
-                                {
-                                    "entities": [
-                                        "input_select.theater_outlet_1",
-                                        "input_number.basement_target_temperature"
-                                    ],
-                                    "head": "switch.theater_outlet_1",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entity": "binary_sensor.theatre_window"
-                                }
-                            ],
-                            "title": "Theater",
                             "type": "entities"
                         },
                         {
