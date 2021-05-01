@@ -262,6 +262,10 @@
   - condition: numeric_state
     entity_id: sensor.uptime_minutes
     above: '2.0'
+  - condition: state
+    entity_id: binary_sensor.motion_garage
+    state: 'off'
+    for: 00:00:10
   action:
   - service: notify.ios_all_devices
     data:
