@@ -755,6 +755,21 @@
           minutes: 10
           seconds: 0
           milliseconds: 0
+    - conditions:
+      - condition: state
+        entity_id: weather.calgary_olympic_park
+        state: rainy
+      sequence:
+      - service: input_select.select_option
+        target:
+          entity_id: input_select.image_processing_mode
+        data:
+          option: Local
+      - delay:
+          hours: 0
+          minutes: 10
+          seconds: 0
+          milliseconds: 0
     default:
     - delay:
         hours: 0
