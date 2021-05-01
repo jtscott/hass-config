@@ -416,3 +416,21 @@ camera.garage_cloud_detection:
   icon: mdi:cloud
 camera.garage_detection:
   icon: mdi:motion-sensor
+switch.humidifier:
+  icon: mdi:air-humidifier
+light.base_station_audio_settings:
+  icon: mdi:volume-high
+light.bedroom_keypad_audio_settings:
+  icon: mdi:volume-high
+light.entryway_keypad_audio_settings:
+  icon: mdi:volume-high
+light.back_door_keypad_audio_settings:
+  icon: mdi:volume-high
+light.range_extender_14:
+  icon: mdi:access-point
+light.range_extender_15:
+  icon: mdi:access-point
+light.range_extender_basement:
+  icon: mdi:access-point
+light.range_extender_garage:
+  icon: mdi:access-point
