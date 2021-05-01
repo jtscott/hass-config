@@ -10,6 +10,7 @@ www/guestwifi.png
 www/community/
 www/snapshot/*
 custom_components/
+image/*
 .cloud/
 .storage/tmp*
 .storage/hassio
@@ -21,6 +22,7 @@ custom_components/
 .storage/zha.storage
 .storage/hacs
 .storage/hacs.*
+.storage/image
 .storage/frontend.user_data_*
 .storage/adbkey
 .storage/adbkey.pub
