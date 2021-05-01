@@ -53,9 +53,6 @@
                                         "entity_id": "sensor.climate_*"
                                     },
                                     {
-                                        "entity_id": "switch.range"
-                                    },
-                                    {
                                         "entity_id": "switch.garage_cover_outlet*"
                                     },
                                     {
@@ -77,16 +74,34 @@
                                         "entity_id": "switch.status_light_on_*"
                                     },
                                     {
-                                        "entity_id": "switch.basement_powerstrip_switch_4"
+                                        "entity_id": "switch.powerstrip"
                                     },
                                     {
-                                        "entity_id": "switch.basement_powerstrip_switch"
+                                        "entity_id": "switch.outlet1_*"
                                     },
                                     {
                                         "entity_id": "switch.modem"
                                     },
                                     {
                                         "entity_id": "switch.chromecasts"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_*_detect"
+                                    },
+                                    {
+                                        "entity_id": "switch.*.*_clips"
+                                    },
+                                    {
+                                        "entity_id": "switch.*.*_snapshots"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_smart_watering_program*"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_rain_delay"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_daily_program"
                                     },
                                     {
                                         "entity_id": "input_boolean.front_*"
@@ -128,19 +143,10 @@
                                         "entity_id": "light.shellyrgbw2*"
                                     },
                                     {
-                                        "entity_id": "light.kitchen_left_led"
+                                        "entity_id": "light.kitchen_*_led"
                                     },
                                     {
-                                        "entity_id": "light.kitchen_right_led"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_smart_watering_program*"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_rain_delay"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_daily_program"
+                                        "entity_id": "light.*_*_audio_settings"
                                     },
                                     {
                                         "entity_id": "media_player.theater"
@@ -171,7 +177,10 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:auto-entities"
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "domain"
+                            }
                         },
                         {
                             "card": {
@@ -549,6 +558,7 @@
                                     "entities": [
                                         {
                                             "entity": "switch.garage_cover_outlet_1",
+                                            "name": "MSG200",
                                             "toggle": true
                                         },
                                         {
@@ -788,6 +798,8 @@
                         {
                             "entities": [
                                 "light.bedroom_lamp",
+                                "switch.space_heater",
+                                "switch.humidifier",
                                 {
                                     "artwork": "cover",
                                     "entity": "media_player.theframe",
@@ -800,7 +812,6 @@
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
-                                "switch.space_heater",
                                 "binary_sensor.water_master_bathroom_tub",
                                 {
                                     "entity": "sensor.master_bedroom_occupancy",
@@ -907,6 +918,9 @@
                                         {
                                             "entity": "sensor.library_temperature",
                                             "name": "Temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.librarymultisensor_illuminance"
                                         }
                                     ]
                                 },
@@ -1399,10 +1413,10 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.basement_powerstrip_electricity_w_meter_4",
+                                    "entity": "sensor.basement_powerstrip_electricity_w_meter_5",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Power",
-                                    "state_header": "Server",
+                                    "state_header": "Chromecasts",
                                     "entities": [
                                         {
                                             "entity": "sensor.basement_powerstrip_electricity_w_meter_3",
@@ -1411,10 +1425,6 @@
                                         {
                                             "entity": "sensor.basement_powerstrip_electricity_w_meter_6",
                                             "name": "Amps"
-                                        },
-                                        {
-                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_5",
-                                            "name": "Chromecasts"
                                         }
                                     ]
                                 },
@@ -1444,7 +1454,7 @@
                                     ],
                                     "head": {
                                         "icon": "si:z-wave",
-                                        "name": "zwave2mqtt",
+                                        "name": "zwavejs2mqtt",
                                         "type": "weblink",
                                         "url": "http://192.168.2.11:8091"
                                     },
@@ -1703,6 +1713,9 @@
                                 },
                                 {
                                     "entity": "counter.doorbell_motion_events"
+                                },
+                                {
+                                    "entity": "counter.garage_motion_events"
                                 }
                             ],
                             "show_header_toggle": false,
