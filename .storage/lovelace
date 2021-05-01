@@ -260,6 +260,24 @@
                                         "entity_id": "group.*"
                                     },
                                     {
+                                        "entity_id": "binary_sensor.*_*_room_occupancy"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_occupancy"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.motion_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_nest_protect_online"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_motion"
+                                    },
+                                    {
                                         "state": "off"
                                     },
                                     {
@@ -278,11 +296,18 @@
                                     },
                                     {
                                         "name": "/[Ww]indow/"
+                                    },
+                                    {
+                                        "domain": "binary_sensor"
                                     }
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:auto-entities"
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "domain",
+                                "reverse": true
+                            }
                         },
                         {
                             "card": {
@@ -1234,7 +1259,14 @@
                     "title": "Downstairs"
                 },
                 {
-                    "badges": [],
+                    "icon": "mdi:city",
+                    "path": "calgary",
+                    "title": "Calgary",
+                    "badges": [
+                        {
+                            "entity": "sensor.rro_rate"
+                        }
+                    ],
                     "cards": [
                         {
                             "backdrop": {
@@ -1247,27 +1279,133 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.uv_rating_template"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_cloud_coverage"
-                                },
-                                {
-                                    "entity": "sensor.air_pressure_template"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_wind_speed"
-                                },
-                                {
+                                    "entity": "sensor.sunset",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Daylight",
+                                    "state_header": "Sunset",
                                     "entities": [
-                                        "sensor.dark_sky_precip_probability_template",
-                                        "sensor.dark_sky_precip_intensity"
-                                    ],
-                                    "head": "sensor.dark_sky_precip_type_template",
-                                    "type": "custom:fold-entity-row"
+                                        {
+                                            "entity": "sensor.sunrise",
+                                            "name": "Sunrise"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_cloud_coverage",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Cloud",
+                                    "state_header": "Coverage",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.uv_rating_template",
+                                            "name": "UV Rating"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_wind_speed",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Wind",
+                                    "state_header": "Speed",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.air_pressure_template",
+                                            "name": "Pressure"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_precip_type_template",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Precipitation",
+                                    "state_header": "Type",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dark_sky_precip_probability_template",
+                                            "name": "Probability"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_precip_intensity",
+                                            "name": "Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sun.sun",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Sun",
+                                    "state_header": "State",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.solar_angle",
+                                            "name": "Angle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.season_template",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Seasons",
+                                    "state_header": "Season",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.moon",
+                                            "name": "Moon"
+                                        }
+                                    ]
                                 }
                             ],
                             "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Temperature",
+                                    "state_header": "Low",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dark_sky_daytime_high_temperature_1d",
+                                            "name": "High"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_precip_type_tomorrow_template",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Precipitation",
+                                    "state_header": "Type",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dark_sky_precip_probability_tomorrow_template",
+                                            "name": "Probability"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_precip_intensity_1d",
+                                            "name": "Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_wind_speed_1d",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Wind",
+                                    "state_header": "Speed",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.air_pressure_tomorrow_template",
+                                            "name": "Pressure"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_cloud_coverage_1d"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Tomorrow's Forecast",
                             "type": "entities"
                         },
                         {
@@ -1283,14 +1421,6 @@
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
                             "title": "Doppler",
                             "type": "picture-glance"
-                        },
-                        {
-                            "entities": [
-                                "sensor.rro_rate"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Electricity",
-                            "type": "entities"
                         },
                         {
                             "entity": "camera.bow_sarcee",
@@ -1321,64 +1451,8 @@
                             "entity": "camera.glenmore_macleod",
                             "show_state": false,
                             "type": "picture-entity"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.dark_sky_daytime_high_temperature_1d"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d"
-                                },
-                                {
-                                    "entity": "sensor.air_pressure_tomorrow_template"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_wind_speed_1d"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.dark_sky_precip_type_tomorrow_template",
-                                        "sensor.dark_sky_cloud_coverage_1d",
-                                        "sensor.dark_sky_precip_intensity_1d"
-                                    ],
-                                    "head": "sensor.dark_sky_precip_probability_tomorrow_template",
-                                    "type": "custom:fold-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Tomorrow's Forecast",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.moon"
-                                },
-                                {
-                                    "entity": "sun.sun"
-                                },
-                                {
-                                    "entity": "sensor.season_template"
-                                },
-                                {
-                                    "entity": "sensor.sunrise"
-                                },
-                                {
-                                    "entity": "sensor.sunset"
-                                },
-                                {
-                                    "entity": "sensor.solar_angle"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Sun & Moon",
-                            "type": "entities"
                         }
-                    ],
-                    "icon": "mdi:city",
-                    "path": "calgary",
-                    "title": "Calgary"
+                    ]
                 },
                 {
                     "icon": "mdi:server",
@@ -1413,17 +1487,17 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.basement_powerstrip_electricity_w_meter_5",
+                                    "entity": "sensor.powerstrip_electric_consumed_w_4",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Power",
                                     "state_header": "Chromecasts",
                                     "entities": [
                                         {
-                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_3",
+                                            "entity": "sensor.powerstrip_electric_consumed_w_2",
                                             "name": "Printer"
                                         },
                                         {
-                                            "entity": "sensor.basement_powerstrip_electricity_w_meter_6",
+                                            "entity": "sensor.powerstrip_electric_consumed_w_5",
                                             "name": "Amps"
                                         }
                                     ]
