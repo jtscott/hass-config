@@ -18,8 +18,15 @@
             "title": "Home",
             "views": [
                 {
-                    "icon": "mdi:feature-search-outline",
-                    "title": "Status",
+                    "icon": "mdi:tablet-dashboard",
+                    "visible": [
+                        {
+                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
+                        },
+                        {
+                            "user": "b9db7fa55b304308a648c8aed76c5861"
+                        }
+                    ],
                     "badges": [
                         {
                             "entity": "person.jared"
@@ -295,7 +302,306 @@
                                         "state": "unlocked"
                                     },
                                     {
-                                        "name": "/[Ww]indow/"
+                                        "domain": "binary_sensor"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "entity_id",
+                                "reverse": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:feature-search-outline",
+                    "title": "Status",
+                    "visible": [
+                        {
+                            "user": "a4746799d9d34e738b9c95268d09d2ac"
+                        },
+                        {
+                            "user": "b9db7fa55b304308a648c8aed76c5861"
+                        },
+                        {
+                            "user": "68e731104ae14a34985a5698a1665d78"
+                        }
+                    ],
+                    "badges": [
+                        {
+                            "entity": "person.jared"
+                        },
+                        {
+                            "entity": "person.brittany"
+                        },
+                        {
+                            "entity": "input_boolean.quiet_time"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "On",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "automation.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.climate_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.garage_cover_outlet*"
+                                    },
+                                    {
+                                        "entity_id": "switch.unifi_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.hdr_mode_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.high_fps_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.ir_active_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.record_always_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.status_light_on_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.powerstrip"
+                                    },
+                                    {
+                                        "entity_id": "switch.outlet1_*"
+                                    },
+                                    {
+                                        "entity_id": "switch.modem"
+                                    },
+                                    {
+                                        "entity_id": "switch.chromecasts"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_*_detect"
+                                    },
+                                    {
+                                        "entity_id": "switch.*.*_clips"
+                                    },
+                                    {
+                                        "entity_id": "switch.*.*_snapshots"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_smart_watering_program*"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_rain_delay"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_daily_program"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.front_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.back_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.garage_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.vacuum_mainfloor_manual"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.camera_alerts"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.door_keypad_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.automations"
+                                    },
+                                    {
+                                        "entity_id": "light.garage_*"
+                                    },
+                                    {
+                                        "entity_id": "light.dimmable_*"
+                                    },
+                                    {
+                                        "entity_id": "remote.*"
+                                    },
+                                    {
+                                        "entity_id": "light.blinds"
+                                    },
+                                    {
+                                        "entity_id": "light.garage"
+                                    },
+                                    {
+                                        "entity_id": "light.shellyrgbw2*"
+                                    },
+                                    {
+                                        "entity_id": "light.kitchen_*_led"
+                                    },
+                                    {
+                                        "entity_id": "light.*_*_audio_settings"
+                                    },
+                                    {
+                                        "entity_id": "media_player.theater"
+                                    },
+                                    {
+                                        "entity_id": "calendar.garbage_collection"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "on"
+                                    },
+                                    {
+                                        "state": "cleaning"
+                                    },
+                                    {
+                                        "state": "playing"
+                                    },
+                                    {
+                                        "state": "paused"
+                                    },
+                                    {
+                                        "state": "armed_away"
+                                    },
+                                    {
+                                        "state": "armed_home"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "domain"
+                            }
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Disabled",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "script.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "light.*"
+                                    },
+                                    {
+                                        "entity_id": "media_player.*"
+                                    },
+                                    {
+                                        "entity_id": "switch.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*"
+                                    },
+                                    {
+                                        "entity_id": "input_select.door_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.*"
+                                    },
+                                    {
+                                        "entity_id": "remote.*"
+                                    },
+                                    {
+                                        "entity_id": "calendar.*"
+                                    },
+                                    {
+                                        "entity_id": "input_select.camera_motion_alerts"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "Disabled"
+                                    },
+                                    {
+                                        "state": "off"
+                                    },
+                                    {
+                                        "state": "error"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Open",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.*window*"
+                                    },
+                                    {
+                                        "entity_id": "automation.*"
+                                    },
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_room_occupancy"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_occupancy"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.motion_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_nest_protect_online"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_motion"
+                                    },
+                                    {
+                                        "state": "off"
+                                    },
+                                    {
+                                        "state": "unavailable"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "open"
+                                    },
+                                    {
+                                        "state": "Open"
+                                    },
+                                    {
+                                        "state": "unlocked"
                                     },
                                     {
                                         "domain": "binary_sensor"
@@ -305,7 +611,7 @@
                             "show_empty": false,
                             "type": "custom:auto-entities",
                             "sort": {
-                                "method": "domain",
+                                "method": "entity_id",
                                 "reverse": true
                             }
                         },
@@ -1262,6 +1568,17 @@
                     "icon": "mdi:city",
                     "path": "calgary",
                     "title": "Calgary",
+                    "visible": [
+                        {
+                            "user": "a4746799d9d34e738b9c95268d09d2ac"
+                        },
+                        {
+                            "user": "b9db7fa55b304308a648c8aed76c5861"
+                        },
+                        {
+                            "user": "68e731104ae14a34985a5698a1665d78"
+                        }
+                    ],
                     "badges": [
                         {
                             "entity": "sensor.rro_rate"
