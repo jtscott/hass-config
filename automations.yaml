@@ -184,6 +184,16 @@
   - condition: numeric_state
     entity_id: sensor.uptime_minutes
     above: '2.0'
+  - type: is_no_motion
+    condition: device
+    device_id: 94100d32e36a54fb98249b20d7ecfe4c
+    entity_id: binary_sensor.motion_inside_front_door
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
   action:
   - service: notify.ios_all_devices
     data:
@@ -213,6 +223,16 @@
   - condition: numeric_state
     entity_id: sensor.uptime_minutes
     above: '2.0'
+  - type: is_no_motion
+    condition: device
+    device_id: ae949343c5f669ba4a357bd3d6ff8fa7
+    entity_id: binary_sensor.motion_inside_back_door
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
   action:
   - service: notify.ios_all_devices
     data:
@@ -918,11 +938,8 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.basement_windows
-    for: 00:05:00
-  - platform: state
-    for: 00:05:00
-    entity_id: group.main_foor_windows
+    entity_id: group.all_windows
+    for: 00:01:00
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -931,34 +948,32 @@
   - choose:
     - conditions:
       - condition: state
-        entity_id: group.main_and_basement_windows
+        entity_id: group.all_windows
         state: 'on'
       sequence:
-      - device_id: a3a722fbf9001c1051f06703aaeb803c
-        domain: climate
-        entity_id: climate.main_floor
-        type: set_hvac_mode
-        hvac_mode: 'off'
-      - service: climate.set_fan_mode
-        data:
-          fan_mode: 'on'
+      - service: climate.set_hvac_mode
         target:
-          device_id: a3a722fbf9001c1051f06703aaeb803c
+          entity_id: climate.main_floor
+        data:
+          hvac_mode: fan_only
+      - type: turn_off
+        device_id: ee92ccea31d5f79493219f83ccf74b06
+        entity_id: switch.humidifier
+        domain: switch
     - conditions:
       - condition: state
-        entity_id: group.main_and_basement_windows
+        entity_id: group.all_windows
         state: 'off'
       sequence:
-      - device_id: a3a722fbf9001c1051f06703aaeb803c
-        domain: climate
-        entity_id: climate.main_floor
-        type: set_hvac_mode
-        hvac_mode: heat_cool
-      - service: climate.set_fan_mode
-        data:
-          fan_mode: Auto
+      - service: climate.set_hvac_mode
         target:
-          device_id: a3a722fbf9001c1051f06703aaeb803c
+          entity_id: climate.main_floor
+        data:
+          hvac_mode: auto
+      - type: turn_on
+        device_id: ee92ccea31d5f79493219f83ccf74b06
+        entity_id: switch.humidifier
+        domain: switch
     default: []
   mode: single
 - id: '1614829216486'
@@ -1463,6 +1478,12 @@
         data:
           entity_id: camera.doorbell
           chime_duration: 0
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.base_station_audio_settings
+          - light.back_door_keypad_audio_settings
+          - light.entryway_keypad_audio_settings
     - conditions:
       - condition: state
         entity_id: input_boolean.quiet_time
@@ -1494,6 +1515,12 @@
         data:
           entity_id: camera.doorbell
           chime_duration: 300
+      - service: light.turn_on
+        target:
+          entity_id:
+          - light.base_station_audio_settings
+          - light.back_door_keypad_audio_settings
+          - light.entryway_keypad_audio_settings
     default: []
   mode: single
 - id: '1618260754009'
@@ -1548,4 +1575,44 @@
         push:
           category: camera
         entity_id: camera.back_door
+  mode: single
+- id: '1619560143233'
+  alias: Humidifier - Humidity Control
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.master_bedroom_multi_sensor_2
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - type: is_humidity
+        condition: device
+        device_id: 1d9fc783987a579033677c12a987f9f7
+        entity_id: sensor.master_bedroom_multi_sensor_2
+        domain: sensor
+        above: 30
+      sequence:
+      - service: switch.turn_off
+        target:
+          device_id: ee92ccea31d5f79493219f83ccf74b06
+    - conditions:
+      - type: is_humidity
+        condition: device
+        device_id: 1d9fc783987a579033677c12a987f9f7
+        entity_id: sensor.master_bedroom_multi_sensor_2
+        domain: sensor
+        below: 30
+      - condition: state
+        entity_id: group.all_windows
+        state: 'off'
+      sequence:
+      - type: turn_on
+        device_id: ee92ccea31d5f79493219f83ccf74b06
+        entity_id: switch.humidifier
+        domain: switch
+    default: []
   mode: single
