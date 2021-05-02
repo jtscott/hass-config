@@ -48,13 +48,3 @@
   sensors:
     uptime_minutes:
       value_template: "{{ (as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) // 60|int }}"
-
-- platform: mqtt
-  name: "Zwave Controller Status"
-  state_topic: "homeassistant/nodeID_1/status"
-  value_template: "{{ value_json.status }}"
-
-- platform: mqtt
-  name: "Zwave Controller Last Activity"
-  state_topic: "homeassistant/nodeID_1/status"
-  value_template: "{{ value_json.time | multiply(0.001) | round(0) | timestamp_local }}"
