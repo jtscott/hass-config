@@ -1355,19 +1355,17 @@
       entity_id: media_player.patio_speaker
       state: playing
   action:
-  - type: turn_off
-    device_id: 5dcc8797a37fb061b95d18f479e563cc
-    entity_id: switch.chromecasts
-    domain: switch
+  - service: switch.turn_off
+    target:
+      entity_id: switch.chromecasts
   - delay:
       hours: 0
       minutes: 0
       seconds: 30
       milliseconds: 0
-  - type: turn_on
-    device_id: 5dcc8797a37fb061b95d18f479e563cc
-    entity_id: switch.chromecasts
-    domain: switch
+  - service: switch.turn_on
+    target:
+      entity_id: switch.chromecasts
   mode: single
 - id: '1618257119742'
   alias: Notify - Water Leak
@@ -1634,4 +1632,31 @@
         entity_id: switch.humidifier
         domain: switch
     default: []
+  mode: single
+- id: '1619906631532'
+  alias: Wall Tablet - Turn On With Motion
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 1150e56c5a20c542d66f808a2f7652a8
+    entity_id: binary_sensor.motion_hallway_2
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: time
+    after: input_datetime.alarm_disarm
+    before: input_datetime.alarm_arm
+  action:
+  - service: notify.mobile_app_7510_home_ipad
+    data:
+      message: Automated Wake
+      title: Tablet woken from motion
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
   mode: single
