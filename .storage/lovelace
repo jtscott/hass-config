@@ -22,11 +22,9 @@
                     "visible": [
                         {
                             "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
-                        },
-                        {
-                            "user": "b9db7fa55b304308a648c8aed76c5861"
                         }
                     ],
+                    "title": "Tablet",
                     "badges": [
                         {
                             "entity": "person.jared"
@@ -39,6 +37,14 @@
                         }
                     ],
                     "cards": [
+                        {
+                            "backdrop": {
+                                "day": "var(--primary-color)",
+                                "night": "#40445a"
+                            },
+                            "entity": "weather.calgary_olympic_park",
+                            "type": "custom:simple-weather-card"
+                        },
                         {
                             "card": {
                                 "show_header_toggle": false,
@@ -1839,17 +1845,10 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entities": [
-                                        "sensor.zwave_controller_status",
-                                        "sensor.zwave_controller_last_activity"
-                                    ],
-                                    "head": {
-                                        "icon": "si:z-wave",
-                                        "name": "zwavejs2mqtt",
-                                        "type": "weblink",
-                                        "url": "http://192.168.2.11:8091"
-                                    },
-                                    "type": "custom:fold-entity-row"
+                                    "icon": "si:z-wave",
+                                    "name": "zwavejs2mqtt",
+                                    "type": "weblink",
+                                    "url": "http://192.168.2.11:8091"
                                 },
                                 {
                                     "icon": "mdi:zigbee",
