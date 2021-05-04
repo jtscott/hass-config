@@ -141,14 +141,6 @@ weather:
     station: !secret ec_station_id
 
 ###########################################
-# Device Tracker
-###########################################
-#device_tracker:
-#  - platform: trackr
-#    username: !secret email_account
-#    password: !secret trackr_password
-
-###########################################
 # Third Party Components
 ########################################### 
 google_assistant: !include google_assistant.yaml
