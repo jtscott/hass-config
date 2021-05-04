@@ -5,13 +5,11 @@
   sensors:
     climate_operation_mode:
       value_template: "{{ states.climate.main_floor.attributes.climate_mode if states.climate.main_floor is not none else 'Unknown' }}"
-      entity_id: climate.main_floor
 
 - platform: template
   sensors:
     climate_preset_mode:
       value_template: "{{ states.climate.main_floor.attributes.preset_mode if states.climate.main_floor is not none else 'Unknown' }}"
-      entity_id: climate.main_floor
 
 - platform: template
   sensors:
