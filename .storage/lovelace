@@ -99,6 +99,9 @@
                                         "entity_id": "switch.chromecasts"
                                     },
                                     {
+                                        "entity_id": "switch.powerstrip_3"
+                                    },
+                                    {
                                         "entity_id": "switch.*_*_detect"
                                     },
                                     {
@@ -291,6 +294,9 @@
                                         "entity_id": "binary_sensor.*_*_motion"
                                     },
                                     {
+                                        "entity_id": "binary_sensor.workday_sensor"
+                                    },
+                                    {
                                         "state": "off"
                                     },
                                     {
@@ -396,6 +402,9 @@
                                     },
                                     {
                                         "entity_id": "switch.modem"
+                                    },
+                                    {
+                                        "entity_id": "switch.powerstrip_3"
                                     },
                                     {
                                         "entity_id": "switch.chromecasts"
@@ -591,6 +600,12 @@
                                     },
                                     {
                                         "entity_id": "binary_sensor.*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.washer_wash_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.workday_sensor"
                                     },
                                     {
                                         "state": "off"
@@ -840,6 +855,7 @@
                         },
                         {
                             "entities": [
+                                "switch.powerstrip_3",
                                 {
                                     "entity": "lock.front_door_lock",
                                     "type": "custom:multiple-entity-row",
@@ -1967,6 +1983,11 @@
                                         "name": "state",
                                         "operator": "matches",
                                         "value": "Unavailable"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "operator": "matches",
+                                        "value": "Off"
                                     },
                                     {
                                         "name": "attributes.friendly_name",
