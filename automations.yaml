@@ -878,15 +878,6 @@
         entity_id: switch.space_heater
     default: []
   mode: single
-- id: '1613960679848'
-  alias: System - Certificate Renewal
-  description: ''
-  use_blueprint:
-    path: bkbilly/certificate-expiration.yaml
-    input:
-      days_input: '9'
-      certificate_input: sensor.cert_expiry_timestamp_home_eatsleepbreach_ca
-      time_input: '1:00:00'
 - id: '1614301350375'
   alias: Camera - Cost Control
   description: Disable image processing due to count limit
@@ -1649,6 +1640,9 @@
   - condition: time
     after: input_datetime.alarm_disarm
     before: input_datetime.alarm_arm
+  - condition: numeric_state
+    entity_id: sensor.powerstrip_electric_consumed_w_3
+    above: '0.0'
   action:
   - service: notify.mobile_app_7510_home_ipad
     data:
@@ -1659,4 +1653,47 @@
       minutes: 5
       seconds: 0
       milliseconds: 0
+  mode: single
+- id: '1620053691684'
+  alias: System - Certificate Expiry
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.certificate_expiry_days
+    below: '20'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: hassio.addon_start
+    data:
+      addon: core_letsencrypt
+  - delay:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - service: hassio.addon_restart
+    data:
+      addon: core_nginx_proxy
+  - service: homeassistant.restart
+  mode: single
+- id: '1620087317543'
+  alias: Notify - Forgotten Washer
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.washer_wash_completed
+    to: 'on'
+    for: 01:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Did you forget the washer?
+      title: 🧺 Washer
   mode: single
