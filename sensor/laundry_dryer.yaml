@@ -17,7 +17,7 @@
   sensors:
     dryer_initial_time:
       friendly_name: 'Initial Time'
-      value_template: '{{ states.sensor.washer.attributes.dryer_time }}'
+      value_template: '{{ states.sensor.dryer.attributes.initial_time }}'
 
 - platform: template
   sensors:

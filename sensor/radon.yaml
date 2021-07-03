@@ -5,7 +5,7 @@
 # git clone https://github.com/ceandre/radonreader.git
 # sudo pip install paho-mqtt bluepy
 # sudo hciconfig hci0 up
-# sudo hcitoollescan
+# sudo hcitool lescan
 # Edit radon_reader.py to lower QoS to 0
 # nano /home/pi/radonreader/radon_reader.py
 # crontab -e

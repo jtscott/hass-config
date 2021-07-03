@@ -51,6 +51,18 @@ alarm_sensors:
     - binary_sensor.guest_bedroom_window
 
 ###########################################
+# Smoke and CO Sensors
+###########################################
+smoke_and_co:
+  entities:
+    - sensor.upstairs_nest_protect_smoke_status
+    - sensor.upstairs_nest_protect_co_status
+    - sensor.kitchen_nest_protect_smoke_status
+    - sensor.kitchen_nest_protect_co_status
+    - sensor.downstairs_nest_protect_smoke_status
+    - sensor.downstairs_nest_protect_co_status
+
+###########################################
 # Occupancy
 ###########################################
 binary_occupancy:
@@ -75,6 +87,7 @@ all_windows:
   - binary_sensor.theatre_window
   - binary_sensor.guest_bedroom_window
   - binary_sensor.joel_s_room_window
+  - binary_sensor.master_bathroom_window
 
 upstairs_windows:
   name: "Upstairs Windows"
@@ -82,6 +95,7 @@ upstairs_windows:
     - binary_sensor.master_bedroom_window
     - binary_sensor.library_window
     - binary_sensor.joel_s_room_window
+    - binary_sensor.master_bathroom_window
 
 main_foor_windows:
   name: "Main Floor Windows"
@@ -96,13 +110,3 @@ basement_windows:
   entities:
     - binary_sensor.theatre_window
     - binary_sensor.guest_bedroom_window
-
-main_and_basement_windows:
-  name: "Temperature Control Windows"
-  entities:
-    - binary_sensor.theatre_window
-    - binary_sensor.guest_bedroom_window
-    - binary_sensor.office_window
-    - binary_sensor.dining_room_window
-    - binary_sensor.living_room_window_left
-    - binary_sensor.living_room_window_right

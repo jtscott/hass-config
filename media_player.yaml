@@ -2,7 +2,6 @@
   name: TheFrame
   host: !secret theframe_ip
   mac: !secret theframe_mac
-  port: 8002
   api_key: !secret smartthings_api
   device_id: !secret theframe_deviceid
   update_method: smartthings
@@ -25,46 +24,46 @@
     com.disney.disneyplus: Disney+
     psplay.grill.com: PSPlay
   state_detection_rules:
-      'com.android.vending':
-          - 'standby'
-      'com.android.tv.settings':
-          - 'standby'
-      'com.google.android.tvlauncher':
-          - 'standby':
-              'wake_lock_size': 0
-      'com.netflix.ninja':
-          - 'playing':
-              'media_session_state': 3
-              'wake_lock_size': 2
-          - 'paused':
-              'media_session_state': 2
-              'wake_lock_size': 0
-          - 'standby':
-              'media_session_state': 1
-              'wake_lock_size': 0
-      'com.plexapp.android':
-          - 'playing':
-              'media_session_state': 3
-              'wake_lock_size': 3
-          - 'paused':
-              'media_session_state': 2
-              'wake_lock_size': 1
-          - 'standby':
-              'wake_lock_size': 1
-      'com.google.android.youtube.tv':
-          - 'playing':
-              'media_session_state': 3
-              'wake_lock_size': 3
-          - 'paused':
-              'media_session_state': 2
-              'wake_lock_size': 1
-          - 'standby':
-              'media_session_state': 0
-              'wake_lock_size': 1
-      'com.amazon.amazonvideo.livingroom':
-          - 'playing':
-              'wake_lock_size': 4
-          - 'paused':
-              'wake_lock_size': 2
-          - 'idle':
-              'wake_lock_size': 1
+    "com.android.vending":
+      - "standby"
+    "com.android.tv.settings":
+      - "standby"
+    "com.google.android.tvlauncher":
+      - "standby":
+          "wake_lock_size": 0
+    "com.netflix.ninja":
+      - "playing":
+          "media_session_state": 3
+          "wake_lock_size": 2
+      - "paused":
+          "media_session_state": 2
+          "wake_lock_size": 0
+      - "standby":
+          "media_session_state": 1
+          "wake_lock_size": 0
+    "com.plexapp.android":
+      - "playing":
+          "media_session_state": 3
+          "wake_lock_size": 3
+      - "paused":
+          "media_session_state": 2
+          "wake_lock_size": 1
+      - "standby":
+          "wake_lock_size": 1
+    "com.google.android.youtube.tv":
+      - "playing":
+          "media_session_state": 3
+          "wake_lock_size": 3
+      - "paused":
+          "media_session_state": 2
+          "wake_lock_size": 1
+      - "standby":
+          "media_session_state": 0
+          "wake_lock_size": 1
+    "com.amazon.amazonvideo.livingroom":
+      - "playing":
+          "wake_lock_size": 4
+      - "paused":
+          "wake_lock_size": 2
+      - "idle":
+          "wake_lock_size": 1
