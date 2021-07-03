@@ -1,0 +1,45 @@
+automation:
+  alias: Chromecasts - Reboot
+  description: Reboot the chromecast audio devices when they become unavailable
+  trigger:
+    - platform: state
+      entity_id: media_player.kitchen_ceiling
+      to: "unavailable"
+    - platform: state
+      entity_id: media_player.master_bedroom_speaker
+      to: "unavailable"
+    - platform: state
+      entity_id: media_player.patio_speaker
+      to: "unavailable"
+  condition:
+    - condition: state
+      entity_id: input_boolean.automations
+      state: "on"
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.kitchen_ceiling
+          state: playing
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.master_bedroom_speaker
+          state: playing
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.patio_speaker
+          state: playing
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.chromecasts
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 30
+        milliseconds: 0
+    - service: switch.turn_on
+      target:
+        entity_id: switch.chromecasts
+  mode: single
