@@ -34,8 +34,6 @@ stream:
 logger:
   default: warning
 updater:
-  reporting: false
-  include_used_components: true
 tts:
   - platform: google_translate
     base_url: !secret base_url
@@ -57,6 +55,15 @@ ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
+
+###########################################
+# Switch
+###########################################
+switch:
+  platform: deluge
+  host: !secret deluge_host
+  username : !secret deluge_username
+  password : !secret deluge_password
 
 ###########################################
 # MQTT

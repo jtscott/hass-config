@@ -86,7 +86,7 @@
             {
                 "id": "faf4f50a307440fd945b80520703c24a",
                 "type": "module",
-                "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js"
+                "url": "/hacsfiles/lovelace-home-feed-card/lovelace-home-feed-card.js?hacstag=174016256062"
             },
             {
                 "id": "eaca57b516f04115873c977fdd06db37",
@@ -117,6 +117,16 @@
                 "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js",
                 "type": "module",
                 "id": "a06210e126b84105bdabcc0e7c2d0c43"
+            },
+            {
+                "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
+                "type": "module",
+                "id": "333e928af342490d87a1043269717f4c"
+            },
+            {
+                "url": "/webrtc/webrtc-camera.js?v2.0.2",
+                "type": "module",
+                "id": "0058711f57e54614b32d4ddf6b8357bd"
             }
         ]
     }

@@ -18,316 +18,6 @@
             "title": "Home",
             "views": [
                 {
-                    "icon": "mdi:tablet-dashboard",
-                    "visible": [
-                        {
-                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
-                        }
-                    ],
-                    "title": "Tablet",
-                    "badges": [
-                        {
-                            "entity": "person.jared"
-                        },
-                        {
-                            "entity": "person.brittany"
-                        },
-                        {
-                            "entity": "input_boolean.quiet_time"
-                        }
-                    ],
-                    "cards": [
-                        {
-                            "backdrop": {
-                                "day": "var(--primary-color)",
-                                "night": "#40445a"
-                            },
-                            "entity": "weather.calgary_olympic_park",
-                            "type": "custom:simple-weather-card"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "On",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
-                                    },
-                                    {
-                                        "entity_id": "automation.*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.climate_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.garage_cover_outlet*"
-                                    },
-                                    {
-                                        "entity_id": "switch.unifi_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.hdr_mode_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.high_fps_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.ir_active_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.record_always_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.status_light_on_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.powerstrip"
-                                    },
-                                    {
-                                        "entity_id": "switch.outlet1_*"
-                                    },
-                                    {
-                                        "entity_id": "switch.modem"
-                                    },
-                                    {
-                                        "entity_id": "switch.chromecasts"
-                                    },
-                                    {
-                                        "entity_id": "switch.powerstrip_3"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_*_detect"
-                                    },
-                                    {
-                                        "entity_id": "switch.*.*_clips"
-                                    },
-                                    {
-                                        "entity_id": "switch.*.*_snapshots"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_smart_watering_program*"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_rain_delay"
-                                    },
-                                    {
-                                        "entity_id": "switch.*_timer_daily_program"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.front_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.back_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.garage_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.vacuum_mainfloor_manual"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.camera_alerts"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.door_keypad_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.automations"
-                                    },
-                                    {
-                                        "entity_id": "light.garage_*"
-                                    },
-                                    {
-                                        "entity_id": "light.dimmable_*"
-                                    },
-                                    {
-                                        "entity_id": "remote.*"
-                                    },
-                                    {
-                                        "entity_id": "light.blinds"
-                                    },
-                                    {
-                                        "entity_id": "light.garage"
-                                    },
-                                    {
-                                        "entity_id": "light.shellyrgbw2*"
-                                    },
-                                    {
-                                        "entity_id": "light.kitchen_*_led"
-                                    },
-                                    {
-                                        "entity_id": "light.*_*_audio_settings"
-                                    },
-                                    {
-                                        "entity_id": "media_player.theater"
-                                    },
-                                    {
-                                        "entity_id": "calendar.garbage_collection"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "on"
-                                    },
-                                    {
-                                        "state": "cleaning"
-                                    },
-                                    {
-                                        "state": "playing"
-                                    },
-                                    {
-                                        "state": "paused"
-                                    },
-                                    {
-                                        "state": "armed_away"
-                                    },
-                                    {
-                                        "state": "armed_home"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities",
-                            "sort": {
-                                "method": "domain"
-                            }
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Disabled",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "script.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
-                                    },
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "light.*"
-                                    },
-                                    {
-                                        "entity_id": "media_player.*"
-                                    },
-                                    {
-                                        "entity_id": "switch.*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.*"
-                                    },
-                                    {
-                                        "entity_id": "input_select.door_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.*"
-                                    },
-                                    {
-                                        "entity_id": "remote.*"
-                                    },
-                                    {
-                                        "entity_id": "calendar.*"
-                                    },
-                                    {
-                                        "entity_id": "input_select.camera_motion_alerts"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "Disabled"
-                                    },
-                                    {
-                                        "state": "off"
-                                    },
-                                    {
-                                        "state": "error"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Open",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "sensor.*window*"
-                                    },
-                                    {
-                                        "entity_id": "automation.*"
-                                    },
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_*_room_occupancy"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_occupancy"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.motion_*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_nest_protect_online"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_*_*_motion"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_*_motion"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.workday_sensor"
-                                    },
-                                    {
-                                        "state": "off"
-                                    },
-                                    {
-                                        "state": "unavailable"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "open"
-                                    },
-                                    {
-                                        "state": "Open"
-                                    },
-                                    {
-                                        "state": "unlocked"
-                                    },
-                                    {
-                                        "domain": "binary_sensor"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities",
-                            "sort": {
-                                "method": "entity_id",
-                                "reverse": true
-                            }
-                        }
-                    ]
-                },
-                {
                     "icon": "mdi:feature-search-outline",
                     "title": "Status",
                     "visible": [
@@ -339,6 +29,9 @@
                         },
                         {
                             "user": "68e731104ae14a34985a5698a1665d78"
+                        },
+                        {
+                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
                         }
                     ],
                     "badges": [
@@ -350,6 +43,9 @@
                         },
                         {
                             "entity": "input_boolean.quiet_time"
+                        },
+                        {
+                            "entity": "input_boolean.meeting_time"
                         }
                     ],
                     "cards": [
@@ -404,7 +100,7 @@
                                         "entity_id": "switch.modem"
                                     },
                                     {
-                                        "entity_id": "switch.powerstrip_3"
+                                        "entity_id": "switch.powerstrip_*"
                                     },
                                     {
                                         "entity_id": "switch.chromecasts"
@@ -437,10 +133,10 @@
                                         "entity_id": "input_boolean.garage_*"
                                     },
                                     {
-                                        "entity_id": "input_boolean.vacuum_mainfloor_manual"
+                                        "entity_id": "input_boolean.vacuum_*"
                                     },
                                     {
-                                        "entity_id": "input_boolean.camera_alerts"
+                                        "entity_id": "input_boolean.*_alerts"
                                     },
                                     {
                                         "entity_id": "input_boolean.door_keypad_*"
@@ -473,10 +169,22 @@
                                         "entity_id": "light.*_*_audio_settings"
                                     },
                                     {
-                                        "entity_id": "media_player.theater"
+                                        "entity_id": "calendar.garbage_collection"
                                     },
                                     {
-                                        "entity_id": "calendar.garbage_collection"
+                                        "entity_id": "switch.backyard_timer_grass_seeding_program"
+                                    },
+                                    {
+                                        "entity_id": "switch.nzbget_download"
+                                    },
+                                    {
+                                        "entity_id": "switch.deluge_switch"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_power_off"
+                                    },
+                                    {
+                                        "state": "paused"
                                     }
                                 ],
                                 "include": [
@@ -485,9 +193,6 @@
                                     },
                                     {
                                         "state": "cleaning"
-                                    },
-                                    {
-                                        "state": "playing"
                                     },
                                     {
                                         "state": "paused"
@@ -556,6 +261,9 @@
                                         "state": "Disabled"
                                     },
                                     {
+                                        "state": "Manual"
+                                    },
+                                    {
                                         "state": "off"
                                     },
                                     {
@@ -565,6 +273,36 @@
                             },
                             "show_empty": false,
                             "type": "custom:auto-entities"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Playing",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "media_player.theater"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "playing"
+                                    },
+                                    {
+                                        "state": "paused"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "domain"
+                            }
                         },
                         {
                             "card": {
@@ -605,21 +343,30 @@
                                         "entity_id": "binary_sensor.washer_wash_*"
                                     },
                                     {
+                                        "entity_id": "binary_sensor.dryer_dry_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_home_security_tampering_product_cover_removed"
+                                    },
+                                    {
                                         "entity_id": "binary_sensor.workday_sensor"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.updater"
                                     },
                                     {
                                         "state": "off"
                                     },
                                     {
                                         "state": "unavailable"
+                                    },
+                                    {
+                                        "domain": "cover"
                                     }
                                 ],
                                 "include": [
                                     {
                                         "state": "open"
-                                    },
-                                    {
-                                        "state": "Open"
                                     },
                                     {
                                         "state": "unlocked"
@@ -663,6 +410,47 @@
                             "show_empty": false,
                             "type": "custom:auto-entities"
                         },
+                        {
+                            "card": {
+                                "title": "Blinds",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "cover.garage_door"
+                                    },
+                                    {
+                                        "state": "off"
+                                    },
+                                    {
+                                        "state": "unavailable"
+                                    },
+                                    {
+                                        "state": "closed"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "domain": "cover"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "entity_id",
+                                "reverse": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Cams",
+                    "path": "cams",
+                    "icon": "mdi:cctv",
+                    "badges": [],
+                    "cards": [
                         {
                             "aspect_ratio": "0%",
                             "camera_image": "camera.doorbell",
@@ -759,11 +547,7 @@
                                 "binary_sensor.motion_front_door",
                                 "binary_sensor.motion_back_door",
                                 "binary_sensor.motion_doorbell",
-                                "binary_sensor.motion_east_side",
-                                "lock.front_door_lock",
-                                "lock.back_door_lock",
-                                "lock.garage_door_lock",
-                                "cover.garage_door"
+                                "binary_sensor.motion_east_side"
                             ],
                             "more_info_on_tap": true,
                             "show_empty": false,
@@ -791,6 +575,22 @@
                         }
                     ],
                     "cards": [
+                        {
+                            "card_id": "main_feed",
+                            "compact_mode": true,
+                            "entities": [
+                                "lock.front_door_lock",
+                                "lock.back_door_lock",
+                                "lock.garage_door_lock",
+                                "cover.garage_door",
+                                "switch.garage_cover_outlet_2"
+                            ],
+                            "more_info_on_tap": true,
+                            "show_empty": false,
+                            "state_color": true,
+                            "title": "Recent Activity",
+                            "type": "custom:home-feed-card"
+                        },
                         {
                             "entities": [
                                 {
@@ -942,9 +742,9 @@
                                     "entities": [
                                         "switch.backyard_timer_rain_delay",
                                         "switch.backyard_timer_smart_watering_program",
-                                        "sensor.backyard_zone_history"
+                                        "sensor.back_yard_zone_history"
                                     ],
-                                    "head": "switch.backyard_zone",
+                                    "head": "switch.back_yard_zone",
                                     "type": "custom:fold-entity-row"
                                 }
                             ],
@@ -995,17 +795,27 @@
                     "cards": [
                         {
                             "entities": [
-                                "switch.kitchen_light",
-                                "light.island",
-                                "binary_sensor.door_refridgerator",
                                 {
+                                    "entity": "switch.kitchen_light",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Lights",
+                                    "state_header": "Light",
+                                    "toggle": true,
+                                    "state_color": true,
                                     "entities": [
-                                        "light.kitchen_left_led",
-                                        "light.kitchen_right_led"
-                                    ],
-                                    "head": "light.kitchen_cabinets",
-                                    "type": "custom:fold-entity-row"
+                                        {
+                                            "entity": "light.island",
+                                            "name": "Island",
+                                            "toggle": true
+                                        },
+                                        {
+                                            "entity": "light.kitchen_cabinets",
+                                            "name": "Cabinets",
+                                            "toggle": true
+                                        }
+                                    ]
                                 },
+                                "binary_sensor.door_refridgerator",
                                 {
                                     "entity": "vacuum.main_floor",
                                     "type": "custom:multiple-entity-row",
@@ -1037,23 +847,33 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.office"
+                                    "entity": "light.office",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Lights",
+                                    "state_header": "Light",
+                                    "toggle": true,
+                                    "state_color": true,
+                                    "entities": [
+                                        {
+                                            "entity": "light.office_lamp",
+                                            "name": "Lamp",
+                                            "toggle": true
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.office_lamp"
-                                },
-                                {
-                                    "entity": "binary_sensor.office_window"
-                                },
-                                {
-                                    "entity": "sensor.office_occupancy",
+                                    "entity": "binary_sensor.office_window",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Conditions",
-                                    "state_header": "Occupancy",
+                                    "state_header": "Window",
                                     "entities": [
                                         {
                                             "entity": "sensor.office_temperature",
                                             "name": "Temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.office_occupancy",
+                                            "name": "Occupancy"
                                         }
                                     ]
                                 },
@@ -1151,11 +971,23 @@
                         {
                             "entities": [
                                 "light.bedroom_lamp",
-                                "switch.space_heater",
-                                "switch.humidifier",
+                                {
+                                    "entity": "switch.space_heater",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Environment",
+                                    "state_header": "Heater",
+                                    "toggle": true,
+                                    "entities": [
+                                        {
+                                            "entity": "switch.humidifier",
+                                            "name": "Humidifier",
+                                            "toggle": true
+                                        }
+                                    ]
+                                },
                                 {
                                     "artwork": "cover",
-                                    "entity": "media_player.theframe",
+                                    "entity": "media_player.the_frame",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
@@ -1295,6 +1127,7 @@
                         },
                         {
                             "entities": [
+                                "switch.stairway",
                                 {
                                     "entities": [
                                         "input_select.blinds_stairway_mode"
@@ -1351,29 +1184,39 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.dryer",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Dryer",
+                                    "state_header": "Dryer",
                                     "entities": [
-                                        "sensor.dryer_drylevel_option_state",
-                                        "sensor.dryer_tempcontrol_option_state"
-                                    ],
-                                    "head": "sensor.dryer",
-                                    "type": "custom:fold-entity-row"
+                                        {
+                                            "entity": "sensor.dryer_drylevel_option_state",
+                                            "name": "Dry Level"
+                                        },
+                                        {
+                                            "entity": "sensor.dryer_tempcontrol_option_state",
+                                            "name": "Temp Control"
+                                        },
+                                        {
+                                            "entity": "sensor.dryer_current_course",
+                                            "name": "Course"
+                                        }
+                                    ]
                                 },
                                 {
+                                    "entity": "sensor.dryer_remaining_time",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "State",
+                                    "state_header": "Remaining",
                                     "entities": [
-                                        "sensor.dryer_pre_state"
-                                    ],
-                                    "head": "sensor.dryer_run_state",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.dryer_initial_time",
-                                        "sensor.dryer_reserve_time"
-                                    ],
-                                    "head": "sensor.dryer_remaining_time",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                "sensor.dryer_current_course"
+                                        {
+                                            "entity": "sensor.dryer_run_state"
+                                        },
+                                        {
+                                            "entity": "sensor.dryer_pre_state"
+                                        }
+                                    ]
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Dryer",
@@ -1599,6 +1442,9 @@
                         },
                         {
                             "user": "68e731104ae14a34985a5698a1665d78"
+                        },
+                        {
+                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
                         }
                     ],
                     "badges": [
@@ -1748,6 +1594,9 @@
                             "type": "entities"
                         },
                         {
+                            "type": "custom:sun-card"
+                        },
+                        {
                             "aspect_ratio": "75%",
                             "type": "iframe",
                             "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
@@ -1826,6 +1675,20 @@
                                     ]
                                 },
                                 {
+                                    "entity": "switch.deluge_switch",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Downloads",
+                                    "state_header": "Deluge",
+                                    "toggle": true,
+                                    "entities": [
+                                        {
+                                            "entity": "switch.nzbget_download",
+                                            "name": "NZBGet",
+                                            "toggle": true
+                                        }
+                                    ]
+                                },
+                                {
                                     "entity": "sensor.powerstrip_electric_consumed_w_4",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Power",
@@ -1838,6 +1701,10 @@
                                         {
                                             "entity": "sensor.powerstrip_electric_consumed_w_5",
                                             "name": "Amps"
+                                        },
+                                        {
+                                            "entity": "sensor.powerstrip_electric_consumed_w_3",
+                                            "name": "iPad"
                                         }
                                     ]
                                 },
@@ -2048,46 +1915,16 @@
                                         "entity_id": "group.*"
                                     },
                                     {
-                                        "entity_id": "media_player.*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.dark_sky_*"
-                                    },
-                                    {
-                                        "entity_id": "sensor.hacs"
-                                    },
-                                    {
                                         "entity_id": "light.dimmable*"
                                     },
                                     {
                                         "entity_id": "image_processing.*"
                                     },
                                     {
-                                        "entity_id": "input_text.*"
-                                    },
-                                    {
-                                        "entity_id": "light.kitchen_led*"
-                                    },
-                                    {
                                         "entity_id": "light.garage*"
                                     },
                                     {
                                         "entity_id": "light.light_shower"
-                                    },
-                                    {
-                                        "entity_id": "light.bedroom_lamp"
-                                    },
-                                    {
-                                        "entity_id": "switch.unifi_*"
-                                    },
-                                    {
-                                        "entity_id": "device_tracker.unifi_*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.updater"
-                                    },
-                                    {
-                                        "entity_id": "sensor.zwave_controller_notification"
                                     }
                                 ],
                                 "include": [

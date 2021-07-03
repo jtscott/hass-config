@@ -20,6 +20,11 @@
                 "name": "Quiet Time",
                 "icon": "mdi:volume-off",
                 "id": "quiet_time"
+            },
+            {
+                "name": "Meeting Time",
+                "icon": "mdi:calendar-cursor",
+                "id": "meeting_time"
             }
         ]
     }
