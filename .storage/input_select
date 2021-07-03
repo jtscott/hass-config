@@ -111,9 +111,10 @@
                 ]
             },
             {
-                "name": "Blinds Library Mode",
+                "name": "Library Blinds Mode",
                 "options": [
-                    "Automatic"
+                    "Automatic",
+                    "Manual"
                 ],
                 "id": "blinds_library_mode",
                 "icon": "mdi:blinds"
