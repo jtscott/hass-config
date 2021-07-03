@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "key": "emulated_hue.ids",
+    "data": {
+        "1": "switch.theater_outlet_1",
+        "2": "light.theater",
+        "3": "switch.basement_stairs"
+    }
+}
