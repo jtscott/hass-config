@@ -184,6 +184,12 @@
                                         "entity_id": "switch.*_power_off"
                                     },
                                     {
+                                        "entity_id": "switch.ipad"
+                                    },
+                                    {
+                                        "entity_id": "switch.office"
+                                    },
+                                    {
                                         "state": "paused"
                                     }
                                 ],
@@ -209,6 +215,69 @@
                             "type": "custom:auto-entities",
                             "sort": {
                                 "method": "domain"
+                            }
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Playing",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "group.*"
+                                    },
+                                    {
+                                        "entity_id": "media_player.theater"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "state": "playing"
+                                    },
+                                    {
+                                        "state": "paused"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "domain"
+                            }
+                        },
+                        {
+                            "card": {
+                                "title": "Blinds",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "cover.garage_door"
+                                    },
+                                    {
+                                        "state": "off"
+                                    },
+                                    {
+                                        "state": "unavailable"
+                                    },
+                                    {
+                                        "state": "closed"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "domain": "cover"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "entity_id",
+                                "reverse": true
                             }
                         },
                         {
@@ -277,36 +346,6 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
-                                "title": "Playing",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "media_player.theater"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "state": "playing"
-                                    },
-                                    {
-                                        "state": "paused"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities",
-                            "sort": {
-                                "method": "domain"
-                            }
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
                                 "title": "Open",
                                 "type": "entities"
                             },
@@ -353,6 +392,9 @@
                                     },
                                     {
                                         "entity_id": "binary_sensor.updater"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.theateroutlet2_power_management_over_load_detected"
                                     },
                                     {
                                         "state": "off"
@@ -409,39 +451,6 @@
                             },
                             "show_empty": false,
                             "type": "custom:auto-entities"
-                        },
-                        {
-                            "card": {
-                                "title": "Blinds",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "cover.garage_door"
-                                    },
-                                    {
-                                        "state": "off"
-                                    },
-                                    {
-                                        "state": "unavailable"
-                                    },
-                                    {
-                                        "state": "closed"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "domain": "cover"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:auto-entities",
-                            "sort": {
-                                "method": "entity_id",
-                                "reverse": true
-                            }
                         }
                     ]
                 },
@@ -604,9 +613,9 @@
                                 {
                                     "entities": [
                                         "input_select.camera_motion_alerts",
-                                        "input_select.camera_person_alerts"
+                                        "input_select.image_processing_mode"
                                     ],
-                                    "head": "input_select.image_processing_mode",
+                                    "head": "input_select.camera_person_alerts",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -617,10 +626,19 @@
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "input_boolean.guestmode"
-                                },
-                                {
-                                    "entity": "input_boolean.homesitter"
+                                    "entity": "input_boolean.guestmode",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Home Modes",
+                                    "state_header": "Guest Mode",
+                                    "toggle": true,
+                                    "state_color": true,
+                                    "entities": [
+                                        {
+                                            "entity": "input_boolean.homesitter",
+                                            "name": "Homesitter",
+                                            "toggle": true
+                                        }
+                                    ]
                                 }
                             ],
                             "show_header_toggle": false,
@@ -655,7 +673,6 @@
                         },
                         {
                             "entities": [
-                                "switch.powerstrip_3",
                                 {
                                     "entity": "lock.front_door_lock",
                                     "type": "custom:multiple-entity-row",
@@ -762,10 +779,20 @@
                                     "entity": "sensor.green_bin"
                                 },
                                 {
-                                    "entity": "sensor.blue_bin"
-                                },
-                                {
-                                    "entity": "binary_sensor.vibration_blue_bin"
+                                    "entity": "sensor.blue_bin",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Recycle Bin",
+                                    "state_header": "Collection",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.vibration_recycle_bin_temperature",
+                                            "name": "Temperature"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.vibration_recycle_bin",
+                                            "name": "Vibration"
+                                        }
+                                    ]
                                 }
                             ],
                             "title": "Waste Collection",
@@ -849,11 +876,20 @@
                                 {
                                     "entity": "light.office",
                                     "type": "custom:multiple-entity-row",
-                                    "name": "Lights",
+                                    "name": "Switches",
                                     "state_header": "Light",
                                     "toggle": true,
                                     "state_color": true,
                                     "entities": [
+                                        {
+                                            "entity": "switch.office",
+                                            "name": "Desk",
+                                            "toggle": true
+                                        },
+                                        {
+                                            "entity": "switch.ipad",
+                                            "toggle": true
+                                        },
                                         {
                                             "entity": "light.office_lamp",
                                             "name": "Lamp",
@@ -1038,26 +1074,24 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.joels_lamp"
+                                    "entity": "light.joels_lamp",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Room",
+                                    "state_header": "Lamp",
+                                    "toggle": true,
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.door_joels_room",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.joel_s_room_window",
+                                            "name": "Window"
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "cover.blinds_joels_room"
-                                },
-                                {
-                                    "entity": "binary_sensor.joel_s_room_window",
-                                    "type": "custom:multiple-entity-row",
-                                    "name": "Window",
-                                    "state_header": "State",
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.joel_s_room_window_temperature",
-                                            "name": "Temperature"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.joel_s_room_window_vibration",
-                                            "name": "Vibration"
-                                        }
-                                    ]
                                 },
                                 {
                                     "entity": "media_player.joels_room_speaker"
@@ -1071,10 +1105,6 @@
                                         {
                                             "entity": "sensor.joel_s_room_temperature",
                                             "name": "Temperature"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.door_joels_room",
-                                            "name": "Door"
                                         }
                                     ]
                                 }
@@ -1127,7 +1157,9 @@
                         },
                         {
                             "entities": [
-                                "switch.stairway",
+                                {
+                                    "entity": "switch.upstairs_light"
+                                },
                                 {
                                     "entities": [
                                         "input_select.blinds_stairway_mode"
@@ -1232,9 +1264,15 @@
                     "cards": [
                         {
                             "entities": [
-                                "switch.basement_stairs",
-                                "binary_sensor.basement_door",
-                                "switch.theater_outlet_2"
+                                {
+                                    "entity": "switch.downstairs_light"
+                                },
+                                {
+                                    "entity": "binary_sensor.door_access_control_window_door_is_open"
+                                },
+                                {
+                                    "entity": "switch.outlet2"
+                                }
                             ],
                             "title": "Basement",
                             "type": "entities"
@@ -1272,13 +1310,6 @@
                         {
                             "entities": [
                                 {
-                                    "entities": [
-                                        "input_select.harmony"
-                                    ],
-                                    "head": "sensor.current_activity",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
                                     "artwork": "cover",
                                     "entity": "media_player.un65f8000",
                                     "group": true,
@@ -1290,54 +1321,54 @@
                                     "entity": "media_player.nvidia_shield",
                                     "group": true,
                                     "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "remote.living_room",
+                                    "type": "custom:harmony-card",
+                                    "activities": [
+                                        {
+                                            "name": "Watch Plex"
+                                        },
+                                        {
+                                            "name": "Watch a Movie"
+                                        },
+                                        {
+                                            "name": "Nintendo Switch"
+                                        },
+                                        {
+                                            "name": "Playstation 3"
+                                        },
+                                        {
+                                            "name": "Xbox 360"
+                                        },
+                                        {
+                                            "name": "Super Nintendo"
+                                        }
+                                    ],
+                                    "buttons": {
+                                        "a": {
+                                            "command": "Source",
+                                            "device": "Samsung TV",
+                                            "icon": "mdi:video-input-hdmi"
+                                        },
+                                        "b": {
+                                            "hide": true
+                                        },
+                                        "x": {
+                                            "hide": true
+                                        },
+                                        "xbox": {
+                                            "hide": true
+                                        },
+                                        "y": {
+                                            "hide": true
+                                        }
+                                    }
                                 }
                             ],
                             "show_header_toggle": false,
                             "title": "TV",
                             "type": "entities"
-                        },
-                        {
-                            "activities": [
-                                {
-                                    "name": "Watch Plex"
-                                },
-                                {
-                                    "name": "Watch a Movie"
-                                },
-                                {
-                                    "name": "Nintendo Switch"
-                                },
-                                {
-                                    "name": "Playstation 3"
-                                },
-                                {
-                                    "name": "Xbox 360"
-                                },
-                                {
-                                    "name": "Super Nintendo"
-                                }
-                            ],
-                            "buttons": {
-                                "a": {
-                                    "command": "Source",
-                                    "device": "Samsung TV",
-                                    "icon": "mdi:video-input-hdmi"
-                                },
-                                "b": {
-                                    "hide": true
-                                },
-                                "x": {
-                                    "hide": true
-                                },
-                                "xbox": {
-                                    "hide": true
-                                },
-                                "y": {
-                                    "hide": true
-                                }
-                            },
-                            "entity": "remote.living_room",
-                            "type": "custom:harmony-card"
                         },
                         {
                             "entities": [
@@ -1393,13 +1424,7 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entities": [
-                                        "sensor.amp_wattage"
-                                    ],
-                                    "head": "switch.amp",
-                                    "type": "custom:fold-entity-row"
-                                },
+                                "switch.amp",
                                 "switch.chromecasts",
                                 {
                                     "artwork": "cover",
@@ -1611,27 +1636,17 @@
                             "type": "picture-glance"
                         },
                         {
+                            "aspect_ratio": "100%",
+                            "type": "iframe",
+                            "url": "https://firesmoke.ca/forecasts/current/"
+                        },
+                        {
                             "entity": "camera.bow_sarcee",
                             "show_state": false,
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "camera.bow_6_ave",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.5_ave_7_st",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
                             "entity": "camera.glenmore_crowchild",
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.4_ave_9_st",
                             "show_state": false,
                             "type": "picture-entity"
                         },
@@ -1705,6 +1720,10 @@
                                         {
                                             "entity": "sensor.powerstrip_electric_consumed_w_3",
                                             "name": "iPad"
+                                        },
+                                        {
+                                            "entity": "sensor.office_current_power",
+                                            "name": "Office"
                                         }
                                     ]
                                 },
@@ -1732,12 +1751,6 @@
                                     "name": "zwavejs2mqtt",
                                     "type": "weblink",
                                     "url": "http://192.168.2.11:8091"
-                                },
-                                {
-                                    "icon": "mdi:zigbee",
-                                    "name": "Deconz",
-                                    "type": "weblink",
-                                    "url": "http://192.168.2.10/pwa/index.html"
                                 },
                                 {
                                     "icon": "si:stackbit",
@@ -1795,14 +1808,6 @@
                             "card_style": "glance",
                             "entity": "sensor.rpi_monitor_zwave2mqtt",
                             "name": "zwave2mqtt",
-                            "name_prefix": "",
-                            "temp_scale": "c",
-                            "type": "custom:rpi-monitor-card"
-                        },
-                        {
-                            "card_style": "glance",
-                            "entity": "sensor.rpi_monitor_phoscon",
-                            "name": "Deconz",
                             "name_prefix": "",
                             "temp_scale": "c",
                             "type": "custom:rpi-monitor-card"

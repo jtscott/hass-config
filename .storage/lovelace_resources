@@ -127,6 +127,11 @@
                 "url": "/webrtc/webrtc-camera.js?v2.0.2",
                 "type": "module",
                 "id": "0058711f57e54614b32d4ddf6b8357bd"
+            },
+            {
+                "url": "/hacsfiles/slider-button-card/slider-button-card.js?hacstag=3754399611103",
+                "type": "module",
+                "id": "83335e21ea93412bb1d14ebe249946a6"
             }
         ]
     }
