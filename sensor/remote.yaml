@@ -1,5 +1,0 @@
-- platform: template
-  sensors:
-    current_activity:
-      friendly_name: 'Current Activity'
-      value_template: '{{ states.remote.living_room.attributes.current_activity }}'
