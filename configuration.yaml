@@ -16,7 +16,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret nginx_proxy
-    - !secret hassio_proxy
+    - 172.30.33.0/24
 
 ###########################################
 # Core Components
@@ -62,8 +62,8 @@ sensor: !include_dir_merge_list sensor
 switch:
   platform: deluge
   host: !secret deluge_host
-  username : !secret deluge_username
-  password : !secret deluge_password
+  username: !secret deluge_username
+  password: !secret deluge_password
 
 ###########################################
 # MQTT
@@ -76,11 +76,11 @@ mqtt:
   username: home-assistant
   password: !secret mqtt_password
   birth_message:
-    topic: 'homeassistant/status'
-    payload: 'online'
+    topic: "homeassistant/status"
+    payload: "online"
   will_message:
-    topic: 'homeassistant/status'
-    payload: 'offline'
+    topic: "homeassistant/status"
+    payload: "offline"
 
 ###########################################
 # Image Processing
@@ -149,7 +149,7 @@ weather:
 
 ###########################################
 # Third Party Components
-########################################### 
+###########################################
 google_assistant: !include google_assistant.yaml
 
 nest:
@@ -159,3 +159,12 @@ nest:
 wemo:
   static:
     - !secret wemo_insight_ip
+
+###########################################
+# Electricity
+###########################################
+command_line:
+  unit_of_measurement: "Cents"
+  command: "bash /config/electricity/rrorates.sh"
+  name: "RRO Rate"
+  scan_interval: 60
