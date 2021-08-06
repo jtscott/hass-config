@@ -1,22 +1,3 @@
-- id: '1577904430400'
-  alias: System - Dropbox Backup Sync
-  description: Synchronize hass.io snapshots to Dropbox
-  trigger:
-  - at: '12:00:00'
-    platform: time
-  condition:
-  - after: '12:00:00'
-    before: 02:00:00
-    condition: time
-    weekday:
-    - sun
-  action:
-  - data:
-      addon: 7be23ff5_dropbox_sync
-      input:
-        command: upload
-    service: hassio.addon_stdin
-  mode: single
 - id: '1591481819436'
   alias: System - Startup Tasks
   description: ''
@@ -632,8 +613,8 @@
       - delay: 00:02:00
   mode: single
 - id: '1608008281551'
-  alias: Alarm - Disarm
-  description: ''
+  alias: Alarm - Disarm at Time
+  description: Disarm the alarm based on the time
   trigger:
   - platform: time
     at: input_datetime.alarm_disarm
@@ -645,18 +626,9 @@
     entity_id: group.family_devices
     state: home
   action:
-  - service: switch.turn_on
-    data: {}
-    entity_id: switch.garage_cover_outlet_2
   - service: alarm_control_panel.alarm_disarm
     data: {}
     entity_id: alarm_control_panel.calgary_alarm
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.quiet_time
-  - service: switch.turn_off
-    target:
-      entity_id: switch.entryway_outlet_1
   mode: single
 - id: '1608334851404'
   alias: Alarm - Arm Home
@@ -913,29 +885,28 @@
   alias: Light - Basement Stairs
   description: ''
   trigger:
-  - type: opened
-    platform: device
-    device_id: 44eae6990c494cfd8a209f98a436e74e
-    entity_id: binary_sensor.basement_door
-    domain: binary_sensor
+  - platform: state
+    entity_id: binary_sensor.door_access_control_window_door_is_open
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
-  action:
   - condition: device
     type: is_off
-    device_id: 8630210676794c5992b4a2c92a73f90d
-    entity_id: switch.basement_stairs
+    device_id: 82e0c17532a89c0f67d225445a48a13c
+    entity_id: switch.downstairs_light
     domain: switch
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  action:
   - service: switch.turn_on
     data: {}
-    entity_id: switch.basement_stairs
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
+    target:
+      entity_id: switch.downstairs_light
   mode: single
 - id: '1614558915813'
   alias: Climate - Window Control
@@ -974,11 +945,14 @@
         entity_id: group.all_windows
         state: 'off'
       sequence:
-      - service: climate.set_hvac_mode
+      - service: climate.turn_on
+        target:
+          entity_id: climate.main_floor
+      - service: climate.set_preset_mode
         target:
           entity_id: climate.main_floor
         data:
-          hvac_mode: auto
+          preset_mode: Home
       - service: climate.set_fan_mode
         target:
           entity_id: climate.main_floor
@@ -1044,8 +1018,10 @@
   - platform: sun
     event: sunset
     offset: 00:05:00
+    id: sunset
   - platform: time
     at: 08:30:00
+    id: morning
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1056,30 +1032,21 @@
   action:
   - choose:
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: trigger
+        id: sunset
       - type: is_not_open
         condition: device
-        device_id: 773fc559024ac11ecb6a9280b38a9bce
+        device_id: 3a7619b5375a979495ac7f6ed872fbfb
         entity_id: binary_sensor.dining_room_window
         domain: binary_sensor
-        for:
-          hours: 0
-          minutes: 0
-          seconds: 15
-          milliseconds: 0
       sequence:
       - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
         domain: cover
         entity_id: cover.blinds_dining_room
         type: set_position
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: above_horizon
-      - condition: time
-        after: 08:30:00
+      - condition: trigger
+        id: morning
       sequence:
       - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
         domain: cover
@@ -1094,12 +1061,12 @@
   trigger:
   - platform: device
     type: turned_on
-    device_id: 8630210676794c5992b4a2c92a73f90d
-    entity_id: switch.basement_stairs
+    device_id: 82e0c17532a89c0f67d225445a48a13c
+    entity_id: switch.downstairs_light
     domain: switch
     for:
       hours: 0
-      minutes: 10
+      minutes: 5
       seconds: 0
       milliseconds: 0
   condition:
@@ -1113,8 +1080,8 @@
     domain: binary_sensor
   action:
   - type: turn_off
-    device_id: 8630210676794c5992b4a2c92a73f90d
-    entity_id: switch.basement_stairs
+    device_id: 82e0c17532a89c0f67d225445a48a13c
+    entity_id: switch.downstairs_light
     domain: switch
   mode: single
 - id: '1615652464813'
@@ -1124,8 +1091,10 @@
   - platform: sun
     event: sunset
     offset: 00:05:00
+    id: sunset
   - platform: time
     at: 08:30:00
+    id: morning
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1136,9 +1105,8 @@
   action:
   - choose:
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: trigger
+        id: sunset
       - type: is_not_open
         condition: device
         device_id: 4c12bdfa77964af0ab5342561f3e6286
@@ -1149,11 +1117,8 @@
         target:
           device_id: df05ff97af8cc94daa4886f41221a920
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: above_horizon
-      - condition: time
-        after: 08:30:00
+      - condition: trigger
+        id: morning
       sequence:
       - service: cover.open_cover
         target:
@@ -1167,8 +1132,10 @@
   - platform: sun
     event: sunset
     offset: 00:05:00
+    id: sunset
   - platform: time
     at: 08:30:00
+    id: morning
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1179,20 +1146,16 @@
   action:
   - choose:
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: trigger
+        id: sunset
       sequence:
       - device_id: c929b61ad5321e3207f60bccc556b756
         domain: cover
         entity_id: cover.blinds_stairway
         type: set_position
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: above_horizon
-      - condition: time
-        after: 08:30:00
+      - condition: trigger
+        id: morning
       sequence:
       - device_id: c929b61ad5321e3207f60bccc556b756
         domain: cover
@@ -1208,6 +1171,7 @@
   - platform: sun
     event: sunset
     offset: 00:05:00
+    id: sunset
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1215,9 +1179,8 @@
   action:
   - choose:
     - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: trigger
+        id: sunset
       sequence:
       - device_id: 269012f56589fb928303bc8dad06c38b
         domain: cover
@@ -1317,7 +1280,7 @@
   alias: Notify - Water Leak
   description: ''
   trigger:
-  - type: moist
+  - type: turned_on
     platform: device
     device_id: 93cab1ca67efecc7af1a4d4841c788e7
     entity_id: binary_sensor.water_sump_pump
@@ -1422,7 +1385,6 @@
         target:
           entity_id:
           - media_player.dining_room_speaker
-          - media_player.joels_room_speaker
           - media_player.kitchen_ceiling
           - media_player.kitchen_speaker
           - media_player.library_speaker
@@ -1512,13 +1474,8 @@
   - type: vibration
     platform: device
     device_id: d2cb50a852578cf532f7dfa1ba44bd8e
-    entity_id: binary_sensor.vibration_blue_bin
+    entity_id: binary_sensor.vibration_recycle_bin
     domain: binary_sensor
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-      milliseconds: 0
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1683,10 +1640,47 @@
         value_template: '{{ trigger.event.data.property_key_name == ''002'' and trigger.event.data.value
           == ''KeyPressed2x'' }}'
       sequence:
-      - type: toggle
-        device_id: 5d1f1ac047d2d2b05e03956b09976a6b
-        entity_id: light.dining_room
-        domain: light
+      - service: input_select.select_option
+        target:
+          entity_id: input_select.blinds_dining_room_mode
+        data:
+          option: Manual
+      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+        domain: cover
+        entity_id: cover.blinds_dining_room
+        type: set_position
+        position: 100
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.property_key_name == ''001'' and trigger.event.data.value
+          == ''KeyPressed2x'' }}'
+      sequence:
+      - service: input_select.select_option
+        target:
+          entity_id: input_select.blinds_dining_room_mode
+        data:
+          option: Manual
+      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+        domain: cover
+        entity_id: cover.blinds_dining_room
+        type: set_position
+        position: 0
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.property_key_name == ''002'' and trigger.event.data.value
+          == ''KeyPressed3x'' }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          entity_id: light.dining_room
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.property_key_name == ''001'' and trigger.event.data.value
+          == ''KeyPressed3x'' }}'
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id: light.dining_room
     default: []
   mode: single
 - id: '1620235815662'
@@ -1955,7 +1949,7 @@
     - conditions:
       - condition: numeric_state
         entity_id: weather.main_floor
-        above: '27'
+        above: '30'
         value_template: '{{ states.weather.main_floor.attributes.forecast[0].temperature
           }}'
       sequence:
@@ -2053,4 +2047,68 @@
         push:
           category: camera
         entity_id: camera.entryway
+  mode: single
+- id: '1625353078748'
+  alias: Door - Washer Left Closed
+  description: Alert if the washer door is closed too long because of mildew
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 6e5aac8eb2229de2c3f414a9dc92a908
+    entity_id: binary_sensor.washer_door
+    domain: binary_sensor
+    for:
+      hours: 4
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: The washer door has been closed for 4 hours, please open it!
+      title: Washer Door
+  mode: single
+- id: '1626728305387'
+  alias: Alarm - Disarm Tasks
+  description: Things to do when the alarm is disarmed, regardless of time.
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.calgary_alarm
+    to: disarmed
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.garage_cover_outlet_2
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.quiet_time
+  - service: switch.turn_off
+    target:
+      entity_id: switch.entryway_outlet_1
+  mode: single
+- id: '1626742350660'
+  alias: Notify - Radon Alert
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.radon_becquerels
+    above: '40.0'
+    for: 04:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Radon levels have been high. Check the exhaust fan.
+      title: ☢️ Radon Warning
   mode: single
