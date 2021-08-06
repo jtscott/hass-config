@@ -5,3 +5,19 @@
       command: am start -a android.intent.action.VIEW -d plex://f64a9133acd4732841b7c768d019a127838d7d82/library/metadata/94699
     entity_id: media_player.nvidia_shield
     service: androidtv.adb_command
+tag_alarm_disarm:
+  alias: Tag - Alarm Disarm
+  sequence:
+  - service: alarm_control_panel.alarm_disarm
+    target:
+      entity_id: alarm_control_panel.calgary_alarm
+  - device_id: 87bc70b6345efdbf37f8c5b676cf3e4d
+    domain: lock
+    entity_id: lock.back_door_lock
+    type: unlock
+  - service: notify.ios_all_devices
+    data:
+      message: Alarm disarmed and back door unlocked.
+      title: 🏠 Welcome Home
+  mode: single
+  icon: mdi:shield-home
