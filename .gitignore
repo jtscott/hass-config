@@ -34,6 +34,7 @@ image/*
 .storage/esphome.*
 .storage/homekit*
 .storage/tag
+.storage/energy
 esphome/secrets.yaml
 auth*
 core.*
