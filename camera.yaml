@@ -3,76 +3,74 @@
 ###########################################
 - platform: generic
   still_image_url: http://trafficcam.calgary.ca/loc15.jpg
-  name: 'Glenmore & Crowchild'
+  name: "Glenmore & Crowchild"
 - platform: generic
   still_image_url: http://trafficcam.calgary.ca/loc27.jpg
-  name: 'Glenmore & Macleod'
-- platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc56.jpg
-  name: 'Bow & 6 Ave'
-- platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc5.jpg
-  name: '4 Ave & 9 St'
-- platform: generic
-  still_image_url: http://trafficcam.calgary.ca/loc75.jpg
-  name: '5 Ave & 7 St'
+  name: "Glenmore & Macleod"
 - platform: generic
   still_image_url: http://trafficcam.calgary.ca/loc125.jpg
-  name: 'Bow & Sarcee' 
+  name: "Bow & Sarcee"
+- platform: generic
+  still_image_url: https://trafficcam.calgary.ca/loc119.jpg
+  name: "16 Ave & Sarcee"
+- platform: generic
+  still_image_url: https://trafficcam.calgary.ca/loc94.jpg
+  name: "16 Ave & Home Road"
+
 ##########################################
 # Weather Radar
 ##########################################
 - platform: environment_canada
-  name: 'YYC Doppler'
+  name: "YYC Doppler"
 
 ##########################################
 # Front Door
 ##########################################
 - platform: generic
-  name: 'Front Door Snapshot'
+  name: "Front Door Snapshot"
   still_image_url: !secret front_door_camera_snapshot
 - platform: generic
-  name: 'Front Door Detection'
+  name: "Front Door Detection"
   still_image_url: !secret front_door_camera_detection
 - platform: generic
-  name: 'Front Door Cloud Detection'
+  name: "Front Door Cloud Detection"
   still_image_url: !secret front_door_camera_cloud_detection
 
 ##########################################
 # Doorbell
 ##########################################
 - platform: generic
-  name: 'Doorbell Snapshot'
+  name: "Doorbell Snapshot"
   still_image_url: !secret doorbell_snapshot
 - platform: generic
-  name: 'Doorbell Detection'
+  name: "Doorbell Detection"
   still_image_url: !secret doorbell_detection
 - platform: generic
-  name: 'Doorbell Cloud Detection'
+  name: "Doorbell Cloud Detection"
   still_image_url: !secret doorbell_cloud_detection
 
 ##########################################
 # Backdoor
 ##########################################
 - platform: generic
-  name: 'Back Door Snapshot'
+  name: "Back Door Snapshot"
   still_image_url: !secret back_door_camera_snapshot
 - platform: generic
-  name: 'Back Door Detection'
+  name: "Back Door Detection"
   still_image_url: !secret back_door_camera_detection
 - platform: generic
-  name: 'Back Door Cloud Detection'
+  name: "Back Door Cloud Detection"
   still_image_url: !secret back_door_camera_cloud_detection
 
 ##########################################
 # Garage
 ##########################################
 - platform: generic
-  name: 'Garage Snapshot'
+  name: "Garage Snapshot"
   still_image_url: !secret garage_camera_snapshot
 - platform: generic
-  name: 'Garage Detection'
+  name: "Garage Detection"
   still_image_url: !secret garage_camera_detection
 - platform: generic
-  name: 'Garage Cloud Detection'
+  name: "Garage Cloud Detection"
   still_image_url: !secret garage_camera_cloud_detection
