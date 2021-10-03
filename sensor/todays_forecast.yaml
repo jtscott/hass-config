@@ -4,28 +4,63 @@
 - platform: darksky
   api_key: !secret darksky_api
   forecast:
-  - 1
+    - 1
   monitored_conditions:
-  - 'precip_probability'
-  - 'temperature_low'
-  - 'temperature_high'
-  - 'humidity'
-  - 'apparent_temperature'
-  - 'pressure'
-  - 'wind_speed'
-  - 'precip_type'
-  - 'precip_intensity'
-  - 'precip_probability'
-  - 'precip_intensity_max'
-  - 'cloud_cover'
-  - 'wind_bearing'
-  - 'wind_speed'
-  - 'icon'
+    - "precip_probability"
+    - "temperature_low"
+    - "temperature_high"
+    - "humidity"
+    - "apparent_temperature"
+    - "pressure"
+    - "wind_speed"
+    - "precip_type"
+    - "precip_intensity"
+    - "precip_probability"
+    - "precip_intensity_max"
+    - "cloud_cover"
+    - "wind_bearing"
+    - "wind_speed"
+    - "icon"
 
+###########################################
+# Air Quality
+###########################################
+- platform: waqi
+  token: !secret aqicn_api_token
+  locations:
+    - calgary
+
+#from https://github.com/renemarc/home-assistant-config/blob/master/sensors/atmosphere.yaml
+- platform: template
+  sensors:
+    aqi_friendly:
+      friendly_name: "Air Quality Index"
+      icon_template: "mdi:chemical-weapon"
+      value_template: >-
+        {% set index = states('sensor.waqi_calgary_varsity_alberta_canada') | float(-1) %}
+        {% if index > 300 %}
+          Hazardous
+        {% elif index > 200 %}
+          Very Unhealthy
+        {% elif index > 150 %}
+          Unhealthy
+        {% elif index > 100 %}
+          Heightened
+        {% elif index > 50 %}
+          Moderate
+        {% elif index >= 0 %}
+          Good
+        {% else %}
+          unknown
+        {% endif %}
+
+###########################################
+# Templates
+###########################################
 - platform: template
   sensors:
     air_pressure_template:
-      friendly_name: 'Air Pressure'
+      friendly_name: "Air Pressure"
       value_template: "{% if states('sensor.dark_sky_pressure') | float <= 980 %}Low{% elif states('sensor.dark_sky_pressure') | float >= 1000 %}Good{% elif states('sensor.dark_sky_pressure') | float >= 1020 %}High{% else %}n/a{% endif %}"
 
 - platform: template
@@ -84,7 +119,7 @@
 - platform: template
   sensors:
     dark_sky_wind_bearing_template:
-      friendly_name: 'Wind Direction'
+      friendly_name: "Wind Direction"
       value_template: >-
         {%if states.sensor.dark_sky_wind_bearing.state | float<=11 %}North
         {% elif states.sensor.dark_sky_wind_bearing.state | float>348 %}North
@@ -108,5 +143,5 @@
 - platform: template
   sensors:
     uv_rating_template:
-      friendly_name: 'UV Level'
+      friendly_name: "UV Level"
       value_template: "{% if states('sensor.pws_uv') | float <= 2 %}Low{% elif states('sensor.pws_uv') | float >= 3 %}Moderate{% elif states('sensor.pws_uv') | float >= 6 %}High{% elif states('sensor.pws_uv') | float >= 9 %}Extreme{% else %}n/a{% endif %}"

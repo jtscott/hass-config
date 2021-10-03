@@ -46,6 +46,9 @@
                         },
                         {
                             "entity": "input_boolean.meeting_time"
+                        },
+                        {
+                            "entity": "sensor.aqi_friendly"
                         }
                     ],
                     "cards": [
@@ -59,9 +62,6 @@
                                 "exclude": [
                                     {
                                         "entity_id": "group.*"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*"
                                     },
                                     {
                                         "entity_id": "automation.*"
@@ -100,6 +100,9 @@
                                         "entity_id": "switch.modem"
                                     },
                                     {
+                                        "entity_id": "switch.humidifer"
+                                    },
+                                    {
                                         "entity_id": "switch.powerstrip_*"
                                     },
                                     {
@@ -107,6 +110,9 @@
                                     },
                                     {
                                         "entity_id": "switch.*_*_detect"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_detect"
                                     },
                                     {
                                         "entity_id": "switch.*.*_clips"
@@ -190,6 +196,51 @@
                                         "entity_id": "switch.office"
                                     },
                                     {
+                                        "entity_id": "switch.unifi_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.workday_sensor"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_occupancy"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_nest_protect_online"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_door"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.office_device"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_firmware_update"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.door_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_completed"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_motion"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.motion_*_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.motion_*"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.backups_stale"
+                                    },
+                                    {
                                         "state": "paused"
                                     }
                                 ],
@@ -208,6 +259,12 @@
                                     },
                                     {
                                         "state": "armed_home"
+                                    },
+                                    {
+                                        "state": "today"
+                                    },
+                                    {
+                                        "state": "tomorrow"
                                     }
                                 ]
                             },
@@ -283,7 +340,7 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
-                                "title": "Disabled",
+                                "title": "Off",
                                 "type": "entities"
                             },
                             "filter": {
@@ -327,6 +384,9 @@
                                 ],
                                 "include": [
                                     {
+                                        "entity": "switch.front_door_detect"
+                                    },
+                                    {
                                         "state": "Disabled"
                                     },
                                     {
@@ -341,7 +401,10 @@
                                 ]
                             },
                             "show_empty": false,
-                            "type": "custom:auto-entities"
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "none"
+                            }
                         },
                         {
                             "card": {
@@ -395,6 +458,21 @@
                                     },
                                     {
                                         "entity_id": "binary_sensor.theateroutlet2_power_management_over_load_detected"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.multi_sensor_low_battery_level"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.office_device"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_*_bin_full"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_firmware_update"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.backups_stale"
                                     },
                                     {
                                         "state": "off"
@@ -466,13 +544,19 @@
                             "camera_view": "live",
                             "entities": [
                                 {
+                                    "entity": "camera.doorbell_person"
+                                },
+                                {
+                                    "entity": "camera.doorbell_dog"
+                                },
+                                {
+                                    "entity": "camera.doorbell_cat"
+                                },
+                                {
                                     "entity": "binary_sensor.motion_doorbell"
                                 },
                                 {
-                                    "entity": "camera.doorbell_detection"
-                                },
-                                {
-                                    "entity": "camera.doorbell_cloud_detection"
+                                    "entity": "switch.doorbell_detect"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -485,13 +569,19 @@
                             "camera_view": "live",
                             "entities": [
                                 {
+                                    "entity": "camera.front_door_person"
+                                },
+                                {
+                                    "entity": "camera.front_door_dog"
+                                },
+                                {
+                                    "entity": "camera.front_door_cat"
+                                },
+                                {
                                     "entity": "binary_sensor.motion_front_door"
                                 },
                                 {
-                                    "entity": "camera.front_door_detection"
-                                },
-                                {
-                                    "entity": "camera.front_door_cloud_detection"
+                                    "entity": "switch.front_door_detect"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -504,13 +594,19 @@
                             "camera_view": "live",
                             "entities": [
                                 {
+                                    "entity": "camera.back_door_person"
+                                },
+                                {
+                                    "entity": "camera.back_door_dog"
+                                },
+                                {
+                                    "entity": "camera.back_door_cat"
+                                },
+                                {
                                     "entity": "binary_sensor.motion_back_door"
                                 },
                                 {
-                                    "entity": "camera.back_door_detection"
-                                },
-                                {
-                                    "entity": "camera.back_door_cloud_detection"
+                                    "entity": "switch.back_door_detect"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -523,13 +619,19 @@
                             "camera_view": "live",
                             "entities": [
                                 {
+                                    "entity": "camera.garage_person"
+                                },
+                                {
+                                    "entity": "camera.garage_car"
+                                },
+                                {
+                                    "entity": "camera.garage_bicycle"
+                                },
+                                {
                                     "entity": "binary_sensor.motion_garage"
                                 },
                                 {
-                                    "entity": "camera.garage_detection"
-                                },
-                                {
-                                    "entity": "camera.garage_cloud_detection"
+                                    "entity": "switch.garage_detect"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -542,7 +644,19 @@
                             "camera_view": "live",
                             "entities": [
                                 {
+                                    "entity": "camera.east_side_person"
+                                },
+                                {
+                                    "entity": "camera.east_side_dog"
+                                },
+                                {
+                                    "entity": "camera.east_side_cat"
+                                },
+                                {
                                     "entity": "binary_sensor.motion_east_side"
+                                },
+                                {
+                                    "entity": "switch.east_side_detect"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -592,7 +706,9 @@
                                 "lock.back_door_lock",
                                 "lock.garage_door_lock",
                                 "cover.garage_door",
-                                "switch.garage_cover_outlet_2"
+                                "switch.garage_cover_outlet_2",
+                                "switch.front_yard_zone",
+                                "switch.back_yard_zone"
                             ],
                             "more_info_on_tap": true,
                             "show_empty": false,
@@ -608,14 +724,6 @@
                                         "input_datetime.alarm_disarm"
                                     ],
                                     "head": "alarm_control_panel.calgary_alarm",
-                                    "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        "input_select.camera_motion_alerts",
-                                        "input_select.image_processing_mode"
-                                    ],
-                                    "head": "input_select.camera_person_alerts",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
@@ -666,6 +774,9 @@
                                     ],
                                     "head": "switch.garage_exterior_lights",
                                     "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entity": "light.garage_interior"
                                 }
                             ],
                             "title": "Outside Lights",
@@ -821,6 +932,10 @@
                     ],
                     "cards": [
                         {
+                            "entity": "climate.main_floor",
+                            "type": "custom:simple-thermostat"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "switch.kitchen_light",
@@ -938,7 +1053,8 @@
                                     "entity": "media_player.playstation_4",
                                     "group": true,
                                     "type": "custom:mini-media-player"
-                                }
+                                },
+                                "switch.printer"
                             ],
                             "show_header_toggle": false,
                             "title": "Office",
@@ -963,10 +1079,6 @@
                             "show_header_toggle": false,
                             "title": "Dining Room",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.main_floor",
-                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -1006,24 +1118,15 @@
                     "cards": [
                         {
                             "entities": [
-                                "light.bedroom_lamp",
                                 {
-                                    "entity": "switch.space_heater",
-                                    "type": "custom:multiple-entity-row",
-                                    "name": "Environment",
-                                    "state_header": "Heater",
-                                    "toggle": true,
-                                    "entities": [
-                                        {
-                                            "entity": "switch.humidifier",
-                                            "name": "Humidifier",
-                                            "toggle": true
-                                        }
-                                    ]
+                                    "entity": "light.bedroom_lamp"
+                                },
+                                {
+                                    "entity": "humidifier.master_bedroom_humidifier"
                                 },
                                 {
                                     "artwork": "cover",
-                                    "entity": "media_player.the_frame",
+                                    "entity": "media_player.theframe",
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
@@ -1033,7 +1136,6 @@
                                     "group": true,
                                     "type": "custom:mini-media-player"
                                 },
-                                "binary_sensor.water_master_bathroom_tub",
                                 {
                                     "entity": "sensor.master_bedroom_occupancy",
                                     "type": "custom:multiple-entity-row",
@@ -1059,7 +1161,37 @@
                                         {
                                             "entity": "sensor.master_bedroom_temperature",
                                             "name": "Bedroom"
-                                        },
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Master Bedroom",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.master_bathroom"
+                                },
+                                {
+                                    "entity": "binary_sensor.master_bathroom_window",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Room",
+                                    "state_header": "Window",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.master_bathroom_occupancy",
+                                            "name": "Presence"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "binary_sensor.water_master_bathroom_tub",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Conditions",
+                                    "state_header": "Water",
+                                    "entities": [
                                         {
                                             "entity": "sensor.master_bathroom_temperature",
                                             "name": "Bathroom"
@@ -1068,7 +1200,7 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Master Bedroom",
+                            "title": "Master Bathroom",
                             "type": "entities"
                         },
                         {
@@ -1107,10 +1239,14 @@
                                             "name": "Temperature"
                                         }
                                     ]
+                                },
+                                {
+                                    "entity": "switch.unifi_joels_ipad"
                                 }
                             ],
                             "title": "Joel\u2019s Room",
-                            "type": "entities"
+                            "type": "entities",
+                            "show_header_toggle": false
                         },
                         {
                             "entities": [
@@ -1265,13 +1401,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.downstairs_light"
-                                },
-                                {
-                                    "entity": "binary_sensor.door_access_control_window_door_is_open"
+                                    "entity": "switch.basement_stairs"
                                 },
                                 {
                                     "entity": "switch.outlet2"
+                                },
+                                {
+                                    "entity": "vacuum.downstairs"
                                 }
                             ],
                             "title": "Basement",
@@ -1455,26 +1591,20 @@
                     "title": "Downstairs"
                 },
                 {
-                    "icon": "mdi:city",
-                    "path": "calgary",
-                    "title": "Calgary",
-                    "visible": [
-                        {
-                            "user": "a4746799d9d34e738b9c95268d09d2ac"
-                        },
-                        {
-                            "user": "b9db7fa55b304308a648c8aed76c5861"
-                        },
-                        {
-                            "user": "68e731104ae14a34985a5698a1665d78"
-                        },
-                        {
-                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
-                        }
-                    ],
+                    "icon": "mdi:weather-partly-snowy-rainy",
+                    "title": "Weather",
                     "badges": [
                         {
-                            "entity": "sensor.rro_rate"
+                            "entity": "sensor.aqi_friendly"
+                        },
+                        {
+                            "entity": "sensor.waqi_calgary_varsity_alberta_canada"
+                        },
+                        {
+                            "entity": "sensor.waqi_calgary_southeast_alberta_canada"
+                        },
+                        {
+                            "entity": "sensor.waqi_calgary_central_2_alberta_canada"
                         }
                     ],
                     "cards": [
@@ -1484,6 +1614,13 @@
                                 "night": "#40445a"
                             },
                             "entity": "weather.calgary_olympic_park",
+                            "primary_info": [
+                                "extrema"
+                            ],
+                            "secondary_info": [
+                                "precipitation",
+                                "precipitation_probability"
+                            ],
                             "type": "custom:simple-weather-card"
                         },
                         {
@@ -1639,7 +1776,33 @@
                             "aspect_ratio": "100%",
                             "type": "iframe",
                             "url": "https://firesmoke.ca/forecasts/current/"
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:city",
+                    "path": "calgary",
+                    "title": "Calgary",
+                    "visible": [
+                        {
+                            "user": "a4746799d9d34e738b9c95268d09d2ac"
                         },
+                        {
+                            "user": "b9db7fa55b304308a648c8aed76c5861"
+                        },
+                        {
+                            "user": "68e731104ae14a34985a5698a1665d78"
+                        },
+                        {
+                            "user": "3c0dd48f511e49bea4262d49a3cf7cb6"
+                        }
+                    ],
+                    "badges": [
+                        {
+                            "entity": "sensor.rro_rate"
+                        }
+                    ],
+                    "cards": [
                         {
                             "entity": "camera.bow_sarcee",
                             "show_state": false,
@@ -1654,6 +1817,21 @@
                             "entity": "camera.glenmore_macleod",
                             "show_state": false,
                             "type": "picture-entity"
+                        },
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.16_ave_sarcee",
+                            "image": "https://demo.home-assistant.io/stub_config/bedroom.png",
+                            "camera_image": "camera.16_ave_sarcee",
+                            "show_state": false,
+                            "show_name": true
+                        },
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.16_ave_home_road",
+                            "image": "https://demo.home-assistant.io/stub_config/bedroom.png",
+                            "camera_image": "camera.16_ave_home_road",
+                            "show_state": false
                         }
                     ]
                 },
@@ -1739,24 +1917,24 @@
                                     ]
                                 },
                                 {
+                                    "entity": "sensor.coral1_inference_speed",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Frigate Performance",
+                                    "state_header": "Coral1",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.detection_fps",
+                                            "name": "FPS"
+                                        }
+                                    ]
+                                },
+                                {
                                     "entities": [
                                         "sensor.last_successful_authentication",
                                         "sensor.last_successful_authentication_hostname"
                                     ],
                                     "head": "sensor.last_successful_authentication_username",
                                     "type": "custom:fold-entity-row"
-                                },
-                                {
-                                    "icon": "si:z-wave",
-                                    "name": "zwavejs2mqtt",
-                                    "type": "weblink",
-                                    "url": "http://192.168.2.11:8091"
-                                },
-                                {
-                                    "icon": "si:stackbit",
-                                    "name": "Deepstack-UI",
-                                    "type": "weblink",
-                                    "url": "http://192.168.2.5:5001"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1816,7 +1994,11 @@
                             "bulk_rename": [
                                 {
                                     "from": "Battery Level",
-                                    "to": "sensor"
+                                    "to": "Battery"
+                                },
+                                {
+                                    "from": "Info",
+                                    "to": "Battery"
                                 },
                                 {
                                     "from": "/\\s(temperature|temp)\\s/",
@@ -1862,6 +2044,21 @@
                                         "value": "Off"
                                     },
                                     {
+                                        "name": "state",
+                                        "operator": "matches",
+                                        "value": "On"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "operator": "matches",
+                                        "value": "Ok"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "operator": "matches",
+                                        "value": "All-clear"
+                                    },
+                                    {
                                         "name": "attributes.friendly_name",
                                         "operator": "contains",
                                         "value": "iPhone"
@@ -1876,6 +2073,10 @@
                                     {
                                         "name": "entity_id",
                                         "value": "*_battery_level"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "*_info"
                                     },
                                     {
                                         "name": "attributes.device_class",
@@ -1930,6 +2131,15 @@
                                     },
                                     {
                                         "entity_id": "light.light_shower"
+                                    },
+                                    {
+                                        "entity_id": "sensor.powerstrip_electric_consumed_kwh_6_cost"
+                                    },
+                                    {
+                                        "entity_id": "switch.*_timer_smart_watering_program*"
+                                    },
+                                    {
+                                        "entity_id": "input_text.*"
                                     }
                                 ],
                                 "include": [
@@ -1954,34 +2164,9 @@
                             "type": "custom:auto-entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.total_month_camera_events"
-                                },
-                                {
-                                    "entity": "counter.front_door_motion_events"
-                                },
-                                {
-                                    "entity": "counter.back_door_motion_events"
-                                },
-                                {
-                                    "entity": "counter.doorbell_motion_events"
-                                },
-                                {
-                                    "entity": "counter.garage_motion_events"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Monthly Counters",
-                            "type": "entities"
-                        },
-                        {
                             "card_id": "automation_feed",
                             "compact_mode": true,
                             "entities": [
-                                "automation.camera_cost_control",
-                                "automation.light_away_and_forgotten",
-                                "automation.cams_disable_for_weather",
                                 "automation.climate_window_control",
                                 "automation.chromecasts_reboot",
                                 "automation.modem_reboot"

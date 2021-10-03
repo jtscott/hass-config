@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "key": "input_text",
+    "data": {
+        "items": [
+            {
+                "name": "Dryer Time",
+                "icon": "mdi:tumble-dryer",
+                "max": 10,
+                "mode": "text",
+                "min": 0,
+                "id": "dryer_time"
+            },
+            {
+                "name": "Washer Time",
+                "max": 10,
+                "icon": "mdi:washing-machine",
+                "mode": "text",
+                "min": 0,
+                "id": "washer_time"
+            }
+        ]
+    }
+}

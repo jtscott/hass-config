@@ -12,11 +12,6 @@
                 "name": "Guest Mode"
             },
             {
-                "icon": "mdi:wifi-star",
-                "id": "guest_wifi",
-                "name": "Kids Wifi"
-            },
-            {
                 "name": "Quiet Time",
                 "icon": "mdi:volume-off",
                 "id": "quiet_time"

@@ -2,6 +2,5 @@
   platform: group
   services:
     - service: mobile_app_brittanys_iphone
-    - service: mobile_app_iphone
+    - service: mobile_app_jareds_iphone
     - service: mobile_app_7510_home_ipad
-    - service: ios_brittanys_iphone

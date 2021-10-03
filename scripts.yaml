@@ -6,7 +6,7 @@
     entity_id: media_player.nvidia_shield
     service: androidtv.adb_command
 tag_alarm_disarm:
-  alias: Tag - Alarm Disarm
+  alias: Tag Alarm - Disarm
   sequence:
   - service: alarm_control_panel.alarm_disarm
     target:

@@ -21,7 +21,7 @@
             {
                 "id": "20ebb7e30d9649d6b531426e7810b32b",
                 "type": "module",
-                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381130"
             },
             {
                 "id": "f6a9e06ea2ff4867b1253ad4e7a8a40b",
@@ -104,7 +104,7 @@
                 "url": "/hacsfiles/restriction-card/restriction-card.js"
             },
             {
-                "url": "/hacsfiles/circle-sensor-card/circle-sensor-card.js",
+                "url": "/hacsfiles/circle-sensor-card/circle-sensor-card.js?hacstag=141952963122",
                 "type": "module",
                 "id": "49f2cee10c624c788f4f6b744aced7cf"
             },
@@ -132,6 +132,11 @@
                 "url": "/hacsfiles/slider-button-card/slider-button-card.js?hacstag=3754399611103",
                 "type": "module",
                 "id": "83335e21ea93412bb1d14ebe249946a6"
+            },
+            {
+                "url": "/hacsfiles/frigate-hass-card/frigate-hass-card.js?hacstag=394082552101",
+                "type": "module",
+                "id": "a93b046422c54500b9afe98f75cb3c06"
             }
         ]
     }

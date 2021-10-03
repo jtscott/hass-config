@@ -1,16 +1,3 @@
-include:
-  domains:
-    - switch
-    - lock
-    - cover
-    - light
-    - binary_sensor
-    - weather
-    - image_processing
-    - input_select
-    - media_player
-    - person
-    - climate
 exclude:
   domains:
     - weblink

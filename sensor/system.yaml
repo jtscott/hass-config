@@ -24,8 +24,8 @@
       value_template: "{{ states.sensor.last_successful_authentication.attributes.hostname }}"
     last_successful_authentication_username:
       value_template: "{{ states.sensor.last_successful_authentication.attributes.username }}"
-    total_month_camera_events:
-      value_template: "{{ (states('counter.front_door_motion_events') | float) + (states('counter.back_door_motion_events') | float) + (states('counter.doorbell_motion_events') | float) + (states('counter.garage_motion_events') | float)  }}"
+#    total_month_camera_events:
+#      value_template: "{{ (states('counter.front_door_motion_events') | float) + (states('counter.back_door_motion_events') | float) + (states('counter.doorbell_motion_events') | float) + (states('counter.garage_motion_events') | float)  }}"
     uptime_minutes:
       value_template: "{{ (as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) // 60|int }}"
     certificate_expiry_days:

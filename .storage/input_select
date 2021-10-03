@@ -22,32 +22,6 @@
                 ]
             },
             {
-                "icon": "mdi:run",
-                "id": "camera_motion_alerts",
-                "name": "Motion Alerts",
-                "options": [
-                    "Enabled",
-                    "Front Door",
-                    "Back Door",
-                    "Doorbell",
-                    "Disabled",
-                    "Garage"
-                ]
-            },
-            {
-                "icon": "mdi:human",
-                "id": "camera_person_alerts",
-                "name": "Person Alerts",
-                "options": [
-                    "Enabled",
-                    "Front Door",
-                    "Back Door",
-                    "Doorbell",
-                    "Disabled",
-                    "Garage"
-                ]
-            },
-            {
                 "id": "theater_outlet_1",
                 "name": "Theater Outlet 1",
                 "options": [
@@ -55,18 +29,6 @@
                     "Space Heater",
                     "Air Freshener",
                     "Christmas Tree"
-                ]
-            },
-            {
-                "icon": "mdi:remote",
-                "id": "harmony",
-                "name": "harmony",
-                "options": [
-                    "Select Activity",
-                    "Watch Plex",
-                    "Nintendo Switch",
-                    "Watch DVD",
-                    "Power Off"
                 ]
             },
             {
@@ -118,17 +80,6 @@
                 ],
                 "id": "blinds_library_mode",
                 "icon": "mdi:blinds"
-            },
-            {
-                "name": "Image Processing Mode",
-                "icon": "mdi:image",
-                "options": [
-                    "Enabled",
-                    "Local",
-                    "Cloud",
-                    "Disabled"
-                ],
-                "id": "image_processing_mode"
             }
         ]
     }

@@ -5,86 +5,90 @@ expose_by_default: false
 report_state: true
 entity_config:
   camera.front_door:
-    room: 'Front Door'
-    name: 'Front Door Camera'
+    room: "Front Door"
+    name: "Front Door Camera"
   switch.front_door:
     expose: true
-    room: 'Front Door'
-    name: 'Front Door Light'
+    room: "Front Door"
+    name: "Front Door Light"
   camera.back_door:
-    room: 'Back Door'
-    name: 'Back Door Camera'
+    room: "Back Door"
+    name: "Back Door Camera"
   switch.back_door:
     expose: true
-    room: 'Back Door'
-    name: 'Back Door Light'
+    room: "Back Door"
+    name: "Back Door Light"
   switch.kitchen_light:
     expose: true
-    room: 'Kitchen'
-    name: 'Kitchen Light'
+    room: "Kitchen"
+    name: "Kitchen Light"
   light.kitchen_cabinets:
     expose: true
-    room: 'Kitchen'
-    name: 'Cabinets'
+    room: "Kitchen"
+    name: "Cabinets"
   light.island:
     expose: true
-    room: 'Island'
-    name: 'Island Light'
+    room: "Island"
+    name: "Island Light"
   light.dining_room:
     expose: true
-    room: 'Dining Room'
-    name: 'Dining Room Light'
+    room: "Dining Room"
+    name: "Dining Room Light"
   light.joels_lamp:
     expose: true
     room: "Joel's Room"
-    name: 'Lamp'
+    name: "Lamp"
+  cover.blinds_joels_room:
+    expose: true
+    room: "Garage"
+    name: "Joel's Room"
   cover.blinds_dining_room:
-    room: 'Dining Room'
-    name: 'Dining Room Blinds'
+    room: "Dining Room"
+    name: "Dining Room Blinds"
   light.library:
     expose: true
-    room: 'Library'
-    name: 'Library Light'
+    room: "Library"
+    name: "Library Light"
   # light.twinkly:
-    # expose: true
-    # room: 'Library'
-    # name: 'Christmas Tree'
+  # expose: true
+  # room: 'Library'
+  # name: 'Christmas Tree'
   light.office_lamp:
     expose: true
-    room: 'Office'
-    name: 'Lamp'
+    room: "Office"
+    name: "Lamp"
   light.office:
     expose: true
-    room: 'Office'
-    name: 'Light'
+    room: "Office"
+    name: "Light"
   light.theater:
     expose: true
-    room: 'Theater'
-    name: 'Theater Light'
+    room: "Theater"
+    name: "Theater Light"
   light.bedroom_lamp:
     expose: true
-    room: 'Master Bedroom'
-    name: 'Lamp'
+    room: "Master Bedroom"
+    name: "Lamp"
   switch.theater_outlet_1:
     expose: true
-    room: 'Theater'
-    name: 'Theater Outlet 1'
+    room: "Theater"
+    name: "Theater Outlet 1"
   switch.amp:
     expose: true
-    room: 'Theater'
-    name: 'Amplifiers'
+    room: "Theater"
+    name: "Amplifiers"
   switch.basement_stairs:
     expose: true
-    room: 'Basement'
-    name: 'Stairs'
+    room: "Basement"
+    name: "Stairs"
   cover.garage_door:
     expose: true
-    room: 'Garage'
-    name: 'Garage Cover'
+    room: "Garage"
+    name: "Garage Cover"
   cover.blinds_stairway:
-    room: 'Stairway'
-    name: 'Stairway Blinds'
+    room: "Stairway"
+    name: "Stairway Blinds"
   switch.garage_exterior_lights:
     expose: true
-    room: 'Garage'
-    name: 'Garage Lights'
+    room: "Garage"
+    name: "Garage Lights"

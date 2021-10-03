@@ -41,7 +41,6 @@ tts:
 ###########################################
 # Includes
 ###########################################
-alert: !include alert.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include camera.yaml
@@ -51,7 +50,6 @@ light: !include light.yaml
 media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
-ios: !include ios.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
@@ -85,32 +83,18 @@ mqtt:
 ###########################################
 # Image Processing
 ###########################################
-image_processing:
-  - platform: amazon_rekognition
-    aws_access_key_id: !secret aws_access_key_id
-    aws_secret_access_key: !secret aws_secret_access_key
-    region_name: us-west-2
-    save_file_folder: "/config/www/snapshot/"
-    confidence: 70
-    source:
-      - entity_id: camera.front_door_snapshot
-      - entity_id: camera.back_door_snapshot
-      - entity_id: camera.doorbell_snapshot
-      - entity_id: camera.garage_snapshot
-  - platform: deepstack_object
-    ip_address: !secret advertise_ip
-    port: 5000
-    api_key: !secret http_password
-    confidence: 50
-    save_file_folder: "/config/www/snapshot/"
-    save_file_format: png
-    targets:
-      - target: person
-    source:
-      - entity_id: camera.front_door_snapshot
-      - entity_id: camera.back_door_snapshot
-      - entity_id: camera.doorbell_snapshot
-      - entity_id: camera.garage_snapshot
+#image_processing:
+#  - platform: amazon_rekognition
+#    aws_access_key_id: !secret aws_access_key_id
+#    aws_secret_access_key: !secret aws_secret_access_key
+#    region_name: us-west-2
+#    save_file_folder: "/config/www/snapshot/"
+#    confidence: 70
+#    source:
+#      - entity_id: camera.front_door_snapshot
+#      - entity_id: camera.back_door_snapshot
+#      - entity_id: camera.doorbell_snapshot
+#      - entity_id: camera.garage_snapshot
 
 ###########################################
 # Influx
@@ -161,10 +145,30 @@ wemo:
     - !secret wemo_insight_ip
 
 ###########################################
-# Electricity
+# Climate
 ###########################################
-command_line:
-  unit_of_measurement: "Cents"
-  command: "bash /config/electricity/rrorates.sh"
-  name: "RRO Rate"
-  scan_interval: 60
+climate:
+  - platform: generic_thermostat
+    name: Master Bathroom
+    heater: switch.space_heater
+    target_sensor: sensor.master_bathroom_temperature
+    min_temp: 21
+    max_temp: 23
+    ac_mode: false
+    target_temp: 21.5
+    min_cycle_duration:
+      seconds: 45
+    initial_hvac_mode: "off"
+    away_temp: 19
+    precision: 0.1
+
+generic_hygrostat:
+  - name: Master Bedroom Humidifier
+    humidifier: switch.humidifier
+    target_sensor: sensor.master_bedroom_multi_sensor_2
+    min_humidity: 30
+    max_humidity: 50
+    target_humidity: 40
+    device_class: "humidifier"
+    away_humidity: 20
+    sensor_stale_duration: 00:45:00

@@ -4,17 +4,17 @@
 - platform: template
   sensors:
     vacuum_upstairs_status:
-      friendly_name: 'Upstairs Vacuum Status'
-      value_template: "{{ state_attr('vacuum.upstairs', 'status') }}"
+      friendly_name: "Upstairs Vacuum Status"
+      value_template: "{{ state_attr('vacuum.downstairs', 'status') }}"
 
 - platform: template
   sensors:
     vacuum_upstairs_bin_presence:
-      friendly_name: 'Upstairs Vacuum Bin Present'
+      friendly_name: "Upstairs Vacuum Bin Present"
       value_template: >-
-        {%- if is_state_attr('vacuum.upstairs','bin_present',false) %}
+        {%- if is_state_attr('vacuum.downstairs','bin_present',false) %}
             Detached
-        {%- elif is_state_attr('vacuum.upstairs','bin_present',true) %}
+        {%- elif is_state_attr('vacuum.downstairs','bin_present',true) %}
             Attached
         {%- else %}
             Unknown
@@ -22,10 +22,10 @@
 
 - platform: history_stats
   name: Vacuum Upstairs Runtime
-  entity_id: vacuum.upstairs
-  state: 'cleaning'
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+  entity_id: vacuum.downstairs
+  state: "cleaning"
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
 
 ###########################################
 # Vacuum - Main Floor
@@ -33,13 +33,13 @@
 - platform: template
   sensors:
     vacuum_main_floor_status:
-      friendly_name: 'Main Floor Vacuum Status'
+      friendly_name: "Main Floor Vacuum Status"
       value_template: "{{ state_attr('vacuum.main_floor', 'status') }}"
 
 - platform: template
   sensors:
     vacuum_main_floor_bin_presence:
-      friendly_name: 'Main Floor Vacuum Bin Present'
+      friendly_name: "Main Floor Vacuum Bin Present"
       value_template: >-
         {%- if is_state_attr('vacuum.main_floor','bin_present',false) %}
             Detached
@@ -52,9 +52,9 @@
 - platform: history_stats
   name: Vacuum Main Floor Runtime
   entity_id: vacuum.main_floor
-  state: 'cleaning'
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+  state: "cleaning"
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
 
 ###########################################
 # Mop - Main Floor
@@ -62,19 +62,19 @@
 - platform: template
   sensors:
     vacuum_main_floor_mop_status:
-      friendly_name: 'Main Floor Mop Status'
+      friendly_name: "Main Floor Mop Status"
       value_template: "{{ state_attr('vacuum.main_floor_mop', 'status') }}"
 
 - platform: template
   sensors:
     vacuum_main_floor_mop_pad:
-      friendly_name: 'Main Floor Mop Pad'
+      friendly_name: "Main Floor Mop Pad"
       value_template: "{{ state_attr('vacuum.main_floor_mop', 'detected_pad') }}"
 
 - platform: template
   sensors:
     vacuum_main_mop_tank_presence:
-      friendly_name: 'Main Floor Mop Tank Present'
+      friendly_name: "Main Floor Mop Tank Present"
       value_template: >-
         {%- if is_state_attr('vacuum.main_floor_mop','tank_present',false) %}
             Detached
@@ -87,7 +87,7 @@
 - platform: template
   sensors:
     vacuum_main_mop_lid_state:
-      friendly_name: 'Main Floor Mop Lid State'
+      friendly_name: "Main Floor Mop Lid State"
       value_template: >-
         {%- if is_state_attr('vacuum.main_floor_mop','lid_closed',false) %}
             Open
@@ -100,12 +100,12 @@
 - platform: template
   sensors:
     vacuum_main_floor_mop_tank_level:
-      friendly_name: 'Main Floor Mop Tank Level'
+      friendly_name: "Main Floor Mop Tank Level"
       value_template: "{{ state_attr('vacuum.main_floor_mop', 'tank_level') }}"
 
 - platform: history_stats
   name: Main Floor Mop Runtime
   entity_id: vacuum.main_floor_mop
-  state: 'cleaning'
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+  state: "cleaning"
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
