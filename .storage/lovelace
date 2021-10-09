@@ -241,6 +241,9 @@
                                         "entity_id": "binary_sensor.backups_stale"
                                     },
                                     {
+                                        "entity_id": "switch.*_recordings"
+                                    },
+                                    {
                                         "state": "paused"
                                     }
                                 ],
@@ -1917,7 +1920,7 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.coral1_inference_speed",
+                                    "entity": "sensor.coral_inference_speed",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Frigate Performance",
                                     "state_header": "Coral1",
@@ -2140,6 +2143,9 @@
                                     },
                                     {
                                         "entity_id": "input_text.*"
+                                    },
+                                    {
+                                        "entity_id": "sensor.lexmark_cs310_series_*"
                                     }
                                 ],
                                 "include": [

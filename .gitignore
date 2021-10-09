@@ -35,6 +35,7 @@ image/*
 .storage/homekit*
 .storage/tag
 .storage/energy
+.storage/zwave_js.*
 esphome/secrets.yaml
 *.log.*
 auth*
