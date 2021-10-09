@@ -2090,7 +2090,7 @@
     default: []
   mode: single
 - id: '1632323892917'
-  alias: Frigate - Pause motion alerts
+  alias: Frigate - Motion based pause
   description: Disable people detection if motion from inside the door started first
   trigger:
   - type: motion
@@ -2154,3 +2154,38 @@
           - switch.doorbell_detect
     default: []
   mode: single
+- id: '1633730576943'
+  alias: Double Take - Notifications
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.double_take_jared_scott
+    id: doubletake_jared
+  condition:
+  - condition: template
+    value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
+  action:
+  - service: notify.mobile_app_jareds_iphone
+    data:
+      message: "{% if trigger.to_state.attributes.match is defined %}\n  {{trigger.to_state.attributes.friendly_name}}\
+        \ is near the {{trigger.to_state.state}} @ {{trigger.to_state.attributes.match.confidence}}%\
+        \ by {{trigger.to_state.attributes.match.detector}}:{{trigger.to_state.attributes.match.type}}\
+        \ taking {{trigger.to_state.attributes.attempts}} attempt(s) @ {{trigger.to_state.attributes.duration}}\
+        \ sec\n{% elif trigger.to_state.attributes.unknown is defined %}\n  unknown\
+        \ is near the {{trigger.to_state.state}} @ {{trigger.to_state.attributes.unknown.confidence}}%\
+        \ by {{trigger.to_state.attributes.unknown.detector}}:{{trigger.to_state.attributes.unknown.type}}\
+        \ taking {{trigger.to_state.attributes.attempts}} attempt(s) @ {{trigger.to_state.attributes.duration}}\
+        \ sec\n{% endif %}"
+      data:
+        attachment:
+          url: "{% if trigger.to_state.attributes.match is defined %}\n  http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.match.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
+            {% elif trigger.to_state.attributes.unknown is defined %}\n   http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.unknown.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
+            {% endif %}"
+        actions:
+        - action: URI
+          title: View Image
+          uri: "{% if trigger.to_state.attributes.match is defined %}\n  http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.match.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
+            {% elif trigger.to_state.attributes.unknown is defined %}\n   http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.unknown.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
+            {% endif %}"
+  mode: parallel
+  max: 10
