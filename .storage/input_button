@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_button",
+  "data": {
+    "items": [
+      {
+        "name": "Office Receiver - Power",
+        "icon": "mdi:power",
+        "id": "office_receiver_power"
+      },
+      {
+        "name": "Amp - PC",
+        "icon": "mdi:desktop-classic",
+        "id": "office_receiver_power_2"
+      },
+      {
+        "name": "Amp - PS5",
+        "icon": "mdi:sony-playstation",
+        "id": "office_receiver_ps5"
+      },
+      {
+        "name": "Amp - Xbox S|X",
+        "icon": "mdi:microsoft-xbox",
+        "id": "office_receiver_xbox_s_x"
+      }
+    ]
+  }
+}
