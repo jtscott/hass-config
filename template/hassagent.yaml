@@ -1,0 +1,4 @@
+- sensor:
+      - name: office_desktop_audio_session_app
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497e'
+        state: "{% set audio_sessions = states('sensor.office_desktop_audio_audio_sessions')|from_json %}{{ audio_sessions[0].Application }}"

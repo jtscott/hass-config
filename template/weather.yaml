@@ -1,0 +1,5 @@
+- sensor:
+      - name: tempest_st_00084235_wind_speed_kmh
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497z'
+        unit_of_measurement: "km/h"
+        state: "{{ (states('sensor.tempest_st_00084235_wind_speed')|float*3.6)|round(1) }}"

@@ -1,0 +1,23 @@
+- sensor:
+      - name: smart_irrigation_front_yard_hourly_netto_precipitation
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497x'
+        unit_of_measurement: "mm"
+        state: "{{state_attr('sensor.smart_irrigation_front_yard_hourly_adjusted_run_time','netto_precipitation')[:-2]|float}}"
+
+- sensor:
+      - name: smart_irrigation_front_yard_bucket
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497w'
+        unit_of_measurement: "mm"
+        state: "{{state_attr('sensor.smart_irrigation_front_yard_daily_adjusted_run_time','bucket')[:-2]|float}}"
+
+- sensor:
+      - name: smart_irrigation_back_yard_hourly_netto_precipitation
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497u'
+        unit_of_measurement: "mm"
+        state: "{{state_attr('sensor.smart_irrigation_back_yard_hourly_adjusted_run_time','netto_precipitation')[:-2]|float}}"
+
+- sensor:
+      - name: smart_irrigation_back_yard_bucket
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497v'
+        unit_of_measurement: "mm"
+        state: "{{state_attr('sensor.smart_irrigation_back_yard_daily_adjusted_run_time','bucket')[:-2]|float}}"
