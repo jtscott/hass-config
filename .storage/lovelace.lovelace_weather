@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_weather",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "Home",
+          "type": "sidebar",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.aqi_friendly"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.u_s_air_pollution_level",
+                  "icon_color": "blue",
+                  "icon": "mdi:air-filter"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.u_s_air_quality_index",
+                  "icon_color": "green"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.u_s_main_pollutant",
+                  "icon_color": "amber"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:simple-weather-card",
+                  "entity": "weather.calgary_olympic_park",
+                  "backdrop": {
+                    "day": "var(--primary-color)",
+                    "night": "#40445a"
+                  },
+                  "primary_info": [
+                    "extrema"
+                  ],
+                  "secondary_info": [
+                    "precipitation",
+                    "precipitation_probability"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:meteoalarm-card",
+                  "integration": "env_canada",
+                  "entities": [
+                    {
+                      "entity": "sensor.calgary_olympic_park_statements"
+                    },
+                    {
+                      "entity": "sensor.calgary_olympic_park_warnings"
+                    },
+                    {
+                      "entity": "sensor.calgary_olympic_park_watches"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "entities": [
+                {
+                  "entity": "sensor.sunset",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Daylight",
+                  "state_header": "Sunset",
+                  "entities": [
+                    {
+                      "entity": "sensor.sunrise",
+                      "name": "Sunrise"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_uv_level",
+                  "type": "custom:multiple-entity-row",
+                  "name": "UV",
+                  "state_header": "Level",
+                  "entities": [
+                    {
+                      "entity": "sensor.tempest_st_00084235_uv_index",
+                      "name": "Index"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_wind_speed",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Wind",
+                  "state_header": "Speed",
+                  "entities": [
+                    {
+                      "entity": "sensor.air_pressure_template",
+                      "name": "Pressure"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_zambretti_text",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Precipitation",
+                  "state_header": "Type",
+                  "entities": [
+                    {
+                      "entity": "sensor.tempest_st_00084235_precipitation_type",
+                      "name": "Type"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sun.sun",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Sun",
+                  "state_header": "State",
+                  "entities": [
+                    {
+                      "entity": "sensor.solar_angle",
+                      "name": "Angle"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "type": "entities"
+            },
+            {
+              "type": "custom:sun-card"
+            },
+            {
+              "aspect_ratio": "75%",
+              "type": "iframe",
+              "url": "https://embed.windy.com/embed2.html?lat=51.036&lon=-114.077&zoom=9&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=51.017&detailLon=-114.147&metricWind=default&metricTemp=default&radarRange=-1"
+            },
+            {
+              "camera_view": "auto",
+              "aspect_ratio": "75%",
+              "camera_image": "camera.calgary_olympic_park_radar",
+              "entities": [],
+              "entity": "weather.calgary_olympic_park",
+              "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+              "title": "Doppler",
+              "type": "picture-glance"
+            },
+            {
+              "aspect_ratio": "100%",
+              "type": "iframe",
+              "url": "https://firesmoke.ca/forecasts/current/"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

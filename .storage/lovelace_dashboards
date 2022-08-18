@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_dashboards",
+  "data": {
+    "items": [
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:weather-partly-cloudy",
+        "title": "Weather",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "lovelace-weather",
+        "id": "lovelace_weather"
+      },
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:server",
+        "title": "System",
+        "require_admin": true,
+        "mode": "storage",
+        "url_path": "lovelace-system",
+        "id": "lovelace_system"
+      },
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:alert-box",
+        "title": "Issues",
+        "require_admin": true,
+        "mode": "storage",
+        "url_path": "lovelace-issues",
+        "id": "lovelace_issues"
+      },
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:sprinkler-variant",
+        "title": "Irrigation",
+        "require_admin": true,
+        "mode": "storage",
+        "url_path": "lovelace-irrigation",
+        "id": "lovelace_irrigation"
+      }
+    ]
+  }
+}

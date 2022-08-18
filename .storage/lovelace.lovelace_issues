@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_issues",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "sensor.dead_zwave_devices"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "System Status",
+              "type": "entities"
+            },
+            {
+              "bulk_rename": [
+                {
+                  "from": "Battery Level",
+                  "to": "Battery"
+                },
+                {
+                  "from": "Info",
+                  "to": "Battery"
+                },
+                {
+                  "from": "/\\s(temperature|temp)\\s/",
+                  "to": " temp. "
+                }
+              ],
+              "charging_state": {
+                "attribute": [
+                  {
+                    "name": "Battery State",
+                    "value": "Charging"
+                  },
+                  {
+                    "name": "is_charging",
+                    "value": true
+                  }
+                ],
+                "state": [
+                  "charging",
+                  "Charging"
+                ]
+              },
+              "color_gradient": [
+                "#ff0000",
+                "#ffff00",
+                "#00ff00"
+              ],
+              "filter": {
+                "exclude": [
+                  {
+                    "name": "state",
+                    "operator": ">",
+                    "value": 36
+                  },
+                  {
+                    "name": "state",
+                    "operator": "matches",
+                    "value": "Unavailable"
+                  },
+                  {
+                    "name": "state",
+                    "operator": "matches",
+                    "value": "Off"
+                  },
+                  {
+                    "name": "state",
+                    "operator": "matches",
+                    "value": "On"
+                  },
+                  {
+                    "name": "state",
+                    "operator": "matches",
+                    "value": "Ok"
+                  },
+                  {
+                    "name": "state",
+                    "operator": "matches",
+                    "value": "All-clear"
+                  },
+                  {
+                    "name": "attributes.friendly_name",
+                    "operator": "contains",
+                    "value": "iPhone"
+                  },
+                  {
+                    "name": "attributes.friendly_name",
+                    "operator": "contains",
+                    "value": "iPad"
+                  }
+                ],
+                "include": [
+                  {
+                    "name": "entity_id",
+                    "value": "*_battery_level"
+                  },
+                  {
+                    "name": "entity_id",
+                    "value": "*_info"
+                  },
+                  {
+                    "name": "attributes.device_class",
+                    "value": "battery"
+                  }
+                ]
+              },
+              "sort_by_level": "asc",
+              "tap_action": {
+                "action": "more-info"
+              },
+              "title": "Batteries",
+              "type": "custom:battery-state-card"
+            },
+            {
+              "card": {
+                "show_header_toggle": false,
+                "title": "Broken Entities",
+                "type": "entities"
+              },
+              "filter": {
+                "exclude": [
+                  {
+                    "entity_id": "button.*"
+                  },
+                  {
+                    "entity_id": "input_button.*"
+                  },
+                  {
+                    "entity_id": "update.*"
+                  },
+                  {
+                    "entity_id": "select.*"
+                  },
+                  {
+                    "entity_id": "input_text.*"
+                  },
+                  {
+                    "entity_id": "sensor.*_detected_object"
+                  },
+                  {
+                    "entity_id": "sensor.*_click"
+                  },
+                  {
+                    "entity_id": "sensor.*_action"
+                  },
+                  {
+                    "entity_id": "sensor.calgary_olympic_*"
+                  },
+                  {
+                    "entity_id": "sensor.office_desktop_*"
+                  },
+                  {
+                    "entity_id": "binary_sensor.office_desktop_*"
+                  },
+                  {
+                    "entity_id": "switch.*_timer_smart_watering_program*"
+                  },
+                  {
+                    "entity_id": "switch.*_power_off"
+                  },
+                  {
+                    "entity_id": "media_player.plex_*"
+                  },
+                  {
+                    "entity_id": "sensor.tempest_st_00084235_*"
+                  },
+                  {
+                    "entity_id": "sensor.*_power_outage_count"
+                  }
+                ],
+                "include": [
+                  {
+                    "state": "unknown"
+                  },
+                  {
+                    "state": "unavailable"
+                  },
+                  {
+                    "state": "none"
+                  },
+                  {
+                    "state": "None"
+                  },
+                  {
+                    "state": "Offline"
+                  },
+                  {
+                    "state": "dead"
+                  }
+                ]
+              },
+              "show_empty": false,
+              "type": "custom:auto-entities"
+            },
+            {
+              "type": "markdown",
+              "content": "<h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman - Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3> {%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}] <a title=\"{{item.occurrences}}\"> {{item.occurrences.split('/')[-1]}}</a> </td></tr></table> {%- endfor %}",
+              "card_mod": {
+                "style": {
+                  "ha-markdown": {
+                    "$": "ha-markdown-element:first-of-type hr{\n  border-color: #303030;\n}\n"
+                  }
+                }
+              }
+            },
+            {
+              "type": "markdown",
+              "content": "<h2 class=\"some\"> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman - Missing Services: {{ states.sensor.watchman_missing_services.state }} </h3> {%- for item in state_attr(\"sensor.watchman_missing_services\", \"entities\") %} <hr><table><tr> <td>  <ha-icon icon='mdi:cloud-alert'></ha-icon> {{ item.id }} <a title=\"{{item.occurrences}}\">{{item.occurrences.split('/')[-1]}}</a> </td></tr></table> {%- endfor %}",
+              "card_mod": {
+                "style": {
+                  "ha-markdown": {
+                    "$": "ha-markdown-element:first-of-type hr{\n  border-color: #303030;\n}\n"
+                  }
+                }
+              }
+            },
+            {
+              "card_id": "main_feed",
+              "compact_mode": true,
+              "entities": [
+                "binary_sensor.water_dishwasher_water_leak",
+                "binary_sensor.water_laundry_mains_water_leak",
+                "binary_sensor.water_refridgerator_water_leak",
+                "binary_sensor.water_washing_machine_water_leak",
+                "binary_sensor.water_hot_water_heater_water_leak",
+                "binary_sensor.water_bathtub_water_leak",
+                "binary_sensor.water_sump_pump_water_leak"
+              ],
+              "more_info_on_tap": true,
+              "show_empty": false,
+              "state_color": true,
+              "title": "Water Sensors",
+              "type": "custom:home-feed-card"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

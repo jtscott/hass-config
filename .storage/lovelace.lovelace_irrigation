@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_irrigation",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "switch.exterior_outlet",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Front Sprinklers",
+                  "state_header": "Pump",
+                  "toggle": true,
+                  "state_color": true,
+                  "entities": [
+                    {
+                      "entity": "script.front_sprinkler_water_timer_6m",
+                      "name": "Sprinkler Start (6 min)",
+                      "toggle": true
+                    }
+                  ]
+                },
+                {
+                  "entities": [
+                    "switch.frontyard_timer_rain_delay",
+                    "switch.frontyard_timer_smart_watering_program",
+                    "switch.frontyard_timer_daily_program",
+                    "sensor.front_yard_zone_history"
+                  ],
+                  "head": "switch.front_yard_zone",
+                  "type": "custom:fold-entity-row"
+                },
+                {
+                  "entities": [
+                    "switch.backyard_timer_rain_delay",
+                    "switch.backyard_timer_smart_watering_program",
+                    "sensor.back_yard_zone_history"
+                  ],
+                  "head": "switch.back_yard_zone",
+                  "type": "custom:fold-entity-row"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Sprinklers",
+              "type": "entities"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.smart_irrigation_front_yard_base_schedule_index"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_front_yard_daily_adjusted_run_time"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_front_yard_hourly_adjusted_run_time"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_front_yard_hourly_netto_precipitation"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_front_yard_bucket"
+                }
+              ],
+              "title": "Front Yard"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.smart_irrigation_back_yard_base_schedule_index"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_back_yard_daily_adjusted_run_time"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_back_yard_hourly_adjusted_run_time"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_back_yard_hourly_netto_precipitation"
+                },
+                {
+                  "entity": "sensor.smart_irrigation_back_yard_bucket"
+                }
+              ],
+              "title": "Back Yard"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.tempest_st_00084235_rain_duration_today"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_temperature"
+                },
+                {
+                  "entity": "sensor.sensor_tempest_st_00084235_temperature_min"
+                },
+                {
+                  "entity": "sensor.sensor_tempest_st_00084235_temperature_max"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_dew_point"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_station_pressure"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_humidity"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_wind_speed_kmh"
+                },
+                {
+                  "entity": "sensor.tempest_st_00084235_solar_radiation"
+                }
+              ],
+              "title": "Weather"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

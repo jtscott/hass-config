@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_system",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "cards": [
+            {
+              "cards": [
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.processor_use",
+                      "index": 0
+                    }
+                  ],
+                  "font_size": 75,
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "type": "custom:mini-graph-card"
+                },
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.memory_use_percent",
+                      "index": 0
+                    }
+                  ],
+                  "font_size": 75,
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "type": "custom:mini-graph-card"
+                },
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.disk_use_percent",
+                      "index": 0
+                    }
+                  ],
+                  "font_size": 75,
+                  "line_color": "var(--accent-color)",
+                  "line_width": 8,
+                  "type": "custom:mini-graph-card"
+                }
+              ],
+              "type": "horizontal-stack"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "input_boolean.automations"
+                },
+                {
+                  "entity": "sensor.hass_release",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Version",
+                  "state_header": "Release",
+                  "entities": [
+                    {
+                      "entity": "sensor.current_version"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.coral1_inference_speed",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Frigate Performance",
+                  "state_header": "Coral1",
+                  "entities": [
+                    {
+                      "entity": "sensor.detection_fps",
+                      "name": "FPS"
+                    },
+                    {
+                      "entity": "sensor.coral2_inference_speed",
+                      "name": "Coral2"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "System Status",
+              "type": "entities"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "switch.doorbell"
+                },
+                {
+                  "entity": "switch.modem_plug_outlet_1"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Outlets",
+              "type": "entities"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.hub_hb_00100273_status"
+                    }
+                  ],
+                  "title": "Things"
+                },
+                {
+                  "type": "custom:rpi-monitor-card",
+                  "entity": "sensor.rpi_monitor_zwave2mqtt",
+                  "card_style": "glance",
+                  "name": "RaspiNUT"
+                }
+              ]
+            },
+            {
+              "entities": [
+                {
+                  "entity": "switch.deluge_switch",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Downloads",
+                  "state_header": "Deluge",
+                  "toggle": true,
+                  "entities": [
+                    {
+                      "entity": "switch.nzbget_download",
+                      "name": "NZBGet",
+                      "toggle": true
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.sonarr_queue",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Sonarr",
+                  "state_header": "Queue",
+                  "entities": [
+                    {
+                      "entity": "sensor.sonarr_wanted",
+                      "name": "Wanted"
+                    },
+                    {
+                      "entity": "sensor.sonarr_upcoming",
+                      "name": "Upcoming"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Downloads",
+              "type": "entities"
+            },
+            {
+              "type": "custom:scheduler-card",
+              "include": [
+                "script",
+                "switch.exterior_outlet"
+              ],
+              "exclude": []
+            },
+            {
+              "type": "custom:auto-entities",
+              "card": {
+                "type": "entities",
+                "title": "Recent Automations",
+                "show_header_toggle": false
+              },
+              "filter": {
+                "include": [
+                  {
+                    "domain": "automation",
+                    "not": {
+                      "attributes": {
+                        "current": 0
+                      }
+                    },
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": true,
+                      "secondary": "{{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago",
+                      "state": "{{ state_attr(config.entity, 'current') }} Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/automation/trace/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  },
+                  {
+                    "domain": "automation",
+                    "last_triggered": "< 120",
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": "{{ (state_attr(config.entity, 'current') | int) > 0 }}",
+                      "secondary": "{%- if state_attr(config.entity, 'last_triggered') -%}\n  {{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago\n{%- else -%}\n  Never triggered\n{%- endif -%}\n",
+                      "state": "Not Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/automation/trace/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  }
+                ]
+              },
+              "show_empty": false,
+              "unique": "entity",
+              "sort": {
+                "method": "last_triggered",
+                "reverse": true
+              }
+            },
+            {
+              "type": "custom:auto-entities",
+              "card": {
+                "type": "entities",
+                "title": "Recent Scripts",
+                "show_header_toggle": false
+              },
+              "filter": {
+                "include": [
+                  {
+                    "domain": "script",
+                    "not": {
+                      "attributes": {
+                        "current": 0
+                      }
+                    },
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": true,
+                      "secondary": "{{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago",
+                      "state": "{{ state_attr(config.entity, 'current') }} Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/script/trace/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  },
+                  {
+                    "domain": "script",
+                    "last_triggered": "< 1440",
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": "{{ (state_attr(config.entity, 'current') | int) > 0 }}",
+                      "secondary": "{%- if state_attr(config.entity, 'last_triggered') -%}\n  {{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago\n{%- else -%}\n  Never triggered\n{%- endif -%}\n",
+                      "state": "Not Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/automation/script/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  }
+                ]
+              },
+              "show_empty": false,
+              "unique": "entity",
+              "sort": {
+                "method": "last_triggered",
+                "reverse": true
+              }
+            },
+            {
+              "type": "custom:auto-entities",
+              "card": {
+                "type": "entities",
+                "title": "Infrequent Automations",
+                "show_header_toggle": false
+              },
+              "filter": {
+                "include": [
+                  {
+                    "domain": "automation",
+                    "not": {
+                      "attributes": {
+                        "current": 0
+                      }
+                    },
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": true,
+                      "secondary": "{{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago",
+                      "state": "{{ state_attr(config.entity, 'current') }} Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/automation/trace/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  },
+                  {
+                    "domain": "automation",
+                    "last_triggered": "> 20000",
+                    "options": {
+                      "type": "custom:template-entity-row",
+                      "active": "{{ (state_attr(config.entity, 'current') | int) > 0 }}",
+                      "secondary": "{%- if state_attr(config.entity, 'last_triggered') -%}\n  {{ relative_time(state_attr(config.entity, 'last_triggered')) }} ago\n{%- else -%}\n  Never triggered\n{%- endif -%}\n",
+                      "state": "Not Running",
+                      "hold_action": "{\n  \"action\": \"navigate\",\n  \"navigation_path\": \"/config/automation/trace/{{ state_attr(config.entity, 'id') }}\"\n}\n"
+                    }
+                  }
+                ]
+              },
+              "show_empty": false,
+              "unique": "entity",
+              "sort": {
+                "method": "last_triggered",
+                "reverse": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
