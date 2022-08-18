@@ -1,0 +1,14 @@
+- platform: integration
+  name: "NAS Energy [kWh]"
+  source: sensor.nas_ups_power_usage
+  unit_prefix: k
+
+- platform: integration
+  name: "APPS Energy [kWh]"
+  source: sensor.apps_ups_power_usage
+  unit_prefix: k
+
+- platform: integration
+  name: "FW Energy [kWh]"
+  source: sensor.fw_ups_power_usage
+  unit_prefix: k
