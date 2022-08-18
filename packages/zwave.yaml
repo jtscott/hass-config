@@ -1,0 +1,42 @@
+template:
+  - sensor:
+      - name: "Dead ZWave Devices"
+        unique_id: dead_zwave_devices
+        unit_of_measurement: entities
+        state: >
+          {% if state_attr('sensor.dead_zwave_devices','entity_id') != none %}
+            {{ state_attr('sensor.dead_zwave_devices','entity_id') | count }}
+          {% else %}
+            {{ 0 }}
+          {% endif %}
+        attributes:
+          entity_id: >
+            {% set exclude_filter = ['sensor.700_series_based_controller_node_status'] %}
+            {{
+              expand(integration_entities('Z-Wave JS') )
+              | rejectattr("entity_id", "in", exclude_filter)
+              | selectattr("entity_id", "search", "node_status")
+              | selectattr('state', 'in', 'dead, unavailable, unknown')
+              | map(attribute="object_id")
+              | map('regex_replace', find='(.*)_node_status', replace='button.\\1_ping', ignorecase=False)
+              | list
+            }}
+
+automation:
+  - id: ping_dead_zwave_devices
+    alias: Ping Dead ZWave Devices
+    description: ''
+    trigger:
+      - platform: state
+        entity_id:
+          - sensor.dead_zwave_devices
+    condition:
+      - condition: template
+        value_template: >
+          {{ int(states.sensor.dead_zwave_devices.state) > 0 }}
+    action:
+      - service: button.press
+        target:
+          entity_id: >
+            {{ state_attr('sensor.dead_zwave_devices','entity_id') }}
+    mode: single
