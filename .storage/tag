@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "tag",
+    "data": {
+        "items": [
+            {
+                "tag_id": "07a17b17-1185-4176-b8ee-9e45dcab91e8",
+                "last_scanned": "2021-04-21T22:24:05.877978+00:00",
+                "id": "07a17b17-1185-4176-b8ee-9e45dcab91e8",
+                "name": "Cams - Front Door"
+            },
+            {
+                "tag_id": "c0633739-0e08-4507-8382-bba521aa3f01",
+                "name": "Alarm - Disarm",
+                "id": "c0633739-0e08-4507-8382-bba521aa3f01",
+                "last_scanned": "2022-04-16T19:14:16.400661+00:00"
+            },
+            {
+                "tag_id": "d8e2ba2e-778c-41a1-a2ef-2a5a15142534",
+                "name": "Cams - Back Door",
+                "id": "d8e2ba2e-778c-41a1-a2ef-2a5a15142534",
+                "last_scanned": "2022-06-22T18:40:17.145219+00:00"
+            }
+        ]
+    }
+}
