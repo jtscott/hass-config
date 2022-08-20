@@ -1,0 +1,14 @@
+- sensor:
+      - name: pooppalace9000_rake_count
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497f'
+        state: "{{ state_attr('sensor.pooppalace9000', 'Rake Count') }}"
+
+- sensor:
+      - name: pooppalace9000_rake_delay
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497g'
+        state: "{{ state_attr('sensor.pooppalace9000', 'Rake Delay Time Min') }}"
+
+- sensor:
+      - name: pooppalace9000_connection
+        unique_id: '0a7476cc-d6c1-40ba-8ae1-606518c3497h'
+        state: "{{ state_attr('sensor.pooppalace9000', 'Connection Status') }}"
