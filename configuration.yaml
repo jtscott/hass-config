@@ -75,11 +75,6 @@ group:
     entities:
       - person.jared
       - person.brittany
-  kitchen_cabinets:
-    name: "Kitchen Cabinets"
-    entities:
-      - light.kitchen_left_led
-      - light.kitchen_right_led
 
 ###########################################
 # Panels
