@@ -4,159 +4,167 @@
 - platform: template
   sensors:
     master_bedroom_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.master_bedroom_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.master_bedroom_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.master_bedroom_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.master_bedroom_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Master Bedroom"
+      value_template: >-
+        {%- if is_state("binary_sensor.master_bedroom_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.master_bedroom_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.master_bedroom_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.master_bedroom_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     theater_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.theater_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.theater_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.theater_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.theater_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Theater"
+      value_template: >-
+        {%- if is_state("binary_sensor.theater_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.theater_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.theater_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.theater_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     office_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.office_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.office_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.office_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.office_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Office"
+      value_template: >-
+        {%- if is_state("binary_sensor.office_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.office_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.office_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.office_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     living_room_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.living_room_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.living_room_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.living_room_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.living_room_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Living Room"
+      value_template: >-
+        {%- if is_state("binary_sensor.living_room_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.living_room_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.living_room_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.living_room_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     guest_bedroom_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.guest_bedroom_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.guest_bedroom_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.guest_bedroom_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.guest_bedroom_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Guest Bedroom"
+      value_template: >-
+        {%- if is_state("binary_sensor.guest_bedroom_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.guest_bedroom_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.guest_bedroom_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.guest_bedroom_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     master_bathroom_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.master_bathroom_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.master_bathroom_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.master_bathroom_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.master_bathroom_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Master Bathroom"
+      value_template: >-
+        {%- if is_state("binary_sensor.master_bathroom_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.master_bathroom_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.master_bathroom_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.master_bathroom_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     library_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.library_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.library_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.library_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.library_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Library"
+      value_template: >-
+        {%- if is_state("binary_sensor.library_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.library_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.library_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.library_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}
 
 - platform: template
   sensors:
     joels_room_occupancy:
-        value_template: >-
-          {%- if is_state("binary_sensor.joel_s_room_occupancy", "on") %}
-              Occupied
-          {%- elif is_state("binary_sensor.joel_s_room_occupancy", "off") %}
-              Unoccupied
-          {%- else %}
-              None
-          {%- endif %}
-        icon_template: >-
-          {%- if is_state("binary_sensor.joel_s_room_occupancy", "on") %}
-              mdi:run-fast
-          {%- elif is_state("binary_sensor.joel_s_room_occupancy", "off") %}
-              mdi:run
-          {%- else %}
-              None
-          {%- endif %}
+      friendly_name: "Joel's Room"
+      value_template: >-
+        {%- if is_state("binary_sensor.joel_s_room_occupancy", "on") %}
+            Occupied
+        {%- elif is_state("binary_sensor.joel_s_room_occupancy", "off") %}
+            Unoccupied
+        {%- else %}
+            None
+        {%- endif %}
+      icon_template: >-
+        {%- if is_state("binary_sensor.joel_s_room_occupancy", "on") %}
+            mdi:run-fast
+        {%- elif is_state("binary_sensor.joel_s_room_occupancy", "off") %}
+            mdi:run
+        {%- else %}
+            None
+        {%- endif %}

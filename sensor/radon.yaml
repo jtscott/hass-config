@@ -25,6 +25,6 @@
 - platform: template
   sensors:
     radon_becquerels:
-      value_template: '{{ ((states.sensor.radon_level.state | float * 37)) | round(0) }}'
+      value_template: '{{ ((states.sensor.radon_level.state | float * 37)) | round(0) | default(0) }}'
       friendly_name: 'Radon Becquerels'
       unit_of_measurement: 'Bq/m3'

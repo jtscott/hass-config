@@ -4,70 +4,70 @@
 - platform: template
   sensors:
     dryer_run_state:
-      friendly_name: 'Run State'
-      value_template: '{{ states.sensor.dryer.attributes.run_state }}'
+      friendly_name: "Run State"
+      value_template: "{{ states.sensor.dryer.attributes.run_state }}"
 
 - platform: template
   sensors:
     dryer_pre_state:
-      friendly_name: 'Pre State'
-      value_template: '{{ states.sensor.dryer.attributes.pre_state }}'
+      friendly_name: "Pre State"
+      value_template: "{{ states.sensor.dryer.attributes.pre_state }}"
 
 - platform: template
   sensors:
     dryer_initial_time:
-      friendly_name: 'Initial Time'
-      value_template: '{{ states.sensor.dryer.attributes.initial_time }}'
+      friendly_name: "Initial Time"
+      value_template: "{{ states.sensor.dryer.attributes.initial_time }}"
 
 - platform: template
   sensors:
     dryer_reserve_time:
-      friendly_name: 'Reserve Time'
-      value_template: '{{ states.sensor.dryer.attributes.reserve_time }}'
+      friendly_name: "Reserve Time"
+      value_template: "{{ states.sensor.dryer.attributes.reserve_time }}"
 
 - platform: template
   sensors:
     dryer_current_course:
-      friendly_name: 'Current Course'
-      value_template: '{{ states.sensor.dryer.attributes.current_course }}'
+      friendly_name: "Current Course"
+      value_template: "{{ states.sensor.dryer.attributes.current_course }}"
 
 - platform: template
   sensors:
     dryer_tempcontrol_option_state:
-      friendly_name: 'Temperature Control'
-      value_template: '{{ states.sensor.dryer.attributes.temp_control }}'
+      friendly_name: "Temperature Control"
+      value_template: "{{ states.sensor.dryer.attributes.temp_control }}"
 
 - platform: template
   sensors:
     dryer_drylevel_option_state:
-      friendly_name: 'Dry Level'
-      value_template: '{{ states.sensor.dryer.attributes.dry_level }}'
+      friendly_name: "Dry Level"
+      value_template: "{{ states.sensor.dryer.attributes.dry_level }}"
 
 - platform: template
-  sensors:     
+  sensors:
     dryer_state:
-      friendly_name: 'Dryer State'
+      friendly_name: "Dryer State"
       value_template: '{{ state_attr("sensor.dryer", "run_state") }}'
-      icon_template: mdi:washing-machine      
+      icon_template: mdi:washing-machine
     dryer_program_length:
-      friendly_name: 'Dryer Program Length'
+      friendly_name: "Dryer Program Length"
       value_template: >-
         {% set dryerprogramminutes = (states.sensor.dryer.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.initial_time.split(':')[1] | int) %}
-        {{ dryerprogramminutes }} 
-      icon_template: mdi:washing-machine      
+        {{ dryerprogramminutes }}
+      icon_template: mdi:washing-machine
     dryer_remaining_time:
-      friendly_name: 'Dryer Remaining Time'
+      friendly_name: "Dryer Remaining Time"
       value_template: >-
         {% set dryerprogramminutes = (states.sensor.dryer.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.remain_time.split(':')[1] | int) %}
         {{ dryerprogramminutes }}
       icon_template: mdi:washing-machine
     dryer_progress:
-      friendly_name: 'Dryer Progress'
+      friendly_name: "Dryer Progress"
       value_template: >-
         {% if (states.sensor.dryer_program_length.state | int) < 1 %}
           0
         {% else %}           
           {% set dryerprogress = (100 - (((states.sensor.dryer_remaining_time.state | int) / (states.sensor.dryer_program_length.state | int)) * 100)) %}
           {{ dryerprogress }}
-        {% endif %}           
-      icon_template: mdi:dishwasher   
+        {% endif %}
+      icon_template: mdi:dishwasher

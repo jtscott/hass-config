@@ -1,35 +1,10 @@
 ###########################################
 # System Sensors
 ###########################################
-- platform: version
-
-- platform: authenticated
-  enable_notification: false
-  exclude:
-    - 172.30.32.2
-    - 172.30.33.0
-    - 172.30.33.1
-    - 172.30.33.2
-    - 172.30.33.3
-    - 172.30.33.4
-    - 172.30.33.5
-    - 172.30.33.6
-    - 172.30.33.7
-    - 172.30.33.8
-    - 172.30.33.9
-
 - platform: template
   sensors:
-    last_successful_authentication_hostname:
-      value_template: "{{ states.sensor.last_successful_authentication.attributes.hostname }}"
-    last_successful_authentication_username:
-      value_template: "{{ states.sensor.last_successful_authentication.attributes.username }}"
-#    total_month_camera_events:
-#      value_template: "{{ (states('counter.front_door_motion_events') | float) + (states('counter.back_door_motion_events') | float) + (states('counter.doorbell_motion_events') | float) + (states('counter.garage_motion_events') | float)  }}"
     uptime_minutes:
       value_template: "{{ (as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) // 60|int }}"
-    certificate_expiry_days:
-      value_template: "{{ ((as_timestamp(states('sensor.cert_expiry_timestamp_home_eatsleepbreach_ca')) - as_timestamp(now())) / 60 / 60 / 24 ) | int }}"
 
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
@@ -49,5 +24,3 @@
     - type: processor_use
     - type: disk_use_percent
       arg: /
-
-- platform: uptime

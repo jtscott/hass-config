@@ -3,8 +3,13 @@
 ###########################################
 - platform: time_date
   display_options:
-    - 'time'
-    - 'date'
-    - 'time_date'
-    - 'date_time'
-    - 'time_utc'
+    - "time"
+    - "date"
+    - "time_date"
+    - "date_time"
+    - "time_utc"
+
+- platform: template
+  sensors:
+    month:
+      value_template: "{{ now().month }}"
