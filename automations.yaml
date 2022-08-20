@@ -6,16 +6,20 @@
     platform: homeassistant
   condition: []
   action:
-  - delay: 00:00:20
-  - data:
-      addon: a0d7b954_nodered
-    service: hassio.addon_restart
-  - service: hassio.addon_restart
-    data:
-      addon: 03cabcc9_ring_mqtt
   - data:
       payload: announce
       topic: shellies/command
+    service: mqtt.publish
+  - data:
+      topic: cmnd/tasmotas/state
+    service: mqtt.publish
+  - data:
+      topic: cmnd/tasmotas/status
+      payload: '2'
+    service: mqtt.publish
+  - data:
+      topic: cmnd/tasmotas/status
+      payload: '11'
     service: mqtt.publish
   mode: single
 - id: '1603043020584'
@@ -43,13 +47,13 @@
       media_content_type: music
     target:
       device_id:
-      - c038376b0bd411ebb661915fc419dff9
       - c03750400bd411ebbd21d302c0018c1a
+      - c03891860bd411eba6bb6b655e54293d
   - service: camera.play_stream
     data:
-      media_player: media_player.master_bedroom_display
-    target:
-      device_id: 5f628eea7411345bf14420a07eaa74b3
+      media_player:
+      - media_player.master_bedroom_display
+      - media_player.office_display
   - delay:
       hours: 0
       minutes: 2
@@ -57,8 +61,12 @@
       milliseconds: 0
   - service: media_player.turn_off
     data: {}
-    entity_id: media_player.master_bedroom_display
-  mode: single
+    target:
+      entity_id:
+      - media_player.master_bedroom_display
+      - media_player.office_display
+  mode: parallel
+  max: 10
 - id: '1602687924312'
   alias: Cover - Garage Door Opened
   description: ''
@@ -75,7 +83,7 @@
   - service: notify.ios_all_devices
     data:
       message: Garage Cover has been opened.
-      title: 🚗 Garage Cover Opened!
+      title: "\U0001F697 Garage Cover Opened!"
       data:
         attachment:
           content-type: jpeg
@@ -88,10 +96,11 @@
   alias: Notify - Mailbox
   description: ''
   trigger:
-  - platform: state
-    entity_id: binary_sensor.vibration_mailbox
-    from: 'off'
-    to: 'on'
+  - type: vibration
+    platform: device
+    device_id: 36d2ce018f352aab0ae0c1d81eec0b00
+    entity_id: binary_sensor.vibration_mailbox_vibration
+    domain: binary_sensor
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -100,7 +109,7 @@
   - service: notify.ios_all_devices
     data:
       message: You've got mail!
-      title: 📬 Mailbox
+      title: "\U0001F4EC Mailbox"
       data:
         attachment:
           content-type: jpeg
@@ -110,10 +119,10 @@
         entity_id: camera.front_door_snapshot
   mode: single
 - id: '1591375582026'
-  alias: Lock - Secure all at 10pm
+  alias: Lock - Secure all at night
   description: ''
   trigger:
-  - at: '22:00:00'
+  - at: '21:00:00'
     platform: time
   condition:
   - condition: state
@@ -123,10 +132,10 @@
   - data: {}
     service: lock.lock
     target:
-      device_id:
-      - 87bc70b6345efdbf37f8c5b676cf3e4d
-      - 17ad4d3482096182954b88c4f35bb21f
-      - 5fa5f875376772df0a5008c64b7b4eea
+      entity_id:
+      - lock.back_door_lock
+      - lock.front_door_lock
+      - lock.garage_door_lock
   mode: single
 - id: '1602346908294'
   alias: Lock - Front Door Unlocked
@@ -146,19 +155,14 @@
     above: '3.0'
   - type: is_no_motion
     condition: device
-    device_id: 94100d32e36a54fb98249b20d7ecfe4c
-    entity_id: binary_sensor.motion_inside_front_door
+    device_id: 0f34f53f31643c2d0308786febfb660a
+    entity_id: binary_sensor.motion_front_door_inside_occupancy
     domain: binary_sensor
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-      milliseconds: 0
   action:
   - service: notify.ios_all_devices
     data:
       message: Front Door has been opened.
-      title: 🚪 Front Door Unlocked!
+      title: "\U0001F6AA Front Door Unlocked!"
       data:
         attachment:
           content-type: jpeg
@@ -185,19 +189,14 @@
     above: '3.0'
   - type: is_no_motion
     condition: device
-    device_id: ae949343c5f669ba4a357bd3d6ff8fa7
-    entity_id: binary_sensor.motion_inside_back_door
+    device_id: 78493bd91a6c4aaa7ff02541d827d747
+    entity_id: binary_sensor.motion_back_door_inside_occupancy
     domain: binary_sensor
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-      milliseconds: 0
   action:
   - service: notify.ios_all_devices
     data:
       message: Back Door has been opened.
-      title: 🚪 Back Door Unlocked!
+      title: "\U0001F6AA Back Door Unlocked!"
       data:
         attachment:
           content-type: jpeg
@@ -222,15 +221,11 @@
   - condition: numeric_state
     entity_id: sensor.uptime_minutes
     above: '3.0'
-  - condition: state
-    entity_id: binary_sensor.motion_garage
-    state: 'off'
-    for: 00:00:10
   action:
   - service: notify.ios_all_devices
     data:
       message: Garage Door has been opened.
-      title: 🚪 Garage Door Unlocked!
+      title: "\U0001F6AA Garage Door Unlocked!"
       data:
         attachment:
           content-type: jpeg
@@ -263,9 +258,36 @@
         data: {}
         entity_id: switch.amp
     default:
-    - service: switch.turn_off
-      data: {}
-      entity_id: switch.amp
+    - repeat:
+        until:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: media_player.kitchen_ceiling
+            state: 'off'
+            for:
+              hours: 0
+              minutes: 5
+              seconds: 0
+          - condition: state
+            entity_id: media_player.patio_speaker
+            state: 'off'
+            for:
+              hours: 0
+              minutes: 5
+              seconds: 0
+          - condition: state
+            entity_id: media_player.master_bedroom_speaker
+            state: 'off'
+            for:
+              hours: 0
+              minutes: 5
+              seconds: 0
+        sequence:
+        - service: switch.turn_off
+          data: {}
+          target:
+            entity_id: switch.amp
   mode: single
 - id: '1602435177490'
   alias: Light - Seasonal Effects
@@ -319,7 +341,6 @@
       - switch.front_door
       - switch.back_door
       - switch.garage_exterior_lights
-      - switch.ir_active_front_door
   - type: turn_off
     device_id: 38d965d356ff44218994d149daf1634c
     entity_id: light.front_porch
@@ -344,7 +365,6 @@
       - switch.front_door
       - switch.back_door
       - switch.garage_exterior_lights
-      - switch.ir_active_front_door
   - service: light.turn_on
     data:
       brightness_pct: 100
@@ -370,7 +390,7 @@
       - action: close_garage
         title: Close Garage Door
       message: Garage door has been open for 5 minutes. Close it?
-      title: 🚙 Garage left open!
+      title: "\U0001F699 Garage left open!"
     service: notify.ios_all_devices
   mode: single
 - id: '1602274353769'
@@ -380,14 +400,15 @@
   - platform: state
     entity_id: sensor.dryer
     attribute: remain_time
-    to: 0:01
-    from: 0:02
+    to: 0:01:00
+    from: 0:02:00
     id: dryer_done
   - platform: state
     entity_id: sensor.washer
     id: washer_done
-    from: 0:02
-    to: 0:01
+    from: 0:02:00
+    to: 0:01:00
+    attribute: remain_time
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -402,8 +423,7 @@
         target:
           entity_id: input_text.dryer_time
         data:
-          value: '{{             relative_time(states.sensor.dryer.attributes.initial_time)
-            }}'
+          value: '{{ relative_time(states.sensor.dryer.attributes.initial_time) }}'
       - delay:
           hours: 0
           minutes: 1
@@ -411,7 +431,7 @@
           milliseconds: 0
       - service: notify.ios_all_devices
         data:
-          title: 🧦 Dryer is done!
+          title: "\U0001F9E6 Dryer is done!"
           message: '{%- if is_state(''sensor.washer'', ''on'') %}Washer will be done
             in {{ relative_time(states.sensor.washer.attributes.remain_time) }}{%-
             else -%}Cycle took {{ states(''input_text.dryer_time'') }}{% endif %}'
@@ -423,8 +443,7 @@
         target:
           entity_id: input_text.washer_time
         data:
-          value: '{{             relative_time(states.sensor.washer.attributes.initial_time)
-            }}'
+          value: '{{ relative_time(states.sensor.washer.attributes.initial_time) }}'
       - delay:
           hours: 0
           minutes: 1
@@ -432,81 +451,11 @@
           milliseconds: 0
       - service: notify.ios_all_devices
         data:
-          title: 👕 Washer is done!
+          title: "\U0001F455 Washer is done!"
           message: '{%- if is_state(''sensor.dryer'', ''on'') %}Dryer will be done
             in {{ relative_time(states.sensor.dryer.attributes.remain_time) }}{%-
             else -%}Cycle took {{ states(''input_text.washer_time'') }}{% endif %}'
     default: []
-  mode: single
-- id: '1604401387451'
-  alias: Light - Lamp Brightness
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.bedroom_lamp
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  - condition: time
-    before: 08:00:00
-    after: '20:00:00'
-  action:
-  - service: light.turn_on
-    data:
-      brightness: 1
-    entity_id: light.bedroom_lamp
-  mode: single
-- id: '1604942076638'
-  alias: Notify - Front Door People
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.pathway_person_motion
-    from: 'off'
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.big_lawn_person_motion
-    from: 'off'
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.small_lawn_person_motion
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.pathway_person_motion
-        state: 'on'
-      sequence:
-      - service: notify.mobile_app_iphone
-    default: []
-  mode: single
-- id: '1605135271786'
-  alias: Shower - Close Bedroom Blinds
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.light_shower
-    to: 'on'
-    for: 00:00:05
-  condition:
-  - condition: state
-    entity_id: cover.blinds_joels_room
-    state: open
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - service: cover.close_cover
-    data: {}
-    entity_id: cover.blinds_joels_room
   mode: single
 - id: '1605810087167'
   alias: Waste Collection - Collection Day Alerts
@@ -553,50 +502,14 @@
         entity_id: light.kitchen_right_led
     default: []
   mode: single
-- id: '1606157806943'
-  alias: Modem - Reboot
-  description: Reboots the modem if the gateway WAN interface is down
-  trigger:
-  - platform: state
-    entity_id: sensor.pfsense_gateway_wan_dhcp
-    to: 'False'
-    for: 00:02:00
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - repeat:
-      until:
-      - condition: state
-        entity_id: sensor.pfsense_gateway_wan_dhcp
-        state: 'True'
-      sequence:
-      - service: notify.mobile_app_iphone
-        data:
-          message: WAN gateway failed, rebooting.
-          title: 🖀 Modem Failure!
-      - service: switch.turn_off
-        data: {}
-        entity_id: switch.modem
-      - delay:
-          hours: 0
-          minutes: 0
-          seconds: 30
-          milliseconds: 0
-      - service: switch.turn_on
-        data: {}
-        entity_id: switch.modem
-      - delay: 00:30:00
-  mode: single
 - id: '1607991157120'
   alias: Notify - Refrigerator Open
   description: ''
   trigger:
   - type: opened
     platform: device
-    device_id: 22563bf3546620268953e47f24177bf8
-    entity_id: binary_sensor.door_refridgerator
+    device_id: c58dfc0d22b38b87d0482e1c65b2a256
+    entity_id: binary_sensor.door_refridgerator_contact
     domain: binary_sensor
     for:
       hours: 0
@@ -611,14 +524,14 @@
       until:
       - type: is_not_open
         condition: device
-        device_id: 22563bf3546620268953e47f24177bf8
-        entity_id: binary_sensor.door_refridgerator
+        device_id: c58dfc0d22b38b87d0482e1c65b2a256
+        entity_id: binary_sensor.door_refridgerator_contact
         domain: binary_sensor
       sequence:
       - service: notify.ios_all_devices
         data:
           message: Close the fridge!
-          title: 🧊 Refrigerator
+          title: "\U0001F9CA Refrigerator"
       - delay: 00:02:00
   mode: single
 - id: '1608008281551'
@@ -652,12 +565,6 @@
   - condition: state
     entity_id: group.family_devices
     state: home
-  - condition: state
-    entity_id: group.locks
-    state: locked
-  - condition: state
-    entity_id: group.alarm_sensors
-    state: 'off'
   action:
   - service: switch.turn_off
     data: {}
@@ -668,9 +575,11 @@
   - service: input_boolean.turn_on
     target:
       entity_id: input_boolean.quiet_time
+    data: {}
   - service: switch.turn_on
     target:
       entity_id: switch.entryway_outlet_1
+    data: {}
   mode: single
 - id: '1609684788084'
   alias: Presence - Family is Away
@@ -691,9 +600,11 @@
   - service: alarm_control_panel.alarm_arm_away
     target:
       device_id: d2f4d5b400ef24f2f92f7e5beb98fd34
+    data: {}
   - service: switch.turn_on
     target:
       entity_id: switch.entryway_outlet_1
+    data: {}
   - service: climate.set_preset_mode
     target:
       entity_id:
@@ -701,73 +612,26 @@
       - climate.master_bathroom
     data:
       preset_mode: Away
-  - service: humidifier.set_mode
-    target:
-      entity_id: humidifier.master_bedroom_humidifier
-    data:
-      mode: Away
   - service: light.turn_off
+    data: {}
     target:
-      entity_id: group.inside_lights
+      entity_id: light.inside_lights
   - choose:
     - conditions:
       - condition: state
-        entity_id: group.all_windows
-        state: ''
+        entity_id: binary_sensor.all_windows
+        state: 'on'
       sequence:
       - service: notify.ios_all_devices
         data:
-          message: '{{ states | selectattr(''entity_id'',''in'', state_attr(''group.all_windows'',''entity_id''))
+          message: '{{ states | selectattr(''entity_id'',''in'', state_attr(''binary_sensor.all_windows'',''entity_id''))
             | selectattr(''state'',''eq'',''on'') | map(attribute=''name'') | join('',
             '') }}
 
             '
-          title: '🪟 Windows Open:'
+          title: "\U0001FA9F Windows Open:"
           data: {}
     default: []
-  mode: single
-- id: '1613012477376'
-  alias: Music - White noise
-  description: Set the volume to 80% and slowly turn it down
-  trigger:
-  - platform: state
-    entity_id: media_player.joels_room_speaker
-    attribute: media_title
-    to: White noise
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - service: media_player.volume_set
-    data:
-      volume_level: 0.7
-    target:
-      entity_id: media_player.joels_room_speaker
-  - delay:
-      hours: 0
-      minutes: 30
-      seconds: 0
-      milliseconds: 0
-  - repeat:
-      while:
-      - condition: numeric_state
-        above: '0.5'
-        entity_id: media_player.joels_room_speaker
-        attribute: volume_level
-      - condition: state
-        entity_id: media_player.joels_room_speaker
-        attribute: media_title
-        state: White noise
-      sequence:
-      - service: media_player.volume_down
-        target:
-          entity_id: media_player.joels_room_speaker
-      - delay:
-          hours: 0
-          minutes: 15
-          seconds: 0
-          milliseconds: 0
   mode: single
 - id: '1613599134512'
   alias: Printer - Power Control
@@ -779,6 +643,11 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.lexmark_cs310_series
+      state: unavailable
   action:
   - choose:
     - conditions:
@@ -790,17 +659,20 @@
       sequence:
       - service: switch.turn_on
         data: {}
-        entity_id: switch.printer
-    - conditions:
-      - condition: state
-        entity_id: sensor.lexmark_cs310_series
-        state: idle
-        for: 00:20:00
-      sequence:
-      - service: switch.turn_off
-        data: {}
-        entity_id: switch.printer
-    default: []
+        target:
+          entity_id: switch.switch_printer
+    default:
+    - condition: state
+      entity_id: sensor.lexmark_cs310_series
+      state: idle
+      for:
+        hours: 0
+        minutes: 30
+        seconds: 0
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.switch_printer
   mode: single
 - id: '1614538081222'
   alias: Door - Basement Stairs Light
@@ -834,8 +706,12 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.all_windows
-    for: 00:01:00
+    entity_id:
+    - binary_sensor.all_windows
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -844,7 +720,7 @@
   - choose:
     - conditions:
       - condition: state
-        entity_id: group.all_windows
+        entity_id: binary_sensor.all_windows
         state: 'on'
       sequence:
       - service: climate.set_hvac_mode
@@ -857,18 +733,15 @@
           entity_id: climate.main_floor
         data:
           fan_mode: 'on'
-      - type: turn_off
-        device_id: ee92ccea31d5f79493219f83ccf74b06
-        entity_id: switch.humidifier
-        domain: switch
     - conditions:
       - condition: state
-        entity_id: group.all_windows
+        entity_id: binary_sensor.all_windows
         state: 'off'
       sequence:
       - service: climate.turn_on
         target:
           entity_id: climate.main_floor
+        data: {}
       - service: climate.set_preset_mode
         target:
           entity_id: climate.main_floor
@@ -882,40 +755,40 @@
     default: []
   mode: single
 - id: '1614829216486'
-  alias: Light - Kitchen Night Light
+  alias: Light - Kitchen Night Light Motion
   description: ''
   trigger:
   - type: motion
     platform: device
-    device_id: cf02d2ad7ec8594e892e42aa8e5b01aa
-    entity_id: binary_sensor.motion_hallway
+    device_id: 149cb6ad605345b28fa0b9e63ddd9cfc
+    entity_id: binary_sensor.motion_upstairs_stairway_occupancy
+    domain: binary_sensor
+  - type: motion
+    platform: device
+    device_id: e8d280d931dfd93ddacfcfe74785c318
+    entity_id: binary_sensor.stairway_motion
     domain: binary_sensor
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
-  - condition: device
-    type: is_off
-    device_id: 5d5445200b93486c913a08288bae6621
-    entity_id: switch.kitchen_light
-    domain: switch
-  - condition: device
-    type: is_off
-    device_id: e10c450fa7254d54804c43d5eaacbfcf
-    entity_id: light.dining_room
-    domain: light
   - condition: state
     entity_id: sun.sun
     state: below_horizon
-  - condition: device
-    type: is_off
-    device_id: d0cd794a0c194393b3836b635d6220ee
+  - condition: state
     entity_id: light.island
-    domain: light
+    state: 'off'
+  - condition: state
+    entity_id: switch.kitchen_light
+    state: 'off'
   action:
   - service: light.turn_on
     data:
-      color_name: yellow
+      brightness_pct: 100
+      rgb_color:
+      - 255
+      - 255
+      - 0
     target:
       entity_id: light.kitchen_cabinets
   - delay:
@@ -925,7 +798,10 @@
       milliseconds: 0
   - service: light.turn_off
     data: {}
-    entity_id: light.kitchen_cabinets
+    target:
+      entity_id:
+      - light.kitchen_left_led
+      - light.kitchen_right_led
   - delay:
       hours: 0
       minutes: 5
@@ -961,15 +837,16 @@
         entity_id: binary_sensor.dining_room_window
         domain: binary_sensor
       sequence:
-      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+      - device_id: a188d65077fed6db336e64e4bf6affac
         domain: cover
         entity_id: cover.blinds_dining_room
         type: set_position
+        position: 0
     - conditions:
       - condition: trigger
         id: morning
       sequence:
-      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
+      - device_id: a188d65077fed6db336e64e4bf6affac
         domain: cover
         entity_id: cover.blinds_dining_room
         type: set_position
@@ -1024,14 +901,14 @@
       sequence:
       - service: cover.close_cover
         target:
-          device_id: df05ff97af8cc94daa4886f41221a920
+          entity_id: cover.blinds_library
     - conditions:
       - condition: trigger
         id: morning
       sequence:
       - service: cover.open_cover
         target:
-          device_id: df05ff97af8cc94daa4886f41221a920
+          entity_id: cover.blinds_library
     default: []
   mode: single
 - id: '1615652668231'
@@ -1058,43 +935,20 @@
       - condition: trigger
         id: sunset
       sequence:
-      - device_id: c929b61ad5321e3207f60bccc556b756
+      - device_id: 1d12d8fb4efd74d94cafdee673e25260
         domain: cover
         entity_id: cover.blinds_stairway
         type: set_position
+        position: 0
     - conditions:
       - condition: trigger
         id: morning
       sequence:
-      - device_id: c929b61ad5321e3207f60bccc556b756
+      - device_id: 1d12d8fb4efd74d94cafdee673e25260
         domain: cover
         entity_id: cover.blinds_stairway
         type: set_position
         position: 100
-    default: []
-  mode: single
-- id: '1615652764733'
-  alias: Blind - Joel's Room
-  description: ''
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 00:05:00
-    id: sunset
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: sunset
-      sequence:
-      - device_id: 269012f56589fb928303bc8dad06c38b
-        domain: cover
-        entity_id: cover.blinds_joels_room
-        type: set_position
     default: []
   mode: single
 - id: '1615754157293'
@@ -1109,6 +963,14 @@
     state: 'on'
   action:
   - service: switch.turn_off
+    target:
+      entity_id: switch.front_door_detect
+  - delay:
+      hours: 4
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: switch.turn_on
     target:
       entity_id: switch.front_door_detect
   mode: single
@@ -1132,40 +994,40 @@
   alias: Notify - Water Leak
   description: ''
   trigger:
-  - type: turned_on
+  - type: moist
     platform: device
-    device_id: 93cab1ca67efecc7af1a4d4841c788e7
-    entity_id: binary_sensor.water_sump_pump
+    device_id: bc44ee932cad5e210f67fedd29f5122f
+    entity_id: binary_sensor.water_bathtub_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: c620f1b04c034258d051c9cc6e29577b
-    entity_id: binary_sensor.water_hot_water_heater
+    device_id: 297f98a078bddcfa54dc422fbad78435
+    entity_id: binary_sensor.water_refridgerator_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: a3e6c0335670a17f6c6198501a2a9235
-    entity_id: binary_sensor.water_dishwasher
+    device_id: b73db99d33265e049001e327beac4fec
+    entity_id: binary_sensor.water_dishwasher_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: 2bc0e95fab5e927740fa29ab18554885
-    entity_id: binary_sensor.water_laundry_water_main
+    device_id: 3da3e3926525072ac401491a9a666261
+    entity_id: binary_sensor.water_hot_water_heater_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: 5100179c9103586fe2d245e2fdea14c1
-    entity_id: binary_sensor.water_master_bathroom_tub
+    device_id: 577dc1f19b006cdf9b4fbae2f2af8c62
+    entity_id: binary_sensor.water_sump_pump_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: 3b76f90a4333a164bead1b10afdb7b78
-    entity_id: binary_sensor.water_refrigerator
+    device_id: ce60c16e1cba284cba4196d00e959a46
+    entity_id: binary_sensor.water_washing_machine_water_leak
     domain: binary_sensor
   - type: moist
     platform: device
-    device_id: 6c4dab48e8edf5a9a7bbb3d03f526370
-    entity_id: binary_sensor.water_washing_machine
+    device_id: 0426bba0bafd8b76b349d8e23667e28e
+    entity_id: binary_sensor.water_laundry_mains_water_leak
     domain: binary_sensor
   condition:
   - condition: state
@@ -1207,37 +1069,49 @@
       - service: automation.turn_off
         target:
           entity_id: automation.doorbell_front_ring
+        data: {}
       - service: media_player.volume_set
         target:
           entity_id:
-          - media_player.dining_room_speaker
           - media_player.kitchen_ceiling
-          - media_player.kitchen_speaker
-          - media_player.library_speaker
-          - media_player.living_room_speaker
           - media_player.master_bedroom_display
           - media_player.master_bedroom_speaker
           - media_player.theater_speaker
-          - media_player.office_speaker
+          - media_player.office_display
+          - media_player.dining_room_pair
         data:
           volume_level: 0.1
-      - service: unifiprotect.set_doorbell_lcd_message
-        data:
-          entity_id: camera.doorbell
-          message: Do Not Disturb
-      - service: unifiprotect.set_doorbell_chime_duration
-        data:
-          entity_id: camera.doorbell
-          chime_duration: 0
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_doorbell_text
+        type: select_option
+        option: DO NOT DISTURB
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_chime_type
+        type: select_option
+        option: None
       - service: number.set_value
+        data:
+          value: '2'
         target:
           entity_id:
           - number.back_door_keypad_volume
-          - number.bedroom_keypad_volume
-          - number.calgary_base_station_volume
-          - number.entryway_keypad_volume
+      - service: number.set_value
         data:
           value: '2'
+        target:
+          entity_id: number.bedroom_keypad_volume
+      - service: number.set_value
+        data:
+          value: '2'
+        target:
+          entity_id: number.calgary_base_station_volume
+      - service: number.set_value
+        data:
+          value: '2'
+        target:
+          entity_id: number.entryway_keypad_volume
     - conditions:
       - condition: state
         entity_id: input_boolean.quiet_time
@@ -1246,87 +1120,50 @@
       - service: automation.turn_on
         target:
           entity_id: automation.doorbell_front_ring
+        data: {}
       - service: media_player.volume_set
         target:
           entity_id:
-          - media_player.dining_room_speaker
-          - media_player.joels_room_speaker
           - media_player.kitchen_ceiling
-          - media_player.kitchen_speaker
-          - media_player.library_speaker
-          - media_player.living_room_speaker
           - media_player.master_bedroom_display
           - media_player.master_bedroom_speaker
           - media_player.theater_speaker
-          - media_player.office_speaker
+          - media_player.office_display
+          - media_player.dining_room_pair
         data:
-          volume_level: 0.6
-      - service: unifiprotect.set_doorbell_lcd_message
-        data:
-          entity_id: camera.doorbell
-          message: Welcome
-      - service: unifiprotect.set_doorbell_chime_duration
-        data:
-          entity_id: camera.doorbell
-          chime_duration: 300
+          volume_level: 0.4
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_doorbell_text
+        type: select_option
+        option: Default Message (WELCOME)
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_chime_type
+        type: select_option
+        option: Mechanical
       - service: number.set_value
+        data:
+          value: '50'
         target:
           entity_id:
           - number.back_door_keypad_volume
-          - number.bedroom_keypad_volume
-          - number.calgary_base_station_volume
-          - number.entryway_keypad_volume
+      - service: number.set_value
         data:
           value: '50'
+        target:
+          entity_id: number.bedroom_keypad_volume
+      - service: number.set_value
+        data:
+          value: '50'
+        target:
+          entity_id: number.calgary_base_station_volume
+      - service: number.set_value
+        data:
+          value: '50'
+        target:
+          entity_id: number.entryway_keypad_volume
     default: []
-  mode: single
-- id: '1618260754009'
-  alias: ISP - High Delay
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.pfsense_delay
-    above: '10.00'
-    for: 00:20:00
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - service: notify.mobile_app_iphone
-    data:
-      title: 🌐 High ISP Latency
-      message: Gateway latency is {{ states.sensor.pfsense_gateway_wan_dhcp.attributes.delay
-        }}
-  mode: single
-- id: '1618351062301'
-  alias: Notify - Blue Bin
-  description: ''
-  trigger:
-  - type: vibration
-    platform: device
-    device_id: d2cb50a852578cf532f7dfa1ba44bd8e
-    entity_id: binary_sensor.vibration_recycle_bin
-    domain: binary_sensor
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  - condition: state
-    entity_id: sensor.blue_bin
-    state: today
-  action:
-  - service: notify.ios_all_devices
-    data:
-      title: ♻️ Blue Bin Activity
-      message: The blue bin might have been collected
-      data:
-        attachment:
-          content-type: jpeg
-          hide-thumbnail: false
-        push:
-          category: camera
-        entity_id: camera.back_door
   mode: single
 - id: '1619906631532'
   alias: Wall Tablet - Turn On With Motion
@@ -1334,8 +1171,8 @@
   trigger:
   - type: motion
     platform: device
-    device_id: 1150e56c5a20c542d66f808a2f7652a8
-    entity_id: binary_sensor.motion_hallway_2
+    device_id: 7ac8845a126b380579fb7687aeafbe2d
+    entity_id: binary_sensor.motion_hallway_occupancy
     domain: binary_sensor
   condition:
   - condition: state
@@ -1344,145 +1181,18 @@
   - condition: time
     after: input_datetime.alarm_disarm
     before: input_datetime.alarm_arm
-  - condition: numeric_state
-    entity_id: sensor.powerstrip_electric_consumed_w_3
-    above: '2.0'
   action:
-  - service: notify.mobile_app_7510_home_ipad
+  - service: notify.mobile_app_jareds_ipad
     data:
-      message: Wake up
-      title: So. Woke.
-  mode: single
-- id: '1620053691684'
-  alias: System - Certificate Expiry
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.certificate_expiry_days
-    below: '21'
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - service: hassio.addon_start
-    data:
-      addon: core_letsencrypt
-  - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-  - service: hassio.addon_restart
-    data:
-      addon: core_nginx_proxy
-  - service: hassio.addon_restart
-    data:
-      addon: core_mosquitto
-  mode: single
-- id: '1620161795801'
-  alias: Safety - CO or Smoke Detected
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: group.smoke_and_co
-    to: 'on'
-    for: 00:02:00
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.kitchen_light
-  - service: light.turn_on
-    target:
-      device_id:
-      - 92c693c7e4267438802e4bb8edbfa0bf
-      - 5d1f1ac047d2d2b05e03956b09976a6b
-      - a3be3e294e3fe7ded32e93df179bc9e5
-      - 928d0a9bc8ecbea27991771460adf96f
-      - c7b14f0300402ec2c77768fc61857b7f
-      - 9f9b5d9218b2a82e23ad347a4852a35b
-      - 5a65f08231d24a079cfcf0d0f9c10717
-      entity_id: light.kitchen_cabinets
-    data:
-      brightness_pct: 100
-  - service: climate.turn_off
-    target:
-      device_id: a3a722fbf9001c1051f06703aaeb803c
-  mode: single
-- id: '1620230288227'
-  alias: Switch - Island Paddle Scenes
-  description: ''
-  trigger:
-  - platform: event
-    event_type: zwave_js_value_notification
-    event_data: {}
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  - condition: template
-    value_template: '{{ trigger.event.data.device_id == ''a3be3e294e3fe7ded32e93df179bc9e5''
-      }}'
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.property_key_name == ''002'' and trigger.event.data.value
-          == ''KeyPressed2x'' }}'
-      sequence:
-      - service: input_select.select_option
-        target:
-          entity_id: input_select.blinds_dining_room_mode
-        data:
-          option: Manual
-      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
-        domain: cover
-        entity_id: cover.blinds_dining_room
-        type: set_position
-        position: 100
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.property_key_name == ''001'' and trigger.event.data.value
-          == ''KeyPressed2x'' }}'
-      sequence:
-      - service: input_select.select_option
-        target:
-          entity_id: input_select.blinds_dining_room_mode
-        data:
-          option: Manual
-      - device_id: 27d4e2d3b62aeea7815697f4dafa12c7
-        domain: cover
-        entity_id: cover.blinds_dining_room
-        type: set_position
-        position: 0
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.property_key_name == ''002'' and trigger.event.data.value
-          == ''KeyPressed3x'' }}'
-      sequence:
-      - service: light.turn_on
-        target:
-          entity_id: light.dining_room
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.property_key_name == ''001'' and trigger.event.data.value
-          == ''KeyPressed3x'' }}'
-      sequence:
-      - service: light.turn_off
-        target:
-          entity_id: light.dining_room
-    default: []
+      message: Wacky Wacky
+      title: Wake up
   mode: single
 - id: '1620235815662'
   alias: Library - Bookshelf Sun Protection
   description: ''
   trigger:
   - platform: state
-    entity_id: sensor.librarymultisensor_illuminance
+    entity_id: sensor.multi_sensor_illuminance
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1496,14 +1206,23 @@
   - condition: state
     entity_id: input_boolean.quiet_time
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.meeting_time
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.library_occupancy
+    state: 'off'
   action:
   - choose:
     - conditions:
       - condition: and
         conditions:
-        - condition: numeric_state
-          entity_id: sensor.librarymultisensor_illuminance
-          above: '2000'
+        - type: is_illuminance
+          condition: device
+          device_id: f861f2d5c0cd538a28aa9aef5f9d7335
+          entity_id: sensor.multi_sensor_illuminance
+          domain: sensor
+          above: 2000
         - condition: state
           entity_id: cover.blinds_library
           state: open
@@ -1511,6 +1230,7 @@
       - service: cover.close_cover
         target:
           entity_id: cover.blinds_library
+        data: {}
       - delay:
           hours: 0
           minutes: 15
@@ -1519,9 +1239,12 @@
     - conditions:
       - condition: and
         conditions:
-        - condition: numeric_state
-          entity_id: sensor.librarymultisensor_illuminance
-          below: '2000'
+        - type: is_illuminance
+          condition: device
+          device_id: f861f2d5c0cd538a28aa9aef5f9d7335
+          entity_id: sensor.multi_sensor_illuminance
+          domain: sensor
+          below: 2000
         - condition: state
           entity_id: cover.blinds_library
           state: closed
@@ -1532,6 +1255,7 @@
       - service: cover.open_cover
         target:
           entity_id: cover.blinds_library
+        data: {}
       - delay:
           hours: 0
           minutes: 15
@@ -1559,24 +1283,26 @@
       - service: automation.turn_off
         target:
           entity_id: automation.doorbell_front_ring
+        data: {}
       - service: media_player.volume_set
         target:
           entity_id:
           - media_player.dining_room_speaker
           - media_player.kitchen_ceiling
-          - media_player.kitchen_speaker
           - media_player.living_room_speaker
-          - media_player.office_speaker
+          - media_player.office_display
         data:
           volume_level: 0
-      - service: unifiprotect.set_doorbell_lcd_message
-        data:
-          entity_id: camera.doorbell
-          message: Do Not Disturb
-      - service: unifiprotect.set_doorbell_chime_duration
-        data:
-          entity_id: camera.doorbell
-          chime_duration: 0
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_doorbell_text
+        type: select_option
+        option: DO NOT DISTURB
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_chime_type
+        type: select_option
+        option: None
       - service: number.set_value
         target:
           entity_id:
@@ -1584,11 +1310,31 @@
           - number.entryway_keypad_volume
         data:
           value: '2'
-      - service: switch.turn_off
-        target:
-          entity_id:
-          - switch.nzbget_download
-          - switch.deluge_switch
+      - repeat:
+          until:
+          - condition: state
+            entity_id: switch.nzbget_download
+            state: 'off'
+          sequence:
+          - service: switch.turn_off
+            data: {}
+            target:
+              entity_id: switch.nzbget_download
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 10
+              milliseconds: 0
+      - repeat:
+          until:
+          - condition: state
+            entity_id: switch.deluge_switch
+            state: 'off'
+          sequence:
+          - service: switch.turn_off
+            data: {}
+            target:
+              entity_id: switch.deluge_switch
     - conditions:
       - condition: state
         entity_id: input_boolean.meeting_time
@@ -1597,25 +1343,27 @@
       - service: automation.turn_on
         target:
           entity_id: automation.doorbell_front_ring
+        data: {}
       - service: media_player.volume_set
         target:
           entity_id:
           - media_player.dining_room_speaker
           - media_player.kitchen_ceiling
-          - media_player.kitchen_speaker
           - media_player.living_room_speaker
           - media_player.master_bedroom_speaker
-          - media_player.office_speaker
+          - media_player.office_display
         data:
           volume_level: 0.6
-      - service: unifiprotect.set_doorbell_lcd_message
-        data:
-          entity_id: camera.doorbell
-          message: Welcome
-      - service: unifiprotect.set_doorbell_chime_duration
-        data:
-          entity_id: camera.doorbell
-          chime_duration: 300
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_doorbell_text
+        type: select_option
+        option: Default Message (WELCOME)
+      - device_id: 5f628eea7411345bf14420a07eaa74b3
+        domain: select
+        entity_id: select.doorbell_chime_type
+        type: select_option
+        option: Mechanical
       - service: number.set_value
         target:
           entity_id:
@@ -1628,59 +1376,8 @@
           entity_id:
           - switch.nzbget_download
           - switch.deluge_switch
+        data: {}
     default: []
-  mode: single
-- id: '1620765457260'
-  alias: Wall Tablet - Battery Management
-  description: Discharge the battery over night to maintain it's longevity
-  trigger:
-  - platform: time
-    at: '23:00:00'
-  - platform: time
-    at: 05:00:00
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  action:
-  - choose:
-    - conditions:
-      - condition: time
-        after: '22:00:00'
-        before: 04:00:00
-      sequence:
-      - service: switch.turn_off
-        target:
-          entity_id: switch.powerstrip_3
-    default:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.powerstrip_3
-  mode: single
-- id: '1621200535748'
-  alias: Switch - Turn on Stairway at Night
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.stairway_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: input_boolean.automations
-    state: 'on'
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  - condition: device
-    type: is_on
-    device_id: 82e0c17532a89c0f67d225445a48a13c
-    entity_id: switch.basement_stairs
-    domain: switch
-  action:
-  - type: turn_on
-    device_id: f46c272b45c280b8ee4147372aba4eb2
-    entity_id: switch.z_wave_plus_700_series_on_off_switch
-    domain: switch
   mode: single
 - id: '1624728961777'
   alias: Switch - Library Paddle Scenes
@@ -1740,14 +1437,19 @@
     entity_id: input_boolean.automations
     state: 'on'
   - condition: state
-    entity_id: group.all_windows
+    entity_id: binary_sensor.all_windows
     state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.season
+      state: winter
   action:
   - choose:
     - conditions:
       - condition: numeric_state
         entity_id: weather.main_floor
-        above: '30'
+        above: '27'
         value_template: '{{ states.weather.main_floor.attributes.forecast[0].temperature
           }}'
       sequence:
@@ -1771,7 +1473,7 @@
         target:
           entity_id: climate.main_floor
         data:
-          target_temp_high: 20
+          target_temp_high: 20.5
           target_temp_low: 17
       - service: notify.ios_all_devices
         data:
@@ -1781,7 +1483,7 @@
     default: []
   mode: single
 - id: '1624732955485'
-  alias: System - Daily Reset of Helpers
+  alias: System - Daily Tasks
   description: Reset things to enabled or automatic each morning
   trigger:
   - platform: time
@@ -1799,11 +1501,8 @@
       - input_select.blinds_stairway_mode
     data:
       option: Automatic
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.camera_person_alerts
-    data:
-      option: Enabled
+  - service: watchman.report
+    data: {}
   mode: single
 - id: '1625340233721'
   alias: Notify - Cabinet Access
@@ -1811,33 +1510,38 @@
   trigger:
   - type: opened
     platform: device
-    device_id: 4aeec615af9d360994007676bd37f7b3
-    entity_id: binary_sensor.door_dunny_cabinet
+    device_id: cf351fbe59ff892e319b20bf7d917907
+    entity_id: binary_sensor.door_office_dunny_cabinet_contact
     domain: binary_sensor
   - type: opened
     platform: device
-    device_id: 7662ad979b24d25d1317048eb26de2e6
-    entity_id: binary_sensor.door_game_cabinet_left
+    device_id: c693786c05cf23de0b9e7f1230a38ef9
+    entity_id: binary_sensor.door_office_game_cabinet_left_contact
     domain: binary_sensor
   - type: opened
     platform: device
-    device_id: 09a3cab9140681d433869449d2b0b80d
-    entity_id: binary_sensor.door_game_cabinet_middle
+    device_id: b72cdc6de66aca83810a6b8167c82360
+    entity_id: binary_sensor.door_office_game_cabinet_middle_contact
     domain: binary_sensor
   - type: opened
     platform: device
-    device_id: a1cb9b568daef01b50eff9f59af0f5cc
-    entity_id: binary_sensor.door_game_cabinet_right
+    device_id: 0fea03dadd789df93f86232d9ceddd08
+    entity_id: binary_sensor.door_office_game_cabinet_right_contact
+    domain: binary_sensor
+  - type: opened
+    platform: device
+    device_id: f89ebd50612aa85967077bb1f42dc161
+    entity_id: binary_sensor.door_office_game_cabinet_back_contact
     domain: binary_sensor
   condition:
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
   action:
-  - service: notify.mobile_app_iphone
+  - service: notify.mobile_app_jareds_iphone
     data:
       message: Access Detected!
-      title: 🎮 {{ trigger.to_state.attributes.friendly_name }}
+      title: "\U0001F3AE {{ trigger.to_state.attributes.friendly_name }}"
       data:
         attachment:
           content-type: jpeg
@@ -1850,16 +1554,14 @@
   alias: Door - Washer Left Closed
   description: Alert if the washer door is closed too long because of mildew
   trigger:
-  - type: not_opened
-    platform: device
-    device_id: 6e5aac8eb2229de2c3f414a9dc92a908
+  - platform: state
     entity_id: binary_sensor.washer_door
-    domain: binary_sensor
+    to: 'off'
     for:
       hours: 4
       minutes: 0
       seconds: 0
-      milliseconds: 0
+    from: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -1881,23 +1583,32 @@
   - condition: state
     entity_id: input_boolean.automations
     state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.uptime_minutes
+    above: '3.0'
   action:
   - service: input_boolean.turn_off
     target:
       entity_id: input_boolean.quiet_time
+    data: {}
   - repeat:
       until:
       - condition: state
         entity_id: switch.garage_cover_outlet_2
         state: 'on'
       sequence:
+      - service: button.press
+        data: {}
+        target:
+          entity_id: button.outlet1_ping_3
       - service: switch.turn_on
         target:
           entity_id: switch.garage_cover_outlet_2
+        data: {}
       - delay:
           hours: 0
-          minutes: 1
-          seconds: 0
+          minutes: 0
+          seconds: 10
           milliseconds: 0
   - repeat:
       until:
@@ -1905,15 +1616,20 @@
         entity_id: switch.entryway_outlet_1
         state: 'off'
       sequence:
+      - service: button.press
+        data: {}
+        target:
+          entity_id: button.outlet1_ping
       - service: switch.turn_off
         target:
           entity_id: switch.entryway_outlet_1
+        data: {}
       - delay:
           hours: 0
           minutes: 1
           seconds: 0
           milliseconds: 0
-  mode: single
+  mode: restart
 - id: '1626742350660'
   alias: Notify - Radon Alert
   description: ''
@@ -1961,6 +1677,7 @@
   - service: switch.turn_off
     target:
       entity_id: switch.entryway_outlet_1
+    data: {}
   - service: climate.set_preset_mode
     target:
       entity_id:
@@ -1968,95 +1685,100 @@
       - climate.master_bathroom
     data:
       preset_mode: Home
-  - service: humidifier.set_mode
-    target:
-      entity_id: humidifier.master_bedroom_humidifier
-    data:
-      mode: Home
   mode: single
 - id: '1628780997738'
   alias: Frigate - Front Door Camera
   description: ''
   use_blueprint:
-    path: hunterjm/frigate_notification.yaml
+    path: hunterjm/frigate_0.10_notification.yaml
     input:
       camera: front_door
-      zone_filter: true
+      notify_group: ios_all_devices
+      update_thumbnail: true
       zones:
-      - pathway
       - big_lawn
+      - pathway
       - small_lawn
       labels:
       - person
       - cat
       - dog
-      notify_group: ios_all_devices
-      silence_timer: 60
+      silence_timer: 30
+      loiter_timer: 5
+      zone_filter: true
+      cooldown: 70
 - id: '1630862557903'
   alias: Frigate - Back Door Camera
   description: ''
   use_blueprint:
-    path: hunterjm/frigate_notification.yaml
+    path: hunterjm/frigate_0.10_notification.yaml
     input:
       camera: back_door
-      zone_filter: true
+      notify_group: ios_all_devices
+      update_thumbnail: true
       labels:
       - person
       - cat
       - dog
-      notify_group: ios_all_devices
-      cooldown: 60
+      cooldown: 120
       silence_timer: 60
+      loiter_timer: 5
 - id: '1630863550440'
   alias: Frigate - Garage Camera
   description: ''
   use_blueprint:
-    path: hunterjm/frigate_notification.yaml
+    path: hunterjm/frigate_0.10_notification.yaml
     input:
       camera: garage
-      zone_filter: false
       notify_group: ios_all_devices
-      cooldown: 90
+      update_thumbnail: true
       labels:
       - person
+      cooldown: 170
+      silence_timer: 60
+      loiter_timer: 5
 - id: '1630863640363'
   alias: Frigate - East Side Camera
   description: ''
   use_blueprint:
-    path: hunterjm/frigate_notification.yaml
+    path: hunterjm/frigate_0.10_notification.yaml
     input:
       camera: east_side
-      zone_filter: false
       notify_group: ios_all_devices
-      cooldown: 60
-      silence_timer: 60
+      update_thumbnail: true
       labels:
       - person
       - cat
       - dog
+      cooldown: 90
+      silence_timer: 60
 - id: '1630863762390'
   alias: Frigate - Doorbell Camera
   description: ''
   use_blueprint:
-    path: hunterjm/frigate_notification.yaml
+    path: hunterjm/frigate_0.10_notification.yaml
     input:
       camera: doorbell
-      zone_filter: true
       notify_group: ios_all_devices
+      update_thumbnail: true
       zones:
       - steps
       labels:
       - person
       - cat
       - dog
-      cooldown: 60
-      silence_timer: 60
+      cooldown: 130
+      loiter_timer: 5
 - id: '1631759913944'
-  alias: Vacuum - Main Floor Cleaning Light
+  alias: Roomba - Main Floor Cleaning Lights
   description: Turn on lights to help roomba clean
   trigger:
   - platform: state
     entity_id: vacuum.main_floor
+    id: main_floor_vac
+  - platform: state
+    entity_id: vacuum.main_floor_mop
+    id: main_floor_mop
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -2087,24 +1809,44 @@
         device_id: a3be3e294e3fe7ded32e93df179bc9e5
         entity_id: light.island
         domain: light
+    - conditions:
+      - condition: state
+        entity_id: vacuum.main_floor_mop
+        state: cleaning
+      sequence:
+      - type: turn_on
+        device_id: a3be3e294e3fe7ded32e93df179bc9e5
+        entity_id: light.island
+        domain: light
+        brightness_pct: 65
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: vacuum.main_floor_mop
+          state: cleaning
+      sequence:
+      - type: turn_off
+        device_id: a3be3e294e3fe7ded32e93df179bc9e5
+        entity_id: light.island
+        domain: light
     default: []
   mode: single
 - id: '1632323892917'
-  alias: Frigate - Motion based pause
-  description: Disable people detection if motion from inside the door started first
+  alias: Frigate - Internal motion based pause
+  description: Disable people detection if motion from within inside the door started
+    first during the day
   trigger:
-  - type: motion
-    platform: device
-    device_id: ae949343c5f669ba4a357bd3d6ff8fa7
-    entity_id: binary_sensor.motion_inside_back_door
-    domain: binary_sensor
-    id: back_door_motion
-  - type: motion
-    platform: device
-    device_id: bf65e5738b97c8a2cf47c1ac44584443
-    entity_id: binary_sensor.motion_inside_front_door
-    domain: binary_sensor
-    id: front_door_motion
+  - platform: state
+    id: front_door_unlocked
+    entity_id: lock.front_door_lock
+    from: locked
+    to: unlocked
+  - platform: state
+    entity_id: lock.back_door_lock
+    id: back_door_unlocked
+    from: locked
+    to: unlocked
   condition:
   - condition: state
     entity_id: input_boolean.automations
@@ -2116,76 +1858,732 @@
   - choose:
     - conditions:
       - condition: trigger
-        id: back_door_motion
+        id: front_door_unlocked
+      - condition: state
+        entity_id: binary_sensor.motion_front_door_inside_occupancy
+        state: 'on'
       sequence:
       - service: switch.turn_off
+        data: {}
         target:
           entity_id:
-          - switch.back_door_detect
-          - switch.garage_detect
+          - switch.front_door_detect
+          - switch.doorbell_detect
       - delay:
           hours: 0
           minutes: 2
           seconds: 0
           milliseconds: 0
+      - repeat:
+          until:
+          - condition: device
+            device_id: 17ad4d3482096182954b88c4f35bb21f
+            domain: lock
+            entity_id: lock.front_door_lock
+            type: is_locked
+          sequence:
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 30
+              milliseconds: 0
       - service: switch.turn_on
+        data: {}
         target:
           entity_id:
-          - switch.back_door_detect
-          - switch.garage_detect
+          - switch.front_door_detect
+          - switch.doorbell_detect
     - conditions:
       - condition: trigger
-        id: front_door_motion
+        id: back_door_unlocked
+      - condition: state
+        entity_id: binary_sensor.motion_back_door_inside_occupancy
+        state: 'on'
       sequence:
       - service: switch.turn_off
+        data: {}
         target:
-          entity_id:
-          - switch.front_door_detect
-          - switch.doorbell_detect
+          entity_id: switch.back_door_detect
       - delay:
           hours: 0
           minutes: 2
           seconds: 0
           milliseconds: 0
+      - repeat:
+          until:
+          - condition: device
+            device_id: 87bc70b6345efdbf37f8c5b676cf3e4d
+            domain: lock
+            entity_id: lock.back_door_lock
+            type: is_locked
+          sequence:
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 30
+              milliseconds: 0
       - service: switch.turn_on
+        data: {}
         target:
-          entity_id:
-          - switch.front_door_detect
-          - switch.doorbell_detect
+          entity_id: switch.back_door_detect
     default: []
-  mode: single
-- id: '1633730576943'
-  alias: Double Take - Notifications
+  mode: parallel
+- id: '1634953172080'
+  alias: Space Heater - Master Bathroom
   description: ''
   trigger:
+  - platform: time
+    at: 06:30:00
+    id: on_time
+  - platform: time
+    at: 07:45:00
+    id: off_time
   - platform: state
-    entity_id: sensor.double_take_jared_scott
-    id: doubletake_jared
+    entity_id: switch.shower
+    to: 'on'
+    id: shower_on
+  - platform: state
+    entity_id: switch.shower
+    id: shower_off
+    to: 'off'
   condition:
-  - condition: template
-    value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: state
+    entity_id: group.family_devices
+    state: home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.main_floor
+      state: cool
+  action:
+  - choose:
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: on_time
+        - condition: trigger
+          id: shower_on
+      sequence:
+      - service: climate.turn_on
+        target:
+          entity_id: climate.master_bathroom
+        data: {}
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: off_time
+        - condition: trigger
+          id: shower_off
+      sequence:
+      - service: climate.turn_off
+        target:
+          entity_id: climate.master_bathroom
+        data: {}
+    default: []
+  mode: single
+- id: '1638124015779'
+  alias: Theater Outlet - Automation Mode
+  description: Controls mode based on selection
+  trigger:
+  - platform: state
+    entity_id: light.theater
+    id: theater_on
+    to: 'on'
+  - platform: state
+    entity_id: light.theater
+    id: theater_off
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: theater_on
+      sequence:
+      - condition: state
+        entity_id: input_select.theater_outlet_1
+        state: Christmas Tree
+      - service: switch.turn_on
+        target:
+          entity_id: switch.theater_outlet_1
+    default:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.theater_outlet_1
+  mode: single
+- id: '1639003156826'
+  alias: Light - Hallway (Zen32 Scene Controller)
+  description: ''
+  use_blueprint:
+    path: Matt-PMCT/ZoozZen32forZwaveJs.yaml
+    input:
+      zooz_switch: 92b6fbece0b4dcf7deffc14526cd4a5b
+      scene_1:
+      - service: light.toggle
+        target:
+          entity_id: light.dining_room
+        data: {}
+      scene_2:
+      - service: cover.toggle
+        target:
+          entity_id: cover.blinds_dining_room
+        data: {}
+      scene_3:
+      - service: switch.toggle
+        data: {}
+        target:
+          entity_id: switch.recessed_lights
+      scene_4:
+      - service: light.toggle
+        target:
+          entity_id: light.living_room_light
+        data: {}
+      scene_12: []
+      scene_22:
+      - service: cover.toggle
+        target:
+          entity_id: cover.blinds_stairway
+        data: {}
+- id: '1639339275903'
+  alias: Alarm - Adjust Disarm Time
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:01:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      sequence:
+      - service: input_datetime.set_datetime
+        target:
+          entity_id: input_datetime.alarm_disarm
+        data:
+          time: 07:00:00
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'off'
+      sequence:
+      - service: input_datetime.set_datetime
+        target:
+          entity_id: input_datetime.alarm_disarm
+        data:
+          time: 08:00:00
+    default: []
+  mode: single
+- id: '1640918372825'
+  alias: Switch - Sconce Remote (Brittany)
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.switch_bedroom_lamp_click
+      helper_last_controller_event: input_text.bedroom_lamp_switch_last_controller_event
+      action_button_up_short:
+      - type: turn_on
+        device_id: 036613fa607f72625263d7b3ec75d898
+        entity_id: light.sconce
+        domain: light
+      action_button_down_release: []
+      action_button_down_short:
+      - type: turn_off
+        device_id: 036613fa607f72625263d7b3ec75d898
+        entity_id: light.sconce
+        domain: light
+      action_button_down_long: []
+- id: '1640918565846'
+  alias: Switch - Joel's Lamp
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.switch_joel_s_lamp_click
+      helper_last_controller_event: input_text.joel_s_lamp_switch_last_controller_event
+      action_button_up_short:
+      - device_id: c85f932010ba11ebab078574827948f0
+        domain: light
+        entity_id: light.joels_lamp
+        type: brightness_increase
+        brightness_pct: 15
+      action_button_down_short:
+      - device_id: c85f932010ba11ebab078574827948f0
+        domain: light
+        entity_id: light.joels_lamp
+        type: brightness_decrease
+      action_button_down_double:
+      - type: turn_off
+        device_id: c85f932010ba11ebab078574827948f0
+        entity_id: light.joels_lamp
+        domain: light
+      action_button_up_double:
+      - type: turn_on
+        device_id: c85f932010ba11ebab078574827948f0
+        entity_id: light.joels_lamp
+        domain: light
+        brightness_pct: 80
+      helper_double_press_delay: 800
+- id: '1640919262103'
+  alias: Switch - Stairway Blinds
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1766.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.switch_stairway_blinds_click
+      helper_last_controller_event: input_text.bedroom_lamp_switch_last_controller_event
+      action_button_up_short:
+      - service: cover.open_cover
+        target:
+          entity_id: cover.blinds_stairway
+      action_button_up_double:
+      - service: cover.open_cover
+        target:
+          entity_id:
+          - cover.blinds_library
+          - cover.blinds_stairway
+      action_button_down_short:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.blinds_stairway
+      action_button_down_double:
+      - service: cover.close_cover
+        target:
+          entity_id:
+          - cover.blinds_stairway
+          - cover.blinds_library
+      helper_double_press_delay: 800
+- id: '1641056937814'
+  alias: Notify - Sonarr Queue
+  description: Alert when the queue has been stuck for a while
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.sonarr_queue
+    above: '1'
+    for: 04:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
   action:
   - service: notify.mobile_app_jareds_iphone
     data:
-      message: "{% if trigger.to_state.attributes.match is defined %}\n  {{trigger.to_state.attributes.friendly_name}}\
-        \ is near the {{trigger.to_state.state}} @ {{trigger.to_state.attributes.match.confidence}}%\
-        \ by {{trigger.to_state.attributes.match.detector}}:{{trigger.to_state.attributes.match.type}}\
-        \ taking {{trigger.to_state.attributes.attempts}} attempt(s) @ {{trigger.to_state.attributes.duration}}\
-        \ sec\n{% elif trigger.to_state.attributes.unknown is defined %}\n  unknown\
-        \ is near the {{trigger.to_state.state}} @ {{trigger.to_state.attributes.unknown.confidence}}%\
-        \ by {{trigger.to_state.attributes.unknown.detector}}:{{trigger.to_state.attributes.unknown.type}}\
-        \ taking {{trigger.to_state.attributes.attempts}} attempt(s) @ {{trigger.to_state.attributes.duration}}\
-        \ sec\n{% endif %}"
-      data:
-        attachment:
-          url: "{% if trigger.to_state.attributes.match is defined %}\n  http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.match.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
-            {% elif trigger.to_state.attributes.unknown is defined %}\n   http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.unknown.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
-            {% endif %}"
-        actions:
-        - action: URI
-          title: View Image
-          uri: "{% if trigger.to_state.attributes.match is defined %}\n  http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.match.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
-            {% elif trigger.to_state.attributes.unknown is defined %}\n   http://192.168.2.8:3000/api/storage/matches/{{trigger.to_state.attributes.unknown.filename}}?box=true&token={{trigger.to_state.attributes.token}}\n\
-            {% endif %}"
+      title: Sonarr Queue Stuck
+      message: The queue length has been {{ states.sensor.sonarr_queue.state }}, for
+        at least 4 hours.
+  mode: single
+- id: '1641941397685'
+  alias: White Noise - Toggle Control
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.white_noise
+    id: toggle_on
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.white_noise
+    id: toggle_off
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: toggle_on
+      sequence:
+      - service: script.white_noise
+        data: {}
+    default:
+    - service: script.turn_off
+      data: {}
+      target:
+        entity_id: script.white_noise
+    - service: media_player.turn_off
+      data: {}
+      target:
+        entity_id: media_player.joels_room_speaker
   mode: parallel
-  max: 10
+- id: '1644108458337'
+  alias: Roomba - Second Floor Cleaning Lights
+  description: Turn on lights to help roomba clean
+  trigger:
+  - platform: state
+    entity_id: vacuum.twinkly_dink
+    id: sec_floor_vac
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: time
+    after: '16:00:00'
+    before: '18:00:00'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: vacuum.twinkly_dink
+        state: cleaning
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        target:
+          entity_id:
+          - light.library
+          - light.joels_lamp
+          - light.sconce
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: vacuum.twinkly_dink
+          state: cleaning
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.library
+          - light.joels_lamp
+          - light.sconce
+    default: []
+  mode: single
+- id: '1647370486121'
+  alias: Guest Mode - Automatic Management
+  description: Turn on/off based on guests at home.
+  trigger:
+  - platform: state
+    entity_id: person.bobbi
+    id: bobbi_home
+    from: not_home
+    to: home
+  - platform: state
+    entity_id: person.bobbi
+    id: bobbi_away
+    from: home
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: bobbi_home
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.guestmode
+    - conditions:
+      - condition: trigger
+        id: bobbi_away
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.guestmode
+    default: []
+  mode: single
+- id: '1649874277269'
+  alias: Switch - Sconce Remote (Jared)
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.switch_jared_sconce_click
+      helper_last_controller_event: input_text.sconce_jared_switch_last_controller_event
+      action_button_up_short:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.sconce
+      action_button_up_long:
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        target:
+          entity_id: light.sconce
+      action_button_down_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.sconce
+      action_button_down_long:
+      - device_id: 036613fa607f72625263d7b3ec75d898
+        domain: light
+        entity_id: light.sconce
+        type: brightness_decrease
+- id: '1651803654230'
+  alias: Wall Tablet - Battery Management
+  description: ''
+  use_blueprint:
+    path: seamus65/wallpanel-battery-management.yaml
+    input:
+      battery: sensor.jareds_ipad_battery_level
+      charger: switch.ipad
+- id: '1652556732873'
+  alias: Switch - Joel's Blind
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1766.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.switch_joel_s_blinds_click
+      helper_last_controller_event: input_text.joel_s_blind_switch_last_controller_event
+      action_button_up_short:
+      - service: cover.open_cover
+        data: {}
+        target:
+          entity_id: cover.blinds_joel_s_room
+      action_button_down_short:
+      - service: cover.open_cover
+        data: {}
+        target:
+          entity_id: cover.blinds_joel_s_room
+- id: '1653680967962'
+  alias: Notify - Sump Pump Alert
+  description: ''
+  trigger:
+  - type: vibration
+    platform: device
+    device_id: fc8fc558fc3f46f6bc00362ba1d972cd
+    entity_id: binary_sensor.vibration_sump_pump_vibration
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - service: notify.ios_all_devices
+    data:
+      message: Sump pump vibration detected and it could be pumping water.
+      title: "\U0001F6B0 Sump Warning"
+  mode: single
+- id: '1657998565302'
+  alias: Office Receiver - Buttons
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.office_receiver_power
+    id: power
+  - platform: state
+    entity_id:
+    - input_button.office_receiver_input_tv
+    id: input_tv
+  - platform: state
+    entity_id:
+    - input_button.office_receiver_ps5
+    id: input_game
+  - platform: state
+    entity_id:
+    - input_button.office_receiver_xbox_s_x
+    id: input_bddvd
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: power
+      sequence:
+      - service: remote.send_command
+        data:
+          device: office_receiver
+          command: power_toggle
+        target:
+          entity_id: remote.office_rm4mini_remote
+    - conditions:
+      - condition: trigger
+        id: input_tv
+      sequence:
+      - service: remote.send_command
+        data:
+          device: office_receiver
+          command: input_tv
+        target:
+          entity_id: remote.office_rm4mini_remote
+    - conditions:
+      - condition: trigger
+        id: input_game
+      sequence:
+      - service: remote.send_command
+        data:
+          device: office_receiver
+          command: input_game
+        target:
+          entity_id: remote.office_rm4mini_remote
+    - conditions:
+      - condition: trigger
+        id: input_bddvd
+      sequence:
+      - service: remote.send_command
+        data:
+          device: office_receiver
+          command: input_bddvd
+        target:
+          entity_id: remote.office_rm4mini_remote
+    default: []
+  mode: single
+- id: '1658090775498'
+  alias: Office Reciever - Turn on Input TV
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.office_desktop_audio_session_app
+    to: firefox
+    id: office_desktop_app_firefox
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: office_desktop_app_firefox
+      - condition: numeric_state
+        entity_id: sensor.office_desktop_audio_peak_volume
+        above: '0'
+      sequence:
+      - service: remote.send_command
+        data:
+          device: office_receiver
+          command: input_tv
+        target:
+          entity_id: remote.office_rm4mini_remote
+    default: []
+  mode: single
+- id: '1658685118605'
+  alias: Input Boolean - Office Amp Detection
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.office_amp_outlet_energy_power
+    above: '1'
+    id: amp_consumption_above
+  - platform: numeric_state
+    entity_id: sensor.office_amp_outlet_energy_power
+    id: amp_consumption_below
+    below: '1'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: amp_consumption_above
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.office_amp
+    - conditions:
+      - condition: trigger
+        id: amp_consumption_below
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.office_amp
+    default: []
+  mode: single
+- id: '1661008070079'
+  alias: Frigate - Hello Creeper
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.front_door_person
+    above: '0'
+  condition:
+  - condition: state
+    entity_id: input_boolean.automations
+    state: 'on'
+  - condition: time
+    before: input_datetime.alarm_disarm
+    after: input_datetime.alarm_arm
+    weekday: []
+  action:
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: Uh…hello?
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: What are you doing here?
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 4
+      milliseconds: 0
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: 'Uhm, ok, well '
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 4
+      milliseconds: 0
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: I didn’t think you would be here at this hour
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 4
+      milliseconds: 0
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: Sorry can you say that again?
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 4
+      milliseconds: 0
+  - service: tts.google_say
+    data:
+      entity_id: media_player.doorbell_speaker
+      cache: true
+      message: Ok, well, maybe you should just leave.
+  mode: single

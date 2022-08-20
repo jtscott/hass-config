@@ -4,3 +4,4 @@
     - service: mobile_app_brittanys_iphone
     - service: mobile_app_jareds_iphone
     - service: mobile_app_7510_home_ipad
+    - service: mobile_app_jareds_ipad_mini

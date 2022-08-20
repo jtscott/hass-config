@@ -18,7 +18,7 @@ entity_config:
     expose: true
     room: "Back Door"
     name: "Back Door Light"
-  switch.kitchen_light:
+  light.kitchen_light:
     expose: true
     room: "Kitchen"
     name: "Kitchen Light"
@@ -34,10 +34,26 @@ entity_config:
     expose: true
     room: "Dining Room"
     name: "Dining Room Light"
+  switch.hallway:
+    expose: true
+    room: "Front Door"
+    name: "Hallway Light"
+  light.living_room_light:
+    expose: true
+    room: "Living Room"
+    name: "Living Room Light"
+  switch.recessed_lights:
+    expose: true
+    room: "Living Room"
+    name: "Living Room Recessed Lights"
   light.joels_lamp:
     expose: true
     room: "Joel's Room"
     name: "Lamp"
+  input_boolean.white_noise:
+    expose: true
+    room: "Joel's Room"
+    name: "White Noise"
   cover.blinds_joels_room:
     expose: true
     room: "Garage"
@@ -49,10 +65,6 @@ entity_config:
     expose: true
     room: "Library"
     name: "Library Light"
-  # light.twinkly:
-  # expose: true
-  # room: 'Library'
-  # name: 'Christmas Tree'
   light.office_lamp:
     expose: true
     room: "Office"
@@ -65,10 +77,14 @@ entity_config:
     expose: true
     room: "Theater"
     name: "Theater Light"
-  light.bedroom_lamp:
+  light.twinkly:
+    expose: true
+    room: "Theater"
+    name: "Christmas Tree"
+  light.sconce:
     expose: true
     room: "Master Bedroom"
-    name: "Lamp"
+    name: "Sconce"
   switch.theater_outlet_1:
     expose: true
     room: "Theater"

@@ -2,10 +2,9 @@
 default_config:
 
 homeassistant:
-  customize: !include customize.yaml
   packages: !include_dir_named packages
-  media_dirs:
-    snapshot: /config/www/snapshot
+  external_url: !secret base_origin
+  internal_url: !secret internal_url
 
 # Enables the frontend
 frontend:
@@ -28,83 +27,91 @@ system_health:
 mobile_app:
 history:
 logbook:
+  exclude:
+    domains:
+      - sun
+    entities:
+      - sensor.time
+      - sensor.time_utc
+      - sensor.date_time
+      - sensor.time_date
+      - sensor.uptime_minutes
+      - sensor.watchman_last_updated
+    entity_globs:
+      - sensor.*_last_seen
+      - sensor.rpi_monitor_*
 recorder:
   db_url: !secret db_url
 stream:
-logger:
-  default: warning
-updater:
 tts:
   - platform: google_translate
-    base_url: !secret base_url
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    service_name: google_say
+logger:
+  default: warning
 
 ###########################################
 # Includes
 ###########################################
 automation: !include automations.yaml
 binary_sensor: !include binary_sensor.yaml
-camera: !include camera.yaml
 emulated_hue: !include emulated_hue.yaml
-group: !include group.yaml
-light: !include light.yaml
 media_player: !include media_player.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
+template: !include_dir_merge_list template
 
 ###########################################
-# Switch
+# Classic Groups
 ###########################################
-switch:
-  platform: deluge
-  host: !secret deluge_host
-  username: !secret deluge_username
-  password: !secret deluge_password
+group:
+  family_devices:
+    name: "Family Devices"
+    entities:
+      - person.jared
+      - person.brittany
+  kitchen_cabinets:
+    name: "Kitchen Cabinets"
+    entities:
+      - light.kitchen_left_led
+      - light.kitchen_right_led
 
 ###########################################
-# MQTT
+# Panels
 ###########################################
-mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
-  broker: !secret mqtt_host
-  port: 1883
-  username: home-assistant
-  password: !secret mqtt_password
-  birth_message:
-    topic: "homeassistant/status"
-    payload: "online"
-  will_message:
-    topic: "homeassistant/status"
-    payload: "offline"
-
-###########################################
-# Image Processing
-###########################################
-#image_processing:
-#  - platform: amazon_rekognition
-#    aws_access_key_id: !secret aws_access_key_id
-#    aws_secret_access_key: !secret aws_secret_access_key
-#    region_name: us-west-2
-#    save_file_folder: "/config/www/snapshot/"
-#    confidence: 70
-#    source:
-#      - entity_id: camera.front_door_snapshot
-#      - entity_id: camera.back_door_snapshot
-#      - entity_id: camera.doorbell_snapshot
-#      - entity_id: camera.garage_snapshot
+panel_iframe:
+  frigate:
+    title: "Frigate NVR"
+    url: !secret frigate_url
+    icon: mdi:cctv
+    require_admin: true
+  zwavejs2mqtt:
+    title: "ZwaveJS2Mqtt"
+    url: !secret zwavejs_url
+    icon: mdi:z-wave
+    require_admin: true
+  zigbee2mqtt:
+    title: "Zigbee2Mqtt"
+    url: !secret zigbee_url
+    icon: mdi:zigbee
+    require_admin: true
 
 ###########################################
 # Influx
 ###########################################
 influxdb:
-  host: a0d7b954-influxdb
+  api_version: 2
+  host: !secret influx_ip
+  ssl: false
   port: 8086
-  database: homeassistant
-  username: homeassistant
-  password: !secret http_password
+  organization: homeassistant
+  bucket: homeassistant
+  token: !secret influx_token
   max_retries: 3
   default_measurement: state
   tags:
@@ -128,8 +135,6 @@ influxdb:
 weather:
   - platform: darksky
     api_key: !secret darksky_api
-  - platform: environment_canada
-    station: !secret ec_station_id
 
 ###########################################
 # Third Party Components
@@ -139,10 +144,6 @@ google_assistant: !include google_assistant.yaml
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
-
-wemo:
-  static:
-    - !secret wemo_insight_ip
 
 ###########################################
 # Climate
@@ -161,14 +162,3 @@ climate:
     initial_hvac_mode: "off"
     away_temp: 19
     precision: 0.1
-
-generic_hygrostat:
-  - name: Master Bedroom Humidifier
-    humidifier: switch.humidifier
-    target_sensor: sensor.master_bedroom_multi_sensor_2
-    min_humidity: 30
-    max_humidity: 50
-    target_humidity: 40
-    device_class: "humidifier"
-    away_humidity: 20
-    sensor_stale_duration: 00:45:00
