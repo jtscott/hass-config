@@ -1,3 +1,17 @@
 - platform: workday
   country: CA
   province: AB
+
+- platform: ping
+  host: teams.microsoft.com
+  scan_interval: 120
+
+- platform: ping
+  host: 13.107.64.2
+  name: "teams-optimize-host1"
+  scan_interval: 120
+
+- platform: ping
+  host: 52.112.0.1
+  name: "teams-optimize-host2"
+  scan_interval: 120
