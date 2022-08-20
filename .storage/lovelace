@@ -1480,6 +1480,40 @@
               "type": "entities",
               "title": "Hallway",
               "show_header_toggle": false
+            },
+            {
+              "entities": [
+                {
+                  "entity": "sensor.pooppalace9000",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Poop Palace 9000",
+                  "toggle": true,
+                  "entities": [
+                    {
+                      "entity": "sensor.pooppalace9000_rake_count",
+                      "name": "Rake Count"
+                    }
+                  ]
+                },
+                {
+                  "entity": "button.pooppalace9000_rake"
+                },
+                {
+                  "entity": "fan.dining_room_air_purifier",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Air Purifier",
+                  "toggle": true,
+                  "entities": [
+                    {
+                      "entity": "sensor.dining_room_air_purifier_pm2_5",
+                      "name": "Air Quality"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Litter Boxes",
+              "type": "entities"
             }
           ]
         },
