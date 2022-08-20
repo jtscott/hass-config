@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "input_text",
     "data": {
         "items": [
@@ -18,6 +19,43 @@
                 "mode": "text",
                 "min": 0,
                 "id": "washer_time"
+            },
+            {
+                "name": "Bedroom Lamp Switch - Last Controller Event",
+                "mode": "text",
+                "min": 0,
+                "max": 100,
+                "id": "bedroom_lamp_switch_last_controller_event",
+                "icon": "mdi:remote"
+            },
+            {
+                "name": "Joel's Lamp Switch - Last Controller Event",
+                "mode": "text",
+                "min": 0,
+                "max": 100,
+                "id": "joel_s_lamp_switch_last_controller_event"
+            },
+            {
+                "name": "Stairway Blind Switch - Last Controller Event",
+                "mode": "text",
+                "min": 0,
+                "max": 100,
+                "id": "stairway_blind_switch_last_controller_event"
+            },
+            {
+                "name": "Sconce Jared Switch - Last Controller Event",
+                "icon": "mdi:remote",
+                "max": 100,
+                "mode": "text",
+                "min": 0,
+                "id": "sconce_jared_switch_last_controller_event"
+            },
+            {
+                "name": "Joel's Blind Switch - Last Controller Event",
+                "mode": "text",
+                "max": 100,
+                "min": 0,
+                "id": "joel_s_blind_switch_last_controller_event"
             }
         ]
     }

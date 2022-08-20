@@ -1,26 +1,38 @@
 {
-    "version": 1,
-    "key": "input_boolean",
-    "data": {
-        "items": [
-            {
-                "id": "homesitter",
-                "name": "Home Sitter"
-            },
-            {
-                "id": "guestmode",
-                "name": "Guest Mode"
-            },
-            {
-                "name": "Quiet Time",
-                "icon": "mdi:volume-off",
-                "id": "quiet_time"
-            },
-            {
-                "name": "Meeting Time",
-                "icon": "mdi:calendar-cursor",
-                "id": "meeting_time"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_boolean",
+  "data": {
+    "items": [
+      {
+        "id": "homesitter",
+        "name": "Home Sitter"
+      },
+      {
+        "id": "guestmode",
+        "name": "Guest Mode",
+        "icon": "mdi:home-account"
+      },
+      {
+        "name": "Quiet Time",
+        "icon": "mdi:volume-off",
+        "id": "quiet_time"
+      },
+      {
+        "name": "Meeting Time",
+        "icon": "mdi:calendar-cursor",
+        "id": "meeting_time"
+      },
+      {
+        "name": "Joel's White Noise",
+        "icon": "mdi:sleep",
+        "id": "white_noise"
+      },
+      {
+        "name": "Office Amp",
+        "icon": "mdi:audio-video",
+        "id": "office_amp"
+      }
+    ]
+  }
 }
