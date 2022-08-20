@@ -1,9 +1,0 @@
-bhyve:
-  username: !secret bhyve_username
-  password: !secret bhyve_password
-
-sensor:
-  - platform: bhyve
-
-switch:
-  - platform: bhyve
