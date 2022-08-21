@@ -1863,12 +1863,12 @@
         entity_id: binary_sensor.motion_front_door_inside_occupancy
         state: 'on'
       sequence:
-      - service: switch.turn_off
+      - service: automation.turn_off
         data: {}
         target:
           entity_id:
-          - switch.front_door_detect
-          - switch.doorbell_detect
+          - automation.frigate_front_door_people
+          - automation.frigate_doorbell_camera
       - delay:
           hours: 0
           minutes: 2
@@ -1887,12 +1887,12 @@
               minutes: 0
               seconds: 30
               milliseconds: 0
-      - service: switch.turn_on
+      - service: automation.turn_on
         data: {}
         target:
           entity_id:
-          - switch.front_door_detect
-          - switch.doorbell_detect
+          - automation.frigate_front_door_people
+          - automation.frigate_doorbell_camera
     - conditions:
       - condition: trigger
         id: back_door_unlocked
@@ -1900,10 +1900,10 @@
         entity_id: binary_sensor.motion_back_door_inside_occupancy
         state: 'on'
       sequence:
-      - service: switch.turn_off
+      - service: automation.turn_off
         data: {}
         target:
-          entity_id: switch.back_door_detect
+          entity_id: automation.frigate_back_door_camera
       - delay:
           hours: 0
           minutes: 2
@@ -1922,10 +1922,10 @@
               minutes: 0
               seconds: 30
               milliseconds: 0
-      - service: switch.turn_on
+      - service: automation.turn_on
         data: {}
         target:
-          entity_id: switch.back_door_detect
+          entity_id: automation.frigate_back_door_camera
     default: []
   mode: parallel
 - id: '1634953172080'
